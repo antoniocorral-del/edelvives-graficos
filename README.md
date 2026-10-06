@@ -14,12 +14,11 @@ Contenido:
 ## Prueba con una IA
 
 1. Abre una conversación nueva, sin contexto previo.
-2. Adjunta `DESIGN.md`, `edelvives-graficos.js` y los dos CSV de `datos/`.
+2. Adjunta solo `DESIGN.md` y los dos CSV de `datos/`. El script se carga desde la URL pública.
 3. Pide, por ejemplo: «Crea una aplicación web con un dashboard comercial a partir de estos CSV. Usa el sistema de gráficos descrito en DESIGN.md.»
 
-## Publicar el script
+## URL pública
 
-- npm: desde esta carpeta, `npm publish` (requiere cuenta). La URL quedaría como `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.1.0/dist/edelvives-graficos.js`. El nombre del paquete está pendiente de decidir.
-- GitLab Pages: solo si la instancia lo permite y el proyecto es público; no funciona en las páginas publicadas desde Claude.
+`https://cdn.jsdelivr.net/gh/antoniocorral-del/edelvives-graficos@v0.1.0/dist/edelvives-graficos.js`
 
-Cuando haya URL, sustituye `URL_DEL_KIT` en `DESIGN.md`.
+Para una versión nueva: sube los cambios al repositorio, crea una release con la etiqueta siguiente (por ejemplo `v0.2.0`) y cambia la versión en la URL de `DESIGN.md`.
