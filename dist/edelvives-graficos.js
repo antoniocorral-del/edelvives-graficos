@@ -1,0 +1,701 @@
+/*!
+ * Edelvives Gráficos v0.1.0
+ * Sistema de gráficos y métricas de Edelvives. Kit v0, modo web.
+ * Uso: EdelvivesGraficos.render('#destino', especificacion)
+ * Iconos: Material Symbols (Google), licencia Apache 2.0.
+ */
+(function (global) {
+  'use strict';
+
+  var VERSION = '0.1.0';
+  var config = {
+    echarts: [
+      'https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js',
+      'https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js'
+    ],
+    fuente: 'https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap'
+  };
+  var PREFIJO = '[EdelvivesGraficos] ';
+  var NBSP = '\u00A0';
+
+  /* ------------------------------------------------------------------ */
+  /* Tokens (fuente: Figma «Gráficos y métricas Edelvives», modo claro)   */
+  /* ------------------------------------------------------------------ */
+  var P = {
+    naranja100: '#FFECD4', naranja200: '#FFCEA3', naranja300: '#FFAF73', naranja400: '#FF801F',
+    naranja500: '#F56A00', naranja600: '#D95003', naranja700: '#BD4200',
+    neutro000: '#FFFFFF', neutro100: '#F7F4F2', neutro200: '#F0EDEA', neutro300: '#DBD5CE',
+    neutro400: '#A39B93', neutro500: '#706B65', neutro600: '#4A4540', neutro700: '#222222', neutro800: '#000000',
+    exito: '#20BA76', exitoFuerte: '#0D6B43', exitoSuave: '#D1F7E8',
+    alerta: '#FFB521', alertaFuerte: '#8B6200', alertaSuave: '#FFF3D0',
+    error: '#D0021B', errorFuerte: '#720010', errorSuave: '#FAD4D8'
+  };
+  var T = {
+    series: [P.naranja500, P.neutro600, P.naranja300, P.neutro400, P.naranja700, P.naranja200],
+    otros: P.neutro300,
+    lineas: [P.naranja500, P.neutro600, P.naranja700, P.neutro500],
+    actual: P.naranja500, objetivo: P.neutro700, anterior: P.neutro400, prevision: P.naranja500,
+    fondo: P.neutro000, fondoPagina: P.neutro100, rejilla: P.neutro200, base: P.neutro400,
+    etiquetaEje: P.neutro500, leyenda: P.neutro600, titulo: P.neutro700, etiquetaDato: P.neutro700,
+    texto: P.neutro700, textoSecundario: P.neutro500, borde: P.neutro300, pista: P.neutro300,
+    tooltip: P.neutro700, subida: P.naranja500, bajada: P.neutro600
+  };
+  var FUENTE = "'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+
+  var ICONOS = {"subida":"M328-400q-9 0-14.5-6t-5.5-14q0-2 6-14l145-145q5-5 10-7t11-2q6 0 11 2t10 7l145 145q3 3 4.5 6.5t1.5 7.5q0 8-5.5 14t-14.5 6H328Z","bajada":"M459-381 314-526q-3-3-4.5-6.5T308-540q0-8 5.5-14t14.5-6h304q9 0 14.5 6t5.5 14q0 2-6 14L501-381q-5 5-10 7t-11 2q-6 0-11-2t-10-7Z","sinCambio":"M240-440q-17 0-28.5-11.5T200-480q0-17 11.5-28.5T240-520h480q17 0 28.5 11.5T760-480q0 17-11.5 28.5T720-440H240Z","cumplido":"m382-354 339-339q12-12 28-12t28 12q12 12 12 28.5T777-636L410-268q-12 12-28 12t-28-12L182-440q-12-12-11.5-28.5T183-497q12-12 28.5-12t28.5 12l142 143Z","objetivo":"M280-400v240q0 17-11.5 28.5T240-120q-17 0-28.5-11.5T200-160v-600q0-17 11.5-28.5T240-800h287q14 0 25 9t14 23l10 48h184q17 0 28.5 11.5T800-680v320q0 17-11.5 28.5T760-320H553q-14 0-25-9t-14-23l-10-48H280Zm306 0h134v-240H543q-14 0-25-9t-14-23l-10-48H280v240h257q14 0 25 9t14 23l10 48Zm-86-160Z","info":"M480-280q17 0 28.5-11.5T520-320v-160q0-17-11.5-28.5T480-520q-17 0-28.5 11.5T440-480v160q0 17 11.5 28.5T480-280Zm0-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","periodo":"M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z","tendenciaSube":"M108-255q-12-12-11.5-28.5T108-311l211-214q23-23 57-23t57 23l103 104 208-206h-64q-17 0-28.5-11.5T640-667q0-17 11.5-28.5T680-707h160q17 0 28.5 11.5T880-667v160q0 17-11.5 28.5T840-467q-17 0-28.5-11.5T800-507v-64L593-364q-23 23-57 23t-57-23L376-467 164-255q-11 11-28 11t-28-11Z","tendenciaBaja":"M744-320 536-526 433-423q-23 23-57 23t-57-23L108-636q-11-11-11.5-27.5T108-692q11-11 28-11t28 11l212 212 103-103q23-23 57-23t57 23l207 207v-64q0-17 11.5-28.5T840-480q17 0 28.5 11.5T880-440v160q0 17-11.5 28.5T840-240H680q-17 0-28.5-11.5T640-280q0-17 11.5-28.5T680-320h64Z","entregado":"m424-408-86-86q-11-11-28-11t-28 11q-11 11-11 28t11 28l114 114q12 12 28 12t28-12l226-226q11-11 11-28t-11-28q-11-11-28-11t-28 11L424-408Zm56 328q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","enCurso":"M520-496v-144q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v159q0 8 3 15.5t9 13.5l132 132q11 11 28 11t28-11q11-11 11-28t-11-28L520-496ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z","incidencia":"M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480v-160q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v160q0 17 11.5 28.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","pendiente":"M320-440h320q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H320q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"};
+
+  function icono(nombre, color, tam) {
+    tam = tam || 16;
+    return '<svg class="eg-icono" width="' + tam + '" height="' + tam + '" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path fill="' + color + '" d="' + ICONOS[nombre] + '"/></svg>';
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Formato de números (es-ES, agrupación siempre con punto)             */
+  /* ------------------------------------------------------------------ */
+  function agrupar(entero) { return entero.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+
+  function numero(v, dec) {
+    if (dec == null) dec = (Math.round(v) === v) ? 0 : 1;
+    var partes = Math.abs(v).toFixed(dec).split('.');
+    var txt = agrupar(partes[0]) + (partes[1] ? ',' + partes[1] : '');
+    return (v < 0 ? '\u2212' : '') + txt;
+  }
+
+  /* Devuelve { numero, unidad, texto } */
+  function formatear(v, opc) {
+    opc = opc || {};
+    var unidad = opc.unidad || '';
+    var dec = opc.decimales;
+    var sufijo = '';
+    var n = v;
+    if (opc.abreviar && Math.abs(v) >= 1e6) { n = v / 1e6; sufijo = 'M'; if (dec == null) dec = Math.abs(n) < 100 ? 1 : 0; }
+    else if (opc.abreviar && Math.abs(v) >= 1e4) { n = v / 1e3; sufijo = 'mil'; if (dec == null) dec = 0; }
+    if (dec == null) dec = (Math.round(n) === n) ? 0 : 1;
+    var num = numero(n, dec);
+    var u;
+    if (sufijo === 'M') u = unidad === '€' ? 'M€' : ('M' + (unidad ? ' ' + unidad : ''));
+    else if (sufijo === 'mil') u = 'mil' + (unidad ? ' ' + unidad : '');
+    else u = unidad;
+    return { numero: num, unidad: u, texto: num + (u ? NBSP + u : '') };
+  }
+
+  function formatoEje(v) {
+    if (Math.abs(v) >= 1e6) return numero(v / 1e6, (v / 1e6) % 1 === 0 ? 0 : 1) + NBSP + 'M';
+    if (Math.abs(v) >= 1e4) return numero(v / 1e3, 0) + NBSP + 'mil';
+    return numero(v, v % 1 === 0 ? 0 : 1);
+  }
+
+  function porcentaje(v, dec) { return numero(v, dec == null ? (Math.abs(v) < 10 && Math.round(v) !== v ? 1 : 0) : dec) + NBSP + '%'; }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Validador                                                           */
+  /* ------------------------------------------------------------------ */
+  var TIPOS = ['barras-agrupadas', 'lineas', 'donut', 'barras-progreso',
+    'kpi-simple', 'kpi-variacion', 'kpi-objetivo', 'kpi-sparkline', 'kpi-contexto'];
+  var ROLES = ['actual', 'anterior', 'objetivo', 'prevision'];
+
+  function esNum(x) { return typeof x === 'number' && isFinite(x); }
+  function esTexto(x) { return typeof x === 'string' && x.trim() !== ''; }
+  function listaNum(x) { return Array.isArray(x) && x.length > 0 && x.every(esNum); }
+  function listaTexto(x) { return Array.isArray(x) && x.length > 0 && x.every(esTexto); }
+  function copia(o) { return JSON.parse(JSON.stringify(o)); }
+
+  function validar(entrada) {
+    var errores = [], avisos = [];
+    if (!entrada || typeof entrada !== 'object' || Array.isArray(entrada)) {
+      return { ok: false, errores: ['La especificación debe ser un objeto JSON.'], avisos: avisos, spec: null };
+    }
+    var s = copia(entrada);
+    var t = s.tipo;
+    var p = (esTexto(t) ? t : 'especificación') + ': ';
+    function err(m) { errores.push(p + m); }
+    function aviso(m) { avisos.push(p + m); }
+
+    if (TIPOS.indexOf(t) < 0) {
+      err('«tipo» no válido. Usa uno de: ' + TIPOS.join(', ') + '.');
+      return { ok: false, errores: errores, avisos: avisos, spec: s };
+    }
+    if (!esTexto(s.titulo)) err('falta «titulo».');
+    if (!esTexto(s.unidad)) err('falta «unidad» (por ejemplo "€", "%", "pedidos"). La unidad forma parte del significado del dato.');
+    if (s.medio && s.medio !== 'web') aviso('el kit v0 solo tiene el modo "web"; se dibuja en modo web.');
+    if (s.colores || s.color || s.fuente || s.estilo) aviso('los colores, fuentes y estilos los pone el sistema; se ignoran «colores», «color», «fuente» y «estilo».');
+
+    var d = s.datos;
+    var esKpi = t.indexOf('kpi-') === 0;
+
+    if (!esKpi && (!d || typeof d !== 'object')) { err('falta «datos».'); return fin(); }
+
+    if (t === 'barras-agrupadas') {
+      if (!listaTexto(d.categorias)) err('«datos.categorias» debe ser una lista de textos.');
+      if (!Array.isArray(d.series) || !d.series.length) err('«datos.series» debe ser una lista de series { nombre, valores }.');
+      else {
+        if (d.series.length > 3) err('hay ' + d.series.length + ' series y el máximo es 3. Usa varios gráficos o reduce las series.');
+        if (d.categorias && d.categorias.length > 6) err('hay ' + d.categorias.length + ' categorías y el máximo es 6. Divide el gráfico o agrupa categorías.');
+        d.series.forEach(function (se, i) {
+          if (!esTexto(se.nombre)) err('la serie ' + (i + 1) + ' no tiene «nombre».');
+          if (!listaNum(se.valores)) err('la serie «' + (se.nombre || i + 1) + '» necesita «valores» numéricos.');
+          else {
+            if (d.categorias && se.valores.length !== d.categorias.length) err('la serie «' + se.nombre + '» tiene ' + se.valores.length + ' valores y hay ' + d.categorias.length + ' categorías.');
+            if (se.valores.some(function (v) { return v < 0; })) err('hay valores negativos; las barras agrupadas parten de cero. Para cambios con signo usa un gráfico de variación.');
+          }
+          if (se.rol && ROLES.indexOf(se.rol) < 0) err('«rol» de la serie «' + se.nombre + '» no válido. Usa: ' + ROLES.join(', ') + '.');
+        });
+      }
+    }
+
+    if (t === 'lineas') {
+      if (!listaTexto(d.periodos)) err('«datos.periodos» debe ser una lista de textos (por ejemplo "Ene", "Feb").');
+      if (!Array.isArray(d.series) || !d.series.length) err('«datos.series» debe ser una lista de series { nombre, valores }.');
+      else {
+        if (d.series.length > 4) err('hay ' + d.series.length + ' líneas y el máximo es 4. Destaca una y agrupa el resto, o usa varios gráficos.');
+        d.series.forEach(function (se, i) {
+          if (!esTexto(se.nombre)) err('la serie ' + (i + 1) + ' no tiene «nombre».');
+          if (!listaNum(se.valores)) err('la serie «' + (se.nombre || i + 1) + '» necesita «valores» numéricos.');
+          else if (d.periodos && se.valores.length !== d.periodos.length) err('la serie «' + se.nombre + '» tiene ' + se.valores.length + ' valores y hay ' + d.periodos.length + ' periodos.');
+          if (se.rol && ROLES.indexOf(se.rol) < 0) err('«rol» de la serie «' + se.nombre + '» no válido. Usa: ' + ROLES.join(', ') + '.');
+          if (se.rol === 'objetivo') err('el objetivo no va como serie: usa «datos.objetivo» (un número o una lista de valores por periodo).');
+        });
+      }
+      if (d.objetivo != null) {
+        if (Array.isArray(d.objetivo)) {
+          if (!listaNum(d.objetivo)) err('«datos.objetivo» debe ser un número o una lista de números.');
+          else if (d.periodos && d.objetivo.length !== d.periodos.length) err('«datos.objetivo» tiene ' + d.objetivo.length + ' valores y hay ' + d.periodos.length + ' periodos.');
+        } else if (!esNum(d.objetivo)) err('«datos.objetivo» debe ser un número o una lista de números.');
+      }
+    }
+
+    if (t === 'donut') {
+      if (!listaTexto(d.categorias)) err('«datos.categorias» debe ser una lista de textos.');
+      if (!listaNum(d.valores)) err('«datos.valores» debe ser una lista de números.');
+      if (listaTexto(d.categorias) && listaNum(d.valores)) {
+        if (d.categorias.length !== d.valores.length) err('hay ' + d.categorias.length + ' categorías y ' + d.valores.length + ' valores.');
+        else if (d.valores.some(function (v) { return v < 0; })) err('un donut solo admite valores positivos: las partes deben sumar el total.');
+        else if (d.categorias.length < 2) err('un donut necesita al menos 2 partes; para un solo valor usa un KPI.');
+        else if (d.categorias.length > 6) {
+          var pares = d.categorias.map(function (c, i) { return [c, d.valores[i]]; }).sort(function (a, b) { return b[1] - a[1]; });
+          var resto = pares.slice(5).reduce(function (a, b) { return a + b[1]; }, 0);
+          aviso('hay ' + pares.length + ' partes y el máximo es 6: las ' + (pares.length - 5) + ' más pequeñas se agrupan en «Otros».');
+          d.categorias = pares.slice(0, 5).map(function (x) { return x[0]; }).concat('Otros');
+          d.valores = pares.slice(0, 5).map(function (x) { return x[1]; }).concat(resto);
+          d._otros = true;
+        }
+      }
+    }
+
+    if (t === 'barras-progreso') {
+      if (!listaTexto(d.categorias)) err('«datos.categorias» debe ser una lista de textos.');
+      if (!listaNum(d.valores)) err('«datos.valores» debe ser una lista de números.');
+      if (d.objetivos != null && !listaNum(d.objetivos)) err('«datos.objetivos» debe ser una lista de números.');
+      if (listaTexto(d.categorias) && listaNum(d.valores)) {
+        if (d.categorias.length !== d.valores.length) err('hay ' + d.categorias.length + ' categorías y ' + d.valores.length + ' valores.');
+        if (d.categorias.length > 8) err('hay ' + d.categorias.length + ' barras y el máximo es 8.');
+        if (d.objetivos && d.objetivos.length !== d.valores.length) err('«datos.objetivos» debe tener un valor por categoría.');
+        if (!d.objetivos && s.unidad !== '%') err('sin «datos.objetivos», los valores deben ser porcentajes y «unidad» debe ser "%".');
+      }
+    }
+
+    if (esKpi) {
+      if (!esNum(s.valor)) err('falta «valor» numérico.');
+      if (t === 'kpi-variacion') {
+        if (!esNum(s.anterior) && !esNum(s.variacion)) err('indica «anterior» (valor de referencia) o «variacion» (en %).');
+        if (!esTexto(s.referencia)) err('falta «referencia» (por ejemplo "vs. 2025"). Toda variación declara respecto a qué se calcula.');
+        if (s.modo && s.modo !== 'neutro' && s.modo !== 'valorado') err('«modo» debe ser "neutro" o "valorado".');
+        if (s.modo === 'valorado' && s.sentidoPositivo !== 'subir' && s.sentidoPositivo !== 'bajar') err('el modo "valorado" exige «sentidoPositivo»: "subir" o "bajar".');
+      }
+      if (t === 'kpi-objetivo' && !esNum(s.objetivo)) err('falta «objetivo» numérico. El objetivo siempre se rotula.');
+      if (t === 'kpi-sparkline') {
+        if (!listaNum(s.serie) || s.serie.length < 3) err('«serie» debe tener al menos 3 valores numéricos.');
+        if (!esTexto(s.periodo)) err('falta «periodo» (por ejemplo "Enero–septiembre 2026").');
+      }
+      if (t === 'kpi-contexto' && !listaTexto(s.contexto)) err('«contexto» debe ser una lista de 1 o 2 frases (alcance, exclusiones, fuente).');
+      if (t === 'kpi-contexto' && listaTexto(s.contexto) && s.contexto.length > 2) aviso('«contexto» admite 2 frases; se muestran las 2 primeras.');
+    }
+
+    return fin();
+    function fin() { return { ok: errores.length === 0, errores: errores, avisos: avisos, spec: s }; }
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Carga de dependencias                                               */
+  /* ------------------------------------------------------------------ */
+  var promesaECharts = null;
+  function asegurarECharts() {
+    if (global.echarts) return Promise.resolve(global.echarts);
+    if (promesaECharts) return promesaECharts;
+    promesaECharts = new Promise(function (resolver, rechazar) {
+      var i = 0;
+      (function intentar() {
+        if (i >= config.echarts.length) { promesaECharts = null; return rechazar(new Error('No se pudo cargar ECharts.')); }
+        var sc = document.createElement('script');
+        sc.src = config.echarts[i++];
+        sc.async = true;
+        sc.onload = function () { if (global.echarts) resolver(global.echarts); else intentar(); };
+        sc.onerror = intentar;
+        document.head.appendChild(sc);
+      })();
+    });
+    return promesaECharts;
+  }
+
+  var promesaFuente = null;
+  function asegurarFuente() {
+    if (promesaFuente) return promesaFuente;
+    if (!document.querySelector('link[data-eg-fuente]') && config.fuente) {
+      var l = document.createElement('link');
+      l.rel = 'stylesheet'; l.href = config.fuente; l.setAttribute('data-eg-fuente', '');
+      document.head.appendChild(l);
+    }
+    var espera = new Promise(function (r) { setTimeout(r, 1500); });
+    var carga = (document.fonts && document.fonts.load)
+      ? Promise.all(['400', '600', '700'].map(function (w) { return document.fonts.load(w + ' 14px "Titillium Web"'); }))
+      : Promise.resolve();
+    promesaFuente = Promise.race([carga, espera]).catch(function () {});
+    return promesaFuente;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Estilos                                                             */
+  /* ------------------------------------------------------------------ */
+  var CSS = [
+    '.eg-pagina{background:' + T.fondoPagina + ';color:' + T.texto + ';font-family:' + FUENTE + ';margin:0}',
+    '.eg{font-family:' + FUENTE + ';color:' + T.texto + ';box-sizing:border-box;-webkit-font-smoothing:antialiased}',
+    '.eg *,.eg *::before,.eg *::after{box-sizing:border-box}',
+    '.eg-rejilla{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:stretch}',
+    '.eg-rejilla-kpi{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}',
+    '.eg-doble{grid-column:span 2}',
+    '@media (max-width:720px){.eg-doble{grid-column:auto}}',
+    '.eg-tarjeta{background:' + T.fondo + ';border:1px solid ' + T.borde + ';border-radius:8px;padding:20px 24px 24px;height:100%;container-type:inline-size;min-width:0;display:flex;flex-direction:column}',
+    '.eg-titulo{font-size:14px;line-height:18px;font-weight:600;margin:0;color:' + T.titulo + '}',
+    '.eg-subtitulo{font-size:11px;line-height:14px;margin:2px 0 0;color:' + T.textoSecundario + '}',
+    '.eg-cuerpo{margin-top:16px;position:relative;flex:1;min-height:0}',
+    '.eg-lienzo{width:100%;height:260px}',
+    '.eg-nota{font-size:11px;line-height:14px;color:' + T.textoSecundario + ';margin:12px 0 0}',
+    '.eg-icono{display:inline-block;flex:none;vertical-align:middle}',
+    /* KPI */
+    '.eg-kpi .eg-titulo{font-size:11px;line-height:14px;font-weight:400;color:' + T.textoSecundario + '}',
+    '.eg-kpi .eg-cuerpo{margin-top:8px;display:flex;flex-direction:column;gap:12px}',
+    '.eg-kpi-valor{font-size:44px;line-height:48px;font-weight:700;letter-spacing:-.01em;color:' + T.texto + ';white-space:nowrap;margin:0}',
+    '.eg-kpi-unidad{font-size:18px;font-weight:600;letter-spacing:0;margin-left:.2em}',
+    '@container (max-width:300px){.eg-kpi-valor{font-size:30px;line-height:34px}.eg-kpi-unidad{font-size:14px}}',
+    '.eg-fila{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;font-size:11px;line-height:14px}',
+    '.eg-secundario{color:' + T.textoSecundario + '}',
+    '.eg-fuerte{font-weight:600;color:' + T.texto + '}',
+    '.eg-chip{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 10px 0 6px;border-radius:12px;font-size:11px;font-weight:600;color:' + T.texto + ';white-space:nowrap}',
+    '.eg-chip-subida{background:' + P.naranja100 + '}',
+    '.eg-chip .eg-icono[width="22"]{margin:0 -3px 0 -5px}',
+    '.eg-chip-bajada,.eg-chip-igual,.eg-chip-neutro{background:' + P.neutro200 + '}',
+    '.eg-chip-mejora{background:' + P.exitoSuave + '}',
+    '.eg-chip-empeora{background:' + P.errorSuave + '}',
+    '.eg-spark{display:flex;flex-direction:column;gap:8px;min-width:0}',
+    '.eg-spark svg{display:block;width:100%;height:56px;overflow:visible}',
+    '.eg-spark .eg-fila{justify-content:space-between}',
+    '@container (min-width:380px){.eg-kpi-sparkline .eg-cuerpo{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:24px}.eg-kpi-sparkline .eg-spark{flex:0 1 200px}}',
+    '.eg-contexto{margin:0;font-size:12px;line-height:17px}',
+    '.eg-contexto span{display:block}',
+    /* Donut */
+    '.eg-donut-cuerpo{display:flex;align-items:center;gap:24px;flex-wrap:wrap}',
+    '.eg-donut-grafico{position:relative;width:184px;height:184px;flex:none}',
+    '.eg-donut-grafico .eg-lienzo{width:184px;height:184px}',
+    '.eg-donut-centro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;text-align:center}',
+    '.eg-donut-centro small{font-size:11px;line-height:14px;color:' + T.textoSecundario + '}',
+    '.eg-donut-centro strong{font-size:26px;line-height:30px;font-weight:700}',
+    '.eg-donut-centro em{font-style:normal;font-size:11px;line-height:14px;font-weight:600;color:' + T.texto + '}',
+    '.eg-leyenda{list-style:none;margin:0;padding:0;flex:1 1 180px;display:grid;gap:10px;min-width:0}',
+    '.eg-leyenda li{display:grid;grid-template-columns:10px 1fr auto;align-items:center;gap:10px;font-size:11px;line-height:14px;color:' + T.leyenda + '}',
+    '.eg-muestra{width:10px;height:10px;border-radius:2px}',
+    '.eg-leyenda b{font-weight:600;color:' + T.texto + ';text-align:right}',
+    /* Barras de progreso */
+    '.eg-progreso{display:grid;grid-template-columns:minmax(64px,max-content) minmax(80px,1fr) max-content;align-items:center;column-gap:16px;row-gap:16px;margin:0}',
+    '.eg-progreso dt{font-size:11px;line-height:14px;color:' + T.leyenda + '}',
+    '.eg-progreso dd{margin:0}',
+    '.eg-pista{height:16px;border-radius:8px;background:' + T.pista + ';overflow:hidden}',
+    '.eg-barra{height:100%;border-radius:8px;background:' + T.actual + '}',
+    '.eg-progreso .eg-valor{font-size:11px;line-height:14px;font-weight:600;text-align:right;min-width:40px}',
+    /* Error */
+    '.eg-error{border-color:' + P.error + ';border-left-width:4px}',
+    '.eg-error .eg-titulo{display:flex;gap:8px;align-items:center}',
+    '.eg-error ul{margin:12px 0 0;padding-left:18px;font-size:12px;line-height:17px}',
+    '.eg-error li+li{margin-top:4px}'
+  ].join('\n');
+
+  function asegurarEstilos() {
+    if (document.getElementById('eg-estilos')) return;
+    var st = document.createElement('style');
+    st.id = 'eg-estilos';
+    st.textContent = CSS;
+    document.head.appendChild(st);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Utilidades de render                                                */
+  /* ------------------------------------------------------------------ */
+  function subtituloDe(s) {
+    if (esTexto(s.subtitulo)) return s.subtitulo;
+    var partes = [];
+    if (esTexto(s.periodo) && s.tipo.indexOf('kpi-') !== 0) partes.push(s.periodo);
+    if (s.unidad) partes.push(s.abreviar && s.unidad === '€' ? 'en euros' : (s.unidad === '%' ? 'en %' : 'en ' + s.unidad));
+    return partes.join(' · ');
+  }
+
+  function tarjeta(el, s, cuerpo, extraClase) {
+    var esKpi = s.tipo.indexOf('kpi-') === 0;
+    var sub = esKpi ? '' : subtituloDe(s);
+    el.innerHTML = '<section class="eg eg-tarjeta eg-' + s.tipo + (esKpi ? ' eg-kpi' : '') + (extraClase ? ' ' + extraClase : '') + '">' +
+      '<header><h3 class="eg-titulo">' + esc(s.titulo) + '</h3>' + (sub ? '<p class="eg-subtitulo">' + esc(sub) + '</p>' : '') + '</header>' +
+      '<div class="eg-cuerpo">' + cuerpo + '</div>' +
+      (esTexto(s.nota) ? '<p class="eg-nota">' + esc(s.nota) + '</p>' : '') +
+      '</section>';
+    return el.querySelector('.eg-cuerpo');
+  }
+
+  function tooltipBase() {
+    return {
+      backgroundColor: T.tooltip, borderWidth: 0, padding: [6, 10],
+      textStyle: { color: '#FFFFFF', fontSize: 11, fontFamily: FUENTE },
+      extraCssText: 'border-radius:6px;box-shadow:none;'
+    };
+  }
+
+  function ejeValor() {
+    return {
+      type: 'value', min: 0, splitNumber: 4,
+      axisLine: { show: false }, axisTick: { show: false },
+      axisLabel: { color: T.etiquetaEje, fontSize: 11, fontFamily: FUENTE, formatter: formatoEje },
+      splitLine: { lineStyle: { color: T.rejilla, width: 1 } }
+    };
+  }
+
+  function ejeCategoria(datos, bordes) {
+    return {
+      type: 'category', data: datos, boundaryGap: bordes,
+      axisLine: { lineStyle: { color: T.base, width: 1 } }, axisTick: { show: false },
+      axisLabel: { color: T.etiquetaEje, fontSize: 11, fontFamily: FUENTE, margin: 10, hideOverlap: true }
+    };
+  }
+
+  function leyenda(mostrar) {
+    return {
+      show: mostrar, top: 0, left: 0, itemWidth: 8, itemHeight: 8, itemGap: 16,
+      textStyle: { color: T.leyenda, fontSize: 11, fontFamily: FUENTE }
+    };
+  }
+
+  function colorSerie(se, i, paleta) {
+    if (se.rol === 'anterior') return T.anterior;
+    if (se.rol === 'prevision') return T.prevision;
+    if (se.rol === 'actual') return T.actual;
+    return paleta[i % paleta.length];
+  }
+
+  /* Asigna color a cada serie: los roles usan su token; el resto, la paleta en orden. */
+  function coloresSeries(series, paleta) {
+    var libre = 0;
+    var hayActual = series.some(function (x) { return x.rol === 'actual'; });
+    return series.map(function (se) {
+      if (se.rol) return colorSerie(se, 0, paleta);
+      var idx = libre++;
+      if (hayActual && paleta[idx % paleta.length] === T.actual) idx = libre++;
+      return paleta[idx % paleta.length];
+    });
+  }
+
+  var ICONO_LINEA = 'path://M0 0H16V2.5H0Z';
+  var ICONO_DISCONTINUA = 'path://M0 0H4V2H0ZM6 0H10V2H6ZM12 0H16V2H12Z';
+
+  var instancias = new WeakMap();
+  function montarECharts(contenedor, opcion) {
+    return asegurarECharts().then(function (ec) {
+      var previo = instancias.get(contenedor);
+      if (previo) { previo.dispose(); }
+      var chart = ec.init(contenedor, null, { renderer: 'svg' });
+      chart.setOption(opcion);
+      instancias.set(contenedor, chart);
+      if (global.ResizeObserver) new ResizeObserver(function () { chart.resize(); }).observe(contenedor);
+      return chart;
+    });
+  }
+
+  function textoTooltip(nombre, filas, opc) {
+    return '<div style="font-weight:600;margin-bottom:2px">' + esc(nombre) + '</div>' + filas.map(function (f) {
+      return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:#DBD5CE">' + esc(f[0]) + '</span><span style="font-weight:600">' + formatear(f[1], opc).texto + '</span></div>';
+    }).join('');
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Renderizadores                                                      */
+  /* ------------------------------------------------------------------ */
+  var R = {};
+
+  R['barras-agrupadas'] = function (el, s) {
+    var c = tarjeta(el, s, '<div class="eg-lienzo" role="img" aria-label="' + esc(s.titulo) + '"></div>');
+    var d = s.datos;
+    var opc = { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar };
+    var etiquetas = d.categorias.length * d.series.length <= 18;
+    var colores = coloresSeries(d.series, T.series);
+    return montarECharts(c.firstChild, {
+      textStyle: { fontFamily: FUENTE },
+      animationDuration: 500,
+      legend: leyenda(d.series.length > 1),
+      grid: { left: 4, right: 8, top: d.series.length > 1 ? 40 : 16, bottom: 4, containLabel: true },
+      tooltip: Object.assign(tooltipBase(), {
+        trigger: 'axis', axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(219,213,206,.35)' } },
+        formatter: function (ps) { return textoTooltip(ps[0].axisValue, ps.map(function (p) { return [p.seriesName, p.value]; }), opc); }
+      }),
+      xAxis: ejeCategoria(d.categorias, true),
+      yAxis: ejeValor(),
+      series: d.series.map(function (se, i) {
+        return {
+          type: 'bar', name: se.nombre, data: se.valores,
+          barMaxWidth: 32, barGap: '12%', barCategoryGap: '32%',
+          itemStyle: { color: colores[i], borderRadius: [2, 2, 0, 0] },
+          emphasis: { focus: 'none', itemStyle: { opacity: 0.9 } },
+          label: {
+            show: etiquetas, position: 'top', distance: 4, color: T.etiquetaDato, fontSize: 11, fontWeight: 600, fontFamily: FUENTE,
+            formatter: function (p) { return formatear(p.value, { decimales: s.decimales, abreviar: s.abreviar }).texto; }
+          }
+        };
+      })
+    });
+  };
+
+  R.lineas = function (el, s) {
+    var c = tarjeta(el, s, '<div class="eg-lienzo" role="img" aria-label="' + esc(s.titulo) + '"></div>');
+    var d = s.datos;
+    var opc = { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar };
+    var objetivoFijo = esNum(d.objetivo) ? d.objetivo : null;
+    var objetivoLista = Array.isArray(d.objetivo) ? d.objetivo : null;
+    var iActual = 0;
+    d.series.forEach(function (se, i) { if (se.rol === 'actual') iActual = i; });
+    if (!d.series.some(function (se) { return se.rol === 'actual'; })) {
+      for (var k = 0; k < d.series.length; k++) { if (!d.series[k].rol) { iActual = k; break; } }
+    }
+    var colores = coloresSeries(d.series, T.lineas);
+    var series = d.series.map(function (se, i) {
+      var color = colores[i];
+      var principal = i === iActual;
+      var cruce = -1;
+      if (principal && (objetivoFijo != null || objetivoLista)) {
+        for (var j = 0; j < se.valores.length; j++) {
+          var obj = objetivoFijo != null ? objetivoFijo : objetivoLista[j];
+          if (se.valores[j] >= obj) { cruce = j; break; }
+        }
+      }
+      var datos = se.valores.map(function (v, j) {
+        if (principal && j === cruce) return { value: v, symbol: 'circle', symbolSize: 12, itemStyle: { color: T.actual, borderColor: T.objetivo, borderWidth: 2 } };
+        if (principal && j === se.valores.length - 1) return { value: v, symbol: 'circle', symbolSize: 9, itemStyle: { color: color, borderColor: T.fondo, borderWidth: 2 } };
+        return { value: v, symbol: 'none' };
+      });
+      var serie = {
+        type: 'line', name: se.nombre, data: datos, showSymbol: true, symbol: 'none',
+        z: principal ? 5 : 3,
+        lineStyle: { color: color, width: principal ? 2.5 : 2, type: se.rol === 'prevision' ? [6, 4] : 'solid' },
+        itemStyle: { color: color },
+        emphasis: { disabled: true }
+      };
+      if (principal && objetivoFijo != null) {
+        serie.markLine = {
+          silent: true, symbol: 'none',
+          lineStyle: { color: T.objetivo, width: 1, type: [4, 4] },
+          label: { show: true, position: 'insideStartTop', color: T.objetivo, fontSize: 11, fontWeight: 600, fontFamily: FUENTE, formatter: 'Objetivo ' + formatear(objetivoFijo, { decimales: s.decimales, abreviar: s.abreviar }).texto },
+          data: [{ yAxis: objetivoFijo }]
+        };
+      }
+      return serie;
+    });
+    if (objetivoLista) {
+      series.push({
+        type: 'line', name: 'Objetivo', data: objetivoLista, symbol: 'none', z: 4,
+        lineStyle: { color: T.objetivo, width: 1.25, type: [4, 4] }, itemStyle: { color: T.objetivo }, emphasis: { disabled: true }
+      });
+    }
+    var nombres = series.map(function (x) {
+      var discontinua = x.lineStyle && x.lineStyle.type !== 'solid';
+      return { name: x.name, icon: discontinua ? ICONO_DISCONTINUA : ICONO_LINEA };
+    });
+    return montarECharts(c.firstChild, {
+      textStyle: { fontFamily: FUENTE },
+      animationDuration: 600,
+      legend: Object.assign(leyenda(series.length > 1), { itemWidth: 16, itemHeight: 3, data: nombres }),
+      grid: { left: 4, right: 12, top: series.length > 1 ? 40 : 20, bottom: 4, containLabel: true },
+      tooltip: Object.assign(tooltipBase(), {
+        trigger: 'axis', axisPointer: { type: 'line', lineStyle: { color: T.base, width: 1 } },
+        formatter: function (ps) { return textoTooltip(ps[0].axisValue, ps.map(function (p) { return [p.seriesName, typeof p.value === 'object' ? p.value.value : p.value]; }), opc); }
+      }),
+      xAxis: ejeCategoria(d.periodos, false),
+      yAxis: Object.assign(ejeValor(), s.ejeDesdeCero === false ? { min: 'dataMin', scale: true } : {}),
+      series: series
+    });
+  };
+
+  R.donut = function (el, s) {
+    var d = s.datos;
+    var pares = d.categorias.map(function (cat, i) { return { nombre: cat, valor: d.valores[i], otros: d._otros && cat === 'Otros' }; });
+    var normales = pares.filter(function (x) { return !x.otros; }).sort(function (a, b) { return b.valor - a.valor; });
+    pares = normales.concat(pares.filter(function (x) { return x.otros; }));
+    var total = pares.reduce(function (a, b) { return a + b.valor; }, 0);
+    pares.forEach(function (x, i) { x.color = x.otros ? T.otros : T.series[i % T.series.length]; x.pct = total ? x.valor / total * 100 : 0; });
+    var centro = s.centro || {};
+    var valorCentro = esNum(centro.valor) ? centro.valor : total;
+    var fc = formatear(valorCentro, { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar });
+    var cuerpo = '<div class="eg-donut-cuerpo"><div class="eg-donut-grafico"><div class="eg-lienzo" role="img" aria-label="' + esc(s.titulo) + '"></div>' +
+      '<div class="eg-donut-centro"><small>' + esc(centro.etiqueta || 'Total') + '</small><strong>' + fc.numero + '</strong>' + (fc.unidad ? '<em>' + esc(fc.unidad) + '</em>' : '') + '</div></div>' +
+      '<ul class="eg-leyenda">' + pares.map(function (x) {
+        return '<li><span class="eg-muestra" style="background:' + x.color + '"></span><span>' + esc(x.nombre) + '</span><b>' + porcentaje(x.pct, 0) + '</b></li>';
+      }).join('') + '</ul></div>';
+    var c = tarjeta(el, s, cuerpo);
+    var opc = { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar };
+    return montarECharts(c.querySelector('.eg-lienzo'), {
+      animationDuration: 600,
+      tooltip: Object.assign(tooltipBase(), {
+        trigger: 'item', formatter: function (p) { return textoTooltip(p.name, [[porcentaje(p.data.pct, 1), p.value]], opc); }
+      }),
+      series: [{
+        type: 'pie', radius: ['62%', '96%'], center: ['50%', '50%'], startAngle: 90,
+        avoidLabelOverlap: false, label: { show: false }, labelLine: { show: false },
+        itemStyle: { borderColor: T.fondo, borderWidth: 2 },
+        emphasis: { scale: true, scaleSize: 3 },
+        data: pares.map(function (x) { return { name: x.nombre, value: x.valor, pct: x.pct, itemStyle: { color: x.color } }; })
+      }]
+    });
+  };
+
+  R['barras-progreso'] = function (el, s) {
+    var d = s.datos;
+    var filas = d.categorias.map(function (cat, i) {
+      var pct = d.objetivos ? (d.objetivos[i] ? d.valores[i] / d.objetivos[i] * 100 : 0) : d.valores[i];
+      var ancho = Math.max(0, Math.min(100, pct));
+      var detalle = d.objetivos ? ' title="' + esc(formatear(d.valores[i], { unidad: s.unidad, abreviar: s.abreviar }).texto + ' de ' + formatear(d.objetivos[i], { unidad: s.unidad, abreviar: s.abreviar }).texto) + '"' : '';
+      return '<dt>' + esc(cat) + '</dt><dd' + detalle + '><div class="eg-pista" role="progressbar" aria-label="' + esc(cat) + '" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + Math.round(pct) + '"><div class="eg-barra" style="width:' + ancho.toFixed(1) + '%"></div></div></dd>' +
+        '<dd class="eg-valor">' + porcentaje(pct, 0) + '</dd>';
+    }).join('');
+    var sub = s.subtitulo;
+    if (!esTexto(sub) && d.objetivos) s.subtitulo = (esTexto(s.periodo) ? s.periodo + ' · ' : '') + '% del objetivo';
+    tarjeta(el, s, '<dl class="eg-progreso">' + filas + '</dl>');
+    return Promise.resolve();
+  };
+
+  function valorKpi(s) {
+    var f = formatear(s.valor, { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar });
+    return '<p class="eg-kpi-valor">' + f.numero + (f.unidad ? '<span class="eg-kpi-unidad">' + esc(f.unidad) + '</span>' : '') + '</p>';
+  }
+
+  R['kpi-simple'] = function (el, s) { tarjeta(el, s, valorKpi(s)); return Promise.resolve(); };
+
+  R['kpi-variacion'] = function (el, s) {
+    var v = esNum(s.variacion) ? s.variacion : (s.anterior ? (s.valor - s.anterior) / Math.abs(s.anterior) * 100 : 0);
+    var redondeo = Math.round(v * 10) / 10;
+    var sentido = redondeo > 0 ? 'subida' : (redondeo < 0 ? 'bajada' : 'igual');
+    var clase = 'eg-chip-' + sentido, ic, color, textoEstado = '';
+    if (s.modo === 'valorado' && sentido !== 'igual') {
+      var bueno = (sentido === 'subida') === (s.sentidoPositivo === 'subir');
+      clase = bueno ? 'eg-chip-mejora' : 'eg-chip-empeora';
+      ic = sentido; color = bueno ? P.exitoFuerte : P.errorFuerte;
+      textoEstado = bueno ? ' · mejora' : ' · empeora';
+    } else {
+      ic = sentido === 'igual' ? 'sinCambio' : sentido;
+      color = sentido === 'subida' ? T.subida : (sentido === 'bajada' ? T.bajada : T.textoSecundario);
+    }
+    var txt = (redondeo > 0 ? '+' : '') + porcentaje(redondeo, 1).replace('-', '\u2212');
+    var ant = esNum(s.anterior) ? ' (' + formatear(s.anterior, { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar }).texto + ')' : '';
+    tarjeta(el, s, valorKpi(s) + '<div class="eg-fila"><span class="eg-chip ' + clase + '">' + icono(ic, color, 22) + txt + textoEstado + '</span><span class="eg-secundario">' + esc(s.referencia) + esc(ant) + '</span></div>');
+    return Promise.resolve();
+  };
+
+  R['kpi-objetivo'] = function (el, s) {
+    var pct = s.objetivo ? s.valor / s.objetivo * 100 : 0;
+    var cumplido = pct >= 100;
+    var fo = formatear(s.objetivo, { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar });
+    tarjeta(el, s, valorKpi(s) +
+      '<div class="eg-fila"><span class="eg-secundario">Objetivo</span><span class="eg-fuerte">' + fo.texto + '</span></div>' +
+      '<div class="eg-fila"><span class="eg-chip eg-chip-neutro">' + (cumplido ? icono('cumplido', T.actual, 16) : icono('objetivo', T.bajada, 16)) + porcentaje(pct, 0) + ' del objetivo</span></div>');
+    return Promise.resolve();
+  };
+
+  function sparklineSVG(serie, fondo) {
+    var w = 200, h = 56, m = 6;
+    var min = Math.min.apply(null, serie), max = Math.max.apply(null, serie);
+    var rango = max - min || 1;
+    var pts = serie.map(function (v, i) {
+      return [m + i * (w - 2 * m) / (serie.length - 1), h - m - (v - min) / rango * (h - 2 * m)];
+    });
+    var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join('');
+    var u = pts[pts.length - 1];
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none" aria-hidden="true"><path d="' + d + '" fill="none" stroke="' + T.actual + '" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>' +
+      '<span class="eg-spark-punto" style="position:absolute;left:calc(' + (u[0] / w * 100).toFixed(2) + '% - 4.5px);top:' + (u[1] - 4.5).toFixed(1) + 'px;width:9px;height:9px;border-radius:50%;background:' + T.actual + ';box-shadow:0 0 0 2px ' + fondo + '"></span>';
+  }
+
+  R['kpi-sparkline'] = function (el, s) {
+    var se = s.serie;
+    var varTotal = se[0] ? (se[se.length - 1] - se[0]) / Math.abs(se[0]) * 100 : 0;
+    var txt = (varTotal > 0 ? '+' : '') + porcentaje(Math.round(varTotal), 0);
+    tarjeta(el, s, valorKpi(s) +
+      '<div class="eg-spark"><div style="position:relative">' + sparklineSVG(se, T.fondo) + '</div>' +
+      '<div class="eg-fila"><span class="eg-secundario">' + esc(s.periodo) + '</span><span class="eg-fuerte">' + txt + '</span></div></div>');
+    return Promise.resolve();
+  };
+
+  R['kpi-contexto'] = function (el, s) {
+    var ctx = s.contexto.slice(0, 2);
+    tarjeta(el, s, valorKpi(s) + '<p class="eg-contexto">' + ctx.map(function (t, i) {
+      return '<span class="' + (i ? 'eg-secundario' : '') + '">' + esc(t) + '</span>';
+    }).join('') + '</p>');
+    return Promise.resolve();
+  };
+
+  function pintarError(el, s, errores) {
+    var nombre = s && esTexto(s.titulo) ? '«' + s.titulo + '»' : 'el gráfico';
+    el.innerHTML = '<section class="eg eg-tarjeta eg-error" role="alert"><header><h3 class="eg-titulo">' + icono('incidencia', P.error, 18) +
+      'No se puede dibujar ' + esc(nombre) + '</h3></header><ul>' + errores.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></section>';
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* API pública                                                         */
+  /* ------------------------------------------------------------------ */
+  function render(destino, spec) {
+    var el = typeof destino === 'string' ? document.querySelector(destino) : destino;
+    if (!el) {
+      var m = PREFIJO + 'no existe el elemento destino ' + destino + '.';
+      console.error(m);
+      return Promise.resolve({ ok: false, errores: [m] });
+    }
+    asegurarEstilos();
+    var v = validar(spec);
+    v.avisos.forEach(function (a) { console.warn(PREFIJO + a); });
+    if (!v.ok) {
+      v.errores.forEach(function (e) { console.error(PREFIJO + e); });
+      pintarError(el, v.spec, v.errores);
+      return Promise.resolve({ ok: false, errores: v.errores, avisos: v.avisos });
+    }
+    return asegurarFuente().then(function () { return R[v.spec.tipo](el, v.spec); }).then(function () {
+      return { ok: true, errores: [], avisos: v.avisos };
+    }).catch(function (e) {
+      console.error(PREFIJO + e.message);
+      pintarError(el, v.spec, [e.message]);
+      return { ok: false, errores: [e.message], avisos: v.avisos };
+    });
+  }
+
+  function configurar(opc) { Object.keys(opc || {}).forEach(function (k) { config[k] = opc[k]; }); }
+
+  var api = {
+    version: VERSION,
+    render: render,
+    validar: validar,
+    formatear: formatear,
+    configurar: configurar,
+    tipos: TIPOS.slice(),
+    tokens: { primitivos: P, semanticos: T, fuente: FUENTE },
+    iconos: ICONOS
+  };
+
+  if (typeof document !== 'undefined') asegurarEstilos();
+  global.EdelvivesGraficos = api;
+  if (!global.EG) global.EG = api;
+  if (typeof module === 'object' && module.exports) module.exports = api;
+})(typeof window !== 'undefined' ? window : this);

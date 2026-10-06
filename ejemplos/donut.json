@@ -1,0 +1,26 @@
+{
+  "tipo": "donut",
+  "titulo": "Ventas por línea de producto",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Primaria",
+      "Infantil",
+      "ESO",
+      "Literatura infantil y juvenil",
+      "Bachillerato"
+    ],
+    "valores": [
+      5397528,
+      2982845,
+      2698764,
+      1846523,
+      1278362
+    ]
+  },
+  "centro": {
+    "etiqueta": "Total"
+  }
+}

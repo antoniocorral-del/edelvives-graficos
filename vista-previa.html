@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vista previa del kit de gráficos Edelvives v0.1</title>
+<script src="dist/edelvives-graficos.js"></script>
+<style>
+ .contenedor{max-width:1200px;margin:0 auto;padding:40px 24px 64px}
+ h1{font-size:32px;line-height:38px;margin:0}
+ .intro{margin:6px 0 32px;font-size:14px;line-height:21px;color:#4A4540;max-width:72ch}
+ .catalogo{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+ .ancho{grid-column:1/-1}
+ .pieza h2{font-size:14px;line-height:18px;font-weight:600;margin:0 0 8px;color:#4A4540}
+ .pieza h2 code{font-family:inherit;font-weight:400;color:#706B65;margin-left:6px}
+ details{margin-top:8px;font-size:12px;color:#4A4540}
+ summary{cursor:pointer}
+ pre{background:#fff;border:1px solid #DBD5CE;border-radius:8px;padding:12px 16px;overflow-x:auto;font-size:12px;line-height:17px}
+</style></head>
+<body class="eg-pagina"><main class="contenedor">
+<h1>Vista previa del kit v0.1</h1>
+<p class="intro">Los 9 componentes de la primera prueba, dibujados con los ejemplos de la carpeta <code>ejemplos/</code>. Necesita conexión a internet para cargar ECharts y la tipografía.</p>
+<div class="catalogo">
+<article class="pieza kpi"><h2>KPI simple <code>kpi-simple</code></h2><div id="c0"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;kpi-simple&quot;,
+  &quot;titulo&quot;: &quot;Clientes activos&quot;,
+  &quot;unidad&quot;: &quot;clientes&quot;,
+  &quot;valor&quot;: 1284
+}</pre></details></article>
+<article class="pieza kpi"><h2>KPI + variación <code>kpi-variacion</code></h2><div id="c1"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;kpi-variacion&quot;,
+  &quot;titulo&quot;: &quot;Ventas acumuladas&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;abreviar&quot;: true,
+  &quot;valor&quot;: 14204022,
+  &quot;anterior&quot;: 13265318,
+  &quot;referencia&quot;: &quot;vs. ene–sep 2025&quot;
+}</pre></details></article>
+<article class="pieza kpi"><h2>KPI + objetivo <code>kpi-objetivo</code></h2><div id="c2"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;kpi-objetivo&quot;,
+  &quot;titulo&quot;: &quot;Ventas frente al objetivo&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;abreviar&quot;: true,
+  &quot;valor&quot;: 14204022,
+  &quot;objetivo&quot;: 14867198
+}</pre></details></article>
+<article class="pieza kpi"><h2>KPI con sparkline <code>kpi-sparkline</code></h2><div id="c3"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;kpi-sparkline&quot;,
+  &quot;titulo&quot;: &quot;Pedidos&quot;,
+  &quot;unidad&quot;: &quot;pedidos&quot;,
+  &quot;valor&quot;: 70991,
+  &quot;serie&quot;: [
+    4453,
+    4067,
+    4136,
+    4421,
+    5523,
+    7818,
+    11797,
+    15530,
+    13246
+  ],
+  &quot;periodo&quot;: &quot;Enero–septiembre&quot;
+}</pre></details></article>
+<article class="pieza kpi"><h2>KPI + contexto <code>kpi-contexto</code></h2><div id="c4"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;kpi-contexto&quot;,
+  &quot;titulo&quot;: &quot;Ticket medio&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;decimales&quot;: 0,
+  &quot;valor&quot;: 200.08,
+  &quot;contexto&quot;: [
+    &quot;Ventas divididas entre pedidos, todos los canales.&quot;,
+    &quot;Excluye devoluciones. Fuente: ERP.&quot;
+  ]
+}</pre></details></article>
+<article class="pieza ancho"><h2>Líneas con objetivo <code>lineas</code></h2><div id="c5"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;lineas&quot;,
+  &quot;titulo&quot;: &quot;Ventas mensuales frente al objetivo&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;abreviar&quot;: true,
+  &quot;periodo&quot;: &quot;Enero–septiembre&quot;,
+  &quot;datos&quot;: {
+    &quot;periodos&quot;: [
+      &quot;Ene&quot;,
+      &quot;Feb&quot;,
+      &quot;Mar&quot;,
+      &quot;Abr&quot;,
+      &quot;May&quot;,
+      &quot;Jun&quot;,
+      &quot;Jul&quot;,
+      &quot;Ago&quot;,
+      &quot;Sep&quot;
+    ],
+    &quot;series&quot;: [
+      {
+        &quot;nombre&quot;: &quot;2026&quot;,
+        &quot;valores&quot;: [
+          893830,
+          792051,
+          838434,
+          893017,
+          1087798,
+          1561919,
+          2357725,
+          3071497,
+          2707751
+        ]
+      },
+      {
+        &quot;nombre&quot;: &quot;2025&quot;,
+        &quot;rol&quot;: &quot;anterior&quot;,
+        &quot;valores&quot;: [
+          833696,
+          743277,
+          777051,
+          834148,
+          1018122,
+          1474176,
+          2182801,
+          2872105,
+          2529942
+        ]
+      }
+    ],
+    &quot;objetivo&quot;: [
+      933980,
+      830789,
+      874037,
+      939818,
+      1136451,
+      1631029,
+      2462060,
+      3218958,
+      2840076
+    ]
+  }
+}</pre></details></article>
+<article class="pieza "><h2>Donut <code>donut</code></h2><div id="c6"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;donut&quot;,
+  &quot;titulo&quot;: &quot;Ventas por línea de producto&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;abreviar&quot;: true,
+  &quot;periodo&quot;: &quot;Enero–septiembre&quot;,
+  &quot;datos&quot;: {
+    &quot;categorias&quot;: [
+      &quot;Primaria&quot;,
+      &quot;Infantil&quot;,
+      &quot;ESO&quot;,
+      &quot;Literatura infantil y juvenil&quot;,
+      &quot;Bachillerato&quot;
+    ],
+    &quot;valores&quot;: [
+      5397528,
+      2982845,
+      2698764,
+      1846523,
+      1278362
+    ]
+  },
+  &quot;centro&quot;: {
+    &quot;etiqueta&quot;: &quot;Total&quot;
+  }
+}</pre></details></article>
+<article class="pieza ancho"><h2>Barras agrupadas <code>barras-agrupadas</code></h2><div id="c7"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;barras-agrupadas&quot;,
+  &quot;titulo&quot;: &quot;Ventas por canal&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;abreviar&quot;: true,
+  &quot;periodo&quot;: &quot;Enero–septiembre&quot;,
+  &quot;datos&quot;: {
+    &quot;categorias&quot;: [
+      &quot;Colegios&quot;,
+      &quot;Librerías&quot;,
+      &quot;Online&quot;
+    ],
+    &quot;series&quot;: [
+      {
+        &quot;nombre&quot;: &quot;2025&quot;,
+        &quot;rol&quot;: &quot;anterior&quot;,
+        &quot;valores&quot;: [
+          7075590,
+          4476513,
+          1713215
+        ]
+      },
+      {
+        &quot;nombre&quot;: &quot;2026&quot;,
+        &quot;valores&quot;: [
+          7382064,
+          4687990,
+          2133968
+        ]
+      }
+    ]
+  }
+}</pre></details></article>
+<article class="pieza "><h2>Barras de progreso <code>barras-progreso</code></h2><div id="c8"></div>
+<details><summary>Ver la especificación</summary><pre>{
+  &quot;tipo&quot;: &quot;barras-progreso&quot;,
+  &quot;titulo&quot;: &quot;Cumplimiento por comunidad&quot;,
+  &quot;unidad&quot;: &quot;€&quot;,
+  &quot;abreviar&quot;: true,
+  &quot;periodo&quot;: &quot;Enero–septiembre&quot;,
+  &quot;datos&quot;: {
+    &quot;categorias&quot;: [
+      &quot;Aragón&quot;,
+      &quot;Madrid&quot;,
+      &quot;Andalucía&quot;,
+      &quot;Cataluña&quot;,
+      &quot;C. Valenciana&quot;
+    ],
+    &quot;valores&quot;: [
+      1833166,
+      3962215,
+      2859096,
+      3149432,
+      2400113
+    ],
+    &quot;objetivos&quot;: [
+      1755917,
+      4040294,
+      2975862,
+      3388936,
+      2706189
+    ]
+  }
+}</pre></details></article>
+</div></main>
+<script>
+EG.render('#c0', {"tipo": "kpi-simple", "titulo": "Clientes activos", "unidad": "clientes", "valor": 1284});
+EG.render('#c1', {"tipo": "kpi-variacion", "titulo": "Ventas acumuladas", "unidad": "€", "abreviar": true, "valor": 14204022, "anterior": 13265318, "referencia": "vs. ene–sep 2025"});
+EG.render('#c2', {"tipo": "kpi-objetivo", "titulo": "Ventas frente al objetivo", "unidad": "€", "abreviar": true, "valor": 14204022, "objetivo": 14867198});
+EG.render('#c3', {"tipo": "kpi-sparkline", "titulo": "Pedidos", "unidad": "pedidos", "valor": 70991, "serie": [4453, 4067, 4136, 4421, 5523, 7818, 11797, 15530, 13246], "periodo": "Enero–septiembre"});
+EG.render('#c4', {"tipo": "kpi-contexto", "titulo": "Ticket medio", "unidad": "€", "decimales": 0, "valor": 200.08, "contexto": ["Ventas divididas entre pedidos, todos los canales.", "Excluye devoluciones. Fuente: ERP."]});
+EG.render('#c5', {"tipo": "lineas", "titulo": "Ventas mensuales frente al objetivo", "unidad": "€", "abreviar": true, "periodo": "Enero–septiembre", "datos": {"periodos": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep"], "series": [{"nombre": "2026", "valores": [893830, 792051, 838434, 893017, 1087798, 1561919, 2357725, 3071497, 2707751]}, {"nombre": "2025", "rol": "anterior", "valores": [833696, 743277, 777051, 834148, 1018122, 1474176, 2182801, 2872105, 2529942]}], "objetivo": [933980, 830789, 874037, 939818, 1136451, 1631029, 2462060, 3218958, 2840076]}});
+EG.render('#c6', {"tipo": "donut", "titulo": "Ventas por línea de producto", "unidad": "€", "abreviar": true, "periodo": "Enero–septiembre", "datos": {"categorias": ["Primaria", "Infantil", "ESO", "Literatura infantil y juvenil", "Bachillerato"], "valores": [5397528, 2982845, 2698764, 1846523, 1278362]}, "centro": {"etiqueta": "Total"}});
+EG.render('#c7', {"tipo": "barras-agrupadas", "titulo": "Ventas por canal", "unidad": "€", "abreviar": true, "periodo": "Enero–septiembre", "datos": {"categorias": ["Colegios", "Librerías", "Online"], "series": [{"nombre": "2025", "rol": "anterior", "valores": [7075590, 4476513, 1713215]}, {"nombre": "2026", "valores": [7382064, 4687990, 2133968]}]}});
+EG.render('#c8', {"tipo": "barras-progreso", "titulo": "Cumplimiento por comunidad", "unidad": "€", "abreviar": true, "periodo": "Enero–septiembre", "datos": {"categorias": ["Aragón", "Madrid", "Andalucía", "Cataluña", "C. Valenciana"], "valores": [1833166, 3962215, 2859096, 3149432, 2400113], "objetivos": [1755917, 4040294, 2975862, 3388936, 2706189]}});
+</script></body></html>

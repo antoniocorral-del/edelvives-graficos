@@ -1,0 +1,18 @@
+{
+  "tipo": "kpi-sparkline",
+  "titulo": "Pedidos",
+  "unidad": "pedidos",
+  "valor": 70991,
+  "serie": [
+    4453,
+    4067,
+    4136,
+    4421,
+    5523,
+    7818,
+    11797,
+    15530,
+    13246
+  ],
+  "periodo": "Enero–septiembre"
+}

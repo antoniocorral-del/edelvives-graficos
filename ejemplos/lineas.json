@@ -1,0 +1,62 @@
+{
+  "tipo": "lineas",
+  "titulo": "Ventas mensuales frente al objetivo",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep"
+    ],
+    "series": [
+      {
+        "nombre": "2026",
+        "valores": [
+          893830,
+          792051,
+          838434,
+          893017,
+          1087798,
+          1561919,
+          2357725,
+          3071497,
+          2707751
+        ]
+      },
+      {
+        "nombre": "2025",
+        "rol": "anterior",
+        "valores": [
+          833696,
+          743277,
+          777051,
+          834148,
+          1018122,
+          1474176,
+          2182801,
+          2872105,
+          2529942
+        ]
+      }
+    ],
+    "objetivo": [
+      933980,
+      830789,
+      874037,
+      939818,
+      1136451,
+      1631029,
+      2462060,
+      3218958,
+      2840076
+    ]
+  }
+}

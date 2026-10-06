@@ -1,0 +1,33 @@
+{
+  "tipo": "barras-agrupadas",
+  "titulo": "Ventas por canal",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Colegios",
+      "Librerías",
+      "Online"
+    ],
+    "series": [
+      {
+        "nombre": "2025",
+        "rol": "anterior",
+        "valores": [
+          7075590,
+          4476513,
+          1713215
+        ]
+      },
+      {
+        "nombre": "2026",
+        "valores": [
+          7382064,
+          4687990,
+          2133968
+        ]
+      }
+    ]
+  }
+}

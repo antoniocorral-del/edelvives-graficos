@@ -1,0 +1,9 @@
+{
+  "tipo": "kpi-variacion",
+  "titulo": "Ventas acumuladas",
+  "unidad": "€",
+  "abreviar": true,
+  "valor": 14204022,
+  "anterior": 13265318,
+  "referencia": "vs. ene–sep 2025"
+}

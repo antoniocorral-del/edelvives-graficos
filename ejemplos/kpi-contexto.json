@@ -1,0 +1,11 @@
+{
+  "tipo": "kpi-contexto",
+  "titulo": "Ticket medio",
+  "unidad": "€",
+  "decimales": 0,
+  "valor": 200.08,
+  "contexto": [
+    "Ventas divididas entre pedidos, todos los canales.",
+    "Excluye devoluciones. Fuente: ERP."
+  ]
+}

@@ -1,0 +1,783 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edelvives.example/graficos/v0.1/esquema.json",
+  "title": "Especificación de gráfico Edelvives (kit v0.1)",
+  "description": "Formato que escribe la IA. Las reglas de cantidad (series, categorías, partes) las comprueba además EG.validar().",
+  "type": "object",
+  "required": [
+    "tipo",
+    "titulo",
+    "unidad"
+  ],
+  "properties": {
+    "tipo": {
+      "enum": [
+        "barras-agrupadas",
+        "lineas",
+        "donut",
+        "barras-progreso",
+        "kpi-simple",
+        "kpi-variacion",
+        "kpi-objetivo",
+        "kpi-sparkline",
+        "kpi-contexto"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "kpi-simple"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "valor"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "kpi-simple"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "valor": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "kpi-variacion"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "valor",
+          "referencia"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "kpi-variacion"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "valor": {
+            "type": "number"
+          },
+          "anterior": {
+            "type": "number"
+          },
+          "variacion": {
+            "type": "number"
+          },
+          "referencia": {
+            "type": "string",
+            "minLength": 1
+          },
+          "modo": {
+            "enum": [
+              "neutro",
+              "valorado"
+            ]
+          },
+          "sentidoPositivo": {
+            "enum": [
+              "subir",
+              "bajar"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "kpi-objetivo"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "valor",
+          "objetivo"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "kpi-objetivo"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "valor": {
+            "type": "number"
+          },
+          "objetivo": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "kpi-sparkline"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "valor",
+          "serie",
+          "periodo"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "kpi-sparkline"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "valor": {
+            "type": "number"
+          },
+          "serie": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "kpi-contexto"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "valor",
+          "contexto"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "kpi-contexto"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "valor": {
+            "type": "number"
+          },
+          "contexto": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 2
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "barras-agrupadas"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "datos"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "barras-agrupadas"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "datos": {
+            "type": "object",
+            "required": [
+              "categorias",
+              "series"
+            ],
+            "properties": {
+              "categorias": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 6
+              },
+              "series": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "nombre",
+                    "valores"
+                  ],
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "valores": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 1
+                    },
+                    "rol": {
+                      "enum": [
+                        "actual",
+                        "anterior",
+                        "prevision"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "lineas"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "datos"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "lineas"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "ejeDesdeCero": {
+            "type": "boolean"
+          },
+          "datos": {
+            "type": "object",
+            "required": [
+              "periodos",
+              "series"
+            ],
+            "properties": {
+              "periodos": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 2
+              },
+              "series": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "nombre",
+                    "valores"
+                  ],
+                  "properties": {
+                    "nombre": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "valores": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 1
+                    },
+                    "rol": {
+                      "enum": [
+                        "actual",
+                        "anterior",
+                        "prevision"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 4
+              },
+              "objetivo": {
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "donut"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "datos"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "donut"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "centro": {
+            "type": "object",
+            "properties": {
+              "etiqueta": {
+                "type": "string",
+                "minLength": 1
+              },
+              "valor": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          },
+          "datos": {
+            "type": "object",
+            "required": [
+              "categorias",
+              "valores"
+            ],
+            "properties": {
+              "categorias": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 2
+              },
+              "valores": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "minItems": 2
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "barras-progreso"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tipo",
+          "titulo",
+          "unidad",
+          "datos"
+        ],
+        "properties": {
+          "tipo": {
+            "const": "barras-progreso"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unidad": {
+            "type": "string",
+            "minLength": 1
+          },
+          "periodo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtitulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nota": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimales": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "abreviar": {
+            "type": "boolean"
+          },
+          "medio": {
+            "enum": [
+              "web"
+            ]
+          },
+          "datos": {
+            "type": "object",
+            "required": [
+              "categorias",
+              "valores"
+            ],
+            "properties": {
+              "categorias": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "maxItems": 8
+              },
+              "valores": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "objetivos": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tipo": "kpi-objetivo",
+  "titulo": "Ventas frente al objetivo",
+  "unidad": "€",
+  "abreviar": true,
+  "valor": 14204022,
+  "objetivo": 14867198
+}
