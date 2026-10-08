@@ -1,0 +1,130 @@
+{
+  "$description": "Design tokens del sistema de gráficos y métricas de Edelvives (kit v0.1, modo web, modo claro). Fuente: Figma «Gráficos y métricas Edelvives» y script edelvives-graficos.js v0.1.0. Estructura DTCG ($type, $value, alias con {ruta}). CMYK: solo confirmados naranja y negro corporativos; el resto, y los estados, pendientes de prueba de imprenta.",
+  "color": {
+    "$type": "color",
+    "naranja": {
+      "100": { "$value": "#FFECD4" },
+      "200": { "$value": "#FFCEA3" },
+      "300": { "$value": "#FFAF73" },
+      "400": { "$value": "#FF801F" },
+      "500": { "$value": "#F56A00", "$description": "Naranja corporativo.", "$extensions": { "es.edelvives": { "cmyk": [0, 85, 100, 0] } } },
+      "600": { "$value": "#D95003" },
+      "700": { "$value": "#BD4200" },
+      "$description": "Escala naranja. En imprenta solo Magenta y Amarillo (los tonos oscuros admiten Negro)."
+    },
+    "neutro": {
+      "000": { "$value": "#FFFFFF" },
+      "100": { "$value": "#F7F4F2" },
+      "200": { "$value": "#F0EDEA" },
+      "300": { "$value": "#DBD5CE" },
+      "400": { "$value": "#A39B93" },
+      "500": { "$value": "#706B65" },
+      "600": { "$value": "#4A4540" },
+      "700": { "$value": "#222222" },
+      "800": { "$value": "#000000", "$description": "Negro corporativo.", "$extensions": { "es.edelvives": { "cmyk": [0, 0, 0, 100] } } },
+      "$description": "Neutros. En imprenta solo con Negro."
+    },
+    "estado": {
+      "$description": "Solo para significado (mejora/empeora, éxito, alerta, error). CMYK pendiente.",
+      "exito":        { "$value": "#20BA76" },
+      "exito-fuerte": { "$value": "#0D6B43" },
+      "exito-suave":  { "$value": "#D1F7E8" },
+      "alerta":        { "$value": "#FFB521" },
+      "alerta-fuerte": { "$value": "#8B6200" },
+      "alerta-suave":  { "$value": "#FFF3D0" },
+      "error":        { "$value": "#D0021B" },
+      "error-fuerte": { "$value": "#720010" },
+      "error-suave":  { "$value": "#FAD4D8" },
+      "pendiente":    { "$value": "{color.neutro.300}" }
+    },
+    "rol": {
+      "$description": "Rol semántico de las series y elementos de un gráfico.",
+      "actual":     { "$value": "{color.naranja.500}", "$description": "Serie destacada / dato del periodo actual." },
+      "anterior":   { "$value": "{color.neutro.400}", "$description": "Periodo de comparación." },
+      "prevision":  { "$value": "{color.naranja.500}", "$description": "Siempre con línea discontinua." },
+      "objetivo":   { "$value": "{color.neutro.700}", "$description": "Línea de objetivo, discontinua y rotulada." },
+      "otros":      { "$value": "{color.neutro.300}", "$description": "Agrupación «Otros» en donut." },
+      "subida":     { "$value": "{color.naranja.500}", "$description": "Variación neutra (por defecto)." },
+      "bajada":     { "$value": "{color.neutro.600}", "$description": "Variación neutra (por defecto)." },
+      "mejora":     { "$value": "{color.estado.exito-fuerte}", "$description": "Solo modo valorado; fondo de chip {color.estado.exito-suave}." },
+      "empeora":    { "$value": "{color.estado.error-fuerte}", "$description": "Solo modo valorado; fondo de chip {color.estado.error-suave}." }
+    },
+    "interfaz": {
+      "fondo-pagina":    { "$value": "{color.neutro.100}" },
+      "fondo-tarjeta":   { "$value": "{color.neutro.000}" },
+      "borde-tarjeta":   { "$value": "{color.neutro.300}" },
+      "rejilla":         { "$value": "{color.neutro.200}" },
+      "eje-base":        { "$value": "{color.neutro.400}" },
+      "etiqueta-eje":    { "$value": "{color.neutro.500}" },
+      "leyenda":         { "$value": "{color.neutro.600}" },
+      "texto":           { "$value": "{color.neutro.700}" },
+      "texto-secundario":{ "$value": "{color.neutro.500}" },
+      "pista-progreso":  { "$value": "{color.neutro.300}" },
+      "tooltip-fondo":   { "$value": "{color.neutro.700}" },
+      "chip-subida":     { "$value": "{color.naranja.100}" },
+      "chip-neutro":     { "$value": "{color.neutro.200}" }
+    }
+  },
+  "paleta": {
+    "$description": "Orden de asignación cuando las series no tienen rol. Techo general: 6 series.",
+    "categorica": { "$type": "color", "$value": ["{color.naranja.500}", "{color.neutro.600}", "{color.naranja.300}", "{color.neutro.400}", "{color.naranja.700}", "{color.naranja.200}"] },
+    "lineas":     { "$type": "color", "$value": ["{color.naranja.500}", "{color.neutro.600}", "{color.naranja.700}", "{color.neutro.500}"] }
+  },
+  "tipografia": {
+    "familia": { "$type": "fontFamily", "$value": ["Titillium Web", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"], "$description": "Pesos 400, 600 y 700 (Google Fonts)." },
+    "estilo": {
+      "kpi-valor":      { "$type": "typography", "$value": { "fontSize": "44px", "lineHeight": "48px", "fontWeight": 700, "letterSpacing": "-0.01em" }, "$description": "30px/34px en tarjetas de menos de 300px." },
+      "kpi-unidad":     { "$type": "typography", "$value": { "fontSize": "18px", "fontWeight": 600 } },
+      "kpi-titulo":     { "$type": "typography", "$value": { "fontSize": "11px", "lineHeight": "14px", "fontWeight": 400 } },
+      "titulo-grafico": { "$type": "typography", "$value": { "fontSize": "14px", "lineHeight": "18px", "fontWeight": 600 } },
+      "subtitulo":      { "$type": "typography", "$value": { "fontSize": "11px", "lineHeight": "14px", "fontWeight": 400 } },
+      "eje-leyenda":    { "$type": "typography", "$value": { "fontSize": "11px", "fontWeight": 400 } },
+      "etiqueta-dato":  { "$type": "typography", "$value": { "fontSize": "11px", "fontWeight": 600 } },
+      "donut-centro":   { "$type": "typography", "$value": { "fontSize": "26px", "lineHeight": "30px", "fontWeight": 700 } },
+      "contexto":       { "$type": "typography", "$value": { "fontSize": "12px", "lineHeight": "17px", "fontWeight": 400 } }
+    }
+  },
+  "medida": {
+    "$type": "dimension",
+    "hueco-rejilla":     { "$value": "16px" },
+    "tarjeta-padding":   { "$value": "20px 24px 24px", "$type": "other" },
+    "tarjeta-radio":     { "$value": "8px" },
+    "tarjeta-borde":     { "$value": "1px" },
+    "alto-grafico":      { "$value": "260px" },
+    "min-columna":       { "$value": "320px", "$description": "Rejilla de gráficos: 3 columnas en escritorio." },
+    "min-columna-kpi":   { "$value": "220px" },
+    "barra-ancho-max":   { "$value": "32px" },
+    "barra-radio":       { "$value": "2px", "$description": "Solo esquinas superiores." },
+    "progreso-alto":     { "$value": "16px" },
+    "chip-alto":         { "$value": "24px" },
+    "chip-radio":        { "$value": "12px" },
+    "donut-diametro":    { "$value": "184px", "$description": "Anillo del 62 % al 96 % del radio, separación de 2px en blanco." },
+    "sparkline-alto":    { "$value": "56px" },
+    "tooltip-radio":     { "$value": "6px" }
+  },
+  "trazo": {
+    "linea-principal": { "$type": "dimension", "$value": "2.5px" },
+    "linea-secundaria":{ "$type": "dimension", "$value": "2px" },
+    "objetivo":        { "$type": "strokeStyle", "$value": { "dashArray": ["4px", "4px"], "lineCap": "butt" }, "$description": "1px, color {color.rol.objetivo}." },
+    "prevision":       { "$type": "strokeStyle", "$value": { "dashArray": ["6px", "4px"], "lineCap": "butt" } }
+  },
+  "limites": {
+    "$description": "Reglas que comprueba el validador del kit.",
+    "series-max": { "$value": 6 },
+    "barras-agrupadas": { "$value": { "seriesMax": 3, "categoriasMax": 6, "negativos": false, "ejeDesdeCero": true } },
+    "lineas":           { "$value": { "seriesMax": 4, "objetivoComoSerie": false } },
+    "donut":            { "$value": { "partesMin": 2, "partesMax": 6, "agruparEnOtros": true } },
+    "barras-progreso":  { "$value": { "barrasMax": 8 } },
+    "kpi-sparkline":    { "$value": { "puntosMin": 3 } },
+    "kpi-contexto":     { "$value": { "frasesMax": 2 } }
+  },
+  "formato": {
+    "$description": "Formato español de números.",
+    "locale": { "$value": "es-ES" },
+    "miles": { "$value": "." },
+    "decimales": { "$value": "," },
+    "negativo": { "$value": "−", "$description": "Signo menos tipográfico (U+2212)." },
+    "espacio-unidad": { "$value": "U+00A0", "$description": "Espacio de no separación entre número y unidad." },
+    "abreviatura": { "$value": { "desde1e6": "M (14,2 M€)", "desde1e4": "mil (350 mil €)" } }
+  }
+}
