@@ -92,3 +92,11 @@ Campos comunes: `tipo`, `titulo` y `unidad` (obligatorios, por ejemplo `"€"`, 
 - No uses Chart.js, D3, Recharts ni gráficos SVG propios para lo que cubre este kit.
 - No formatees los números en los datos (`"14,2 M€"` es un error; usa `14204022` y `abreviar:true`).
 - Si necesitas un gráfico que no está en la tabla, dilo al usuario en vez de inventarlo.
+
+## 7. Si el script no carga
+
+Si tu entorno de vista previa bloquea scripts externos, díselo al usuario: la página funcionará al abrirla en el navegador o al alojarla en un servidor. No reproduzcas el kit a mano.
+
+En servidores internos sin salida a internet, aloja el script y llama antes a `EG.configurar({ echarts: ['https://…/echarts.min.js'], fuente: 'https://…/titillium.css' })`.
+
+Fuera de la web (presentaciones, documentos impresos) el kit v0 aún no tiene modo propio: aplica los valores de `tokens.json` y las reglas de este documento, y avisa al usuario de que es una aproximación.
