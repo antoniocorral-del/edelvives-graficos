@@ -19,6 +19,15 @@ Contenido:
 
 ## URL pública
 
-`https://cdn.jsdelivr.net/gh/antoniocorral-del/edelvives-graficos@v0.1.0/dist/edelvives-graficos.js`
+`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.1.0/dist/edelvives-graficos.js`
 
-Para una versión nueva: sube los cambios al repositorio, crea una release con la etiqueta siguiente (por ejemplo `v0.2.0`) y cambia la versión en la URL de `DESIGN.md`.
+El kit se publica en npm (paquete `edelvives-graficos`) y jsDelivr lo sirve desde ahí. Es la misma URL para la skill de Claude (incluidos los artefactos publicados), los Gems de Gemini, los GPT de ChatGPT y los servidores de Edelvives.
+
+Para una versión nueva:
+
+1. Sube los cambios al repositorio.
+2. Cambia `version` en `package.json` (por ejemplo `0.2.0`) y la versión en la URL de `DESIGN.md`.
+3. Publica con `npm publish` desde la carpeta del repositorio.
+4. Actualiza la URL y la copia de `dist/edelvives-graficos.js` en la skill de Claude.
+
+Un número de versión publicado en npm no se puede reutilizar: cada cambio necesita una versión nueva.

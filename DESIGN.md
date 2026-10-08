@@ -5,7 +5,7 @@ Usa este kit para cualquier gráfico o KPI en páginas web de Edelvives. Tú esc
 ## 1. Carga
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/antoniocorral-del/edelvives-graficos@v0.1.0/dist/edelvives-graficos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.1.0/dist/edelvives-graficos.js"></script>
 ```
 
 Ponlo en el `<head>`, con esta URL exacta. El script carga por su cuenta ECharts y la fuente Titillium Web. No lo copies ni lo reescribas dentro del HTML.
