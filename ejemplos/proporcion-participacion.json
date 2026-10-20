@@ -1,0 +1,21 @@
+{
+  "tipo": "proporcion",
+  "variante": "participacion",
+  "titulo": "Participación por canal",
+  "unidad": "%",
+  "periodo": "Septiembre",
+  "datos": {
+    "categorias": [
+      "Distribuidores",
+      "Venta directa",
+      "Tienda online",
+      "Librerías"
+    ],
+    "valores": [
+      42,
+      31,
+      18,
+      9
+    ]
+  }
+}

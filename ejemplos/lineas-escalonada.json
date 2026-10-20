@@ -1,0 +1,41 @@
+{
+  "tipo": "lineas",
+  "variante": "escalonada",
+  "titulo": "Tarifa de envío a colegios",
+  "unidad": "€",
+  "decimales": 2,
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Tarifa por pedido",
+        "valores": [
+          3.5,
+          3.5,
+          4.2,
+          4.2,
+          4.2,
+          4.2,
+          5.1,
+          5.1,
+          4.8,
+          4.8,
+          5.6
+        ]
+      }
+    ]
+  }
+}

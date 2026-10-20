@@ -1,0 +1,40 @@
+{
+  "tipo": "red",
+  "variante": "radial",
+  "titulo": "Relaciones del centro educativo",
+  "datos": {
+    "centro": "Centro educativo",
+    "enlaces": [
+      {
+        "origen": "Docentes",
+        "destino": "Centro educativo",
+        "relacion": "ejercen"
+      },
+      {
+        "origen": "Alumnos",
+        "destino": "Centro educativo",
+        "relacion": "cursan"
+      },
+      {
+        "origen": "Materiales",
+        "destino": "Centro educativo",
+        "relacion": "usan"
+      },
+      {
+        "origen": "Centro educativo",
+        "destino": "Pedidos",
+        "relacion": "realizan"
+      },
+      {
+        "origen": "Contratos",
+        "destino": "Centro educativo",
+        "relacion": "firman"
+      },
+      {
+        "origen": "Centro educativo",
+        "destino": "Incidencias",
+        "relacion": "abren"
+      }
+    ]
+  }
+}

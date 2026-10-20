@@ -1,0 +1,5 @@
+{"tipo":"arbol","variante":"organigrama","titulo":"Equipo editorial","destacar":"Digital",
+ "datos":{"arbol":{"nombre":"Dirección","hijos":[
+   {"nombre":"Infantil","hijos":["Edición","Diseño"]},
+   {"nombre":"Primaria","hijos":["Digital"]},
+   {"nombre":"Secundaria","hijos":["Edición","Diseño"]}]}}}

@@ -1,0 +1,41 @@
+{
+  "tipo": "areas",
+  "variante": "simple",
+  "titulo": "Usuarios activos en la plataforma",
+  "unidad": "usuarios",
+  "abreviar": true,
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Usuarios activos",
+        "valores": [
+          32100,
+          38400,
+          35700,
+          44800,
+          48200,
+          51900,
+          50300,
+          57600,
+          61800,
+          60200,
+          73400
+        ]
+      }
+    ]
+  }
+}

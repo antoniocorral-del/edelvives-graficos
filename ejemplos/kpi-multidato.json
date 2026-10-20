@@ -1,0 +1,20 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos por día (media)",
+  "unidad": "pedidos",
+  "valor": 184,
+  "secundarios": [
+    {
+      "etiqueta": "Mínimo",
+      "valor": 96
+    },
+    {
+      "etiqueta": "Mediana",
+      "valor": 176
+    },
+    {
+      "etiqueta": "Máximo",
+      "valor": 312
+    }
+  ]
+}

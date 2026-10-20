@@ -1,0 +1,97 @@
+{
+  "tipo": "red",
+  "titulo": "Colaboración entre centros",
+  "nombreCasos": "centros",
+  "datos": {
+    "enlaces": [
+      {
+        "origen": "Santa Ana",
+        "destino": "El Pilar"
+      },
+      {
+        "origen": "Santa Ana",
+        "destino": "Moncayo"
+      },
+      {
+        "origen": "Santa Ana",
+        "destino": "Río Ebro"
+      },
+      {
+        "origen": "Santa Ana",
+        "destino": "Pirineos"
+      },
+      {
+        "origen": "Santa Ana",
+        "destino": "Ebro Norte"
+      },
+      {
+        "origen": "El Pilar",
+        "destino": "Moncayo"
+      },
+      {
+        "origen": "Río Ebro",
+        "destino": "Pirineos"
+      },
+      {
+        "origen": "Pirineos",
+        "destino": "Ebro Norte"
+      },
+      {
+        "origen": "San José",
+        "destino": "La Salle"
+      },
+      {
+        "origen": "San José",
+        "destino": "Corazonistas"
+      },
+      {
+        "origen": "San José",
+        "destino": "Escolapias"
+      },
+      {
+        "origen": "San José",
+        "destino": "Jesuitinas"
+      },
+      {
+        "origen": "La Salle",
+        "destino": "Corazonistas"
+      },
+      {
+        "origen": "Escolapias",
+        "destino": "Jesuitinas"
+      },
+      {
+        "origen": "Valdespartera",
+        "destino": "Arcosur"
+      },
+      {
+        "origen": "Valdespartera",
+        "destino": "Parque Venecia"
+      },
+      {
+        "origen": "Valdespartera",
+        "destino": "Rosales"
+      },
+      {
+        "origen": "Arcosur",
+        "destino": "Rosales"
+      },
+      {
+        "origen": "Santa Ana",
+        "destino": "San José"
+      },
+      {
+        "origen": "Ebro Norte",
+        "destino": "Escolapias"
+      },
+      {
+        "origen": "Santa Ana",
+        "destino": "Valdespartera"
+      },
+      {
+        "origen": "San José",
+        "destino": "Valdespartera"
+      }
+    ]
+  }
+}

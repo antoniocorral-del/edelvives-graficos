@@ -1,0 +1,54 @@
+{
+  "tipo": "barras",
+  "variante": "apiladas",
+  "titulo": "Ventas por delegación y canal",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Norte",
+      "Centro",
+      "Este",
+      "Sur"
+    ],
+    "series": [
+      {
+        "nombre": "Colegios",
+        "valores": [
+          1050000,
+          2420000,
+          1612064,
+          1830000
+        ]
+      },
+      {
+        "nombre": "Librerías",
+        "valores": [
+          520000,
+          980000,
+          887990,
+          1050000
+        ]
+      },
+      {
+        "nombre": "Online",
+        "valores": [
+          180000,
+          410000,
+          243968,
+          220000
+        ]
+      },
+      {
+        "nombre": "Otros",
+        "valores": [
+          83166,
+          152215,
+          115074,
+          49432
+        ]
+      }
+    ]
+  }
+}

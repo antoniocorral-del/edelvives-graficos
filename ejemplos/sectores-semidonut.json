@@ -1,0 +1,24 @@
+{
+  "tipo": "sectores",
+  "variante": "semidonut",
+  "titulo": "Adopciones por etapa",
+  "unidad": "centros",
+  "periodo": "Curso 2026-2027",
+  "datos": {
+    "categorias": [
+      "Primaria",
+      "Infantil",
+      "ESO",
+      "Bachillerato"
+    ],
+    "valores": [
+      570,
+      347,
+      198,
+      125
+    ]
+  },
+  "centro": {
+    "etiqueta": "Centros con adopción"
+  }
+}

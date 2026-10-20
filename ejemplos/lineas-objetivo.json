@@ -1,0 +1,41 @@
+{
+  "tipo": "lineas",
+  "variante": "objetivo",
+  "titulo": "Centros activos en la plataforma",
+  "unidad": "centros",
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Centros activos",
+        "valores": [
+          318,
+          372,
+          351,
+          438,
+          466,
+          512,
+          498,
+          571,
+          618,
+          604,
+          742
+        ]
+      }
+    ],
+    "objetivo": 600
+  }
+}

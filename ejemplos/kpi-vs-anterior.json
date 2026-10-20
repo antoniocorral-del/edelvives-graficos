@@ -1,0 +1,10 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "anterior": {
+    "valor": 1184,
+    "etiqueta": "Mes anterior"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "tipo": "lineas",
+  "variante": "simple",
+  "titulo": "Pedidos mensuales",
+  "unidad": "pedidos",
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Pedidos",
+        "valores": [
+          3210,
+          3780,
+          3540,
+          4410,
+          4720,
+          5160,
+          5030,
+          5790,
+          6180,
+          6020,
+          7350
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos por canal",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "desglose": {
+    "categorias": [
+      "Web",
+      "Tienda",
+      "Delegado"
+    ],
+    "valores": [
+      668,
+      398,
+      218
+    ]
+  }
+}

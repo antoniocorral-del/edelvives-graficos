@@ -1,0 +1,28 @@
+{
+  "tipo": "barras-divergentes",
+  "variante": "centro",
+  "titulo": "Variación de ventas por comunidad",
+  "unidad": "%",
+  "decimales": 1,
+  "referencia": "vs. ene–sep 2025",
+  "datos": {
+    "categorias": [
+      "Andalucía",
+      "Aragón",
+      "Canarias",
+      "Cataluña",
+      "Galicia",
+      "Comunidad de Madrid",
+      "País Vasco"
+    ],
+    "valores": [
+      4.2,
+      -3.1,
+      -8.6,
+      6.8,
+      1.5,
+      9.4,
+      -1.2
+    ]
+  }
+}

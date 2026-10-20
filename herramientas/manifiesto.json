@@ -1,0 +1,2575 @@
+{
+ "$comentario": "Manifiesto del sistema de gráficos y métricas Edelvives. Relaciona cada componente del catálogo de Figma con el tipo y la variante del kit que lo dibuja, su estado y la tanda en que se implementa. Es una herramienta de trabajo del repositorio, no forma parte del paquete npm.",
+ "version": "0.9",
+ "fecha": "2026-10-19",
+ "fuente": {
+  "figma": "Gráficos y métricas Edelvives",
+  "fileKey": "G67co0mI352BbRLMkZMnun",
+  "url": "https://www.figma.com/design/G67co0mI352BbRLMkZMnun"
+ },
+ "kit": {
+  "paquete": "edelvives-graficos",
+  "version_actual": "0.9.0",
+  "motor_actual": "ECharts 6.1.0",
+  "medios_actuales": [
+   "web"
+  ]
+ },
+ "convenciones": {
+  "estado_componente": {
+   "implementado": "el kit 0.1.0 ya lo dibuja",
+   "parcial": "el kit lo cubre en parte",
+   "pendiente": "no existe en el kit"
+  },
+  "estado_tipo": {
+   "nuevo": "tipo que no existe",
+   "ampliar": "tipo que existe (o tiene alias) y gana variantes",
+   "completo": "sin trabajo pendiente"
+  },
+  "alias": "Los nombres de tipo de la 0.1.0 se mantienen como alias durante toda la serie 0.x para no romper lo ya generado.",
+  "tanda_componente": "Tanda de la familia del componente: cuándo se entrega y se valida.",
+  "tanda_tipo": "Tanda en la que se crea el tipo; otras familias lo reutilizan después."
+ },
+ "resumen": {
+  "componentes_figma": 157,
+  "graficos": 144,
+  "patrones_kpi": 22,
+  "tipos_del_kit_previstos": 47,
+  "implementados": 157,
+  "parciales": 0,
+  "pendientes": 0
+ },
+ "tandas": [
+  {
+   "tanda": 1,
+   "nombre": "Comparación",
+   "familias": [
+    "03 · Comparación"
+   ],
+   "version_objetivo": "0.2.0",
+   "tipos_de_la_tanda": [
+    "barras",
+    "barras-divergentes",
+    "puntos",
+    "dos-momentos",
+    "bullet",
+    "ranking",
+    "tabla"
+   ],
+   "componentes": 18,
+   "ya_implementados": 18,
+   "parciales": 0,
+   "nota": "Incluye el paso a ECharts 6.1.0 y la división de la guía en DESIGN.md + referencias por familia.",
+   "referencias": [
+    "referencias/comparacion.md"
+   ],
+   "estado": "hecha (0.2.0)"
+  },
+  {
+   "tanda": 2,
+   "nombre": "Evolución y tendencias",
+   "familias": [
+    "04 · Evolución y tendencias"
+   ],
+   "version_objetivo": "0.3.0",
+   "tipos_de_la_tanda": [
+    "lineas",
+    "areas",
+    "sparkline"
+   ],
+   "componentes": 16,
+   "ya_implementados": 16,
+   "parciales": 0,
+   "referencias": [
+    "referencias/evolucion.md"
+   ],
+   "estado": "hecha (0.3.0)",
+   "nota": "Las especificaciones de lineas de la 0.1 y la 0.2 siguen siendo válidas."
+  },
+  {
+   "tanda": 3,
+   "nombre": "Patrones de KPI · Objetivos y cumplimiento",
+   "familias": [
+    "15 · Patrones de KPI",
+    "10 · Objetivos y cumplimiento"
+   ],
+   "version_objetivo": "0.4.0",
+   "tipos_de_la_tanda": [
+    "kpi",
+    "kpi-rejilla",
+    "progreso"
+   ],
+   "componentes": 31,
+   "ya_implementados": 31,
+   "parciales": 0,
+   "nota": "kpi con bloques: valor + 1 comparación + 1 visual + contexto. Los kpi-* de la 0.1 son alias.",
+   "referencias": [
+    "referencias/kpi.md",
+    "referencias/objetivos.md"
+   ],
+   "estado": "hecha (0.4.0)"
+  },
+  {
+   "tanda": 4,
+   "nombre": "Composición · Variación",
+   "familias": [
+    "05 · Composición",
+    "08 · Variación"
+   ],
+   "version_objetivo": "0.5.0 (Composición) · 0.5.1 (Variación)",
+   "tipos_de_la_tanda": [
+    "sectores",
+    "treemap",
+    "proporcion",
+    "marimekko",
+    "cascada",
+    "descomposicion"
+   ],
+   "componentes": 20,
+   "ya_implementados": 20,
+   "parciales": 0,
+   "referencias": [
+    "referencias/composicion.md",
+    "referencias/variacion.md"
+   ],
+   "estado": "hecha (0.5.0 Composición · 0.5.1 Variación)"
+  },
+  {
+   "tanda": 5,
+   "nombre": "Distribución · Relación y correlación",
+   "familias": [
+    "06 · Distribución",
+    "07 · Relación y correlación"
+   ],
+   "version_objetivo": "0.6.0 (Distribución) · 0.6.1 (Relación y correlación)",
+   "tipos_de_la_tanda": [
+    "histograma",
+    "cajas",
+    "casos",
+    "distribucion",
+    "percentiles",
+    "rangos",
+    "dispersion",
+    "matriz",
+    "radar",
+    "coordenadas-paralelas"
+   ],
+   "componentes": 25,
+   "ya_implementados": 25,
+   "parciales": 0,
+   "referencias": [
+    "referencias/distribucion.md",
+    "referencias/relacion.md"
+   ],
+   "estado": "hecha (0.6.0 Distribución · 0.6.1 Relación y correlación)",
+   "nota": "Partida en dos como la 4: 5a Distribución (13 componentes, 6 tipos) y 5b Relación y correlación (12 componentes, 4 tipos)."
+  },
+  {
+   "tanda": 6,
+   "nombre": "Procesos y conversión · Temporal especializado",
+   "familias": [
+    "09 · Procesos y conversión",
+    "14 · Temporal especializado"
+   ],
+   "version_objetivo": "0.7.0 (Procesos y conversión) · 0.7.1 (Temporal especializado)",
+   "tipos_de_la_tanda": [
+    "embudo",
+    "etapas",
+    "recorrido",
+    "cronologia",
+    "gantt",
+    "calendario",
+    "dos-periodos",
+    "ciclo-vida"
+   ],
+   "componentes": 17,
+   "ya_implementados": 17,
+   "parciales": 0,
+   "referencias": [
+    "referencias/procesos.md",
+    "referencias/temporal.md"
+   ],
+   "estado": "hecha (0.7.0 Procesos y conversión · 0.7.1 Temporal especializado)",
+   "nota": "Partida en dos como la 4 y la 5: 6a Procesos y conversión (7 componentes, 3 tipos) y 6b Temporal especializado (10 componentes, 5 tipos más la variante matriz · cohortes). El tipo de la comparación entre periodos se llama dos-periodos (no periodos) para no confundirlo con datos.periodos."
+  },
+  {
+   "tanda": 7,
+   "nombre": "Jerarquía · Flujo y relaciones",
+   "familias": [
+    "11 · Jerarquía",
+    "12 · Flujo y relaciones"
+   ],
+   "version_objetivo": "0.8.0 (Jerarquía) · 0.8.1 (Flujo y relaciones)",
+   "tipos_de_la_tanda": [
+    "particion",
+    "circulos-anidados",
+    "arbol",
+    "anidados",
+    "sankey",
+    "cuerdas",
+    "flujo",
+    "red"
+   ],
+   "componentes": 18,
+   "ya_implementados": 18,
+   "parciales": 0,
+   "referencias": [
+    "referencias/jerarquia.md",
+    "referencias/flujo.md"
+   ],
+   "estado": "hecha (0.8.0 Jerarquía, 0.8.1 Flujo y relaciones)",
+   "nota": "Partida en dos: 7a Jerarquía (9 componentes: tipos particion, circulos-anidados, arbol y anidados, y las variantes treemap · jerarquico y tabla · jerarquica) y 7b Flujo y relaciones (9 componentes: sankey, cuerdas, flujo y red). Formato de datos común de Jerarquía: árbol anidado o filas planas, con los valores en los elementos finales."
+  },
+  {
+   "tanda": 8,
+   "nombre": "Geografía",
+   "familias": [
+    "13 · Geografía"
+   ],
+   "version_objetivo": "0.9.0",
+   "tipos_de_la_tanda": [
+    "mapa",
+    "cartograma"
+   ],
+   "componentes": 12,
+   "ya_implementados": 12,
+   "parciales": 0,
+   "nota": "Cartografía: BDDAE del IGN (CC BY 4.0), España por comunidades y por provincias, preparada con herramientas/mapas.py y cargada aparte (dist/mapas/*.js) solo al dibujar un mapa.",
+   "referencias": [
+    "referencias/geografia.md"
+   ],
+   "estado": "hecha (0.9.0)"
+  }
+ ],
+ "tipos": {
+  "barras": {
+   "pregunta": "¿Cuánto vale cada categoría y cómo se comparan?",
+   "tanda": 1,
+   "motor": "echarts:bar",
+   "estado": "completo",
+   "variantes": [
+    "verticales",
+    "horizontales",
+    "agrupadas",
+    "apiladas",
+    "apiladas-100",
+    "con-referencia",
+    "vs-anterior",
+    "vs-prevision"
+   ],
+   "alias": [
+    "barras-agrupadas"
+   ],
+   "componentes": 9
+  },
+  "barras-divergentes": {
+   "pregunta": "¿Qué queda por encima o por debajo de un punto de referencia?",
+   "tanda": 1,
+   "motor": "echarts:bar",
+   "estado": "completo",
+   "variantes": [
+    "centro",
+    "piramide",
+    "desviacion",
+    "desviacion-pct",
+    "contribucion",
+    "desviacion-objetivo"
+   ],
+   "componentes": 7
+  },
+  "puntos": {
+   "pregunta": "¿Cómo se comparan muchas categorías con poca tinta?",
+   "tanda": 1,
+   "motor": "echarts:scatter+custom",
+   "estado": "completo",
+   "variantes": [
+    "puntos",
+    "piruleta"
+   ],
+   "componentes": 2
+  },
+  "dos-momentos": {
+   "pregunta": "¿Cuánto ha cambiado cada categoría entre dos momentos?",
+   "tanda": 1,
+   "motor": "echarts:custom",
+   "estado": "completo",
+   "variantes": [
+    "pesas",
+    "pendiente",
+    "antes-despues"
+   ],
+   "componentes": 3
+  },
+  "bullet": {
+   "pregunta": "¿Cuánto se ha logrado frente al objetivo y a los rangos de calidad?",
+   "tanda": 1,
+   "motor": "echarts:custom",
+   "estado": "completo",
+   "variantes": [
+    "horizontal"
+   ],
+   "componentes": 1
+  },
+  "ranking": {
+   "pregunta": "¿Qué posición ocupa cada elemento?",
+   "tanda": 1,
+   "motor": "html+echarts:line",
+   "estado": "completo",
+   "variantes": [
+    "lista",
+    "evolucion"
+   ],
+   "componentes": 2
+  },
+  "tabla": {
+   "pregunta": "¿Qué cifra exacta o qué estado tiene cada elemento?",
+   "tanda": 1,
+   "motor": "html",
+   "estado": "completo",
+   "variantes": [
+    "comparativa",
+    "con-barras",
+    "con-estados",
+    "scorecard",
+    "semaforo",
+    "jerarquica"
+   ],
+   "componentes": 6
+  },
+  "lineas": {
+   "pregunta": "¿Cómo evoluciona una magnitud en el tiempo?",
+   "tanda": 2,
+   "motor": "echarts:line",
+   "estado": "completo",
+   "variantes": [
+    "simple",
+    "multiples",
+    "escalonada",
+    "tendencia",
+    "acumulada",
+    "media-movil",
+    "referencia",
+    "objetivo",
+    "prevision",
+    "vs-prevision",
+    "vs-anterior"
+   ],
+   "componentes": 11
+  },
+  "areas": {
+   "pregunta": "¿Cuánto volumen acumula y cómo cambia su composición en el tiempo?",
+   "tanda": 2,
+   "motor": "echarts:line(area)",
+   "estado": "completo",
+   "variantes": [
+    "simple",
+    "superpuestas",
+    "apiladas",
+    "apiladas-100"
+   ],
+   "componentes": 4
+  },
+  "sparkline": {
+   "pregunta": "¿Cuál es la tendencia de un vistazo, sin ejes?",
+   "tanda": 2,
+   "motor": "svg",
+   "estado": "completo",
+   "variantes": [
+    "linea"
+   ],
+   "componentes": 1
+  },
+  "kpi": {
+   "pregunta": "¿Cuánto vale la métrica y qué la acompaña?",
+   "tanda": 3,
+   "motor": "html+svg",
+   "estado": "completo",
+   "variantes": [
+    "simple",
+    "unidad",
+    "contexto",
+    "variacion",
+    "tendencia",
+    "objetivo",
+    "progreso",
+    "vs-anterior",
+    "vs-objetivo",
+    "vs-prevision",
+    "sparkline",
+    "estado",
+    "ranking",
+    "comparativo",
+    "compuesto",
+    "multidato",
+    "desglose",
+    "mini-barras",
+    "selector-periodo",
+    "benchmark",
+    "logro"
+   ],
+   "alias": [
+    "kpi-simple",
+    "kpi-variacion",
+    "kpi-objetivo",
+    "kpi-sparkline",
+    "kpi-contexto"
+   ],
+   "componentes": 21
+  },
+  "kpi-rejilla": {
+   "pregunta": "¿Cómo están varios KPI a la vez frente a sus objetivos?",
+   "tanda": 3,
+   "motor": "html",
+   "estado": "completo",
+   "variantes": [
+    "scorecard"
+   ],
+   "componentes": 1
+  },
+  "progreso": {
+   "pregunta": "¿Cuánto avance lleva cada meta y cuánto falta?",
+   "tanda": 3,
+   "motor": "html+echarts:gauge",
+   "estado": "completo",
+   "variantes": [
+    "barras",
+    "anillo",
+    "medidor",
+    "ritmo",
+    "distancia"
+   ],
+   "alias": [
+    "barras-progreso"
+   ],
+   "componentes": 5
+  },
+  "sectores": {
+   "pregunta": "¿Qué parte del total es cada categoría?",
+   "tanda": 4,
+   "motor": "echarts:pie",
+   "estado": "completo",
+   "variantes": [
+    "donut",
+    "pie",
+    "semidonut"
+   ],
+   "alias": [
+    "donut"
+   ],
+   "componentes": 3
+  },
+  "treemap": {
+   "pregunta": "¿Qué peso relativo tiene cada parte en un total con muchas partes?",
+   "tanda": 4,
+   "motor": "echarts:treemap",
+   "estado": "completo",
+   "variantes": [
+    "plano",
+    "jerarquico"
+   ],
+   "componentes": 2,
+   "nota": "plano (0.5.0) y jerarquico (0.8.0)."
+  },
+  "proporcion": {
+   "pregunta": "¿Qué proporción o cuota representa una parte?",
+   "tanda": 4,
+   "motor": "html+svg",
+   "estado": "completo",
+   "variantes": [
+    "barra",
+    "cuota",
+    "participacion",
+    "waffle"
+   ],
+   "componentes": 4
+  },
+  "marimekko": {
+   "pregunta": "¿Cómo se reparte el total entre grupos de distinto tamaño?",
+   "tanda": 4,
+   "motor": "echarts:custom",
+   "estado": "completo",
+   "variantes": [
+    "marimekko"
+   ],
+   "componentes": 1
+  },
+  "cascada": {
+   "pregunta": "¿Cómo se pasa del valor inicial al final y qué aporta cada factor?",
+   "tanda": 4,
+   "motor": "echarts:bar(apilada)",
+   "estado": "completo",
+   "variantes": [
+    "vertical",
+    "horizontal"
+   ],
+   "componentes": 2
+  },
+  "descomposicion": {
+   "pregunta": "¿Qué tendencia, estacionalidad y residuo forman la serie?",
+   "tanda": 4,
+   "motor": "echarts:line(paneles)",
+   "estado": "completo",
+   "variantes": [
+    "paneles"
+   ],
+   "componentes": 1
+  },
+  "histograma": {
+   "pregunta": "¿Cómo se distribuyen los valores de una variable continua?",
+   "tanda": 5,
+   "motor": "echarts:custom",
+   "estado": "completo",
+   "variantes": [
+    "histograma"
+   ],
+   "componentes": 1
+  },
+  "cajas": {
+   "pregunta": "¿Cuál es la mediana, la dispersión y los atípicos de cada grupo?",
+   "tanda": 5,
+   "motor": "echarts:custom+scatter",
+   "estado": "completo",
+   "variantes": [
+    "caja",
+    "violin"
+   ],
+   "componentes": 2
+  },
+  "casos": {
+   "pregunta": "¿Cómo se reparten los casos individuales?",
+   "tanda": 5,
+   "motor": "echarts:scatter+custom (enjambre propio)",
+   "estado": "completo",
+   "variantes": [
+    "apilados",
+    "dispersos",
+    "enjambre"
+   ],
+   "componentes": 3
+  },
+  "distribucion": {
+   "pregunta": "¿Qué forma tiene la distribución y qué porcentaje queda por debajo de un valor?",
+   "tanda": 5,
+   "motor": "echarts:line",
+   "estado": "completo",
+   "variantes": [
+    "densidad",
+    "normal",
+    "acumulada"
+   ],
+   "componentes": 3
+  },
+  "percentiles": {
+   "pregunta": "¿En qué percentil se sitúa cada elemento dentro de su grupo?",
+   "tanda": 5,
+   "motor": "echarts:bar (showBackground)",
+   "estado": "completo",
+   "variantes": [
+    "percentiles"
+   ],
+   "componentes": 1
+  },
+  "rangos": {
+   "pregunta": "¿Entre qué valores oscila cada categoría?",
+   "tanda": 5,
+   "motor": "echarts:custom",
+   "estado": "completo",
+   "variantes": [
+    "rango",
+    "min-max",
+    "intervalo"
+   ],
+   "componentes": 3
+  },
+  "dispersion": {
+   "pregunta": "¿Existe relación entre dos variables numéricas?",
+   "tanda": 5,
+   "motor": "echarts:scatter",
+   "estado": "completo",
+   "variantes": [
+    "simple",
+    "tendencia",
+    "burbujas",
+    "burbujas-categoria",
+    "cuadrantes",
+    "conectada",
+    "hexagonos"
+   ],
+   "componentes": 7
+  },
+  "matriz": {
+   "pregunta": "¿Qué valor tiene cada cruce de dos dimensiones?",
+   "tanda": 5,
+   "motor": "echarts:heatmap",
+   "estado": "completo",
+   "variantes": [
+    "correlacion-color",
+    "correlacion-valores",
+    "cohortes"
+   ],
+   "componentes": 3,
+   "nota": "Correlación hecha en la 0.6.1; cohortes, en la 0.7.1 (Temporal especializado)."
+  },
+  "radar": {
+   "pregunta": "¿Cuál es el perfil de un elemento en varias dimensiones?",
+   "tanda": 5,
+   "motor": "echarts:radar",
+   "estado": "completo",
+   "variantes": [
+    "perfil",
+    "dos-perfiles"
+   ],
+   "componentes": 2
+  },
+  "coordenadas-paralelas": {
+   "pregunta": "¿Cómo se comporta cada caso en varias variables a la vez?",
+   "tanda": 5,
+   "motor": "echarts:parallel",
+   "estado": "completo",
+   "variantes": [
+    "paralelas"
+   ],
+   "componentes": 1
+  },
+  "embudo": {
+   "pregunta": "¿Cuántos pasan de una etapa a la siguiente?",
+   "tanda": 6,
+   "motor": "echarts:custom+bar",
+   "estado": "completo",
+   "variantes": [
+    "embudo",
+    "conversion",
+    "retencion"
+   ],
+   "componentes": 3
+  },
+  "etapas": {
+   "pregunta": "¿En qué etapa está cada caso o el proceso?",
+   "tanda": 6,
+   "motor": "html (pipeline, progresion) + echarts:custom (proceso)",
+   "estado": "completo",
+   "variantes": [
+    "pipeline",
+    "proceso",
+    "progresion"
+   ],
+   "componentes": 3
+  },
+  "recorrido": {
+   "pregunta": "¿Cómo evoluciona la experiencia a lo largo del recorrido?",
+   "tanda": 6,
+   "motor": "echarts:line+graphic",
+   "estado": "completo",
+   "variantes": [
+    "experiencia"
+   ],
+   "componentes": 1
+  },
+  "cronologia": {
+   "pregunta": "¿Cuándo ocurren los hitos y eventos?",
+   "tanda": 6,
+   "motor": "echarts:custom+graphic (vertical en HTML)",
+   "estado": "completo",
+   "variantes": [
+    "hitos",
+    "carriles",
+    "vertical"
+   ],
+   "componentes": 3
+  },
+  "gantt": {
+   "pregunta": "¿Cómo se planifican y avanzan las tareas?",
+   "tanda": 6,
+   "motor": "echarts:custom",
+   "estado": "completo",
+   "variantes": [
+    "gantt"
+   ],
+   "componentes": 1
+  },
+  "calendario": {
+   "pregunta": "¿Qué ocurre cada día y qué patrón hay?",
+   "tanda": 6,
+   "motor": "echarts:custom (calor) · HTML (mes)",
+   "estado": "completo",
+   "variantes": [
+    "calor",
+    "mes"
+   ],
+   "componentes": 2
+  },
+  "dos-periodos": {
+   "pregunta": "¿Cómo se compara un periodo con otro equivalente?",
+   "tanda": 6,
+   "motor": "echarts:line+bar",
+   "estado": "completo",
+   "variantes": [
+    "superpuestos",
+    "interanual"
+   ],
+   "componentes": 2,
+   "nota": "Previsto como «periodos»; se llama dos-periodos para no confundirlo con el campo datos.periodos (y casa con dos-momentos)."
+  },
+  "ciclo-vida": {
+   "pregunta": "¿En qué fase de su ciclo de vida está?",
+   "tanda": 6,
+   "motor": "echarts:custom+graphic",
+   "estado": "completo",
+   "variantes": [
+    "fases"
+   ],
+   "componentes": 1
+  },
+  "particion": {
+   "pregunta": "¿Cómo se reparte el total nivel a nivel?",
+   "tanda": 7,
+   "motor": "echarts:sunburst (sunburst) · echarts:custom (icicle)",
+   "estado": "completo",
+   "variantes": [
+    "sunburst",
+    "icicle"
+   ],
+   "componentes": 2
+  },
+  "circulos-anidados": {
+   "pregunta": "¿Cuánto pesa cada elemento y a qué grupo pertenece?",
+   "tanda": 7,
+   "motor": "echarts:custom (empaquetado de d3-hierarchy portado al kit)",
+   "estado": "completo",
+   "variantes": [
+    "circulos"
+   ],
+   "componentes": 1
+  },
+  "arbol": {
+   "pregunta": "¿Cómo se ramifica una estructura?",
+   "tanda": 7,
+   "motor": "echarts:custom+graphic",
+   "estado": "completo",
+   "variantes": [
+    "ramas",
+    "dendrograma",
+    "organigrama"
+   ],
+   "componentes": 3,
+   "nota": "El dendrograma agrupa en el kit (enlace medio, distancia euclídea sobre variables tipificadas) o acepta el árbol con «altura»."
+  },
+  "anidados": {
+   "pregunta": "¿Qué elementos pertenecen a cada categoría y subcategoría?",
+   "tanda": 7,
+   "motor": "html",
+   "estado": "completo",
+   "variantes": [
+    "contenedores"
+   ],
+   "componentes": 1
+  },
+  "sankey": {
+   "pregunta": "¿Cómo se reparte un flujo entre origen, etapas y destino?",
+   "tanda": 7,
+   "motor": "echarts:sankey (recorrido a medida)",
+   "estado": "completo",
+   "variantes": [
+    "sankey",
+    "aluvial",
+    "recorrido"
+   ],
+   "componentes": 3
+  },
+  "cuerdas": {
+   "pregunta": "¿Qué intercambio hay entre pares de grupos?",
+   "tanda": 7,
+   "motor": "a medida (custom, como d3-chord)",
+   "estado": "completo",
+   "variantes": [
+    "cuerdas"
+   ],
+   "componentes": 1
+  },
+  "flujo": {
+   "pregunta": "¿Cuánto volumen circula entre entidades?",
+   "tanda": 7,
+   "motor": "a medida (custom)",
+   "estado": "completo",
+   "variantes": [
+    "flechas"
+   ],
+   "componentes": 1
+  },
+  "red": {
+   "pregunta": "¿Cómo se conectan los elementos?",
+   "tanda": 7,
+   "motor": "a medida (custom, fuerzas con semilla fija)",
+   "estado": "completo",
+   "variantes": [
+    "comunidades",
+    "bipartita",
+    "radial",
+    "dependencias"
+   ],
+   "componentes": 4
+  },
+  "mapa": {
+   "pregunta": "¿Cómo varía la métrica entre territorios?",
+   "tanda": 8,
+   "motor": "a medida (custom, contornos TopoJSON del IGN)",
+   "estado": "completo",
+   "variantes": [
+    "coropletas",
+    "puntos",
+    "burbujas",
+    "simbolos",
+    "rejilla",
+    "hexagonos",
+    "categorias",
+    "flujos",
+    "ruta",
+    "conexiones",
+    "con-ranking"
+   ],
+   "componentes": 11
+  },
+  "cartograma": {
+   "pregunta": "¿Cómo se comparan los territorios cuando su tamaño distorsiona la lectura?",
+   "tanda": 8,
+   "motor": "a medida (custom)",
+   "estado": "completo",
+   "variantes": [
+    "fichas"
+   ],
+   "componentes": 1
+  }
+ },
+ "componentes": [
+  {
+   "figma": "Comparación/Barras verticales",
+   "nodo": "5:100",
+   "familia": "03 · Comparación",
+   "tipo": "barras",
+   "variante": "verticales",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Barras horizontales",
+   "nodo": "5:133",
+   "familia": "03 · Comparación",
+   "tipo": "barras",
+   "variante": "horizontales",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Barras agrupadas",
+   "nodo": "5:194",
+   "familia": "03 · Comparación",
+   "tipo": "barras",
+   "variante": "agrupadas",
+   "estado": "implementado",
+   "tanda": 1,
+   "nota": "barras-agrupadas sigue funcionando como alias."
+  },
+  {
+   "figma": "Comparación/Barras apiladas",
+   "nodo": "5:257",
+   "familia": "03 · Comparación",
+   "tipo": "barras",
+   "variante": "apiladas",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Barras 100 % apiladas",
+   "nodo": "5:322",
+   "familia": "03 · Comparación",
+   "tipo": "barras",
+   "variante": "apiladas-100",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Barras divergentes",
+   "nodo": "5:362",
+   "familia": "03 · Comparación",
+   "tipo": "barras-divergentes",
+   "variante": "centro",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Barras bidireccionales",
+   "nodo": "5:412",
+   "familia": "03 · Comparación",
+   "tipo": "barras-divergentes",
+   "variante": "piramide",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Barras con referencia",
+   "nodo": "5:467",
+   "familia": "03 · Comparación",
+   "tipo": "barras",
+   "variante": "con-referencia",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Dot plot",
+   "nodo": "5:520",
+   "familia": "03 · Comparación",
+   "tipo": "puntos",
+   "variante": "puntos",
+   "estado": "implementado",
+   "tanda": 1,
+   "nota": "Mismo nombre que «Dot plot de distribución» (06)."
+  },
+  {
+   "figma": "Comparación/Lollipop chart",
+   "nodo": "5:576",
+   "familia": "03 · Comparación",
+   "tipo": "puntos",
+   "variante": "piruleta",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Dumbbell chart",
+   "nodo": "5:628",
+   "familia": "03 · Comparación",
+   "tipo": "dos-momentos",
+   "variante": "pesas",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Bullet chart",
+   "nodo": "5:683",
+   "familia": "03 · Comparación",
+   "tipo": "bullet",
+   "variante": "horizontal",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Ranking",
+   "nodo": "5:724",
+   "familia": "03 · Comparación",
+   "tipo": "ranking",
+   "variante": "lista",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Tabla comparativa",
+   "nodo": "5:779",
+   "familia": "03 · Comparación",
+   "tipo": "tabla",
+   "variante": "comparativa",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Tabla con barras",
+   "nodo": "5:824",
+   "familia": "03 · Comparación",
+   "tipo": "tabla",
+   "variante": "con-barras",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Tabla con indicadores",
+   "nodo": "5:878",
+   "familia": "03 · Comparación",
+   "tipo": "tabla",
+   "variante": "con-estados",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Slope chart",
+   "nodo": "5:932",
+   "familia": "03 · Comparación",
+   "tipo": "dos-momentos",
+   "variante": "pendiente",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Comparación/Bump chart",
+   "nodo": "5:1009",
+   "familia": "03 · Comparación",
+   "tipo": "ranking",
+   "variante": "evolucion",
+   "estado": "implementado",
+   "tanda": 1
+  },
+  {
+   "figma": "Evolución y tendencias/Gráfico de líneas",
+   "nodo": "7:74",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "simple",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Líneas múltiples",
+   "nodo": "7:128",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "multiples",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Área",
+   "nodo": "7:167",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "areas",
+   "variante": "simple",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Área múltiple",
+   "nodo": "7:214",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "areas",
+   "variante": "superpuestas",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Área apilada",
+   "nodo": "7:263",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "areas",
+   "variante": "apiladas",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Área 100 % apilada",
+   "nodo": "7:312",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "areas",
+   "variante": "apiladas-100",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Step chart",
+   "nodo": "7:352",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "escalonada",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Sparkline",
+   "nodo": "7:386",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "sparkline",
+   "variante": "linea",
+   "estado": "implementado",
+   "tanda": 2,
+   "nota": "También como columna de tabla (tipo de columna \"sparkline\")."
+  },
+  {
+   "figma": "Evolución y tendencias/Gráfico de tendencia",
+   "nodo": "7:437",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "tendencia",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Línea acumulada",
+   "nodo": "7:475",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "acumulada",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Media móvil",
+   "nodo": "7:514",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "media-movil",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Línea de referencia",
+   "nodo": "7:552",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "referencia",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Línea objetivo",
+   "nodo": "7:592",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "objetivo",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Línea de previsión",
+   "nodo": "7:634",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "prevision",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Actual vs. previsión",
+   "nodo": "7:676",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "vs-prevision",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Evolución y tendencias/Actual vs. año anterior",
+   "nodo": "7:721",
+   "familia": "04 · Evolución y tendencias",
+   "tipo": "lineas",
+   "variante": "vs-anterior",
+   "estado": "implementado",
+   "tanda": 2
+  },
+  {
+   "figma": "Composición/Pie chart",
+   "nodo": "9:47",
+   "familia": "05 · Composición",
+   "tipo": "sectores",
+   "variante": "pie",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Donut chart",
+   "nodo": "9:90",
+   "familia": "05 · Composición",
+   "tipo": "sectores",
+   "variante": "donut",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "Desde la 0.5.0 es sectores · donut; donut sigue como alias."
+  },
+  {
+   "figma": "Composición/Semidonut",
+   "nodo": "9:129",
+   "familia": "05 · Composición",
+   "tipo": "sectores",
+   "variante": "semidonut",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Treemap",
+   "nodo": "9:168",
+   "familia": "05 · Composición",
+   "tipo": "treemap",
+   "variante": "plano",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Waffle chart",
+   "nodo": "9:295",
+   "familia": "05 · Composición",
+   "tipo": "proporcion",
+   "variante": "waffle",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Marimekko",
+   "nodo": "9:354",
+   "familia": "05 · Composición",
+   "tipo": "marimekko",
+   "variante": "marimekko",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Part-to-whole",
+   "nodo": "9:395",
+   "familia": "05 · Composición",
+   "tipo": "proporcion",
+   "variante": "barra",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Indicador de cuota",
+   "nodo": "9:426",
+   "familia": "05 · Composición",
+   "tipo": "proporcion",
+   "variante": "cuota",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Composición/Indicador de participación",
+   "nodo": "9:461",
+   "familia": "05 · Composición",
+   "tipo": "proporcion",
+   "variante": "participacion",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Distribución/Histograma",
+   "nodo": "12:68",
+   "familia": "06 · Distribución",
+   "tipo": "histograma",
+   "variante": "histograma",
+   "estado": "implementado",
+   "tanda": 5,
+   "nota": "El kit calcula los intervalos a partir de los valores en bruto."
+  },
+  {
+   "figma": "Distribución/Box plot",
+   "nodo": "12:124",
+   "familia": "06 · Distribución",
+   "tipo": "cajas",
+   "variante": "caja",
+   "estado": "implementado",
+   "tanda": 5,
+   "nota": "Bigotes hasta 1,5 veces el rango intercuartílico (Tukey). Admite el resumen ya calculado."
+  },
+  {
+   "figma": "Distribución/Violin plot",
+   "nodo": "12:164",
+   "familia": "06 · Distribución",
+   "tipo": "cajas",
+   "variante": "violin",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Dot plot de distribución",
+   "nodo": "12:250",
+   "familia": "06 · Distribución",
+   "tipo": "casos",
+   "variante": "apilados",
+   "estado": "implementado",
+   "tanda": 5,
+   "nota": "Mismo nombre que «Dot plot» (03). Un punto por caso, apilados en columnas de igual ancho; con más de 100 casos, histograma."
+  },
+  {
+   "figma": "Distribución/Strip plot",
+   "nodo": "12:350",
+   "familia": "06 · Distribución",
+   "tipo": "casos",
+   "variante": "dispersos",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Beeswarm plot",
+   "nodo": "12:436",
+   "familia": "06 · Distribución",
+   "tipo": "casos",
+   "variante": "enjambre",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Density plot",
+   "nodo": "12:470",
+   "familia": "06 · Distribución",
+   "tipo": "distribucion",
+   "variante": "densidad",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Curva de distribución",
+   "nodo": "12:498",
+   "familia": "06 · Distribución",
+   "tipo": "distribucion",
+   "variante": "normal",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Distribución acumulada",
+   "nodo": "12:547",
+   "familia": "06 · Distribución",
+   "tipo": "distribucion",
+   "variante": "acumulada",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Percentile plot",
+   "nodo": "12:587",
+   "familia": "06 · Distribución",
+   "tipo": "percentiles",
+   "variante": "percentiles",
+   "estado": "implementado",
+   "tanda": 5,
+   "nota": "Acepta los percentiles o los valores en bruto con los del grupo de referencia (el kit calcula el percentil)."
+  },
+  {
+   "figma": "Distribución/Range plot",
+   "nodo": "12:642",
+   "familia": "06 · Distribución",
+   "tipo": "rangos",
+   "variante": "rango",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Min–max chart",
+   "nodo": "12:704",
+   "familia": "06 · Distribución",
+   "tipo": "rangos",
+   "variante": "min-max",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Distribución/Interval plot",
+   "nodo": "12:759",
+   "familia": "06 · Distribución",
+   "tipo": "rangos",
+   "variante": "intervalo",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Scatter plot",
+   "nodo": "14:118",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "simple",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Scatter con línea de tendencia",
+   "nodo": "14:197",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "tendencia",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Bubble chart",
+   "nodo": "14:255",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "burbujas",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Bubble scatter",
+   "nodo": "14:311",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "burbujas-categoria",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Heatmap de correlación",
+   "nodo": "14:391",
+   "familia": "07 · Relación y correlación",
+   "tipo": "matriz",
+   "variante": "correlacion-color",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Matriz de correlación",
+   "nodo": "14:466",
+   "familia": "07 · Relación y correlación",
+   "tipo": "matriz",
+   "variante": "correlacion-valores",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Hexbin plot",
+   "nodo": "14:563",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "hexagonos",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Quadrant chart",
+   "nodo": "14:610",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "cuadrantes",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Radar chart",
+   "nodo": "14:654",
+   "familia": "07 · Relación y correlación",
+   "tipo": "radar",
+   "variante": "perfil",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Spider chart",
+   "nodo": "14:714",
+   "familia": "07 · Relación y correlación",
+   "tipo": "radar",
+   "variante": "dos-perfiles",
+   "estado": "implementado",
+   "tanda": 5,
+   "nota": "Es el radar con una segunda serie."
+  },
+  {
+   "figma": "Relación y correlación/Parallel coordinates",
+   "nodo": "14:760",
+   "familia": "07 · Relación y correlación",
+   "tipo": "coordenadas-paralelas",
+   "variante": "paralelas",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Relación y correlación/Connected scatter",
+   "nodo": "14:813",
+   "familia": "07 · Relación y correlación",
+   "tipo": "dispersion",
+   "variante": "conectada",
+   "estado": "implementado",
+   "tanda": 5
+  },
+  {
+   "figma": "Variación/Waterfall chart",
+   "nodo": "16:79",
+   "familia": "08 · Variación",
+   "tipo": "cascada",
+   "variante": "vertical",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Variación/Bridge chart",
+   "nodo": "16:121",
+   "familia": "08 · Variación",
+   "tipo": "cascada",
+   "variante": "horizontal",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "Es el waterfall en horizontal."
+  },
+  {
+   "figma": "Variación/Variance chart",
+   "nodo": "16:161",
+   "familia": "08 · Variación",
+   "tipo": "barras-divergentes",
+   "variante": "desviacion",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "Con datos.categorias: barras horizontales con los rótulos de lado («lados»)."
+  },
+  {
+   "figma": "Variación/Absolute variance",
+   "nodo": "16:215",
+   "familia": "08 · Variación",
+   "tipo": "barras-divergentes",
+   "variante": "desviacion",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "Misma variante que Variance chart: con datos.periodos se dibuja en columnas sobre y bajo el cero."
+  },
+  {
+   "figma": "Variación/Percentage variance",
+   "nodo": "16:277",
+   "familia": "08 · Variación",
+   "tipo": "barras-divergentes",
+   "variante": "desviacion-pct",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Variación/Before / after",
+   "nodo": "16:334",
+   "familia": "08 · Variación",
+   "tipo": "dos-momentos",
+   "variante": "antes-despues",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "La barra del nombre crea un nivel extra en Figma."
+  },
+  {
+   "figma": "Variación/Actual vs. target",
+   "nodo": "16:380",
+   "familia": "08 · Variación",
+   "tipo": "barras",
+   "variante": "con-referencia",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "Casi duplicado de «Barras con referencia» (03). En el kit: con-referencia con cumplimiento:true (barras horizontales con el % del objetivo alcanzado)."
+  },
+  {
+   "figma": "Variación/Actual vs. previous period",
+   "nodo": "16:438",
+   "familia": "08 · Variación",
+   "tipo": "barras",
+   "variante": "vs-anterior",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Variación/Actual vs. forecast",
+   "nodo": "16:496",
+   "familia": "08 · Variación",
+   "tipo": "barras",
+   "variante": "vs-prevision",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Variación/Contribution chart",
+   "nodo": "16:535",
+   "familia": "08 · Variación",
+   "tipo": "barras-divergentes",
+   "variante": "contribucion",
+   "estado": "implementado",
+   "tanda": 4
+  },
+  {
+   "figma": "Variación/Decomposition chart",
+   "nodo": "16:563",
+   "familia": "08 · Variación",
+   "tipo": "descomposicion",
+   "variante": "paneles",
+   "estado": "implementado",
+   "tanda": 4,
+   "nota": "El kit calcula la descomposición aditiva con datos.ciclo o acepta los componentes ya calculados. El residuo es opcional (mostrarResiduo)."
+  },
+  {
+   "figma": "Procesos y conversión/Funnel chart",
+   "nodo": "17:83",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "embudo",
+   "variante": "embudo",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Procesos y conversión/Funnel de conversión",
+   "nodo": "17:123",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "embudo",
+   "variante": "conversion",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Procesos y conversión/Pipeline",
+   "nodo": "17:180",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "etapas",
+   "variante": "pipeline",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Procesos y conversión/Process flow",
+   "nodo": "17:234",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "etapas",
+   "variante": "proceso",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Procesos y conversión/Stage progression",
+   "nodo": "17:273",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "etapas",
+   "variante": "progresion",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Procesos y conversión/Retention funnel",
+   "nodo": "17:329",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "embudo",
+   "variante": "retencion",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Procesos y conversión/Customer journey",
+   "nodo": "17:370",
+   "familia": "09 · Procesos y conversión",
+   "tipo": "recorrido",
+   "variante": "experiencia",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Gauge",
+   "nodo": "18:336",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "progreso",
+   "variante": "medidor",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Progress bar",
+   "nodo": "18:370",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "progreso",
+   "variante": "barras",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Progress ring",
+   "nodo": "18:400",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "progreso",
+   "variante": "anillo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Goal progress",
+   "nodo": "18:427",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "progreso",
+   "variante": "ritmo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Achievement",
+   "nodo": "18:459",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "kpi",
+   "variante": "logro",
+   "estado": "implementado",
+   "tanda": 3,
+   "nota": "kpi con objetivo.forma \"logro\"."
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Variance to target",
+   "nodo": "18:501",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "barras-divergentes",
+   "variante": "desviacion-objetivo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Distance to target",
+   "nodo": "18:537",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "progreso",
+   "variante": "distancia",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Semáforo",
+   "nodo": "18:579",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "tabla",
+   "variante": "semaforo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Objetivos y cumplimiento/Scorecard",
+   "nodo": "18:642",
+   "familia": "10 · Objetivos y cumplimiento",
+   "tipo": "tabla",
+   "variante": "scorecard",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Jerarquía/Treemap jerárquico",
+   "nodo": "19:69",
+   "familia": "11 · Jerarquía",
+   "tipo": "treemap",
+   "variante": "jerarquico",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Sunburst",
+   "nodo": "19:107",
+   "familia": "11 · Jerarquía",
+   "tipo": "particion",
+   "variante": "sunburst",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Icicle chart",
+   "nodo": "19:141",
+   "familia": "11 · Jerarquía",
+   "tipo": "particion",
+   "variante": "icicle",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Circle packing",
+   "nodo": "19:175",
+   "familia": "11 · Jerarquía",
+   "tipo": "circulos-anidados",
+   "variante": "circulos",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Tree diagram",
+   "nodo": "19:224",
+   "familia": "11 · Jerarquía",
+   "tipo": "arbol",
+   "variante": "ramas",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Dendrogram",
+   "nodo": "19:263",
+   "familia": "11 · Jerarquía",
+   "tipo": "arbol",
+   "variante": "dendrograma",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Organizational tree",
+   "nodo": "19:304",
+   "familia": "11 · Jerarquía",
+   "tipo": "arbol",
+   "variante": "organigrama",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Jerarquía/Hierarchy diagram",
+   "nodo": "19:355",
+   "familia": "11 · Jerarquía",
+   "tipo": "tabla",
+   "variante": "jerarquica",
+   "estado": "implementado",
+   "tanda": 7,
+   "nota": "Lista indentada con barra por fila y totales plegables."
+  },
+  {
+   "figma": "Jerarquía/Nested categories",
+   "nodo": "19:394",
+   "familia": "11 · Jerarquía",
+   "tipo": "anidados",
+   "variante": "contenedores",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Sankey diagram",
+   "nodo": "21:57",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "sankey",
+   "variante": "sankey",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Alluvial diagram",
+   "nodo": "21:112",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "sankey",
+   "variante": "aluvial",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Chord diagram",
+   "nodo": "21:165",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "cuerdas",
+   "variante": "cuerdas",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Flow diagram",
+   "nodo": "21:201",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "flujo",
+   "variante": "flechas",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Network graph",
+   "nodo": "21:261",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "red",
+   "variante": "comunidades",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Node-link diagram",
+   "nodo": "21:315",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "red",
+   "variante": "bipartita",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Relationship graph",
+   "nodo": "21:366",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "red",
+   "variante": "radial",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Dependency graph",
+   "nodo": "21:421",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "red",
+   "variante": "dependencias",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Flujo y relaciones/Journey flow",
+   "nodo": "21:479",
+   "familia": "12 · Flujo y relaciones",
+   "tipo": "sankey",
+   "variante": "recorrido",
+   "estado": "implementado",
+   "tanda": 7
+  },
+  {
+   "figma": "Geografía/Mapa coroplético",
+   "nodo": "22:68",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "coropletas",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Mapa de puntos",
+   "nodo": "22:271",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "puntos",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Mapa de burbujas",
+   "nodo": "22:352",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "burbujas",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Símbolos proporcionales",
+   "nodo": "22:433",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "simbolos",
+   "estado": "implementado",
+   "tanda": 8,
+   "nota": "Como el mapa de burbujas, con cuadrados."
+  },
+  {
+   "figma": "Geografía/Mapa de calor",
+   "nodo": "22:878",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "rejilla",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Mapa de densidad",
+   "nodo": "22:1058",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "hexagonos",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Mapa de áreas",
+   "nodo": "22:1106",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "categorias",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Cartograma",
+   "nodo": "22:1188",
+   "familia": "13 · Geografía",
+   "tipo": "cartograma",
+   "variante": "fichas",
+   "estado": "implementado",
+   "tanda": 8,
+   "nota": "No necesita cartografía: podría adelantarse."
+  },
+  {
+   "figma": "Geografía/Mapa de flujo",
+   "nodo": "22:1273",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "flujos",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Mapa de rutas",
+   "nodo": "22:1357",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "ruta",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Mapa de conexiones",
+   "nodo": "22:1433",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "conexiones",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Geografía/Distribución territorial",
+   "nodo": "22:1501",
+   "familia": "13 · Geografía",
+   "tipo": "mapa",
+   "variante": "con-ranking",
+   "estado": "implementado",
+   "tanda": 8
+  },
+  {
+   "figma": "Temporal especializado/Timeline",
+   "nodo": "23:84",
+   "familia": "14 · Temporal especializado",
+   "tipo": "cronologia",
+   "variante": "hitos",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Gantt",
+   "nodo": "23:142",
+   "familia": "14 · Temporal especializado",
+   "tipo": "gantt",
+   "variante": "gantt",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Calendar heatmap",
+   "nodo": "23:361",
+   "familia": "14 · Temporal especializado",
+   "tipo": "calendario",
+   "variante": "calor",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Calendar chart",
+   "nodo": "23:463",
+   "familia": "14 · Temporal especializado",
+   "tipo": "calendario",
+   "variante": "mes",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Event timeline",
+   "nodo": "23:515",
+   "familia": "14 · Temporal especializado",
+   "tipo": "cronologia",
+   "variante": "carriles",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Milestone timeline",
+   "nodo": "23:572",
+   "familia": "14 · Temporal especializado",
+   "tipo": "cronologia",
+   "variante": "vertical",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Period comparison",
+   "nodo": "23:629",
+   "familia": "14 · Temporal especializado",
+   "tipo": "dos-periodos",
+   "variante": "superpuestos",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Year-over-year",
+   "nodo": "23:685",
+   "familia": "14 · Temporal especializado",
+   "tipo": "dos-periodos",
+   "variante": "interanual",
+   "estado": "implementado",
+   "tanda": 6,
+   "nota": "Muy próximo a «Actual vs. año anterior» (04)."
+  },
+  {
+   "figma": "Temporal especializado/Cohort timeline",
+   "nodo": "23:769",
+   "familia": "14 · Temporal especializado",
+   "tipo": "matriz",
+   "variante": "cohortes",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Temporal especializado/Lifecycle",
+   "nodo": "23:807",
+   "familia": "14 · Temporal especializado",
+   "tipo": "ciclo-vida",
+   "variante": "fases",
+   "estado": "implementado",
+   "tanda": 6
+  },
+  {
+   "figma": "Patrones de KPI/KPI simple",
+   "nodo": "25:60",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "simple",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI + unidad",
+   "nodo": "25:88",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "unidad",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI + contexto",
+   "nodo": "25:110",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "contexto",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI + variación",
+   "nodo": "25:134",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "variacion",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI + tendencia",
+   "nodo": "25:160",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "tendencia",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI + objetivo",
+   "nodo": "25:185",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "objetivo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI + progreso",
+   "nodo": "25:211",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "progreso",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI actual vs. anterior",
+   "nodo": "25:239",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "vs-anterior",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI actual vs. objetivo",
+   "nodo": "25:269",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "vs-objetivo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI actual vs. forecast",
+   "nodo": "25:298",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "vs-prevision",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con sparkline",
+   "nodo": "25:324",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "sparkline",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con indicador de estado",
+   "nodo": "25:348",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "estado",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con ranking",
+   "nodo": "25:388",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "ranking",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI comparativo",
+   "nodo": "25:416",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "comparativo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI compuesto",
+   "nodo": "25:450",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "compuesto",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI multidato",
+   "nodo": "25:479",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "multidato",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con desglose",
+   "nodo": "25:511",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "desglose",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con mini gráfico",
+   "nodo": "25:548",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "mini-barras",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con periodo",
+   "nodo": "25:575",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "selector-periodo",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/KPI con benchmark",
+   "nodo": "25:603",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi",
+   "variante": "benchmark",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/Scorecard",
+   "nodo": "25:649",
+   "familia": "15 · Patrones de KPI",
+   "tipo": "kpi-rejilla",
+   "variante": "scorecard",
+   "estado": "implementado",
+   "tanda": 3
+  },
+  {
+   "figma": "Patrones de KPI/Dashboard de KPIs",
+   "nodo": "25:701",
+   "familia": "15 · Patrones de KPI",
+   "tipo": null,
+   "variante": null,
+   "estado": "implementado",
+   "tanda": 3,
+   "nota": "Patrón de maquetación documentado en kpi.md (no es un tipo)."
+  }
+ ],
+ "decisiones_pendientes": [
+  {
+   "id": "D1",
+   "tema": "Motor",
+   "pregunta": "¿Pasamos de ECharts 5.6.0 a ECharts 6 en la tanda 1?",
+   "contexto": "ECharts 6 añade cuerdas (chord), enjambre (beeswarm) y el sistema de coordenadas matriz. Trae cambios de tema y leyenda que el kit ya sobrescribe, pero hay que probarlos. Migrar ahora afecta a 9 tipos; más tarde, a decenas.",
+   "resuelta": "Sí: ECharts 6.1.0 desde la 0.2.0. Los componentes de la 0.1 se dibujan igual."
+  },
+  {
+   "id": "D2",
+   "tema": "KPI",
+   "pregunta": "¿Un único tipo kpi con bloques combinables? ¿Cuántos bloques puede llevar a la vez?",
+   "contexto": "Sustituye a los 22 patrones de la página 15 y a los cinco kpi-* actuales.",
+   "resuelta": "Sí: un único tipo kpi con bloques; límite de valor + 1 comparación + 1 visual + contexto (0.4.0)."
+  },
+  {
+   "id": "D3",
+   "tema": "Duplicados",
+   "pregunta": "¿Se mantienen los dos Scorecard (10 y 15) y «Actual vs. target» junto a «Barras con referencia»?",
+   "contexto": "En el kit se resuelven con tipos distintos o con el mismo, pero el catálogo debería reflejarlo.",
+   "nota_kit": "En el kit (0.5.1), «Actual vs. target» se dibuja con barras · con-referencia y cumplimiento:true. Queda por decidir si el catálogo de Figma mantiene los dos componentes."
+  },
+  {
+   "id": "D4",
+   "tema": "Cartografía",
+   "pregunta": "¿Qué territorios y niveles necesita la tanda 8 y cómo se cargan?",
+   "contexto": "Los mapas exigen geometrías (comunidades, provincias, países…) que pesan; lo razonable es cargarlas bajo demanda y no dentro del script.",
+   "resuelta": "España por comunidades y por provincias con la BDDAE del IGN (CC BY 4.0). Contornos fuera del script (dist/mapas/espana-<mapa>.js, TopoJSON), cargados como script solo al dibujar un mapa y con caché; EG.configurar({ mapas }) para servidores internos (0.9.0)."
+  },
+  {
+   "id": "D5",
+   "tema": "Medios",
+   "pregunta": "¿Cuándo se añaden los modos de presentación e impresión?",
+   "contexto": "Por familia en cada tanda o en una tanda propia al terminar el modo web."
+  },
+  {
+   "id": "D6",
+   "tema": "Límites",
+   "pregunta": "¿Se armonizan los límites de series y partes con el techo de 6?",
+   "contexto": "Figma fija máximos distintos por gráfico (3, 4 o 5) y la portada dice 5; el kit admite 6 en donut."
+  },
+  {
+   "id": "D7",
+   "tema": "Umbrales de estado",
+   "pregunta": "¿Qué umbrales de cumplimiento se usan por defecto?",
+   "resuelta": "Sí: en objetivo desde el 100 % y en riesgo desde el 90 % (cada especificación puede fijar los suyos con «umbrales»). Se revisarán si el usuario lo pide."
+  },
+  {
+   "id": "D8",
+   "tema": "Avance de la progresión",
+   "pregunta": "¿El % de avance cuenta la etapa actual como alcanzada?",
+   "resuelta": "No: el kit cuenta las etapas completadas (etapa 3 de 5 = 40 %); «porcentaje» lo afina dentro de la etapa actual y «terminado: true» marca el 100 %. Decidido por criterio de exactitud (0.7.0)."
+  }
+ ],
+ "incidencias_figma": [
+  {
+   "donde": "00 · Portada",
+   "que": "La regla dice «Máximo 5 series», pero el techo decidido es 6 (el kit ya tiene series-1 a series-6)."
+  },
+  {
+   "donde": "Variables",
+   "que": "No existe la variable Naranja/200 (#FFCEA3): la escala salta de 100 a 300 en las variables y en la portada, aunque el kit sí la tiene."
+  },
+  {
+   "donde": "08 · Variación",
+   "que": "«Before / after» lleva una barra en el nombre y rompe la convención Gráfico/Familia/Nombre."
+  },
+  {
+   "donde": "03 y 06",
+   "que": "Dos componentes se llaman «Dot plot» con propósitos distintos (comparación y distribución)."
+  },
+  {
+   "donde": "05 · Composición",
+   "que": "Pie chart fija un máximo de 5 sectores; el donut del kit admite de 2 a 6."
+  },
+  {
+   "donde": "Nombres",
+   "que": "Conviven nombres en inglés y en español. El kit usa nombres de tipo en español y el manifiesto conserva el nombre de Figma como referencia."
+  },
+  {
+   "donde": "03 · Tabla con indicadores",
+   "que": "Los iconos de «En proceso» y «Pendiente» del kit (reloj y círculo con guion) no coinciden con los de Figma (círculo a medio llenar y círculo vacío). El chip «Pendiente» usa Neutro 100, como en Figma, y queda muy tenue sobre blanco."
+  },
+  {
+   "donde": "10 · Scorecard",
+   "que": "En el ejemplo de Figma, «Altas» (86 sobre 100) aparece en riesgo; con los umbrales por defecto 100/90 saldría fuera. Revisar el ejemplo de Figma."
+  },
+  {
+   "donde": "05 · Composición / Indicador de cuota",
+   "que": "Repite el título («Cuota de mercado») dentro del componente; en el kit el título va solo en la tarjeta."
+  },
+  {
+   "donde": "05 · Composición / Treemap",
+   "que": "No indica máximo de partes; el kit usa 7 rectángulos (6 colores de la paleta + «Otros» en Neutro 300)."
+  },
+  {
+   "donde": "08 · Decomposition chart",
+   "que": "La pregunta menciona tendencia, estacionalidad y residuo, pero el componente solo dibuja tres paneles (sin residuo). El kit añade el residuo como cuarto panel opcional (mostrarResiduo)."
+  },
+  {
+   "donde": "08 · Variación",
+   "que": "Los nombres de categoría van en Neutro 500 en Variance chart y en Neutro 600 en Bridge y Contribution chart. El kit sigue a cada componente; conviene unificarlo."
+  },
+  {
+   "donde": "08 · Absolute variance y Percentage variance",
+   "que": "Rotulan la unidad encima del eje vertical (k€, %). El kit la pone en el subtítulo, como en el resto de familias."
+  },
+  {
+   "donde": "06 · Min–max chart",
+   "que": "Los rótulos del eje vertical llevan punto decimal («12.5», «37.5»). En español va coma; el kit escribe «12,5»."
+  },
+  {
+   "donde": "06 · Strip plot",
+   "que": "La leyenda «Media del grupo» va en Neutro 500, y las del resto de familias en Neutro 600. El kit sigue al componente; conviene unificarlo."
+  },
+  {
+   "donde": "06 · Box plot",
+   "que": "Rotula «Máx.» y «Mín.» en los extremos de los bigotes, que no llegan a los atípicos. El kit conserva los rótulos y explica en la nota que los bigotes llegan hasta 1,5 veces el alto de la caja."
+  },
+  {
+   "donde": "06 · Curva de distribución",
+   "que": "El texto «68 % de los casos» queda encima de la línea discontinua de la media. El kit le pone fondo Naranja 100 para que la línea no lo atraviese."
+  },
+  {
+   "donde": "06 · Distribución acumulada",
+   "que": "El rótulo «P90» va a la izquierda del punto y cae sobre la curva. El kit lo pone a la derecha y debajo, como el de la mediana."
+  },
+  {
+   "donde": "06 · Percentile plot",
+   "que": "La escala rotula P0, P25, P50, P75 y P90, pero la pista llega a P100 sin rótulo. El kit sigue a Figma; hay que confirmar si es intencionado."
+  },
+  {
+   "donde": "06 · Violin plot y Beeswarm plot",
+   "que": "En Figma todos los violines tienen el mismo ancho máximo y el beeswarm es de un solo grupo. El kit escala los violines con la misma densidad para todos (el ancho se puede comparar) y admite hasta 4 filas en el beeswarm."
+  },
+  {
+   "donde": "07 · Scatter plot y resto de dispersiones",
+   "que": "La descripción pide «Ejes con título y unidad», y en el resto del sistema la unidad va en el subtítulo. El kit la pone entre paréntesis en el título de cada eje, porque cada eje puede tener una unidad distinta."
+  },
+  {
+   "donde": "07 · Quadrant chart",
+   "que": "Los nombres de los cuadrantes no casan con los ejes: con el esfuerzo en horizontal, «Prioridad» queda en esfuerzo alto y «Rápidos» en esfuerzo alto e impacto bajo. En el kit los nombres los pone la especificación; el ejemplo usa Prioridad (arriba a la izquierda), Planificar, Rápidas y Descartar."
+  },
+  {
+   "donde": "07 · Hexbin plot",
+   "que": "No tiene ejes, así que no se sabe qué variables se cruzan. El kit pone los mismos ejes que el Scatter plot y una nota con el máximo de casos por hexágono."
+  },
+  {
+   "donde": "07 · Radar chart",
+   "que": "Tiene 5 anillos (cada 20 %) y rotula 50 entre el segundo y el tercero. El kit usa 4 anillos (cada 25 %), como el Spider chart, para que 50 caiga en un anillo."
+  },
+  {
+   "donde": "07 · Radar chart y Spider chart",
+   "que": "La rejilla es poligonal en el Radar y circular en el Spider, y el Spider no rotula la escala. El kit sigue a cada componente en la rejilla y rotula la mitad y el máximo en los dos. Conviene unificar."
+  },
+  {
+   "donde": "07 · Bubble scatter",
+   "que": "No dice qué mide el área. El kit añade «Tamaño = …» a la leyenda, como en el Bubble chart."
+  },
+  {
+   "donde": "07 · Parallel coordinates",
+   "que": "No dice qué caso es la línea destacada. El kit añade una leyenda con el caso destacado y el resto."
+  },
+  {
+   "donde": "07 · Matriz de correlación",
+   "que": "Los nombres de las filas quedan desplazados hacia abajo respecto a sus celdas. El kit los centra."
+  },
+  {
+   "donde": "09 · Funnel chart",
+   "que": "Los valores van sin separador de miles («1000»). El kit usa el formato español («1.000»)."
+  },
+  {
+   "donde": "09 · Retention funnel",
+   "que": "La caída entre hitos se rotula «−38 pp». El kit escribe «−38 p. p.», como en el resto de componentes."
+  },
+  {
+   "donde": "09 · Process flow",
+   "que": "La decisión es un ejemplo suelto, sin unir al flujo, y la leyenda va abajo a la derecha. El kit dibuja las decisiones dentro del flujo (con «Sí» sigue y con «No» baja a la alternativa) y pone la leyenda arriba, como en el resto. El texto del rombo pendiente va en Neutro 600 y el de las cajas pendientes en Neutro 500; el kit sigue a Figma."
+  },
+  {
+   "donde": "09 · Stage progression",
+   "que": "Cuenta la etapa actual como alcanzada (60 % en la etapa 3 de 5), de modo que la última etapa marcaría 100 % antes de terminar. El kit cuenta solo las completadas (40 %) y ofrece «terminado» para el 100 %. Conviene cambiar el ejemplo de Figma."
+  },
+  {
+   "donde": "09 · Customer journey",
+   "que": "El eje solo dice Alta, Media y Baja, sin escala. El kit exige el mínimo y el máximo de la escala (la «Media» es su centro), los pone en el subtítulo y da el valor en el tooltip."
+  },
+  {
+   "donde": "14 · Timeline",
+   "que": "Los tallos de los hitos de abajo cruzan los nombres de los meses («Jul», «Nov») y los hitos no están a escala (18 nov cae antes de su fecha). El kit sitúa cada hito en su fecha, alarga los tallos de abajo hasta 13 px del rótulo (como arriba) y omite el nombre del mes que pisaría un tallo."
+  },
+  {
+   "donde": "14 · Event timeline",
+   "que": "El carril central mide 56 px y los otros 48; el kit usa 48 en todos. Solo algunos eventos llevan rótulo y no se dice por qué; el kit rotula los que caben (primero el destacado) y el resto va en el tooltip. Cada carril con eventos puntuales lleva su forma (círculo, rombo…), como en Figma."
+  },
+  {
+   "donde": "14 · Calendar chart",
+   "que": "«Abril 2026» se pisa con la fila de los días de la semana; el kit los separa."
+  },
+  {
+   "donde": "14 · Period comparison",
+   "que": "El total «6.480» no cuadra con los valores dibujados (una escala de 0 a 100). En el kit, el total es la suma de lo dibujado (o la media con resumen:\"media\"), y la unidad va en el subtítulo salvo los símbolos cortos (€, %)."
+  },
+  {
+   "donde": "14 · Gantt",
+   "que": "«Impresión» empieza después de la línea de «Hoy» pero ya tiene parte realizada. La leyenda usa muestras de 10 px; el kit usa las de 8 px del resto de leyendas."
+  },
+  {
+   "donde": "14 · Cohort timeline",
+   "que": "Los umbrales de la leyenda (40, 55, 70 y 85) son propios del ejemplo; el kit calcula 5 clases de igual amplitud con un paso redondo (o las fija con «umbrales»). «Cohorte» y la fila de periodos van a alturas distintas; el kit los alinea."
+  },
+  {
+   "donde": "14 · Lifecycle",
+   "que": "La curva no tiene escala y no lo dice. El kit pone «curva orientativa, sin escala» en el subtítulo."
+  },
+  {
+   "donde": "11 · Treemap jerárquico",
+   "que": "Los tonos del grupo neutro (600, 400, 300, 200) no siguen el mismo paso que los del naranja (700, 500, 300, 100). El kit reparte los tonos con una regla común: de dos en dos si caben y, si no, repartidos (con 4 elementos neutros, 600, 500, 300 y 200)."
+  },
+  {
+   "donde": "11 · Sunburst",
+   "que": "El centro dice «100 %»; el kit pone el valor del total. La leyenda solo lista el segundo anillo y no dice de qué grupo es cada elemento (dos «Papel» serían iguales); el kit añade el grupo cuando un nombre se repite. «A2» lleva borde Naranja 300 y el resto de sectores, separación blanca."
+  },
+  {
+   "donde": "11 · Icicle chart",
+   "que": "El segundo nivel rotula «A1 · 35» sin el signo % y el total, «Total 100 %»; el kit escribe «A1 · 35 %» y, en el total, su valor («Total · 1.240 centros»)."
+  },
+  {
+   "donde": "11 · Circle packing",
+   "que": "Los grupos van uno al lado del otro y sus círculos no guardan proporción con su total; el kit empaqueta también los grupos y el tamaño sale de los valores."
+  },
+  {
+   "donde": "11 · Dendrogram",
+   "que": "La escala de 0 a 100 no dice qué mide y la última unión queda por debajo de 100. El kit, al agrupar él, pone la última unión en 100 y lo explica en la nota."
+  },
+  {
+   "donde": "11 · Hierarchy diagram",
+   "que": "Las cifras no cuadran: «Total centros» 1240 y las zonas suman 950; «Zona Norte» 520 y sus centros suman 390. «1240» va sin separador de miles. El kit suma de los elementos finales hacia arriba."
+  },
+  {
+   "donde": "12 · Sankey diagram",
+   "que": "Pide un máximo de 3 niveles; el kit admite 4 (origen, dos etapas y destino es habitual)."
+  },
+  {
+   "donde": "12 · Chord diagram",
+   "que": "Destaca el Grupo A (32) aunque el C es mayor (33); el kit destaca por defecto el de mayor total. Las letras del anillo y la leyenda repiten la información; el kit rotula el anillo con el nombre."
+  },
+  {
+   "donde": "12 · Flow diagram",
+   "que": "Solo la primera cifra lleva la unidad («12.400 uds»); el kit pone la unidad en el subtítulo y las cifras sin ella. La nota del grosor va dentro del gráfico; el kit la pone en la nota."
+  },
+  {
+   "donde": "12 · Journey flow",
+   "que": "Las salidas usan otra escala de grosor (0,10 px por punto) que las flechas de avance (0,12); el kit usa la misma (12 px = 100 %)."
+  },
+  {
+   "donde": "12 · Dependency graph",
+   "que": "La leyenda va debajo; el kit la pone encima, como en el resto de componentes. El texto de las tareas de la ruta crítica es Neutro 700 sobre Naranja 500 (lo mismo hace el kit, según la tabla de contraste)."
+  },
+  {
+   "donde": "12 · Network graph",
+   "que": "No dice cómo se forman las comunidades; el kit las calcula por modularidad si no se dan y lo explica en la nota."
+  },
+  {
+   "donde": "13 · Mapas (todos)",
+   "que": "Los contornos de Figma son un dibujo aproximado; el kit usa los del IGN. Canarias va en el recuadro a la misma escala que la Península (Figma la reduce), así que el recuadro es mayor."
+  },
+  {
+   "donde": "13 · Mapa coroplético",
+   "que": "Pide trama para «Sin dato», pero el ejemplo no la muestra ni la incluye en la leyenda; el kit la dibuja (rayas Neutro 400 sobre Neutro 100) y añade «Sin dato» a la leyenda cuando hace falta."
+  },
+  {
+   "donde": "13 · Mapa de burbujas y Símbolos proporcionales",
+   "que": "El texto de los valores es Neutro 700 sobre Naranja 500 en las burbujas y blanco sobre Neutro 600 en los cuadrados; el kit sigue la tabla de contraste (lo mismo). No dice qué valores se rotulan: el kit rotula los 6 mayores si caben."
+  },
+  {
+   "donde": "13 · Mapa de calor y Mapa de densidad",
+   "que": "Pide «indicar la métrica y el tamaño de celda», pero el componente no lo muestra; el kit lo pone en el subtítulo. Las clases son cualitativas (Muy baja a Muy alta); el kit da la cifra exacta y el máximo en el tooltip."
+  },
+  {
+   "donde": "13 · Mapa de flujo",
+   "que": "El origen se rotula «Origen»; el kit usa el nombre del lugar. Los grosores de Figma (2,1 a 6 px) no son proporcionales al volumen; el kit usa 6 px para el mayor y proporcional el resto (mínimo 1,5)."
+  },
+  {
+   "donde": "13 · Mapa de conexiones",
+   "que": "Los nodos no se rotulan; el kit tampoco, pero los nombra en el tooltip. El nodo destacado mide 14 px y el resto 9 px (igual en el kit)."
+  },
+  {
+   "donde": "13 · Cartograma",
+   "que": "No incluye Ceuta ni Melilla; el kit las añade debajo solo si están en los datos."
+  },
+  {
+   "donde": "13 · Distribución territorial",
+   "que": "La escala «Menos – Más» no dice los cortes; el kit los da en el tooltip de cada zona y barra."
+  }
+ ]
+}

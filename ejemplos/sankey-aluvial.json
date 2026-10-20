@@ -1,0 +1,54 @@
+{
+  "tipo": "sankey",
+  "variante": "aluvial",
+  "titulo": "Cambio de formato de los centros",
+  "unidad": "centros",
+  "datos": {
+    "momentos": [
+      2024,
+      2025,
+      2026
+    ],
+    "categorias": [
+      "Digital",
+      "Mixto",
+      "Papel"
+    ],
+    "cambios": [
+      [
+        [
+          54,
+          8,
+          0
+        ],
+        [
+          12,
+          36,
+          6
+        ],
+        [
+          0,
+          6,
+          18
+        ]
+      ],
+      [
+        [
+          54,
+          12,
+          0
+        ],
+        [
+          12,
+          30,
+          8
+        ],
+        [
+          0,
+          8,
+          16
+        ]
+      ]
+    ]
+  }
+}

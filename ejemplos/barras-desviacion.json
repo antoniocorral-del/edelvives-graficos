@@ -1,0 +1,30 @@
+{
+  "tipo": "barras-divergentes",
+  "variante": "desviacion",
+  "titulo": "Desviación de ventas frente al plan por línea",
+  "unidad": "€",
+  "abreviar": true,
+  "referencia": "vs. plan 2026",
+  "lados": [
+    "Bajo el plan",
+    "Sobre el plan"
+  ],
+  "datos": {
+    "categorias": [
+      "Infantil",
+      "Primaria",
+      "ESO",
+      "Bachillerato",
+      "Formación Profesional",
+      "Literatura infantil"
+    ],
+    "valores": [
+      142000,
+      -86000,
+      228000,
+      -153000,
+      61000,
+      -42000
+    ]
+  }
+}

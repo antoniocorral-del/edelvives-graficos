@@ -1,0 +1,67 @@
+{
+  "tipo": "tabla",
+  "variante": "comparativa",
+  "titulo": "Ventas por delegación",
+  "unidad": "€",
+  "periodo": "Tercer trimestre",
+  "datos": {
+    "columnas": [
+      {
+        "titulo": "Delegación"
+      },
+      {
+        "titulo": "Jul",
+        "tipo": "numero"
+      },
+      {
+        "titulo": "Ago",
+        "tipo": "numero"
+      },
+      {
+        "titulo": "Sep",
+        "tipo": "numero"
+      },
+      {
+        "titulo": "Var. vs. 2025",
+        "tipo": "variacion"
+      }
+    ],
+    "filas": [
+      [
+        "Norte",
+        124000,
+        131000,
+        140200,
+        7.0
+      ],
+      [
+        "Centro",
+        298000,
+        302000,
+        315500,
+        9.3
+      ],
+      [
+        "Este",
+        151000,
+        148000,
+        146600,
+        -1.0
+      ],
+      [
+        "Sur",
+        176000,
+        184000,
+        189500,
+        7.7
+      ],
+      [
+        "Canarias",
+        42000,
+        41000,
+        44300,
+        8.3
+      ]
+    ]
+  }
+}

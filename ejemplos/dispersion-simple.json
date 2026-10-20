@@ -1,0 +1,21 @@
+{
+  "tipo": "dispersion",
+  "variante": "simple",
+  "titulo": "Formación y satisfacción del profesorado por centro",
+  "periodo": "Curso 2025-26",
+  "nombreCasos": "centros",
+  "ejes": {
+    "x": {
+      "nombre": "Horas de formación",
+      "unidad": "horas"
+    },
+    "y": {
+      "nombre": "Satisfacción",
+      "unidad": "puntos"
+    }
+  },
+  "datos": {
+    "x": [11, 32, 33, 52, 10, 17, 38, 35, 48, 35, 45, 47, 46, 37, 17, 38, 10, 50, 29, 50, 42, 42, 16, 18, 59, 56, 49, 60, 33, 8],
+    "y": [45, 75, 64, 90, 58, 46, 69, 68, 76, 61, 69, 81, 68, 65, 62, 77, 50, 68, 46, 80, 73, 82, 62, 51, 84, 84, 79, 91, 78, 52]
+  }
+}

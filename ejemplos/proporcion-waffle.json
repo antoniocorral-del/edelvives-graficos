@@ -1,0 +1,14 @@
+{
+  "tipo": "proporcion",
+  "variante": "waffle",
+  "titulo": "Centros que usan la plataforma digital",
+  "unidad": "centros",
+  "periodo": "Curso 2026-2027",
+  "datos": {
+    "valor": 769,
+    "total": 1240,
+    "etiqueta": "Con plataforma digital",
+    "resto": "Sin plataforma",
+    "base": "de los centros con adopción"
+  }
+}

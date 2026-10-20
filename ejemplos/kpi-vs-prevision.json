@@ -1,0 +1,11 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos del mes",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "prevision": {
+    "valor": 1350,
+    "etiqueta": "Previsión de cierre",
+    "origen": "plan comercial de marzo"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "barras": {
+    "valores": [
+      880,
+      940,
+      1010,
+      960,
+      1120,
+      1284
+    ],
+    "etiquetas": [
+      "O",
+      "N",
+      "D",
+      "E",
+      "F",
+      "M"
+    ],
+    "periodo": "Últimos 6 meses"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "tipo": "embudo",
+  "titulo": "Embudo de la tienda online",
+  "unidad": "usuarios",
+  "periodo": "Septiembre 2026",
+  "datos": {
+    "etapas": ["Visitas", "Registros", "Activos", "Compras", "Recompra"],
+    "valores": [48200, 30850, 19760, 12050, 5780]
+  }
+}

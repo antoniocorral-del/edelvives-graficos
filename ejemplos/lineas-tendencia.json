@@ -1,0 +1,41 @@
+{
+  "tipo": "lineas",
+  "variante": "tendencia",
+  "titulo": "Visitas a la tienda online",
+  "unidad": "visitas",
+  "abreviar": true,
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Visitas",
+        "valores": [
+          30100,
+          37800,
+          33600,
+          45200,
+          41900,
+          51800,
+          47600,
+          57900,
+          54200,
+          62800,
+          60100
+        ]
+      }
+    ]
+  }
+}

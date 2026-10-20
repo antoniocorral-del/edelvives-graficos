@@ -1,0 +1,57 @@
+{
+  "tipo": "sparkline",
+  "titulo": "Indicadores de la semana",
+  "unidad": "€",
+  "periodo": "Últimos 10 días",
+  "datos": {
+    "series": [
+      {
+        "nombre": "Ventas",
+        "valores": [
+          1210,
+          1180,
+          1260,
+          1290,
+          1340,
+          1310,
+          1360,
+          1352,
+          1388,
+          1402
+        ]
+      },
+      {
+        "nombre": "Usuarios",
+        "unidad": "usuarios",
+        "valores": [
+          9420,
+          9380,
+          9150,
+          9310,
+          9040,
+          9120,
+          8990,
+          9010,
+          8960,
+          8930
+        ]
+      },
+      {
+        "nombre": "Incidencias",
+        "unidad": "incidencias",
+        "valores": [
+          18,
+          24,
+          15,
+          27,
+          22,
+          31,
+          19,
+          26,
+          17,
+          21
+        ]
+      }
+    ]
+  }
+}

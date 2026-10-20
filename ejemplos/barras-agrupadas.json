@@ -1,5 +1,6 @@
 {
-  "tipo": "barras-agrupadas",
+  "tipo": "barras",
+  "variante": "agrupadas",
   "titulo": "Ventas por canal",
   "unidad": "€",
   "abreviar": true,

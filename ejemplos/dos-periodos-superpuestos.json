@@ -1,0 +1,43 @@
+{
+  "tipo": "dos-periodos",
+  "variante": "superpuestos",
+  "titulo": "Pedidos de esta semana frente a la anterior",
+  "unidad": "pedidos",
+  "datos": {
+    "periodos": [
+      "L",
+      "M",
+      "X",
+      "J",
+      "V",
+      "S",
+      "D"
+    ],
+    "series": [
+      {
+        "nombre": "Semana actual",
+        "valores": [
+          860,
+          980,
+          930,
+          1170,
+          1290,
+          700,
+          550
+        ]
+      },
+      {
+        "nombre": "Semana anterior",
+        "valores": [
+          820,
+          920,
+          860,
+          1030,
+          1150,
+          650,
+          550
+        ]
+      }
+    ]
+  }
+}

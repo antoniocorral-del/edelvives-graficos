@@ -1,0 +1,21 @@
+{
+  "tipo": "radar",
+  "variante": "dos-perfiles",
+  "titulo": "Competencias del alumnado: el centro frente a la red",
+  "periodo": "Curso 2025-26",
+  "unidad": "puntos",
+  "datos": {
+    "dimensiones": ["Comprensión lectora", "Matemáticas", "Ciencias", "Inglés", "Expresión escrita", "Competencia digital", "Trabajo en equipo", "Autonomía"],
+    "series": [
+      {
+        "nombre": "Nuestro centro",
+        "valores": [78, 66, 72, 85, 61, 80, 74, 58]
+      },
+      {
+        "nombre": "Media de la red",
+        "valores": [70, 71, 68, 72, 66, 69, 70, 64]
+      }
+    ],
+    "maximo": 100
+  }
+}

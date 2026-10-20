@@ -1,0 +1,73 @@
+{
+  "tipo": "areas",
+  "variante": "superpuestas",
+  "titulo": "Licencias: compradas, activadas y en uso",
+  "unidad": "licencias",
+  "abreviar": true,
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Compradas",
+        "valores": [
+          31000,
+          32500,
+          33800,
+          40100,
+          42600,
+          44900,
+          46200,
+          52400,
+          58800,
+          60100,
+          66900
+        ]
+      },
+      {
+        "nombre": "Activadas",
+        "valores": [
+          24200,
+          25100,
+          26600,
+          30800,
+          33100,
+          34900,
+          36400,
+          41200,
+          45600,
+          47800,
+          51300
+        ]
+      },
+      {
+        "nombre": "En uso",
+        "valores": [
+          17800,
+          16900,
+          19200,
+          21400,
+          20800,
+          24600,
+          23900,
+          28700,
+          30100,
+          32400,
+          36800
+        ]
+      }
+    ]
+  }
+}

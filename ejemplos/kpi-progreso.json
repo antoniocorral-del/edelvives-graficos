@@ -1,0 +1,11 @@
+{
+  "tipo": "kpi",
+  "titulo": "Ventas acumuladas",
+  "unidad": "€",
+  "abreviar": true,
+  "valor": 1360000,
+  "progreso": {
+    "meta": 2000000,
+    "etiqueta": "la meta anual"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "tipo": "puntos",
+  "variante": "piruleta",
+  "titulo": "Novedades publicadas por colección",
+  "unidad": "títulos",
+  "periodo": "2026",
+  "datos": {
+    "categorias": [
+      "Ala Delta",
+      "Alandar",
+      "Cuentos",
+      "Cómic",
+      "Clásicos",
+      "Teatro"
+    ],
+    "valores": [
+      18,
+      12,
+      24,
+      14,
+      7,
+      9
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "tipo": "treemap",
+  "titulo": "Ventas por comunidad autónoma",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Madrid",
+      "Andalucía",
+      "Cataluña",
+      "Comunitat Valenciana",
+      "Castilla y León",
+      "Galicia",
+      "Otras comunidades"
+    ],
+    "valores": [
+      3420500,
+      2810300,
+      1985400,
+      1540200,
+      890600,
+      760300,
+      1407400
+    ]
+  }
+}

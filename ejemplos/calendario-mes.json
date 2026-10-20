@@ -1,0 +1,37 @@
+{
+  "tipo": "calendario",
+  "variante": "mes",
+  "titulo": "Actividades del centro",
+  "datos": {
+    "mes": "2026-04",
+    "hoy": "2026-04-16",
+    "eventos": [
+      {
+        "fecha": "2026-04-08",
+        "nombre": "Claustro"
+      },
+      {
+        "fecha": "2026-04-15",
+        "nombre": "Formación del profesorado"
+      },
+      {
+        "fecha": "2026-04-22",
+        "nombre": "Claustro"
+      },
+      {
+        "fecha": "2026-04-29",
+        "nombre": "Reunión con las familias"
+      }
+    ],
+    "festivos": [
+      {
+        "fecha": "2026-04-03",
+        "nombre": "Viernes Santo"
+      },
+      {
+        "fecha": "2026-04-06",
+        "nombre": "Lunes de Pascua"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "tipo": "cascada",
+  "variante": "horizontal",
+  "titulo": "Qué explica el cambio del margen",
+  "unidad": "€",
+  "abreviar": true,
+  "datos": {
+    "inicio": {
+      "etiqueta": "Margen 2025",
+      "valor": 3210000
+    },
+    "categorias": [
+      "Efecto volumen",
+      "Efecto precio",
+      "Descuentos comerciales",
+      "Devoluciones",
+      "Nuevos títulos"
+    ],
+    "valores": [
+      1180000,
+      520000,
+      -610000,
+      -240000,
+      390000
+    ],
+    "final": {
+      "etiqueta": "Margen 2026",
+      "valor": 4450000
+    }
+  }
+}

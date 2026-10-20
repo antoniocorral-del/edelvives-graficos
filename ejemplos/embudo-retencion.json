@@ -1,0 +1,11 @@
+{
+  "tipo": "embudo",
+  "variante": "retencion",
+  "titulo": "Retención de usuarios de la plataforma digital",
+  "unidad": "usuarios",
+  "periodo": "Altas de septiembre",
+  "datos": {
+    "periodos": ["Día 0", "Día 1", "Día 7", "Día 30", "Día 90"],
+    "valores": [8400, 5210, 3440, 2350, 1600]
+  }
+}

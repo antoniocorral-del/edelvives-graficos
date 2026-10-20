@@ -1,0 +1,9 @@
+{
+  "tipo": "etapas",
+  "variante": "progresion",
+  "titulo": "Avance del pedido 2026-1184",
+  "datos": {
+    "etapas": ["Alta", "Revisión", "Producción", "Control", "Entrega"],
+    "actual": "Producción"
+  }
+}

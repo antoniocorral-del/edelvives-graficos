@@ -1,0 +1,63 @@
+{
+  "tipo": "ranking",
+  "variante": "evolucion",
+  "titulo": "Posición de cada línea por ventas",
+  "unidad": "€",
+  "periodo": "2026",
+  "destacar": "ESO",
+  "datos": {
+    "periodos": [
+      "T1",
+      "T2",
+      "T3",
+      "T4"
+    ],
+    "series": [
+      {
+        "nombre": "Primaria",
+        "valores": [
+          980,
+          1200,
+          1900,
+          1300
+        ]
+      },
+      {
+        "nombre": "Infantil",
+        "valores": [
+          760,
+          980,
+          1250,
+          820
+        ]
+      },
+      {
+        "nombre": "ESO",
+        "valores": [
+          540,
+          880,
+          1320,
+          950
+        ]
+      },
+      {
+        "nombre": "Bachillerato",
+        "valores": [
+          420,
+          520,
+          640,
+          380
+        ]
+      },
+      {
+        "nombre": "Literatura",
+        "valores": [
+          610,
+          700,
+          580,
+          760
+        ]
+      }
+    ]
+  }
+}

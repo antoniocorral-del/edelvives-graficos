@@ -1,0 +1,20 @@
+{
+  "tipo": "progreso",
+  "variante": "barras",
+  "titulo": "Avance de las metas del trimestre",
+  "unidad": "%",
+  "datos": {
+    "categorias": [
+      "Ventas",
+      "Altas",
+      "Satisfacción",
+      "Cobros"
+    ],
+    "valores": [
+      72,
+      45,
+      91,
+      28
+    ]
+  }
+}

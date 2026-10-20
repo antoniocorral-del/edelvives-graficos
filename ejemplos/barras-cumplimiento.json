@@ -1,0 +1,29 @@
+{
+  "tipo": "barras",
+  "variante": "con-referencia",
+  "cumplimiento": true,
+  "titulo": "Cumplimiento del objetivo de ventas por proyecto",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Saber Hacer",
+      "Lecturas Edelvives",
+      "Plataforma digital",
+      "Cuadernos de verano"
+    ],
+    "valores": [
+      1880000,
+      2320000,
+      1600000,
+      730000
+    ],
+    "objetivos": [
+      2000000,
+      2000000,
+      2000000,
+      1000000
+    ]
+  }
+}

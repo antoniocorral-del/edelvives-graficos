@@ -1,0 +1,22 @@
+{
+  "tipo": "proporcion",
+  "variante": "barra",
+  "titulo": "Composición de las ventas",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Libro de texto",
+      "Digital",
+      "Literatura",
+      "Otros productos"
+    ],
+    "valores": [
+      6630000,
+      4035000,
+      2310000,
+      1440000
+    ]
+  }
+}

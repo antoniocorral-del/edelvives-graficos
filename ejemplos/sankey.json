@@ -1,0 +1,60 @@
+{
+  "tipo": "sankey",
+  "titulo": "Recorrido de los pedidos",
+  "unidad": "pedidos",
+  "periodo": "Curso 2025-2026",
+  "datos": {
+    "enlaces": [
+      {
+        "origen": "Web",
+        "destino": "Pedido directo",
+        "valor": 60
+      },
+      {
+        "origen": "Web",
+        "destino": "Distribuidor",
+        "valor": 40
+      },
+      {
+        "origen": "Comercial",
+        "destino": "Pedido directo",
+        "valor": 20
+      },
+      {
+        "origen": "Comercial",
+        "destino": "Distribuidor",
+        "valor": 20
+      },
+      {
+        "origen": "Comercial",
+        "destino": "Librería",
+        "valor": 30
+      },
+      {
+        "origen": "Pedido directo",
+        "destino": "Entregado",
+        "valor": 50
+      },
+      {
+        "origen": "Pedido directo",
+        "destino": "Pendiente",
+        "valor": 30
+      },
+      {
+        "origen": "Distribuidor",
+        "destino": "Entregado",
+        "valor": 40
+      },
+      {
+        "origen": "Distribuidor",
+        "destino": "Pendiente",
+        "valor": 20
+      },
+      {
+        "origen": "Librería",
+        "destino": "Pendiente",
+        "valor": 30
+      }
+    ]
+  }
+}

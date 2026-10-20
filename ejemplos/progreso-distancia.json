@@ -1,0 +1,26 @@
+{
+  "tipo": "progreso",
+  "variante": "distancia",
+  "titulo": "Lo que falta para cada objetivo",
+  "unidad": "%",
+  "datos": {
+    "categorias": [
+      "Ventas",
+      "Altas",
+      "Cobros",
+      "NPS"
+    ],
+    "valores": [
+      62,
+      85,
+      40,
+      93
+    ],
+    "objetivos": [
+      100,
+      100,
+      100,
+      100
+    ]
+  }
+}

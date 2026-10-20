@@ -1,0 +1,60 @@
+{
+  "tipo": "cuerdas",
+  "titulo": "Intercambio de alumnos entre centros",
+  "unidad": "alumnos",
+  "periodo": "Curso 2025-2026",
+  "datos": {
+    "enlaces": [
+      {
+        "origen": "Centro A",
+        "destino": "Centro B",
+        "valor": 12
+      },
+      {
+        "origen": "Centro A",
+        "destino": "Centro C",
+        "valor": 10
+      },
+      {
+        "origen": "Centro A",
+        "destino": "Centro D",
+        "valor": 6
+      },
+      {
+        "origen": "Centro A",
+        "destino": "Centro E",
+        "valor": 4
+      },
+      {
+        "origen": "Centro B",
+        "destino": "Centro C",
+        "valor": 11
+      },
+      {
+        "origen": "Centro B",
+        "destino": "Centro D",
+        "valor": 5
+      },
+      {
+        "origen": "Centro B",
+        "destino": "Centro E",
+        "valor": 4
+      },
+      {
+        "origen": "Centro C",
+        "destino": "Centro D",
+        "valor": 8
+      },
+      {
+        "origen": "Centro C",
+        "destino": "Centro E",
+        "valor": 4
+      },
+      {
+        "origen": "Centro D",
+        "destino": "Centro E",
+        "valor": 8
+      }
+    ]
+  }
+}

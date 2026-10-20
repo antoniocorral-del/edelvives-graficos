@@ -1,0 +1,13 @@
+{
+  "tipo": "proporcion",
+  "variante": "cuota",
+  "titulo": "Cuota de mercado en Primaria",
+  "unidad": "%",
+  "periodo": "Curso 2026-2027",
+  "datos": {
+    "valor": 24,
+    "anterior": 21,
+    "etiqueta": "Edelvives",
+    "resto": "Resto del mercado"
+  }
+}

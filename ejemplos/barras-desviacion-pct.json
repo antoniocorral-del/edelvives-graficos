@@ -1,0 +1,30 @@
+{
+  "tipo": "barras-divergentes",
+  "variante": "desviacion-pct",
+  "titulo": "Variación interanual de ventas por mes",
+  "unidad": "%",
+  "decimales": 1,
+  "referencia": "vs. el mismo mes de 2025",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago"
+    ],
+    "valores": [
+      4.2,
+      -2.8,
+      6.1,
+      -1.5,
+      3.4,
+      8.0,
+      -4.6,
+      2.2
+    ]
+  }
+}

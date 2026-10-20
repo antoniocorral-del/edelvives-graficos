@@ -1,0 +1,7 @@
+{
+  "tipo": "kpi",
+  "titulo": "Ingresos del mes",
+  "unidad": "€",
+  "abreviar": true,
+  "valor": 2412000
+}

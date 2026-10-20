@@ -1,0 +1,18 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<script src="/kit.js"></script>
+<style>body{padding:24px}.eg-rejilla{grid-template-columns:repeat(var(--cols,3),var(--ancho,420px))!important}</style>
+</head><body class="eg-pagina"><div id="r" class="eg-rejilla"></div>
+<script>
+const q = new URLSearchParams(location.search); if (q.get('ancho')) { document.documentElement.style.setProperty('--ancho', q.get('ancho')); document.documentElement.style.setProperty('--cols', q.get('cols')); }
+EG.configurar({ echarts: [q.get('ec')], fuente: '/fuente.css', mapas: '/mapas/' });
+fetch(q.get('specs')).then(r => r.json()).then(async specs => {
+  const r = document.getElementById('r'); const res = [];
+  for (let i = 0; i < specs.length; i++) {
+    const d = document.createElement('div'); d.id = 'g' + i; if (specs[i]._doble) d.className = 'eg-doble'; r.appendChild(d);
+    const s = Object.assign({}, specs[i]); delete s._doble;
+    res.push(EG.render(d, s).then(x => ({ i, tipo: s.tipo, ok: x.ok, errores: x.errores, avisos: x.avisos })));
+  }
+  window.RESULT = await Promise.all(res); window.RESULT.push({echarts: window.echarts && window.echarts.version});
+  setTimeout(() => { window.LISTO = true; }, 900);
+});
+</script></body></html>

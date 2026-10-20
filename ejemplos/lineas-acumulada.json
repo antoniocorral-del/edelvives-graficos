@@ -1,0 +1,39 @@
+{
+  "tipo": "lineas",
+  "variante": "acumulada",
+  "titulo": "Altas de licencias digitales",
+  "unidad": "licencias",
+  "abreviar": true,
+  "periodo": "Curso 2025-26",
+  "datos": {
+    "periodos": [
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic",
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun"
+    ],
+    "series": [
+      {
+        "nombre": "Altas",
+        "valores": [
+          18400,
+          14200,
+          9600,
+          5100,
+          7800,
+          6900,
+          6100,
+          5400,
+          4300,
+          2900
+        ]
+      }
+    ]
+  }
+}

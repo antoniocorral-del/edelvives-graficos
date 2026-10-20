@@ -1,0 +1,34 @@
+{
+  "tipo": "cronologia",
+  "titulo": "Hitos del año comercial",
+  "periodo": "2026",
+  "datos": {
+    "eventos": [
+      {
+        "nombre": "Lanzamiento",
+        "fecha": "2026-01-12"
+      },
+      {
+        "nombre": "Campaña",
+        "fecha": "2026-03-03"
+      },
+      {
+        "nombre": "Feria",
+        "fecha": "2026-04-20"
+      },
+      {
+        "nombre": "Nueva versión",
+        "fecha": "2026-06-15"
+      },
+      {
+        "nombre": "Curso 26/27",
+        "fecha": "2026-09-01"
+      },
+      {
+        "nombre": "Cierre",
+        "fecha": "2026-11-18"
+      }
+    ],
+    "hoy": "2026-04-08"
+  }
+}

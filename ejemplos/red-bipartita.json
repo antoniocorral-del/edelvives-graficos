@@ -1,0 +1,62 @@
+{
+  "tipo": "red",
+  "variante": "bipartita",
+  "titulo": "Materiales que usa cada etapa",
+  "columnas": [
+    "Etapa",
+    "Material"
+  ],
+  "destacar": "Plataforma digital",
+  "datos": {
+    "enlaces": [
+      {
+        "origen": "Infantil",
+        "destino": "Libro de texto"
+      },
+      {
+        "origen": "Infantil",
+        "destino": "Cuaderno"
+      },
+      {
+        "origen": "1.º ciclo",
+        "destino": "Cuaderno"
+      },
+      {
+        "origen": "1.º ciclo",
+        "destino": "Plataforma digital"
+      },
+      {
+        "origen": "1.º ciclo",
+        "destino": "Lecturas"
+      },
+      {
+        "origen": "2.º ciclo",
+        "destino": "Plataforma digital"
+      },
+      {
+        "origen": "2.º ciclo",
+        "destino": "Libro de texto"
+      },
+      {
+        "origen": "3.º ciclo",
+        "destino": "Plataforma digital"
+      },
+      {
+        "origen": "3.º ciclo",
+        "destino": "Evaluación"
+      },
+      {
+        "origen": "ESO",
+        "destino": "Plataforma digital"
+      },
+      {
+        "origen": "ESO",
+        "destino": "Evaluación"
+      },
+      {
+        "origen": "ESO",
+        "destino": "Lecturas"
+      }
+    ]
+  }
+}

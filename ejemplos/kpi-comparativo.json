@@ -1,0 +1,11 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos de marzo",
+  "unidad": "pedidos",
+  "nombre": "Centro A",
+  "valor": 1284,
+  "comparado": {
+    "nombre": "Centro B",
+    "valor": 1020
+  }
+}

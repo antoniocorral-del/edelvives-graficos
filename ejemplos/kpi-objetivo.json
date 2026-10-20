@@ -1,8 +1,9 @@
 {
-  "tipo": "kpi-objetivo",
-  "titulo": "Ventas frente al objetivo",
-  "unidad": "€",
-  "abreviar": true,
-  "valor": 14204022,
-  "objetivo": 14867198
+  "tipo": "kpi",
+  "titulo": "Pedidos frente al objetivo",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "objetivo": {
+    "valor": 1200
+  }
 }

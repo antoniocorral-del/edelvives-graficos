@@ -1,0 +1,12 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos del centro",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "ranking": {
+    "posicion": 2,
+    "total": 12,
+    "grupo": "centros de la red",
+    "etiqueta": "Posición en la red"
+  }
+}

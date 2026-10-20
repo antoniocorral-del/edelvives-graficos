@@ -1,0 +1,34 @@
+{
+  "tipo": "dos-momentos",
+  "variante": "antes-despues",
+  "titulo": "Uso de la plataforma antes y después de la formación",
+  "unidad": "sesiones al mes",
+  "datos": {
+    "categorias": [
+      "Infantil",
+      "Primaria",
+      "ESO",
+      "Bachillerato"
+    ],
+    "series": [
+      {
+        "nombre": "Antes",
+        "valores": [
+          40,
+          52,
+          38,
+          46
+        ]
+      },
+      {
+        "nombre": "Después",
+        "valores": [
+          55,
+          60,
+          35,
+          68
+        ]
+      }
+    ]
+  }
+}

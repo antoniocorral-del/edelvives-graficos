@@ -1,0 +1,35 @@
+{
+  "tipo": "cronologia",
+  "variante": "vertical",
+  "titulo": "Hitos del proyecto de aula digital",
+  "datos": {
+    "eventos": [
+      {
+        "nombre": "Definición del proyecto",
+        "fecha": "2026-01",
+        "descripcion": "Alcance y equipo"
+      },
+      {
+        "nombre": "Primer prototipo",
+        "fecha": "2026-03",
+        "descripcion": "Validado con 3 centros"
+      },
+      {
+        "nombre": "Piloto en aula",
+        "fecha": "2026-06",
+        "descripcion": "En curso en 12 centros"
+      },
+      {
+        "nombre": "Lanzamiento",
+        "fecha": "2026-09",
+        "descripcion": "Curso 2026/27"
+      },
+      {
+        "nombre": "Evaluación",
+        "fecha": "2026-12",
+        "descripcion": "Informe de impacto"
+      }
+    ],
+    "actual": "Piloto en aula"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "tipo": "mapa",
+  "variante": "conexiones",
+  "titulo": "Conexiones entre delegaciones",
+  "mapa": "provincias",
+  "datos": {
+    "enlaces": [
+      {
+        "origen": "Madrid",
+        "destino": "A Coruña"
+      },
+      {
+        "origen": "Madrid",
+        "destino": "Cantabria"
+      },
+      {
+        "origen": "Madrid",
+        "destino": "Barcelona"
+      },
+      {
+        "origen": "Madrid",
+        "destino": "Zaragoza"
+      },
+      {
+        "origen": "Madrid",
+        "destino": "Valencia"
+      },
+      {
+        "origen": "Madrid",
+        "destino": "Sevilla"
+      },
+      {
+        "origen": "A Coruña",
+        "destino": "Cantabria"
+      },
+      {
+        "origen": "A Coruña",
+        "destino": "Sevilla"
+      },
+      {
+        "origen": "Zaragoza",
+        "destino": "Barcelona"
+      },
+      {
+        "origen": "Barcelona",
+        "destino": "Valencia"
+      },
+      {
+        "origen": "Valencia",
+        "destino": "Sevilla"
+      }
+    ]
+  }
+}

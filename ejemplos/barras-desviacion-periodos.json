@@ -1,0 +1,30 @@
+{
+  "tipo": "barras-divergentes",
+  "variante": "desviacion",
+  "titulo": "Desviación mensual de pedidos",
+  "unidad": "pedidos",
+  "referencia": "vs. presupuesto",
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago"
+    ],
+    "valores": [
+      120,
+      -80,
+      150,
+      -50,
+      90,
+      200,
+      -110,
+      60
+    ]
+  }
+}

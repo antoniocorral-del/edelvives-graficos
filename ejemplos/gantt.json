@@ -1,0 +1,45 @@
+{
+  "tipo": "gantt",
+  "titulo": "Producción de Lectópolis 3",
+  "periodo": "Primer semestre de 2026",
+  "datos": {
+    "tareas": [
+      {
+        "nombre": "Diseño",
+        "inicio": "2026-01-01",
+        "fin": "2026-02-18",
+        "avance": 100
+      },
+      {
+        "nombre": "Maquetación",
+        "inicio": "2026-02-06",
+        "fin": "2026-03-31",
+        "avance": 100
+      },
+      {
+        "nombre": "Revisión",
+        "inicio": "2026-03-19",
+        "fin": "2026-04-24",
+        "avance": 60
+      },
+      {
+        "nombre": "Impresión",
+        "inicio": "2026-04-09",
+        "fin": "2026-05-22",
+        "avance": 10
+      },
+      {
+        "nombre": "Distribución",
+        "inicio": "2026-05-18",
+        "fin": "2026-06-30"
+      }
+    ],
+    "hitos": [
+      {
+        "nombre": "Entrega",
+        "fecha": "2026-06-25"
+      }
+    ],
+    "hoy": "2026-04-12"
+  }
+}

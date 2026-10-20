@@ -1,0 +1,40 @@
+{
+  "tipo": "bullet",
+  "titulo": "Cobertura de colegios por zona",
+  "unidad": "%",
+  "periodo": "Curso 2025-26",
+  "datos": {
+    "metricas": [
+      {
+        "nombre": "Norte",
+        "valor": 68,
+        "objetivo": 80,
+        "rangos": [
+          50,
+          70,
+          100
+        ]
+      },
+      {
+        "nombre": "Centro",
+        "valor": 82,
+        "objetivo": 75,
+        "rangos": [
+          50,
+          70,
+          100
+        ]
+      },
+      {
+        "nombre": "Sur",
+        "valor": 45,
+        "objetivo": 70,
+        "rangos": [
+          50,
+          70,
+          100
+        ]
+      }
+    ]
+  }
+}

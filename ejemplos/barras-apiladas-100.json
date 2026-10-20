@@ -1,0 +1,54 @@
+{
+  "tipo": "barras",
+  "variante": "apiladas-100",
+  "titulo": "Peso de cada canal por etapa",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Infantil",
+      "Primaria",
+      "ESO",
+      "Bachillerato"
+    ],
+    "series": [
+      {
+        "nombre": "Colegios",
+        "valores": [
+          1610000,
+          3020000,
+          1350000,
+          560000
+        ]
+      },
+      {
+        "nombre": "Librerías",
+        "valores": [
+          890000,
+          1620000,
+          920000,
+          470000
+        ]
+      },
+      {
+        "nombre": "Online",
+        "valores": [
+          330000,
+          560000,
+          310000,
+          190000
+        ]
+      },
+      {
+        "nombre": "Otros",
+        "valores": [
+          150000,
+          200000,
+          120000,
+          60000
+        ]
+      }
+    ]
+  }
+}

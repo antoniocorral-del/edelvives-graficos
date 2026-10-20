@@ -1,30 +1,31 @@
 {
-  "tipo": "barras-progreso",
-  "titulo": "Cumplimiento por comunidad",
+  "tipo": "barras",
+  "variante": "con-referencia",
+  "titulo": "Ventas frente al objetivo por delegación",
   "unidad": "€",
   "abreviar": true,
   "periodo": "Enero–septiembre",
   "datos": {
     "categorias": [
-      "Aragón",
-      "Madrid",
-      "Andalucía",
-      "Cataluña",
-      "C. Valenciana"
+      "Norte",
+      "Centro",
+      "Este",
+      "Sur",
+      "Canarias"
     ],
     "valores": [
       1833166,
       3962215,
       2859096,
       3149432,
-      2400113
+      812000
     ],
     "objetivos": [
       1755917,
       4040294,
       2975862,
-      3388936,
-      2706189
+      3088936,
+      900000
     ]
   }
 }

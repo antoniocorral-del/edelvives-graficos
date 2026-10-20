@@ -1,0 +1,4 @@
+{"tipo":"anidados","titulo":"Recursos del proyecto Lectópolis","destacar":"Audiolibros",
+ "datos":{"arbol":{"nombre":"Lectópolis","hijos":[
+   {"nombre":"Para el alumno","hijos":["Libro","Cuaderno","Lecturas","Fichas"]},
+   {"nombre":"Para el docente","hijos":["Guía","Audiolibros","Evaluación","Plataforma"]}]}}}

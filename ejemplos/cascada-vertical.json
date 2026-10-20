@@ -1,0 +1,30 @@
+{
+  "tipo": "cascada",
+  "variante": "vertical",
+  "titulo": "Centros con adopción: de 2025 a 2026",
+  "unidad": "centros",
+  "datos": {
+    "inicio": {
+      "etiqueta": "2025",
+      "valor": 620
+    },
+    "categorias": [
+      "Altas",
+      "Bajas",
+      "Retornos",
+      "Fusiones",
+      "Otros"
+    ],
+    "valores": [
+      240,
+      -95,
+      60,
+      -30,
+      15
+    ],
+    "final": {
+      "etiqueta": "2026",
+      "valor": 810
+    }
+  }
+}

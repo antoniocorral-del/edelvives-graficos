@@ -1,0 +1,28 @@
+{
+  "tipo": "ranking",
+  "variante": "lista",
+  "titulo": "Cumplimiento del objetivo por delegación",
+  "unidad": "%",
+  "periodo": "Enero–septiembre",
+  "destacar": "Centro",
+  "datos": {
+    "categorias": [
+      "Norte",
+      "Centro",
+      "Este",
+      "Sur",
+      "Canarias",
+      "Baleares",
+      "Noroeste"
+    ],
+    "valores": [
+      104,
+      98,
+      96,
+      93,
+      90,
+      87,
+      85
+    ]
+  }
+}

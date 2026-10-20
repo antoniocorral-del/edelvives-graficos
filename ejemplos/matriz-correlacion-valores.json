@@ -1,0 +1,17 @@
+{
+  "tipo": "matriz",
+  "variante": "correlacion-valores",
+  "titulo": "Correlación entre los indicadores de los centros",
+  "periodo": "Curso 2025-26",
+  "datos": {
+    "variables": ["Alumnos", "Licencias", "Uso", "Satisfacción", "Incidencias", "Plazo"],
+    "coeficientes": [
+      [1],
+      [0.82, 1],
+      [0.45, 0.55, 1],
+      [0.1, 0.18, 0.62, 1],
+      [-0.3, -0.22, 0.15, 0.7, 1],
+      [-0.68, -0.55, -0.12, 0.25, 0.48, 1]
+    ]
+  }
+}

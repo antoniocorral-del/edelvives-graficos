@@ -1,0 +1,39 @@
+{
+  "tipo": "dos-momentos",
+  "variante": "pendiente",
+  "titulo": "Ventas por línea de producto",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Primaria",
+      "Infantil",
+      "ESO",
+      "Bachillerato",
+      "Literatura"
+    ],
+    "series": [
+      {
+        "nombre": "2025",
+        "valores": [
+          5120000,
+          3120000,
+          2510000,
+          1350000,
+          1610000
+        ]
+      },
+      {
+        "nombre": "2026",
+        "valores": [
+          5397528,
+          2982845,
+          2698764,
+          1278362,
+          1846523
+        ]
+      }
+    ]
+  }
+}

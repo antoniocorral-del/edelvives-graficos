@@ -1,0 +1,25 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos",
+  "unidad": "pedidos",
+  "periodos": [
+    {
+      "etiqueta": "Mes",
+      "valor": 1284,
+      "periodo": "Marzo 2026 (MTD)",
+      "detalle": "Del 1 al 29 de marzo"
+    },
+    {
+      "etiqueta": "Trimestre",
+      "valor": 3612,
+      "periodo": "1.er trimestre 2026 (QTD)",
+      "detalle": "Del 1 de enero al 29 de marzo"
+    },
+    {
+      "etiqueta": "Año",
+      "valor": 3612,
+      "periodo": "2026 (YTD)",
+      "detalle": "Del 1 de enero al 29 de marzo"
+    }
+  ]
+}

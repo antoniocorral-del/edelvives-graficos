@@ -1,0 +1,23 @@
+{
+  "tipo": "barras-divergentes",
+  "variante": "desviacion-objetivo",
+  "titulo": "Desviación de cada indicador frente a su objetivo",
+  "unidad": "%",
+  "periodo": "Marzo 2026",
+  "datos": {
+    "categorias": [
+      "Ventas",
+      "Altas",
+      "Cobros",
+      "NPS",
+      "Pedidos web"
+    ],
+    "valores": [
+      8,
+      -12,
+      3,
+      -4,
+      15
+    ]
+  }
+}

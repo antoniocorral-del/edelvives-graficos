@@ -1,0 +1,60 @@
+{
+  "tipo": "matriz",
+  "variante": "cohortes",
+  "titulo": "Retención de usuarios por mes de alta",
+  "unidad": "%",
+  "periodo": "2026",
+  "datos": {
+    "cohortes": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun"
+    ],
+    "periodos": [
+      "M0",
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5"
+    ],
+    "valores": [
+      [
+        100,
+        72,
+        58,
+        49,
+        43,
+        39
+      ],
+      [
+        100,
+        76,
+        62,
+        53,
+        47
+      ],
+      [
+        100,
+        69,
+        55,
+        46
+      ],
+      [
+        100,
+        78,
+        64
+      ],
+      [
+        100,
+        65
+      ],
+      [
+        100
+      ]
+    ]
+  }
+}

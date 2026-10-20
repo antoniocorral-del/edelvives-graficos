@@ -1,0 +1,44 @@
+{
+  "tipo": "marimekko",
+  "titulo": "Ventas por etapa y formato",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "grupos": [
+      "Primaria",
+      "Infantil",
+      "ESO",
+      "Bachillerato"
+    ],
+    "series": [
+      {
+        "nombre": "Papel",
+        "valores": [
+          2700000,
+          1790000,
+          1350000,
+          520000
+        ]
+      },
+      {
+        "nombre": "Digital",
+        "valores": [
+          1620000,
+          800000,
+          960000,
+          480000
+        ]
+      },
+      {
+        "nombre": "Mixto",
+        "valores": [
+          1080000,
+          390000,
+          390000,
+          280000
+        ]
+      }
+    ]
+  }
+}

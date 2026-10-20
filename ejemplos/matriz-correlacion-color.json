@@ -1,0 +1,35 @@
+{
+  "tipo": "matriz",
+  "variante": "correlacion-color",
+  "titulo": "Qué indicadores de los centros se mueven juntos",
+  "periodo": "Curso 2025-26",
+  "nombreCasos": "centros",
+  "datos": {
+    "series": [
+      {
+        "nombre": "Alumnos",
+        "valores": [510, 525, 955, 495, 1133, 1177, 587, 686, 1097, 1176, 586, 598, 1016, 710, 426]
+      },
+      {
+        "nombre": "Licencias",
+        "valores": [386, 359, 644, 400, 915, 802, 392, 413, 770, 811, 462, 374, 640, 561, 292]
+      },
+      {
+        "nombre": "Uso",
+        "valores": [40.3, 48.6, 46.5, 44.1, 62.7, 55.3, 52.9, 47.4, 43.5, 56.1, 59.8, 45.6, 53.6, 51.9, 46.8]
+      },
+      {
+        "nombre": "Satisfacción",
+        "valores": [59.2, 73.6, 62.5, 60.1, 69.9, 70.6, 66.4, 68.4, 64.5, 75.6, 70.5, 59.9, 69.4, 65.6, 71.3]
+      },
+      {
+        "nombre": "Incidencias",
+        "valores": [16, 7, 17, 7, 7, 11, 10, 9, 14, 8, 5, 12, 6, 8, 9]
+      },
+      {
+        "nombre": "Plazo",
+        "valores": [7.3, 4.1, 8.2, 3.5, 3.8, 4.9, 6.1, 2.6, 5.7, 4.9, 3.7, 5.5, 5.2, 5.0, 5.9]
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "tipo": "barras",
+  "variante": "vs-anterior",
+  "titulo": "Pedidos mensuales frente a 2025",
+  "unidad": "pedidos",
+  "datos": {
+    "categorias": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago"
+    ],
+    "series": [
+      {
+        "nombre": "2026",
+        "valores": [
+          4200,
+          4800,
+          4500,
+          5500,
+          6000,
+          5800,
+          6600,
+          7200
+        ]
+      },
+      {
+        "nombre": "2025",
+        "rol": "anterior",
+        "valores": [
+          3800,
+          4300,
+          4600,
+          5000,
+          5200,
+          5500,
+          5800,
+          6000
+        ]
+      }
+    ]
+  }
+}

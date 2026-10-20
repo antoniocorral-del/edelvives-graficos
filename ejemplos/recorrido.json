@@ -1,0 +1,13 @@
+{
+  "tipo": "recorrido",
+  "titulo": "Experiencia de compra de las familias",
+  "unidad": "puntos",
+  "periodo": "Encuesta de septiembre",
+  "datos": {
+    "etapas": ["Descubre", "Considera", "Compra", "Usa", "Recomienda"],
+    "contactos": ["Web", "Librería", "Pago", "Plataforma", "Reseña"],
+    "valores": [3.2, 2.6, 2.0, 3.8, 4.4],
+    "minimo": 1,
+    "maximo": 5
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "tipo": "etapas",
+  "variante": "proceso",
+  "titulo": "Edición de Lectópolis 3",
+  "datos": {
+    "pasos": ["Solicitud", "Revisión", { "nombre": "¿Aprobado?", "alternativa": "Corregir" }, "Producción", "Entrega"],
+    "actual": "Producción"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "tipo": "radar",
+  "variante": "perfil",
+  "titulo": "Perfil del centro en la evaluación de calidad",
+  "periodo": "Curso 2025-26",
+  "unidad": "puntos",
+  "datos": {
+    "dimensiones": ["Resultados", "Clima", "Familias", "Recursos", "Innovación", "Convivencia"],
+    "valores": [82, 64, 91, 58, 73, 69],
+    "maximo": 100
+  }
+}

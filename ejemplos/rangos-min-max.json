@@ -1,0 +1,1 @@
+{"tipo":"rangos","variante":"min-max","titulo":"Pedidos diarios por mes","unidad":"pedidos","datos":{"periodos":["Ene","Feb","Mar","Abr","May","Jun"],"minimos":[128,114,146,172,210,196],"maximos":[302,280,341,398,462,437],"valores":[208,190,236,284,337,318]}}

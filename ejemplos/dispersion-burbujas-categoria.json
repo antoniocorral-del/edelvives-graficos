@@ -1,0 +1,44 @@
+{
+  "tipo": "dispersion",
+  "variante": "burbujas-categoria",
+  "titulo": "Títulos por línea: precio, valoración y ventas",
+  "periodo": "2025",
+  "unidad": "€",
+  "ejes": {
+    "x": "Precio",
+    "y": {
+      "nombre": "Valoración",
+      "unidad": "puntos"
+    },
+    "tamano": {
+      "nombre": "Ejemplares vendidos",
+      "unidad": "miles"
+    }
+  },
+  "rotular": ["Lectópolis 3"],
+  "datos": {
+    "series": [
+      {
+        "nombre": "Libro de texto",
+        "nombres": ["Lectópolis 3", "Mates en ruta 4", "Ciencias vivas 5"],
+        "x": [24, 27, 31],
+        "y": [84, 62, 71],
+        "tamanos": [14, 20, 16]
+      },
+      {
+        "nombre": "Digital",
+        "nombres": ["Aula digital 3", "Mates+ 4", "Ciencia 360"],
+        "x": [15, 18, 22],
+        "y": [58, 76, 47],
+        "tamanos": [8, 22, 11]
+      },
+      {
+        "nombre": "Lectura",
+        "nombres": ["Cuentos del mar", "El faro", "Diario de Leo"],
+        "x": [11, 13, 9],
+        "y": [66, 88, 52],
+        "tamanos": [12, 9, 6]
+      }
+    ]
+  }
+}

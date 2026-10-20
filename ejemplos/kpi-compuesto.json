@@ -1,0 +1,22 @@
+{
+  "tipo": "kpi",
+  "titulo": "Índice de calidad del servicio",
+  "unidad": "puntos",
+  "valor": 78,
+  "componentes": {
+    "categorias": [
+      "Calidad",
+      "Plazo",
+      "Coste"
+    ],
+    "valores": [
+      82,
+      74,
+      77
+    ],
+    "maximo": 100
+  },
+  "contexto": [
+    "Media ponderada: calidad 40 %, plazo 30 % y coste 30 %."
+  ]
+}

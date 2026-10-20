@@ -1,0 +1,28 @@
+{
+  "tipo": "barras",
+  "variante": "horizontales",
+  "titulo": "Ventas por comunidad autónoma",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "categorias": [
+      "Andalucía",
+      "Castilla y León",
+      "Cataluña",
+      "Comunidad de Madrid",
+      "Comunidad Valenciana",
+      "Galicia",
+      "País Vasco"
+    ],
+    "valores": [
+      2859096,
+      1260450,
+      3149432,
+      3962215,
+      2400113,
+      1098320,
+      874560
+    ]
+  }
+}

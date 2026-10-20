@@ -1,0 +1,11 @@
+{
+  "tipo": "progreso",
+  "variante": "medidor",
+  "titulo": "Cumplimiento del plan anual",
+  "unidad": "%",
+  "datos": {
+    "valor": 72,
+    "objetivo": 85,
+    "etiqueta": "Cumplimiento"
+  }
+}

@@ -1,5 +1,6 @@
 {
-  "tipo": "donut",
+  "tipo": "sectores",
+  "variante": "donut",
   "titulo": "Ventas por línea de producto",
   "unidad": "€",
   "abreviar": true,

@@ -1,0 +1,11 @@
+{
+  "tipo": "embudo",
+  "variante": "conversion",
+  "titulo": "Conversión de la campaña de adopción",
+  "unidad": "centros",
+  "periodo": "Curso 2026-2027",
+  "datos": {
+    "etapas": ["Contactados", "Demostración", "Prueba", "Propuesta", "Adopción"],
+    "valores": [1240, 790, 505, 310, 148]
+  }
+}

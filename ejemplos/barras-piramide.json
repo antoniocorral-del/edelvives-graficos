@@ -1,0 +1,38 @@
+{
+  "tipo": "barras-divergentes",
+  "variante": "piramide",
+  "titulo": "Docentes registrados por edad",
+  "unidad": "docentes",
+  "periodo": "Curso 2025-26",
+  "datos": {
+    "categorias": [
+      "Menos de 30",
+      "30–39",
+      "40–49",
+      "50–59",
+      "60 y más"
+    ],
+    "series": [
+      {
+        "nombre": "Mujeres",
+        "valores": [
+          1840,
+          4210,
+          5120,
+          3980,
+          1260
+        ]
+      },
+      {
+        "nombre": "Hombres",
+        "valores": [
+          620,
+          1580,
+          2240,
+          2310,
+          980
+        ]
+      }
+    ]
+  }
+}

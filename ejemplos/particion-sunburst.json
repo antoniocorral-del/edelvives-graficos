@@ -1,0 +1,4 @@
+{"tipo":"particion","titulo":"Adopciones por etapa y formato","unidad":"centros",
+ "datos":{"arbol":{"nombre":"Total","hijos":[
+   {"nombre":"Primaria","hijos":[{"nombre":"Papel","valor":434},{"nombre":"Digital","valor":335}]},
+   {"nombre":"ESO","hijos":[{"nombre":"Papel","valor":273},{"nombre":"Digital","valor":198}]}]}}}

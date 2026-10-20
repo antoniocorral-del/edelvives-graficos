@@ -1,0 +1,44 @@
+{
+  "tipo": "lineas",
+  "variante": "referencia",
+  "titulo": "Satisfacción del profesorado",
+  "unidad": "puntos (0–100)",
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov"
+    ],
+    "series": [
+      {
+        "nombre": "Satisfacción",
+        "valores": [
+          64,
+          67,
+          66,
+          70,
+          71,
+          73,
+          72,
+          75,
+          76,
+          74,
+          78
+        ]
+      }
+    ],
+    "referencia": {
+      "nombre": "Media del sector",
+      "valor": 71
+    }
+  }
+}

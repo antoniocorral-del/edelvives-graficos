@@ -1,0 +1,14 @@
+{
+  "tipo": "progreso",
+  "variante": "ritmo",
+  "titulo": "Ventas acumuladas",
+  "unidad": "€",
+  "abreviar": true,
+  "datos": {
+    "valor": 1360000,
+    "meta": 2000000,
+    "esperado": 1500000,
+    "etiqueta": "la meta anual",
+    "restante": "Quedan 5 meses"
+  }
+}

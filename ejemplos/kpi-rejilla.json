@@ -1,0 +1,33 @@
+{
+  "tipo": "kpi-rejilla",
+  "titulo": "Indicadores clave",
+  "periodo": "Marzo 2026",
+  "datos": {
+    "indicadores": [
+      {
+        "nombre": "Ventas",
+        "valor": 1402,
+        "unidad": "pedidos",
+        "estado": "en-objetivo"
+      },
+      {
+        "nombre": "Altas",
+        "valor": 86,
+        "unidad": "altas",
+        "estado": "en-riesgo"
+      },
+      {
+        "nombre": "NPS",
+        "valor": 54,
+        "unidad": "puntos",
+        "estado": "en-objetivo"
+      },
+      {
+        "nombre": "Cobros",
+        "valor": 71,
+        "unidad": "%",
+        "estado": "fuera"
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{"tipo":"arbol","titulo":"Estructura del catálogo de Primaria",
+ "datos":{"arbol":{"nombre":"Primaria","hijos":[
+   {"nombre":"Lengua","hijos":["Lectura","Escritura"]},
+   {"nombre":"Matemáticas","hijos":["Cálculo","Geometría"]},
+   {"nombre":"Ciencias","hijos":["Naturales","Sociales"]}]}}}

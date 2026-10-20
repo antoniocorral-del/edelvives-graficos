@@ -1,0 +1,34 @@
+{
+  "tipo": "tabla",
+  "variante": "semaforo",
+  "titulo": "Semáforo de indicadores",
+  "periodo": "Marzo 2026",
+  "datos": {
+    "indicadores": [
+      {
+        "nombre": "Ventas",
+        "valor": 1352,
+        "objetivo": 1300,
+        "unidad": "pedidos"
+      },
+      {
+        "nombre": "Altas",
+        "valor": 94,
+        "objetivo": 100,
+        "unidad": "altas"
+      },
+      {
+        "nombre": "NPS",
+        "valor": 54,
+        "objetivo": 50,
+        "unidad": "puntos"
+      },
+      {
+        "nombre": "Cobros",
+        "valor": 72,
+        "objetivo": 100,
+        "unidad": "%"
+      }
+    ]
+  }
+}

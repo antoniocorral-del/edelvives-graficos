@@ -1,0 +1,4 @@
+{"tipo":"arbol","variante":"dendrograma","titulo":"Centros agrupados por perfil de uso","nombreCasos":"centros",
+ "datos":{"elementos":["Santa Ana","El Pilar","San José","La Salle","Pirineos","Río Ebro","Moncayo","Delicias"],
+          "variables":["Alumnos","% digital","Sesiones por semana"],
+          "valores":[[820,72,14],[760,68,12],[540,61,11],[600,58,10],[310,22,4],[280,25,5],[350,31,3],[300,18,4]]}}

@@ -1,0 +1,52 @@
+{
+  "tipo": "mapa",
+  "variante": "categorias",
+  "titulo": "Zonas comerciales",
+  "leyenda": "Zonas comerciales",
+  "datos": {
+    "territorios": [
+      "Galicia",
+      "Asturias",
+      "Cantabria",
+      "País Vasco",
+      "Navarra",
+      "Castilla y León",
+      "La Rioja",
+      "Aragón",
+      "Cataluña",
+      "Extremadura",
+      "Madrid",
+      "Castilla-La Mancha",
+      "Comunitat Valenciana",
+      "Illes Balears",
+      "Canarias",
+      "Andalucía",
+      "Murcia"
+    ],
+    "categorias": [
+      "Zona Norte",
+      "Zona Norte",
+      "Zona Norte",
+      "Zona Norte",
+      "Zona Norte",
+      "Zona Centro",
+      "Zona Norte",
+      "Zona Este",
+      "Zona Este",
+      "Zona Centro",
+      "Zona Centro",
+      "Zona Centro",
+      "Zona Este",
+      "Zona Este",
+      null,
+      "Zona Sur",
+      "Zona Sur"
+    ],
+    "grupos": [
+      "Zona Norte",
+      "Zona Este",
+      "Zona Centro",
+      "Zona Sur"
+    ]
+  }
+}

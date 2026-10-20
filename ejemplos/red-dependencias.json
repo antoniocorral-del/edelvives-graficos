@@ -1,0 +1,76 @@
+{
+  "tipo": "red",
+  "variante": "dependencias",
+  "titulo": "Dependencias del lanzamiento del proyecto",
+  "unidad": "días",
+  "datos": {
+    "nodos": [
+      {
+        "nombre": "Guion",
+        "duracion": 10
+      },
+      {
+        "nombre": "Maqueta",
+        "duracion": 15
+      },
+      {
+        "nombre": "Ilustración",
+        "duracion": 8
+      },
+      {
+        "nombre": "Revisión",
+        "duracion": 5
+      },
+      {
+        "nombre": "Digital",
+        "duracion": 12
+      },
+      {
+        "nombre": "Corrección",
+        "duracion": 4
+      },
+      {
+        "nombre": "Imprenta",
+        "duracion": 6
+      }
+    ],
+    "enlaces": [
+      {
+        "origen": "Guion",
+        "destino": "Maqueta"
+      },
+      {
+        "origen": "Guion",
+        "destino": "Ilustración"
+      },
+      {
+        "origen": "Maqueta",
+        "destino": "Revisión"
+      },
+      {
+        "origen": "Maqueta",
+        "destino": "Digital"
+      },
+      {
+        "origen": "Ilustración",
+        "destino": "Digital"
+      },
+      {
+        "origen": "Ilustración",
+        "destino": "Corrección"
+      },
+      {
+        "origen": "Revisión",
+        "destino": "Imprenta"
+      },
+      {
+        "origen": "Digital",
+        "destino": "Imprenta"
+      },
+      {
+        "origen": "Corrección",
+        "destino": "Imprenta"
+      }
+    ]
+  }
+}

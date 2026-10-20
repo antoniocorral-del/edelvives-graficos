@@ -1,0 +1,10 @@
+{
+  "tipo": "kpi",
+  "titulo": "Pedidos",
+  "unidad": "pedidos",
+  "valor": 1284,
+  "tendencia": {
+    "sentido": "sube",
+    "periodo": "Últimos 3 meses"
+  }
+}

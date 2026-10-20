@@ -1,0 +1,24 @@
+{
+  "tipo": "mapa",
+  "variante": "flujos",
+  "titulo": "Envíos desde el almacén central",
+  "unidad": "miles de envíos",
+  "leyenda": "Envíos (miles)",
+  "datos": {
+    "origen": "Madrid",
+    "destinos": [
+      "Barcelona",
+      "Sevilla",
+      "Valencia",
+      "Cantabria",
+      "A Coruña"
+    ],
+    "valores": [
+      42,
+      31,
+      24,
+      14,
+      9
+    ]
+  }
+}

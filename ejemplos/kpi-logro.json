@@ -1,0 +1,10 @@
+{
+  "tipo": "kpi",
+  "titulo": "Unidades vendidas",
+  "unidad": "unidades",
+  "valor": 1296,
+  "objetivo": {
+    "valor": 1200,
+    "forma": "logro"
+  }
+}

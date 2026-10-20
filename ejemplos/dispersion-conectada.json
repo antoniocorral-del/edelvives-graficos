@@ -1,0 +1,21 @@
+{
+  "tipo": "dispersion",
+  "variante": "conectada",
+  "titulo": "Ventas y cuota de mercado",
+  "periodo": "2019-2025",
+  "ejes": {
+    "x": {
+      "nombre": "Ventas",
+      "unidad": "M€"
+    },
+    "y": {
+      "nombre": "Cuota de mercado",
+      "unidad": "%"
+    }
+  },
+  "datos": {
+    "periodos": ["2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+    "x": [12.1, 11.4, 12.4, 13.5, 14.2, 14.6, 15.3],
+    "y": [18.2, 19.0, 19.6, 19.2, 20.1, 21.3, 22.5]
+  }
+}

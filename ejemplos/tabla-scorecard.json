@@ -1,0 +1,41 @@
+{
+  "tipo": "tabla",
+  "variante": "scorecard",
+  "titulo": "Scorecard del trimestre",
+  "periodo": "1.er trimestre 2026",
+  "datos": {
+    "indicadores": [
+      {
+        "nombre": "Ventas",
+        "valor": 1402,
+        "objetivo": 1300,
+        "unidad": "pedidos"
+      },
+      {
+        "nombre": "Altas",
+        "valor": 92,
+        "objetivo": 100,
+        "unidad": "altas"
+      },
+      {
+        "nombre": "NPS",
+        "valor": 54,
+        "objetivo": 50,
+        "unidad": "puntos"
+      },
+      {
+        "nombre": "Cobros",
+        "valor": 71,
+        "objetivo": 90,
+        "unidad": "%"
+      },
+      {
+        "nombre": "Incidencias",
+        "valor": 21,
+        "objetivo": 25,
+        "unidad": "incidencias",
+        "sentidoPositivo": "bajar"
+      }
+    ]
+  }
+}

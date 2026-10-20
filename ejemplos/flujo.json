@@ -1,0 +1,25 @@
+{
+  "tipo": "flujo",
+  "titulo": "Distribución de libros de texto",
+  "unidad": "unidades",
+  "periodo": "Septiembre 2026",
+  "datos": {
+    "enlaces": [
+      {
+        "origen": "Editorial",
+        "destino": "Almacén",
+        "valor": 12400
+      },
+      {
+        "origen": "Almacén",
+        "destino": "Zona Norte",
+        "valor": 7200
+      },
+      {
+        "origen": "Almacén",
+        "destino": "Zona Sur",
+        "valor": 5200
+      }
+    ]
+  }
+}

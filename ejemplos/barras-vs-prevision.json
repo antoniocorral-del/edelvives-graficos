@@ -1,0 +1,34 @@
+{
+  "tipo": "barras",
+  "variante": "vs-prevision",
+  "titulo": "Ventas de 2026: real y previsión",
+  "unidad": "€",
+  "abreviar": true,
+  "datos": {
+    "categorias": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago"
+    ],
+    "valores": [
+      420000,
+      480000,
+      450000,
+      550000,
+      600000
+    ],
+    "prevision": {
+      "valores": [
+        640000,
+        700000,
+        760000
+      ],
+      "origen": "plan comercial 2026"
+    }
+  }
+}

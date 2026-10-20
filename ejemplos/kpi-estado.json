@@ -1,0 +1,10 @@
+{
+  "tipo": "kpi",
+  "titulo": "Cumplimiento del plan",
+  "unidad": "%",
+  "valor": 104,
+  "estado": {
+    "estado": "en-objetivo",
+    "umbral": "100 % o más del objetivo"
+  }
+}

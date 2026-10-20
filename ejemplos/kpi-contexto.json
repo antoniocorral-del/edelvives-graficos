@@ -1,11 +1,10 @@
 {
-  "tipo": "kpi-contexto",
-  "titulo": "Ticket medio",
-  "unidad": "€",
-  "decimales": 0,
-  "valor": 200.08,
+  "tipo": "kpi",
+  "titulo": "Pedidos confirmados",
+  "unidad": "pedidos",
+  "valor": 1284,
   "contexto": [
-    "Ventas divididas entre pedidos, todos los canales.",
-    "Excluye devoluciones. Fuente: ERP."
+    "Confirmados en marzo, todos los canales.",
+    "Excluye pedidos cancelados. Fuente: ERP."
   ]
 }

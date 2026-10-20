@@ -1,0 +1,18 @@
+{
+  "tipo": "progreso",
+  "variante": "anillo",
+  "titulo": "Avance de las metas",
+  "unidad": "%",
+  "datos": {
+    "categorias": [
+      "Ventas",
+      "Altas",
+      "Cobros"
+    ],
+    "valores": [
+      72,
+      45,
+      91
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "tipo": "tabla",
+  "variante": "con-barras",
+  "titulo": "Cumplimiento por delegación",
+  "unidad": "%",
+  "periodo": "Enero–septiembre",
+  "datos": {
+    "columnas": [
+      {
+        "titulo": "Delegación"
+      },
+      {
+        "titulo": "Cumplimiento del objetivo",
+        "tipo": "barra",
+        "unidad": "%"
+      }
+    ],
+    "filas": [
+      [
+        "Norte",
+        104
+      ],
+      [
+        "Centro",
+        98
+      ],
+      [
+        "Este",
+        96
+      ],
+      [
+        "Sur",
+        93
+      ],
+      [
+        "Canarias",
+        90
+      ]
+    ]
+  }
+}

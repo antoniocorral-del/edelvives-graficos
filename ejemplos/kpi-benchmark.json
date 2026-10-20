@@ -1,0 +1,12 @@
+{
+  "tipo": "kpi",
+  "titulo": "Satisfacción (NPS)",
+  "unidad": "puntos",
+  "valor": 54,
+  "benchmark": {
+    "nombre": "Sector",
+    "valor": 41,
+    "maximo": 100,
+    "fuente": "estudio sectorial 2026"
+  }
+}

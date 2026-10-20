@@ -1,0 +1,57 @@
+{
+  "tipo": "lineas",
+  "variante": "vs-prevision",
+  "titulo": "Ventas reales frente a las previstas",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic"
+    ],
+    "series": [
+      {
+        "nombre": "Real",
+        "valores": [
+          893830,
+          792051,
+          838434,
+          893017,
+          1087798,
+          1561919,
+          2357725,
+          3071497,
+          2707751
+        ]
+      }
+    ],
+    "prevision": {
+      "valores": [
+        910000,
+        780000,
+        860000,
+        920000,
+        1050000,
+        1600000,
+        2300000,
+        2950000,
+        2800000,
+        1700000,
+        1200000,
+        950000
+      ],
+      "origen": "plan comercial 2026"
+    }
+  }
+}

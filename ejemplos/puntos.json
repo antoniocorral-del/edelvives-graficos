@@ -1,0 +1,26 @@
+{
+  "tipo": "puntos",
+  "variante": "puntos",
+  "titulo": "Satisfacción por servicio",
+  "unidad": "puntos (0–100)",
+  "periodo": "Encuesta 2026",
+  "destacar": "Atención comercial",
+  "datos": {
+    "categorias": [
+      "Atención comercial",
+      "Plataforma digital",
+      "Formación docente",
+      "Logística",
+      "Facturación",
+      "Soporte técnico"
+    ],
+    "valores": [
+      82,
+      74,
+      71,
+      63,
+      58,
+      66
+    ]
+  }
+}

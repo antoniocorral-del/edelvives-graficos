@@ -1,0 +1,23 @@
+{
+  "tipo": "sectores",
+  "variante": "pie",
+  "titulo": "Pedidos por canal",
+  "unidad": "pedidos",
+  "periodo": "Septiembre",
+  "datos": {
+    "categorias": [
+      "Distribuidores",
+      "Venta directa a colegios",
+      "Tienda online",
+      "Librerías",
+      "Grandes superficies"
+    ],
+    "valores": [
+      4710,
+      2980,
+      1985,
+      1490,
+      1240
+    ]
+  }
+}

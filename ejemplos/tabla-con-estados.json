@@ -1,0 +1,56 @@
+{
+  "tipo": "tabla",
+  "variante": "con-estados",
+  "titulo": "Pedidos de la semana",
+  "unidad": "pedidos",
+  "datos": {
+    "columnas": [
+      {
+        "titulo": "Pedido"
+      },
+      {
+        "titulo": "Centro"
+      },
+      {
+        "titulo": "Estado",
+        "tipo": "estado"
+      },
+      {
+        "titulo": "Fecha",
+        "tipo": "fecha"
+      }
+    ],
+    "filas": [
+      [
+        "P-1001",
+        "CEIP Los Olivos",
+        "entregado",
+        "12 oct"
+      ],
+      [
+        "P-1002",
+        "Colegio San José",
+        "entregado",
+        "13 oct"
+      ],
+      [
+        "P-1003",
+        "IES Ribera",
+        "en-proceso",
+        "14 oct"
+      ],
+      [
+        "P-1004",
+        "Colegio Santa Ana",
+        "incidencia",
+        "14 oct"
+      ],
+      [
+        "P-1005",
+        "CEIP El Pinar",
+        "pendiente",
+        "15 oct"
+      ]
+    ]
+  }
+}

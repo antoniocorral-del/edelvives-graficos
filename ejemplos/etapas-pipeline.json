@@ -1,0 +1,72 @@
+{
+  "tipo": "etapas",
+  "variante": "pipeline",
+  "titulo": "Centros en proceso de adopción",
+  "nombreCasos": "centros",
+  "datos": {
+    "etapas": [
+      "Lead",
+      "Contactado",
+      "Propuesta",
+      "Cerrado"
+    ],
+    "casos": [
+      {
+        "nombre": "Santa Ana",
+        "etapa": "Lead"
+      },
+      {
+        "nombre": "Los Olivos",
+        "etapa": "Lead"
+      },
+      {
+        "nombre": "La Salle",
+        "etapa": "Lead"
+      },
+      {
+        "nombre": "IES Ebro",
+        "etapa": "Lead"
+      },
+      {
+        "nombre": "Montessori",
+        "etapa": "Lead"
+      },
+      {
+        "nombre": "Alborada",
+        "etapa": "Contactado"
+      },
+      {
+        "nombre": "El Pilar",
+        "etapa": "Contactado"
+      },
+      {
+        "nombre": "Pirineos",
+        "etapa": "Contactado"
+      },
+      {
+        "nombre": "Jesús María",
+        "etapa": "Contactado"
+      },
+      {
+        "nombre": "San José",
+        "etapa": "Propuesta"
+      },
+      {
+        "nombre": "Valdespartera",
+        "etapa": "Propuesta"
+      },
+      {
+        "nombre": "Miguel Servet",
+        "etapa": "Propuesta"
+      },
+      {
+        "nombre": "Sagrada Familia",
+        "etapa": "Cerrado"
+      },
+      {
+        "nombre": "Río Ebro",
+        "etapa": "Cerrado"
+      }
+    ]
+  }
+}

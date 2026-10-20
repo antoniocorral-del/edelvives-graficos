@@ -1,0 +1,45 @@
+{
+  "tipo": "coordenadas-paralelas",
+  "titulo": "Resultados de los centros en cinco áreas",
+  "periodo": "Curso 2025-26",
+  "unidad": "puntos",
+  "nombreCasos": "centros",
+  "destacar": "Nuestro centro",
+  "datos": {
+    "variables": ["Lectura", "Matemáticas", "Ciencias", "Inglés", "Digital"],
+    "series": [
+      {
+        "nombre": "Nuestro centro",
+        "valores": [56, 84, 70, 41, 60]
+      },
+      {
+        "nombre": "Centro B",
+        "valores": [34, 59, 46, 61, 79]
+      },
+      {
+        "nombre": "Centro C",
+        "valores": [65, 84, 43, 51, 65]
+      },
+      {
+        "nombre": "Centro D",
+        "valores": [50, 43, 72, 86, 33]
+      },
+      {
+        "nombre": "Centro E",
+        "valores": [87, 42, 87, 58, 73]
+      },
+      {
+        "nombre": "Centro F",
+        "valores": [89, 37, 75, 74, 49]
+      },
+      {
+        "nombre": "Centro G",
+        "valores": [89, 43, 78, 88, 71]
+      },
+      {
+        "nombre": "Centro H",
+        "valores": [63, 39, 79, 57, 52]
+      }
+    ]
+  }
+}

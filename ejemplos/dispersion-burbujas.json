@@ -1,0 +1,25 @@
+{
+  "tipo": "dispersion",
+  "variante": "burbujas",
+  "titulo": "Precio, valoración y ventas de los títulos de Primaria",
+  "periodo": "2025",
+  "unidad": "€",
+  "ejes": {
+    "x": "Precio",
+    "y": {
+      "nombre": "Valoración del profesorado",
+      "unidad": "puntos"
+    },
+    "tamano": {
+      "nombre": "Ejemplares vendidos",
+      "unidad": "miles"
+    }
+  },
+  "nombreCasos": "títulos",
+  "datos": {
+    "nombres": ["Lectópolis 3", "Mates en ruta 4", "Ciencias vivas 5", "Explora 2", "Palabras 6", "Atlas 4", "Inglés Go 3", "Arte y más 2"],
+    "x": [24, 27, 31, 19, 22, 29, 26, 21],
+    "y": [84, 62, 71, 78, 44, 66, 90, 58],
+    "tamanos": [14, 20, 26, 9, 6, 12, 18, 7]
+  }
+}

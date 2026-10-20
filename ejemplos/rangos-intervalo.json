@@ -1,0 +1,1 @@
+{"tipo":"rangos","variante":"intervalo","titulo":"Satisfacción estimada por canal de venta","unidad":"puntos","confianza":95,"datos":{"categorias":["Colegios","Librerías","Distribuidores","Tienda online","Venta directa"],"valores":[58,64,49,71,55],"minimos":[50,57,38,66,44],"maximos":[66,71,60,76,66],"referencia":{"nombre":"Media global","valor":59}}}

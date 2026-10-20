@@ -1,0 +1,22 @@
+{
+  "tipo": "sankey",
+  "variante": "recorrido",
+  "titulo": "Recorrido de compra en la tienda online",
+  "unidad": "usuarios",
+  "nombreCasos": "usuarios",
+  "periodo": "Abril 2026",
+  "datos": {
+    "etapas": [
+      "Inicio",
+      "Catálogo",
+      "Ficha",
+      "Compra"
+    ],
+    "valores": [
+      8400,
+      6048,
+      4032,
+      1764
+    ]
+  }
+}

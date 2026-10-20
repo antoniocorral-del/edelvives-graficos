@@ -1,0 +1,16 @@
+{
+  "tipo": "mapa",
+  "variante": "ruta",
+  "titulo": "Ruta comercial de octubre",
+  "leyenda": "Ruta comercial",
+  "datos": {
+    "paradas": [
+      "Madrid",
+      "Zaragoza",
+      "Barcelona",
+      "Valencia",
+      "Murcia",
+      "Sevilla"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "tipo": "lineas",
+  "variante": "prevision",
+  "titulo": "Ventas mensuales y previsión de cierre",
+  "unidad": "€",
+  "abreviar": true,
+  "periodo": "2026",
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic"
+    ],
+    "series": [
+      {
+        "nombre": "Real",
+        "valores": [
+          893830,
+          792051,
+          838434,
+          893017,
+          1087798,
+          1561919,
+          2357725
+        ]
+      }
+    ],
+    "prevision": {
+      "valores": [
+        3010000,
+        2690000,
+        1720000,
+        1210000,
+        980000
+      ],
+      "minimo": [
+        2830000,
+        2450000,
+        1520000,
+        1040000,
+        820000
+      ],
+      "maximo": [
+        3190000,
+        2930000,
+        1920000,
+        1380000,
+        1140000
+      ],
+      "origen": "modelo de previsión comercial"
+    }
+  }
+}
