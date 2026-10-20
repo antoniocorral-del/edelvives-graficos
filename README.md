@@ -5,7 +5,7 @@ Para ver los gráficos, abre con doble clic `vista-previa.html` (los 156 compone
 Contenido:
 
 - `dist/edelvives-graficos.js`: el script que dibuja (tokens, validador, renderizador, iconos de Material Symbols con licencia Apache 2.0). Carga ECharts 6.1.0 y Titillium Web por su cuenta.
-- `dist/mapas/`: los contornos de España por comunidades y por provincias (TopoJSON, en `.js`, que es lo que carga el kit, y en `.json`). Base de Datos de Divisiones Administrativas © Instituto Geográfico Nacional, licencia CC BY 4.0. Se cargan solo al dibujar un mapa.
+- `dist/mapas/`: los contornos de España por comunidades y por provincias (TopoJSON, en `.js`, que es lo que carga el kit, y en `.json`). Obra derivada de BDLJE CC-BY 4.0 [ign.es](https://www.ign.es/) (Límites municipales, provinciales y autonómicos del IGN, fichero del 28/07/2026; licencia de la Orden FOM/2807/2015, compatible con CC-BY 4.0). Se cargan solo al dibujar un mapa.
 - `DESIGN.md`: la guía que lee la IA. Es un índice corto: tabla de selección, reglas comunes y carga.
 - `referencias/`: una referencia por familia con el formato, los límites y ejemplos de cada componente. La IA solo lee la que necesita.
 - `esquema.json`: el formato de la especificación (JSON Schema).
@@ -13,6 +13,11 @@ Contenido:
 - `ejemplos/`: una especificación válida por componente.
 - `datos/`: CSV ficticios para la prueba del dashboard comercial.
 - `herramientas/generar.py`: regenera `esquema.json` y `vista-previa.html`. `herramientas/mapas.py`: prepara `dist/mapas/` a partir de los shapefiles de la BDDAE (necesita mapshaper). No se publican en npm.
+
+## Novedades de la 0.9.1
+
+- Atribución de los mapas conforme a la licencia del IGN: la nota de cada mapa dice «Contornos: obra derivada de BDLJE CC-BY 4.0 ign.es.», con «ign.es» enlazado a https://www.ign.es/. Los metadatos de `dist/mapas/` llevan la misma mención y el linaje del conjunto derivado.
+- Ningún otro cambio: las especificaciones de la 0.9.0 se dibujan igual (solo cambia el texto de la nota de los mapas). La 0.9.0 queda desaconsejada en npm.
 
 ## Novedades de la 0.9.0
 
@@ -130,9 +135,9 @@ Contenido:
 
 ## URL pública
 
-`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.0/dist/edelvives-graficos.js`
+`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/dist/edelvives-graficos.js`
 
-Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.0/referencias/comparacion.md`.
+Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/referencias/comparacion.md`.
 
 El kit se publica en npm (paquete `edelvives-graficos`) y jsDelivr lo sirve desde ahí. Es la misma URL para la skill de Claude (incluidos los artefactos publicados), los Gems de Gemini, los GPT de ChatGPT y los servidores de Edelvives.
 
@@ -143,6 +148,6 @@ El kit se publica en npm (paquete `edelvives-graficos`) y jsDelivr lo sirve desd
 3. Cambia `version` en `package.json` y la versión de las URL de `DESIGN.md`.
 4. Publica con `npm publish` desde la carpeta del repositorio.
 5. Actualiza la skill de Claude: sustituye su guía por el contenido de `DESIGN.md` (conservando la cabecera de la skill), copia la carpeta `referencias/` junto a ella y actualiza la copia de `dist/edelvives-graficos.js`. Los mapas se cargan desde jsDelivr (no hace falta copiar `dist/mapas/` en la skill).
-6. Si cambia la cartografía, descarga de nuevo la BDDAE del Centro de Descargas del CNIG y ejecuta `python3 herramientas/mapas.py <carpeta con SHP_ETRS89 y SHP_WGS84>`.
+6. Si cambia la cartografía, descarga de nuevo `LINEAS_LIMITE.ZIP` («Límites municipales, provinciales y autonómicos») del Centro de Descargas del CNIG, pon su fecha en `FUENTE` de `herramientas/mapas.py` y ejecuta `python3 herramientas/mapas.py <carpeta con SHP_ETRS89 y SHP_WGS84>`.
 
 Un número de versión publicado en npm no se puede reutilizar: cada cambio necesita una versión nueva.

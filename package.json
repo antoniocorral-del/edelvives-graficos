@@ -1,6 +1,6 @@
 {
   "name": "edelvives-graficos",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Sistema de gráficos y métricas de Edelvives para web. La IA escribe una especificación JSON y el kit dibuja el gráfico.",
   "main": "dist/edelvives-graficos.js",
   "browser": "dist/edelvives-graficos.js",

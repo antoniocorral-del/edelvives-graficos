@@ -9,7 +9,7 @@
  },
  "kit": {
   "paquete": "edelvives-graficos",
-  "version_actual": "0.9.0",
+  "version_actual": "0.9.1",
   "motor_actual": "ECharts 6.1.0",
   "medios_actuales": [
    "web"
@@ -234,7 +234,7 @@
    "componentes": 12,
    "ya_implementados": 12,
    "parciales": 0,
-   "nota": "Cartografía: BDDAE del IGN (CC BY 4.0), España por comunidades y por provincias, preparada con herramientas/mapas.py y cargada aparte (dist/mapas/*.js) solo al dibujar un mapa.",
+   "nota": "Cartografía: límites administrativos del IGN (BDLJE, fichero del 28/07/2026; atribución «Obra derivada de BDLJE CC-BY 4.0 ign.es»), España por comunidades y por provincias, preparada con herramientas/mapas.py y cargada aparte (dist/mapas/*.js) solo al dibujar un mapa.",
    "referencias": [
     "referencias/geografia.md"
    ],

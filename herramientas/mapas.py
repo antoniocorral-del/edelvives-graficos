@@ -7,7 +7,8 @@ Uso (desde la raíz del repositorio, con mapshaper instalado: npm i -g mapshaper
   python3 herramientas/mapas.py <carpeta con SHP_ETRS89 y SHP_WGS84>
 
 Fuente: Base de Datos de Divisiones Administrativas de España (IGN/CNIG), recintos provinciales de la Península y Baleares
-(ETRS89) y de Canarias (REGCAN95, compatible WGS84). Licencia CC BY 4.0: «© Instituto Geográfico Nacional».
+(ETRS89) y de Canarias (REGCAN95, compatible WGS84). Licencia CC-BY 4.0 (Orden FOM/2807/2015). Atribución de obra derivada que pide el CNIG para este producto:
+«Obra derivada de BDLJE CC-BY 4.0 ign.es», con «ign.es» enlazado a https://www.ign.es/. Fichero usado: LINEAS_LIMITE.ZIP del 28/07/2026.
 
 Qué hace:
 - Proyección equirrectangular con paralelo estándar 40° N y meridiano −3,7°, en km (la repite el kit para situar lat/lon:
@@ -23,6 +24,10 @@ Qué hace:
 import json, math, os, subprocess, sys, tempfile
 
 R = 6378.137
+# Atribución exigida por la licencia del IGN (fórmula de obra derivada del Centro de Descargas del CNIG).
+# Si se descarga otro fichero, cambia la fecha de FUENTE.
+ATRIBUCION = 'Obra derivada de BDLJE CC-BY 4.0 ign.es'
+FUENTE = 'Obra derivada de BDLJE CC-BY 4.0 ign.es (https://www.ign.es/). Recintos provinciales de los Límites municipales, provinciales y autonómicos del IGN (LINEAS_LIMITE.ZIP, Centro de Descargas del CNIG, fichero del 28/07/2026), proyectados, simplificados y unidos en comunidades, con Canarias trasladada a un recuadro y Ceuta y Melilla agrandadas (herramientas/mapas.py del kit Edelvives Gráficos).'
 LAT_TS, LON0 = 40.0, -3.7
 PROJ = '+proj=eqc +lat_ts=40 +lon_0=-3.7 +x_0=0 +y_0=0 +R=6378137 +units=km +no_defs'
 
@@ -63,15 +68,15 @@ def main(origen, destino):
             'mapa': capa, 'unidades': 'km', 'proyeccion': {'tipo': 'equirrectangular', 'lat_ts': LAT_TS, 'lon0': LON0, 'R': R},
             'canarias': {'desplazamiento': [round(dx, 3), round(dy, 3)], 'latMax': 30.5},
             'recuadro': [round(v, 1) for v in recuadro],
-            'fuente': 'BDDAE, Instituto Geográfico Nacional (CNIG). CC BY 4.0', 'atribucion': '© Instituto Geográfico Nacional'
+            'fuente': FUENTE, 'atribucion': ATRIBUCION, 'enlace': 'https://www.ign.es/', 'licencia': 'CC-BY 4.0'
         }
         txt = json.dumps(t, separators=(',', ':'), ensure_ascii=False)
         open(sal, 'w').write(txt)
         # La misma cartografía como script: es lo que carga el kit (funciona donde solo se permiten scripts de jsDelivr,
         # como los artefactos publicados de Claude, y al abrir el HTML con doble clic); el .json queda para quien lo prefiera.
         js = sal[:-5] + '.js'
-        open(js, 'w').write('/* Contornos de España por %s · BDDAE © Instituto Geográfico Nacional (CC BY 4.0) · kit Edelvives Gráficos */\n'
-                            '(window.EdelvivesGraficosMapas = window.EdelvivesGraficosMapas || {})[%s] = %s;\n' % (capa, json.dumps(capa), txt))
+        open(js, 'w').write('/* Contornos de España por %s · %s (https://www.ign.es/) · kit Edelvives Gráficos */\n'
+                            '(window.EdelvivesGraficosMapas = window.EdelvivesGraficosMapas || {})[%s] = %s;\n' % (capa, ATRIBUCION, json.dumps(capa), txt))
         print(sal, os.path.getsize(sal), 'bytes,', len(t['objects'][capa]['geometries']), 'zonas; también', os.path.basename(js))
 
 if __name__ == '__main__':

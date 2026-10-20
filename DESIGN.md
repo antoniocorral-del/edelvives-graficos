@@ -5,7 +5,7 @@ Usa este kit para cualquier gráfico, tabla de datos o KPI en páginas web de Ed
 ## 1. Carga
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.0/dist/edelvives-graficos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/dist/edelvives-graficos.js"></script>
 ```
 
 Ponlo en el `<head>`, con esta URL exacta. El script carga por su cuenta ECharts y la fuente Titillium Web. No lo copies ni lo reescribas dentro del HTML.
@@ -30,7 +30,7 @@ Ponlo en el `<head>`, con esta URL exacta. El script carga por su cuenta ECharts
 
 ## 3. Elige el componente por la pregunta
 
-Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa familia antes de escribir la especificación** (formato, límites y ejemplos). Lee solo las referencias que necesites. Están en la carpeta `referencias/` junto a esta guía y en `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.0/referencias/<archivo>`.
+Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa familia antes de escribir la especificación** (formato, límites y ejemplos). Lee solo las referencias que necesites. Están en la carpeta `referencias/` junto a esta guía y en `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/referencias/<archivo>`.
 
 | Pregunta | `tipo` · `variante` | Referencia |
 | --- | --- | --- |

@@ -1,5 +1,5 @@
 /*!
- * Edelvives Gráficos v0.9.0
+ * Edelvives Gráficos v0.9.1
  * Sistema de gráficos y métricas de Edelvives. Modo web.
  * Uso: EdelvivesGraficos.render('#destino', especificacion)
  * Iconos: Material Symbols (Google), licencia Apache 2.0.
@@ -7,7 +7,7 @@
 (function (global) {
   'use strict';
 
-  var VERSION = '0.9.0';
+  var VERSION = '0.9.1';
   var config = {
     echarts: [
       'https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js',
@@ -15,7 +15,7 @@
     ],
     fuente: 'https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap',
     /* Carpeta de los contornos de los mapas (TopoJSON); se cargan solo al dibujar un mapa */
-    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.0/dist/mapas/'
+    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/dist/mapas/'
   };
   var PREFIJO = '[EdelvivesGraficos] ';
   var NBSP = '\u00A0';
@@ -3022,6 +3022,7 @@
     '.eg-cuerpo{margin-top:16px;position:relative;flex:1;min-height:0}',
     '.eg-lienzo{width:100%;height:260px}',
     '.eg-nota{font-size:11px;line-height:14px;color:' + T.textoSecundario + ';margin:12px 0 0}',
+    '.eg-nota a{color:inherit;text-decoration:underline;text-underline-offset:2px}',
     '.eg-icono{display:inline-block;flex:none;vertical-align:middle}',
     /* KPI */
     '.eg-kpi .eg-titulo{font-size:11px;line-height:14px;font-weight:400;color:' + T.textoSecundario + '}',
@@ -3419,13 +3420,21 @@
   }
   function enUnidad(s) { return s.abreviar && s.unidad === '€' ? 'en euros' : (s.unidad === '%' ? 'en %' : 'en ' + s.unidad); }
 
+  /* Nota escapada; si lleva «_enlaceNota» (la atribución de los mapas), la última aparición de su texto es un enlace */
+  function notaHTML(s) {
+    var h = esc(s.nota), e = s._enlaceNota;
+    if (!e || !esTexto(e.texto) || !/^https:\/\//.test(e.url || '')) return h;
+    var t = esc(e.texto), i = h.lastIndexOf(t);
+    return i < 0 ? h : h.slice(0, i) + '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + t + '</a>' + h.slice(i + t.length);
+  }
+
   function tarjeta(el, s, cuerpo, extraClase) {
     var esKpi = s.tipo === 'kpi';
     var sub = esKpi ? '' : subtituloDe(s);
     el.innerHTML = '<section class="eg eg-tarjeta eg-' + s.tipo + (s.variante ? ' eg-' + s.tipo + '-' + s.variante : '') + (esKpi ? ' eg-kpi' : '') + (extraClase ? ' ' + extraClase : '') + '">' +
       '<header><h3 class="eg-titulo">' + esc(s.titulo) + '</h3>' + (sub ? '<p class="eg-subtitulo">' + esc(sub) + '</p>' : '') + '</header>' +
       '<div class="eg-cuerpo">' + cuerpo + '</div>' +
-      (esTexto(s.nota) ? '<p class="eg-nota">' + esc(s.nota) + '</p>' : '') +
+      (esTexto(s.nota) ? '<p class="eg-nota">' + notaHTML(s) + '</p>' : '') +
       '</section>';
     return el.querySelector('.eg-cuerpo');
   }
@@ -8296,7 +8305,7 @@
     });
     var meta = t.edelvives || {};
     if (meta.recuadro) { bb[0] = Math.min(bb[0], meta.recuadro[0]); bb[1] = Math.min(bb[1], meta.recuadro[1]); bb[2] = Math.max(bb[2], meta.recuadro[2]); bb[3] = Math.max(bb[3], meta.recuadro[3]); }
-    return { zonas: zonas, ids: Object.keys(zonas).sort(), bbox: bb, recuadro: meta.recuadro || null, atribucion: meta.atribucion || '© Instituto Geográfico Nacional' };
+    return { zonas: zonas, ids: Object.keys(zonas).sort(), bbox: bb, recuadro: meta.recuadro || null, atribucion: meta.atribucion || 'Obra derivada de BDLJE CC-BY 4.0 ign.es', enlace: meta.enlace || 'https://www.ign.es/' };
   }
   /* Encaja el mapa (km, y hacia arriba) en un rectángulo de píxeles */
   function encajarMapa(geo, x, y, w, h) {
@@ -8328,7 +8337,12 @@
   }
   /* Singular aproximado de «nombreCasos» para «1 punto = 1 centro» (se puede fijar con «nombreCaso») */
   function singular(t) { return /[aeiou][rlndzj]es$/.test(t) ? t.slice(0, -2) : t.replace(/s$/, ''); }
-  function conAtribucion(s, geo) { var a = 'Contornos: ' + geo.atribucion + ' (CC BY 4.0).'; s.nota = esTexto(s.nota) ? s.nota + ' ' + a : a; }
+  /* Atribución que exige la licencia del IGN (fórmula de obra derivada), visible al pie de cada mapa y con «ign.es» enlazado */
+  function conAtribucion(s, geo) {
+    var at = geo.atribucion, a = 'Contornos: ' + at.charAt(0).toLowerCase() + at.slice(1) + '.';
+    s.nota = esTexto(s.nota) ? s.nota + ' ' + a : a;
+    if (/ign\.es$/.test(at)) s._enlaceNota = { texto: 'ign.es', url: geo.enlace };
+  }
   function tituloLeyendaMapa(s, def) {
     if (esTexto(s.leyenda)) return s.leyenda;
     if (def) return def;

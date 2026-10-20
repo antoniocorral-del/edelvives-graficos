@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.0/esquema.json",
+  "$id": "https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/esquema.json",
   "title": "Especificación de gráfico Edelvives (kit v0.9)",
   "description": "Formato que escribe la IA. Las reglas de cantidad (series, categorías, partes) y de coherencia entre campos las comprueba además EG.validar().",
   "type": "object",

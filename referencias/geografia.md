@@ -6,7 +6,7 @@ Para mostrar dónde ocurre algo y cómo varía entre territorios de España, por
 
 `mapa` es `"comunidades"` (17 comunidades más Ceuta y Melilla) o `"provincias"` (52). Si no lo pones, el kit elige comunidades cuando todos los nombres lo son y, si no, provincias. Escribe el nombre habitual o el código INE (`"28"`); el kit admite variantes como `"Comunidad Valenciana"`, `"C. Valenciana"`, `"Alacant/Alicante"`, `"Vizcaya"`, `"La Coruña"` o `"Baleares"`, y un nombre que no reconoce es un error que dice cuál falla. En el mapa y en la leyenda se usa el nombre que tú escribes.
 
-Un **lugar** (origen, destino, parada o nodo) es el nombre de una zona del mapa, que se sitúa en su capital, o `{ nombre, lat, lon }` en grados. Los contornos son de la Base de Datos de Divisiones Administrativas del IGN (CC BY 4.0): la nota de cada mapa lo cita sola. Canarias va en un recuadro al suroeste, a la misma escala.
+Un **lugar** (origen, destino, parada o nodo) es el nombre de una zona del mapa, que se sitúa en su capital, o `{ nombre, lat, lon }` en grados. Los contornos son una obra derivada de los límites administrativos del IGN (CC-BY 4.0): la nota de cada mapa añade sola la atribución obligatoria; no la quites ni la repitas. Canarias va en un recuadro al suroeste, a la misma escala.
 
 | Tipo · `variante` | Pregunta | Datos | Límites | `unidad` |
 | --- | --- | --- | --- | --- |
