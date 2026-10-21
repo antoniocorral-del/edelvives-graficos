@@ -14,6 +14,16 @@ Contenido:
 - `datos/`: CSV ficticios para la prueba del dashboard comercial.
 - `herramientas/generar.py`: regenera `esquema.json` y `vista-previa.html`. `herramientas/mapas.py`: prepara `dist/mapas/` a partir de los shapefiles de la BDDAE (necesita mapshaper). No se publican en npm.
 
+## Novedades de la 0.9.2
+
+Salen de la prueba del dashboard Actividad Comercial (campaña Curso 2026), hecha con la 0.9.1.
+
+- Sankey: cada nodo final se dibuja en la columna siguiente a su origen, no en la última (antes sus cintas cruzaban columnas que no les correspondían). La variante `aluvial` también fija la alineación a la izquierda en ECharts; se dibuja igual.
+- Sankey: con 3 niveles o más, si ningún nodo recibe enlaces de más de un origen, el validador avisa de que los datos son un total desglosado en niveles y propone `particion · icicle` o `tabla · jerarquica`. Es aviso, no error: el gráfico se dibuja.
+- `referencias/flujo.md` explica cuándo no usar el sankey, y `referencias/jerarquia.md` remite al icicle para los desgloses que venían pensados como sankey.
+- KPI y `progreso` · `ritmo`: los rótulos de las barras de escala (objetivo, benchmark, previsión, esperado hoy) ya no se salen de la tarjeta cuando su marca está cerca de un extremo ni se pisan entre sí; se recolocan al cambiar el tamaño y cuando carga la fuente.
+- El resto de especificaciones de la 0.9.1 se dibujan igual.
+
 ## Novedades de la 0.9.1
 
 - Atribución de los mapas conforme a la licencia del IGN: la nota de cada mapa dice «Contornos: obra derivada de BDLJE CC-BY 4.0 ign.es.», con «ign.es» enlazado a https://www.ign.es/. Los metadatos de `dist/mapas/` llevan la misma mención y el linaje del conjunto derivado.
@@ -135,9 +145,9 @@ Contenido:
 
 ## URL pública
 
-`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/dist/edelvives-graficos.js`
+`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/dist/edelvives-graficos.js`
 
-Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/referencias/comparacion.md`.
+Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/referencias/comparacion.md`.
 
 El kit se publica en npm (paquete `edelvives-graficos`) y jsDelivr lo sirve desde ahí. Es la misma URL para la skill de Claude (incluidos los artefactos publicados), los Gems de Gemini, los GPT de ChatGPT y los servidores de Edelvives.
 

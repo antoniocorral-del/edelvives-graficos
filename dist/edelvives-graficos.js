@@ -1,5 +1,5 @@
 /*!
- * Edelvives Gráficos v0.9.1
+ * Edelvives Gráficos v0.9.2
  * Sistema de gráficos y métricas de Edelvives. Modo web.
  * Uso: EdelvivesGraficos.render('#destino', especificacion)
  * Iconos: Material Symbols (Google), licencia Apache 2.0.
@@ -7,7 +7,7 @@
 (function (global) {
   'use strict';
 
-  var VERSION = '0.9.1';
+  var VERSION = '0.9.2';
   var config = {
     echarts: [
       'https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js',
@@ -15,7 +15,7 @@
     ],
     fuente: 'https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap',
     /* Carpeta de los contornos de los mapas (TopoJSON); se cargan solo al dibujar un mapa */
-    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.1/dist/mapas/'
+    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/dist/mapas/'
   };
   var PREFIJO = '[EdelvivesGraficos] ';
   var NBSP = '\u00A0';
@@ -2301,7 +2301,7 @@
     }
     return { ciclo: camino.slice(visto[x]).concat([x]).map(function (k) { return g.nodos[k].nombre; }) };
   }
-  /* Nivel de cada nodo: el camino más largo desde un origen. justificar: los destinos finales van a la última columna (sankey) */
+  /* Nivel de cada nodo: el camino más largo desde un origen. justificar: los destinos finales van a la última columna (desde la 0.9.2 no lo usa ningún tipo) */
   function nivelesDe(g, orden, justificar) {
     var niv = g.nodos.map(function () { return 0; });
     orden.forEach(function (k) { g.nodos[k].sale.forEach(function (e) { var d = g.enlaces[e].d; niv[d] = Math.max(niv[d], niv[k] + 1); }); });
@@ -2381,7 +2381,8 @@
     if (aislados.length) { err('«' + aislados[0].nombre + '» está en «datos.nodos» pero no tiene enlaces.'); return; }
     var top = ordenTopologico(g);
     if (top.ciclo) { err('el sankey no admite ciclos y hay uno: ' + textoCiclo(top.ciclo) + '. Si el flujo vuelve atrás, usa red · comunidades o red · dependencias.'); return; }
-    var niv = nivelesDe(g, top.orden, true), ncol = Math.max.apply(null, niv) + 1;
+    /* Sin justificar: cada nodo final se queda en la columna siguiente a su origen (0.9.2) */
+    var niv = nivelesDe(g, top.orden, false), ncol = Math.max.apply(null, niv) + 1;
     if (ncol > 4) { err('tiene ' + ncol + ' niveles y el máximo es 4. Agrupa etapas intermedias o divide el sankey.'); return; }
     var porCol = []; niv.forEach(function (c) { porCol[c] = (porCol[c] || 0) + 1; });
     var lleno = porCol.map(function (n, c) { return { n: n, c: c }; }).filter(function (x) { return x.n > 8; })[0];
@@ -2393,6 +2394,11 @@
     });
     var cam = caminoDestacado(s, g, err, true);
     if (!cam) return;
+    /* Un sankey en el que ningún nodo junta flujos de varios orígenes es un árbol:
+       se lee mejor como desglose (partición · icicle) que como flujo. */
+    var esArbol = g.nodos.every(function (n) { return n.entra.length <= 1; });
+    if (esArbol && ncol >= 3) aviso('ningún nodo recibe flujo de más de un origen: los datos son un total desglosado en niveles, no un flujo. ' +
+      'Usa particion · icicle (o tabla · jerarquica) con datos.filas; el sankey es para recorridos que se reparten y se juntan.');
     g.nivel = niv; g.columnas = ncol; g.camino = cam;
     d._g = g;
   }
@@ -7815,7 +7821,7 @@
         animation: false,
         tooltip: Object.assign(tooltipBase(), { trigger: 'item', formatter: function (p) { return p.dataType === 'edge' ? tipFlujoEnlace(g, g.enlaces[p.data._e], s) : tipFlujoNodo(g, g.nodos[p.data._k], s); } }),
         series: [{
-          type: 'sankey', left: mi, right: md, top: 4, bottom: 4, nodeWidth: 14, nodeGap: 12, nodeAlign: 'justify', layoutIterations: 0, draggable: false,
+          type: 'sankey', left: mi, right: md, top: 4, bottom: 4, nodeWidth: 14, nodeGap: 12, nodeAlign: 'left', layoutIterations: 0, draggable: false,
           emphasis: { disabled: true }, data: nodos,
           label: Object.assign(estiloTexto(T.texto), { distance: 6 }),
           lineStyle: { curveness: 0.5, opacity: 1 },
@@ -7863,7 +7869,7 @@
           }
         }),
         series: [{
-          type: 'sankey', left: mi, right: md, top: top, bottom: 4, nodeWidth: NW, nodeGap: 12, nodeAlign: 'justify', layoutIterations: 0, draggable: false,
+          type: 'sankey', left: mi, right: md, top: top, bottom: 4, nodeWidth: NW, nodeGap: 12, nodeAlign: 'left', layoutIterations: 0, draggable: false,
           emphasis: { disabled: true }, data: nodos, links: enlaces,
           label: Object.assign(estiloTexto(T.texto), { distance: 6 }), lineStyle: { curveness: 0.5, opacity: 1 }
         }]
@@ -8755,6 +8761,28 @@
     }).join('') + '</div>';
     return html + '</div>';
   }
+  /* Recoloca los rótulos de las barras de escala para que no se salgan de la tarjeta ni se pisen (0.9.2) */
+  function ajustarEscalas(raiz) {
+    [].forEach.call(raiz.querySelectorAll('.eg-escala-rotulos'), function (c) {
+      var sp = [].slice.call(c.children), hueco = 8;
+      sp.forEach(function (s) { if (s.dataset.orig == null) s.dataset.orig = s.getAttribute('style') || ''; s.setAttribute('style', s.dataset.orig); });
+      var cr = c.getBoundingClientRect();
+      if (!cr.width) return;
+      function caja(s) { var r = s.getBoundingClientRect(); return { izq: r.left - cr.left, der: r.right - cr.left, ancho: r.width }; }
+      function fijar(s, izq) { s.style.left = izq + 'px'; s.style.right = 'auto'; s.style.transform = 'none'; }
+      sp.forEach(function (s) { var b = caja(s); if (b.der > cr.width) fijar(s, cr.width - b.ancho); else if (b.izq < 0) fijar(s, 0); });
+      var o = sp.map(function (s) { return { s: s, b: caja(s) }; }).sort(function (a, b) { return a.b.izq - b.b.izq; });
+      for (var i = o.length - 2; i >= 0; i--) if (o[i].b.der + hueco > o[i + 1].b.izq) { fijar(o[i].s, Math.max(0, o[i + 1].b.izq - hueco - o[i].b.ancho)); o[i].b = caja(o[i].s); }
+      for (var j = 1; j < o.length; j++) if (o[j - 1].b.der + hueco > o[j].b.izq) { fijar(o[j].s, Math.min(cr.width - o[j].b.ancho, o[j - 1].b.der + hueco)); o[j].b = caja(o[j].s); }
+    });
+  }
+  /* Ajusta los rótulos ahora, al cambiar el tamaño de la tarjeta y cuando carga la fuente */
+  function vigilarEscalas(c) {
+    if (!c.querySelector('.eg-escala-rotulos')) return Promise.resolve();
+    ajustarEscalas(c);
+    if (global.ResizeObserver) { new ResizeObserver(function () { ajustarEscalas(c); }).observe(c); }
+    return (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { ajustarEscalas(c); });
+  }
   function columnaKpi(etiqueta, contenido, clase) { return '<div class="eg-kpi-col' + (clase ? ' ' + clase : '') + '"><span class="eg-secundario">' + esc(etiqueta) + '</span>' + contenido + '</div>'; }
 
   R.kpi = function (el, s) {
@@ -8898,7 +8926,7 @@
         });
       });
     }
-    return Promise.resolve();
+    return vigilarEscalas(c);
   };
 
   R['kpi-rejilla'] = function (el, s) {
@@ -8950,12 +8978,12 @@
     }
     if (v === 'ritmo') {
       var pct = d.valor / d.meta * 100, esp = d.esperado / d.meta * 100, falta = d.meta - d.valor;
-      tarjeta(el, s, '<div class="eg-ritmo"><div class="eg-fila"><span class="eg-kpi-valor">' + numero(Math.round(pct), 0) + '<span class="eg-kpi-unidad">%</span></span><span class="eg-secundario">de ' +
+      var cr = tarjeta(el, s, '<div class="eg-ritmo"><div class="eg-fila"><span class="eg-kpi-valor">' + numero(Math.round(pct), 0) + '<span class="eg-kpi-unidad">%</span></span><span class="eg-secundario">de ' +
         esc(d.etiqueta || 'la meta') + ' (' + esc(fmtU(d.meta, s).texto) + ')</span></div>' +
         barraEscala({ relleno: pct, marcas: [esp], rotulos: [{ pos: esp, texto: 'Esperado hoy ' + porcentaje(esp, 0), fuerte: true }], arriba: true }) +
         '<div class="eg-fila eg-extremos"><span class="eg-fuerte">' + (falta > 0 ? 'Faltan ' + esc(fmtU(falta, s).texto) : 'Meta alcanzada') + '</span>' +
         (esTexto(d.restante) ? '<span class="eg-secundario">' + esc(d.restante) + '</span>' : '') + '</div></div>');
-      return Promise.resolve();
+      return vigilarEscalas(cr);
     }
     /* distancia */
     tarjeta(el, s, '<dl class="eg-progreso-lista eg-distancia">' + d.categorias.map(function (cat, i) {

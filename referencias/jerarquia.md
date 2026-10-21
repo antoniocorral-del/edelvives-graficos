@@ -1,4 +1,4 @@
-# Jerarquía · referencia del kit v0.8
+# Jerarquía · referencia del kit v0.9.2
 
 Para mostrar estructuras en niveles: cuánto pesa cada parte dentro de su grupo, cómo se ramifica algo desde su origen y qué contiene cada categoría. Los campos comunes están en `DESIGN.md`.
 
@@ -10,6 +10,8 @@ Todos los tipos aceptan uno de estos dos formatos en `datos`:
 - `arbol`: el árbol anidado `{ nombre, valor, hijos }`. Puede ser un objeto (con el elemento de arriba) o una lista con los elementos del primer nivel. En los tipos sin valores, un elemento final puede ser solo su nombre: `hijos: ["Edición", "Diseño"]`.
 
 Pon los valores solo en los elementos finales: el kit suma hacia arriba (si das el valor de un grupo, debe cuadrar con la suma). `datos.raiz` nombra el total o el origen (por defecto «Total»). `datos.niveles` nombra los niveles (`["Zona", "Centro"]`). Si un nombre se repite en ramas distintas, `destacar` lo identifica por su ruta: `"Área B / Equipo 3"`. Los elementos se ordenan de mayor a menor en cada grupo, con «Otros» al final (`orden:"natural"` mantiene el de los datos).
+
+Si el desglose venía pensado como sankey (cada nodo con un solo origen), este es su sitio: el icicle muestra el mismo desglose nivel a nivel, de arriba abajo, y cada parte queda bajo su origen, sin cintas cruzadas.
 
 | Tipo · `variante` | Pregunta | Niveles | Límites | `unidad` |
 | --- | --- | --- | --- | --- |

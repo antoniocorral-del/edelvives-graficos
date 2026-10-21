@@ -1,4 +1,4 @@
-# Flujo y relaciones · referencia del kit v0.8
+# Flujo y relaciones · referencia del kit v0.9.2
 
 Para mostrar cómo circula una cantidad entre etapas o entidades y cómo se conectan los elementos entre sí. Los campos comunes están en `DESIGN.md`.
 
@@ -18,7 +18,9 @@ Casi todos los tipos usan `datos.enlaces`, una lista de `{ origen, destino, valo
 | `red` · `radial` (con `centro`) | ¿Qué se relaciona con la entidad central y de qué modo? | `centro`, `enlaces` con `relacion` | 2-8 relaciones | no |
 | `red` · `dependencias` (con `ruta` o `duracion`) | ¿Qué depende de qué y cuál es la ruta crítica? | `enlaces` (origen = lo que va antes) | 20 tareas, 6 niveles, 5 en paralelo, sin ciclos | no (la de la duración, si la hay) |
 
-- `sankey`: un único camino en naranja. Por defecto, el que sale del mayor origen siguiendo el enlace mayor; `destacar` puede ser un nodo (el camino pasa por él), la lista de nodos del camino (`["Web", "Pedido directo", "Entregado"]`) o `false`. Cada nodo se rotula con su valor; si a un nodo le llega una cantidad distinta de la que sale, el kit avisa.
+**Antes de elegir el sankey.** Un sankey muestra un flujo: algo que pasa por etapas y se reparte o se junta por el camino. Si cada nodo tiene un solo origen, los datos no son un flujo sino un total desglosado en niveles (un árbol); usa `particion · icicle` o `tabla · jerarquica` de `jerarquia.md`. Ejemplo: venta neta → visitado / no visitado → mantiene / perdido / sin confirmar es un desglose, no un flujo.
+
+- `sankey`: un único camino en naranja. Por defecto, el que sale del mayor origen siguiendo el enlace mayor; `destacar` puede ser un nodo (el camino pasa por él), la lista de nodos del camino (`["Web", "Pedido directo", "Entregado"]`) o `false`. Cada nodo se rotula con su valor; si a un nodo le llega una cantidad distinta de la que sale, el kit avisa. Cada nodo final se dibuja en la columna siguiente a su origen. Con 3 niveles o más, si ningún nodo recibe enlaces de más de un origen, el kit avisa de que los datos son un desglose.
 - `aluvial`: `cambios` lleva una matriz por cada paso entre momentos; la fila es la categoría de origen y la columna, la de destino (`cambios[0][1][0]` = los que pasan de la 2.ª categoría a la 1.ª). Lo que llega a una categoría debe salir de ella en el paso siguiente. `destacar` (una categoría, por defecto la primera) va en naranja.
 - `recorrido`: `valores` son los que llegan a cada paso y no pueden crecer. Recuentos (el kit calcula el % sobre el primero) o % con `unidad:"%"`. Las salidas van hacia abajo con el nombre de `datos.salida` (por defecto «Abandono»); `nombreCasos` nombra a quién se mide en la nota.
 - `cuerdas`: el valor es el intercambio entre los dos grupos (da igual cuál es el origen; no repitas el par al revés). `destacar`: el grupo cuyas cintas van en naranja (por defecto, el de mayor total).

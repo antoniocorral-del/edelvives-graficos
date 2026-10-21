@@ -1,7 +1,7 @@
 {
  "$comentario": "Manifiesto del sistema de gráficos y métricas Edelvives. Relaciona cada componente del catálogo de Figma con el tipo y la variante del kit que lo dibuja, su estado y la tanda en que se implementa. Es una herramienta de trabajo del repositorio, no forma parte del paquete npm.",
  "version": "0.9",
- "fecha": "2026-10-19",
+ "fecha": "2026-10-21",
  "fuente": {
   "figma": "Gráficos y métricas Edelvives",
   "fileKey": "G67co0mI352BbRLMkZMnun",
@@ -9,7 +9,7 @@
  },
  "kit": {
   "paquete": "edelvives-graficos",
-  "version_actual": "0.9.1",
+  "version_actual": "0.9.2",
   "motor_actual": "ECharts 6.1.0",
   "medios_actuales": [
    "web"
