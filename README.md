@@ -14,6 +14,10 @@ Contenido:
 - `datos/`: CSV ficticios para la prueba del dashboard comercial.
 - `herramientas/generar.py`: regenera `esquema.json` y `vista-previa.html`. `herramientas/mapas.py`: prepara `dist/mapas/` a partir de los shapefiles de la BDDAE (necesita mapshaper). No se publican en npm.
 
+## Novedades de la 0.10.0 (en preparación)
+
+- Carga de la fuente: el kit espera a que Titillium Web (y Barlow, en presentación e impresión) haya cargado antes de medir y dibujar. Antes, en la primera visita, `document.fonts.load` se pedía antes de leer la hoja de estilos y se resolvía en el acto: los rótulos se medían con la fuente de reserva y salían recortados («Canaria», «Baleare») o mal repartidos. Ahora espera a la hoja y luego a cada peso; si algo falla o tarda más de 5 s, dibuja igual. Barlow se pide a Google Fonts (`EG.configurar({ barlow: url })` para servirla desde otro sitio) y solo fuera de web.
+
 ## Novedades de la 0.9.2
 
 Salen de la prueba del dashboard Actividad Comercial (campaña Curso 2026), hecha con la 0.9.1.

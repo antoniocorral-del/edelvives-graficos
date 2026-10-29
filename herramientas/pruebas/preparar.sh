@@ -8,13 +8,14 @@ RAIZ=$(pwd)
 DESTINO=${1:-/home/claude/test}
 mkdir -p "$DESTINO" && DESTINO=$(cd "$DESTINO" && pwd) && cd "$DESTINO"
 [ -f package.json ] || echo '{ "name": "banco-pruebas", "private": true }' > package.json
-npm install echarts@6.1.0 @fontsource/titillium-web@5 --silent
+npm install echarts@6.1.0 @fontsource/titillium-web@5 @fontsource/barlow@5 --silent
 for w in 400 600 700; do cat node_modules/@fontsource/titillium-web/$w.css; done | sed 's#\./files/#/node_modules/@fontsource/titillium-web/files/#g' > fuente.css
-cp "$RAIZ"/herramientas/pruebas/harness.html .
+for w in 400 500 600; do cat node_modules/@fontsource/barlow/$w.css; done | sed 's#\./files/#/node_modules/@fontsource/barlow/files/#g' > barlow.css
+cp "$RAIZ"/herramientas/pruebas/harness*.html .
 for f in "$RAIZ"/herramientas/pruebas/*.py "$RAIZ"/herramientas/pruebas/*.js; do
   sed -e "s#/home/claude/test#$DESTINO#g" -e "s#/home/claude/kit#$RAIZ#g" "$f" > "$(basename "$f")"
 done
-mkdir -p vp && ln -sfn "$DESTINO"/node_modules vp/node_modules && cp fuente.css vp/
+mkdir -p vp && ln -sfn "$DESTINO"/node_modules vp/node_modules && cp fuente.css barlow.css vp/
 ln -sfn "$RAIZ"/dist/mapas mapas && ln -sfn "$RAIZ"/dist/mapas vp/mapas
 # vp/index.html: la vista previa con el kit del repositorio y los recursos locales (para vp.py)
 cp "$RAIZ"/dist/edelvives-graficos.js vp/kit.js

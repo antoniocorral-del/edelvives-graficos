@@ -14,6 +14,8 @@
       'https://cdnjs.cloudflare.com/ajax/libs/echarts/6.1.0/echarts.min.js'
     ],
     fuente: 'https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap',
+    /* Barlow: ejes, leyendas y etiquetas de datos en presentación e impresión (no se carga en web) */
+    barlow: 'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap',
     /* Carpeta de los contornos de los mapas (TopoJSON); se cargan solo al dibujar un mapa */
     mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/dist/mapas/'
   };
@@ -3070,20 +3072,43 @@
     return promesaECharts;
   }
 
-  var promesaFuente = null;
-  function asegurarFuente() {
-    if (promesaFuente) return promesaFuente;
-    if (!document.querySelector('link[data-eg-fuente]') && config.fuente) {
-      var l = document.createElement('link');
-      l.rel = 'stylesheet'; l.href = config.fuente; l.setAttribute('data-eg-fuente', '');
+  /* Fuentes: se dibuja cuando han cargado, porque los rótulos se miden con ellas (medidos con la fuente de reserva,
+     se recortan o se reparten mal). Primero la hoja de estilos (hasta que no está leída, document.fonts.load no
+     encuentra la fuente y se resuelve en el acto) y luego cada peso. Si algo falla o tarda más de 5 s, se dibuja igual. */
+  var FUENTES = {
+    titillium: { familia: 'Titillium Web', pesos: ['400', '600', '700'], url: function () { return config.fuente; }, marca: 'data-eg-fuente' },
+    barlow: { familia: 'Barlow', pesos: ['400', '500', '600'], url: function () { return config.barlow; }, marca: 'data-eg-fuente-barlow' }
+  };
+  var promesasFuente = {};
+  function hojaCargada(l) {
+    try { if (l.sheet && l.sheet.cssRules) return true; } catch (e) { return true; /* hoja de otro origen ya leída */ }
+    return false;
+  }
+  function cargarHoja(f) {
+    var l = document.querySelector('link[' + f.marca + ']'), url = f.url();
+    if (!l) {
+      if (!url) return Promise.resolve();
+      l = document.createElement('link');
+      l.rel = 'stylesheet'; l.href = url; l.setAttribute(f.marca, '');
       document.head.appendChild(l);
-    }
-    var espera = new Promise(function (r) { setTimeout(r, 1500); });
-    var carga = (document.fonts && document.fonts.load)
-      ? Promise.all(['400', '600', '700'].map(function (w) { return document.fonts.load(w + ' 14px "Titillium Web"'); }))
-      : Promise.resolve();
-    promesaFuente = Promise.race([carga, espera]).catch(function () {});
-    return promesaFuente;
+    } else if (hojaCargada(l)) return Promise.resolve();
+    return new Promise(function (r) { l.addEventListener('load', r); l.addEventListener('error', r); });
+  }
+  function cargarFuente(clave) {
+    if (promesasFuente[clave]) return promesasFuente[clave];
+    var f = FUENTES[clave];
+    var carga = cargarHoja(f).then(function () {
+      if (!document.fonts || !document.fonts.load) return;
+      return Promise.all(f.pesos.map(function (w) { return document.fonts.load(w + ' 14px "' + f.familia + '"'); }));
+    });
+    var espera = new Promise(function (r) { setTimeout(r, 5000); });
+    promesasFuente[clave] = Promise.race([carga, espera]).catch(function () {});
+    return promesasFuente[clave];
+  }
+  function asegurarFuente() {
+    var claves = {};
+    Object.keys(TX).forEach(function (r) { claves[TX[r].familia] = true; });
+    return Promise.all(Object.keys(claves).map(cargarFuente));
   }
 
   /* ------------------------------------------------------------------ */

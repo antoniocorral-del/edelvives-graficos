@@ -5,7 +5,8 @@
 </head><body class="eg-pagina"><div id="r" class="eg-rejilla"></div>
 <script>
 const q = new URLSearchParams(location.search); if (q.get('ancho')) { document.documentElement.style.setProperty('--ancho', q.get('ancho')); document.documentElement.style.setProperty('--cols', q.get('cols')); }
-EG.configurar({ echarts: [q.get('ec')], fuente: '/fuente.css', mapas: '/mapas/' });
+EG.configurar({ echarts: [q.get('ec')], fuente: '/fuente.css', barlow: '/barlow.css', mapas: '/mapas/' });
+if (q.get('modo')) EG.configurar({ modo: q.get('modo'), tema: q.get('tema') || undefined });
 /* La fuente se carga antes de dibujar para que las medidas de los rótulos no dependan de cuándo llega */
 Promise.all(['400', '600', '700'].map(w => document.fonts.load(w + ' 14px "Titillium Web"'))).then(() => fetch(q.get('specs'))).then(r => r.json()).then(async specs => {
   const r = document.getElementById('r'); const res = [];

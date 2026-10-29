@@ -8,6 +8,7 @@ Uso (desde la carpeta del banco de pruebas, después de preparar.sh):
 y guarda <carpeta>/<ancho>/<ejemplo>.png y <carpeta>/resultados.json (errores, avisos y consola).
 «comparar» lista las capturas que cambian, con el número de píxeles distintos y la caja que los contiene,
 y deja la diferencia en <carpeta-nueva>/diferencias/.
+Con ARNES=harness-frio.html se dibuja sin precargar la fuente (para probar la espera del propio kit).
 """
 import sys, json, subprocess, time, os, shutil
 
@@ -33,7 +34,7 @@ def capturar(kit, carpeta, anchos):
         logs = []
         pg.on('console', lambda m: logs.append(m.type + ': ' + m.text) if m.type in ('error', 'warning') else None)
         pg.on('pageerror', lambda e: logs.append('PAGEERROR: ' + str(e)))
-        pg.goto('http://localhost:8765/harness.html?ec=/node_modules/echarts/dist/echarts.min.js&specs=/ejemplos.json&ancho=%spx&cols=3' % ancho)
+        pg.goto('http://localhost:8765/' + os.environ.get('ARNES', 'harness.html') + '?ec=/node_modules/echarts/dist/echarts.min.js&specs=/ejemplos.json&ancho=%spx&cols=3' % ancho)
         pg.wait_for_function('window.LISTO === true', timeout=60000)
         pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready'); time.sleep(1.5)
         pg.add_style_tag(content='*{pointer-events:none!important}')  # sin hover al desplazar para capturar
