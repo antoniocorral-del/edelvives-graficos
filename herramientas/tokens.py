@@ -137,7 +137,9 @@ def comprobar_refs(o, prim, ruta=''):
 def construir():
   s, prim0, pres, estilos, familias_sis, nombres_fam = leer_sistema()
   g = json.load(open(GRAFICOS, encoding='utf-8'))
-  comprobar_refs({k: v for k, v in g.items() if k not in ('texto', 'familias', 'modos')}, prim0)
+  comprobar_refs({k: v for k, v in g.items() if k not in ('texto', 'familias', 'modos', 'semanticos')}, prim0)
+  comprobar_refs(g['semanticos']['impresion'], prim0, '.semanticos.impresion')
+  comprobar_refs(g['semanticos']['presentacion'], dict(prim0, **{'pres-' + re.sub('([A-Z0-9])', lambda m: '-' + m.group(1).lower(), k): 1 for k in pres['blanco']}), '.semanticos.presentacion')
   recalcular = '--recalcular' in sys.argv
   prim = primitivos(prim0, cmyk_provisionales(prim0, recalcular))
 
@@ -152,6 +154,13 @@ def construir():
   modos = {}
   for modo in ('web', 'presentacion', 'impresion'):
     m = dict(g['modos'][modo])
+    for clave in ('sustituir', 'sustituirProvisional'):
+      if clave not in m: continue
+      for de, a in m[clave].items():
+        if de not in prim or a not in prim: raise ErrorTokens('modos.%s.%s: %s → %s no son tokens del sistema' % (modo, clave, de, a))
+        if modo == 'impresion' and (prim[a]['cmyk'] is None or prim[a]['provisional']):
+          raise ErrorTokens('modos.impresion.%s: %s no tiene CMYK del sistema' % (clave, a))
+      m[clave] = {camel(de): camel(a) for de, a in m[clave].items()}
     m['k'] = [texto[modo]['eje']['tam'], texto['web']['eje']['tam']]  # k = eje del modo ÷ eje de web
     m['texto'] = texto[modo]
     modos[modo] = m
@@ -171,6 +180,18 @@ def construir():
       sem[camel(k)] = nombre_ref(v['$value'])
   sem = {k: [x for _, x in sorted(v)] if isinstance(v, list) else v for k, v in sem.items()}
   modos['web']['semanticos'] = sem
+  # Fuera de web, solo los roles que cambian; {pres-x} pasa a 'pres.x' (el color del tema)
+  def nombre_modo(v):
+    if isinstance(v, list): return [nombre_modo(x) for x in v]
+    m = re.fullmatch(r'\{pres-([a-z0-9-]+)\}', v)
+    return 'pres.' + camel(m.group(1)) if m else nombre_ref(v)
+  for modo in ('presentacion', 'impresion'):
+    modos[modo]['semanticos'] = {camel(k): nombre_modo(v) for k, v in g['semanticos'][modo].items() if not k.startswith('$')}
+    if modo == 'impresion':
+      for k, v in modos[modo]['semanticos'].items():
+        for n in (v if isinstance(v, list) else [v]):
+          q = [x for x in prim if camel(x) == n][0]
+          if prim[q]['cmyk'] is None or prim[q]['provisional']: raise ErrorTokens('semanticos.impresion.%s usa %s, sin CMYK del sistema' % (k, q))
   return s, g, prim, pres, familias, modos
 
 
@@ -210,14 +231,14 @@ def bloque(s, prim, pres, familias, modos):
   L.append('  var FAMILIAS = {')
   L.append(',\n'.join('    %s: %s' % (k, js(v)) for k, v in familias.items()))
   L.append('  };')
-  L.append('  /* Por modo: k (unidades de salida por px lógico, como fracción), unidad, roles tipográficos en unidades de salida')
-  L.append('     y roles de color con el nombre del primitivo (sin «semanticos», los de web) */')
+  L.append('  /* Por modo: k (unidades de salida por px lógico, como fracción), unidad, sustituciones de tonos, roles tipográficos en')
+  L.append('     unidades de salida y roles de color con el nombre del primitivo (fuera de web, solo los que cambian; \'pres.x\': color del tema) */')
   L.append('  var MODOS = {')
   bloques = []
   for modo, m in modos.items():
     b = ['    %s: {' % modo]
     b.append('      k: %s / %s, unidad: %s%s,' % (m['k'][0], m['k'][1], js(m['unidad']), (', temas: ' + js(m['temas'])) if 'temas' in m else ''))
-    extra = [x for x in m if x not in ('k', 'unidad', 'temas', 'texto', 'semanticos')]
+    extra = [x for x in m if x not in ('k', 'unidad', 'temas', 'texto', 'semanticos') and not x.startswith('$')]
     for x in extra: b.append('      %s: %s,' % (x, js(m[x])))
     b.append('      texto: {')
     b.append(',\n'.join('        %s: %s' % (r, js(v)) for r, v in m['texto'].items()))
@@ -262,6 +283,7 @@ def tokens_json(s, g, prim, pres, familias, modos):
                                **({'$description': 'Estilo del sistema: ' + x['estilo']} if 'estilo' in x else {})}
                            for r, x in m['texto'].items()} for modo, m in modos.items()}},
     'modos': {modo: {k: v for k, v in m.items() if k not in ('texto', 'semanticos')} for modo, m in modos.items()},
+    'semanticos': refs(g['semanticos']),
   }
   return json.dumps(out, ensure_ascii=False, indent=2) + '\n'
 

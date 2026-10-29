@@ -3,7 +3,8 @@
   "grafico": {
     "series-1": {
       "$type": "color",
-      "$value": "{naranja-500}"
+      "$value": "{naranja-500}",
+      "$description": "Paleta «foco» (por defecto): la serie protagonista en naranja y el resto en neutros. Máximo 6 en web, 5 en presentación y 4 en impresión. Neutro 300 va la última porque también es el color de «Otros»."
     },
     "series-2": {
       "$type": "color",
@@ -11,20 +12,48 @@
     },
     "series-3": {
       "$type": "color",
-      "$value": "{naranja-300}"
+      "$value": "{neutro-400}"
     },
     "series-4": {
       "$type": "color",
-      "$value": "{neutro-400}"
+      "$value": "{neutro-700}"
     },
     "series-5": {
       "$type": "color",
-      "$value": "{naranja-700}"
+      "$value": "{neutro-500}"
     },
     "series-6": {
       "$type": "color",
-      "$value": "{naranja-100}",
-      "$description": "Provisional en la Fase 2 de la 0.10.0 (desaparece naranja-200); la Fase 3 rehace las paletas."
+      "$value": "{neutro-300}"
+    },
+    "gama-1": {
+      "$type": "color",
+      "$value": "{naranja-500}",
+      "$description": "Paleta «gama» (paleta: \"gama\"): 7 series como máximo, en este orden. Verde-500 y amarillo-500 no llegan a 3:1 sobre fondo claro: solo con el valor junto a cada elemento (etiquetas: true) o se saltan."
+    },
+    "gama-2": {
+      "$type": "color",
+      "$value": "{azul-500}"
+    },
+    "gama-3": {
+      "$type": "color",
+      "$value": "{verde-500}"
+    },
+    "gama-4": {
+      "$type": "color",
+      "$value": "{amarillo-500}"
+    },
+    "gama-5": {
+      "$type": "color",
+      "$value": "{morado-500}"
+    },
+    "gama-6": {
+      "$type": "color",
+      "$value": "{rosa-500}"
+    },
+    "gama-7": {
+      "$type": "color",
+      "$value": "{rojo-500}"
     },
     "otros": {
       "$type": "color",
@@ -40,7 +69,7 @@
     },
     "lineas-3": {
       "$type": "color",
-      "$value": "{naranja-700}"
+      "$value": "{neutro-400}"
     },
     "lineas-4": {
       "$type": "color",
@@ -306,8 +335,7 @@
     },
     "relacion-grupo-3": {
       "$type": "color",
-      "$value": "{naranja-300}",
-      "$description": "Bubble scatter y dispersión por grupos: tercer grupo."
+      "$value": "{neutro-400}"
     },
     "relacion-burbuja": {
       "$type": "color",
@@ -986,14 +1014,127 @@
       "temas": [
         "blanco",
         "negro"
-      ]
+      ],
+      "sustituir": {
+        "naranja-300": "naranja-400",
+        "neutro-300": "neutro-300-doc"
+      }
     },
     "impresion": {
-      "unidad": "pt"
-    }
+      "unidad": "pt",
+      "sustituir": {
+        "naranja-300": "naranja-400",
+        "neutro-300": "neutro-300-doc",
+        "azul-focus": "azul-500",
+        "verde-light": "verde-100",
+        "verde-base": "verde-500",
+        "verde-dark": "verde-700",
+        "amarillo-light": "amarillo-100",
+        "amarillo-base": "amarillo-500",
+        "amarillo-dark": "amarillo-700",
+        "rojo-light": "rojo-100",
+        "rojo-base": "rojo-500",
+        "rojo-dark": "rojo-600"
+      },
+      "sustituirProvisional": {
+        "naranja-700": "naranja-600",
+        "neutro-400": "neutro-500",
+        "neutro-600": "neutro-500",
+        "neutro-700": "neutro-800"
+      }
+    },
+    "$description": "sustituir: tonos de solo pantalla que fuera de web pasan a su equivalente (naranja-300 al tono de la rampa con CMYK más cercano). sustituirProvisional: en impresión, los usos sueltos de un tono provisional pasan al tono con CMYK más cercano; las rampas (mapas, calor, cohortes, correlación, hexágonos y jerarquía) conservan el provisional y el validador avisa."
   },
   "familias": {
     "$description": "Fuentes de reserva del kit, detrás de la familia del sistema (Barlow lleva Titillium Web de reserva).",
     "reserva": "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+  },
+  "semanticos": {
+    "$description": "Roles que cambian fuera de web (el resto, los de «grafico» con las sustituciones del modo). {pres-x} es el color del tema de presentación.",
+    "impresion": {
+      "series": [
+        "{naranja-500}",
+        "{neutro-500}",
+        "{neutro-300-doc}",
+        "{neutro-800}"
+      ],
+      "lineas": [
+        "{naranja-500}",
+        "{neutro-800}",
+        "{neutro-500}",
+        "{neutro-300-doc}"
+      ],
+      "relacion-grupo": [
+        "{naranja-500}",
+        "{neutro-500}",
+        "{neutro-800}"
+      ],
+      "rejilla": "{neutro-300-doc}",
+      "base": "{neutro-500}",
+      "etiqueta-eje": "{neutro-500}",
+      "leyenda": "{neutro-800}",
+      "titulo": "{neutro-800}",
+      "etiqueta-dato": "{neutro-800}",
+      "texto": "{neutro-800}",
+      "texto-secundario": "{neutro-500}",
+      "fondo": "{neutro-000}",
+      "fondo-pagina": "{neutro-000}",
+      "otros": "{neutro-200}",
+      "pista": "{neutro-200}",
+      "borde": "{neutro-300-doc}"
+    },
+    "presentacion": {
+      "series": [
+        "{pres-serie-1}",
+        "{pres-serie-2}",
+        "{pres-serie-3}",
+        "{pres-serie-4}",
+        "{pres-serie-5}"
+      ],
+      "lineas": [
+        "{pres-serie-1}",
+        "{pres-serie-3}",
+        "{pres-serie-2}",
+        "{pres-serie-4}"
+      ],
+      "gama": [
+        "{pres-grafica-1}",
+        "{pres-grafica-2}",
+        "{pres-grafica-3}",
+        "{pres-grafica-4}",
+        "{pres-grafica-5}",
+        "{pres-grafica-6}",
+        "{pres-grafica-7}"
+      ],
+      "relacion-grupo": [
+        "{pres-serie-1}",
+        "{pres-serie-3}",
+        "{pres-serie-2}"
+      ],
+      "actual": "{pres-acento}",
+      "prevision": "{pres-acento}",
+      "subida": "{pres-acento}",
+      "foco": "{pres-acento}",
+      "parte-destacada": "{pres-acento}",
+      "anterior": "{pres-serie-3}",
+      "bajada": "{pres-serie-3}",
+      "contexto": "{pres-serie-3}",
+      "fondo": "{pres-fondo}",
+      "fondo-pagina": "{pres-fondo}",
+      "rejilla": "{pres-separador}",
+      "base": "{pres-separador}",
+      "borde": "{pres-separador}",
+      "otros": "{pres-serie-5}",
+      "pista": "{pres-barra}",
+      "ranking-resto": "{pres-barra}",
+      "etiqueta-eje": "{pres-texto-2}",
+      "leyenda": "{pres-texto-2}",
+      "texto-secundario": "{pres-texto-2}",
+      "titulo": "{pres-texto}",
+      "etiqueta-dato": "{pres-texto}",
+      "texto": "{pres-texto}",
+      "tooltip": "{pres-texto}",
+      "objetivo": "{pres-texto}"
+    }
   }
 }

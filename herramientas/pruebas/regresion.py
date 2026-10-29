@@ -9,6 +9,7 @@ y guarda <carpeta>/<ancho>/<ejemplo>.png y <carpeta>/resultados.json (errores, a
 «comparar» lista las capturas que cambian, con el número de píxeles distintos y la caja que los contiene,
 y deja la diferencia en <carpeta-nueva>/diferencias/.
 Con ARNES=harness-frio.html se dibuja sin precargar la fuente (para probar la espera del propio kit).
+Con MODO=presentacion|impresion (y TEMA=blanco|negro) se dibuja en ese modo; en impresión se añade una «fuente» de ejemplo.
 """
 import sys, json, subprocess, time, os, shutil
 
@@ -22,7 +23,10 @@ def capturar(kit, carpeta, anchos):
   os.chdir(BANCO)
   shutil.copy(kit, 'kit.js')
   nombres = sorted(f[:-5] for f in os.listdir(KIT + '/ejemplos') if f.endswith('.json'))
-  json.dump([json.load(open(KIT + '/ejemplos/' + n + '.json')) for n in nombres], open('ejemplos.json', 'w'), ensure_ascii=False)
+  specs = [json.load(open(KIT + '/ejemplos/' + n + '.json')) for n in nombres]
+  if os.environ.get('MODO') == 'impresion':  # en impresión la fuente es obligatoria; los ejemplos no la traen
+    for x in specs: x.setdefault('fuente', 'Datos de ejemplo')
+  json.dump(specs, open('ejemplos.json', 'w'), ensure_ascii=False)
   srv = subprocess.Popen(['python3', '-m', 'http.server', '8765'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); time.sleep(0.6)
   resultados = {}
   try:
@@ -34,7 +38,7 @@ def capturar(kit, carpeta, anchos):
         logs = []
         pg.on('console', lambda m: logs.append(m.type + ': ' + m.text) if m.type in ('error', 'warning') else None)
         pg.on('pageerror', lambda e: logs.append('PAGEERROR: ' + str(e)))
-        pg.goto('http://localhost:8765/' + os.environ.get('ARNES', 'harness.html') + '?ec=/node_modules/echarts/dist/echarts.min.js&specs=/ejemplos.json&ancho=%spx&cols=3' % ancho)
+        pg.goto('http://localhost:8765/' + os.environ.get('ARNES', 'harness.html') + '?ec=/node_modules/echarts/dist/echarts.min.js&specs=/ejemplos.json&ancho=%spx&cols=3' % ancho + ''.join('&%s=%s' % (k.lower(), os.environ[k]) for k in ('MODO', 'TEMA') if os.environ.get(k)))
         pg.wait_for_function('window.LISTO === true', timeout=60000)
         pg.wait_for_load_state('networkidle'); pg.evaluate('document.fonts.ready'); time.sleep(1.5)
         pg.add_style_tag(content='*{pointer-events:none!important}')  # sin hover al desplazar para capturar
