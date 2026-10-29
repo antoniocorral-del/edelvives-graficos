@@ -21,9 +21,12 @@
   var NBSP = '\u00A0';
 
   /* ------------------------------------------------------------------ */
-  /* Tokens (fuente: Figma «Gráficos y métricas Edelvives», modo claro)   */
+  /* Tokens por modo                                                     */
   /* ------------------------------------------------------------------ */
-  var P = {
+  /* <tokens:generado> */
+  /* Fuente: Figma «Gráficos y métricas Edelvives», modo claro. Desde la 0.10.0 este bloque lo escribe
+     herramientas/tokens.py a partir del sistema de diseño (no editar a mano entre los marcadores). */
+  var PRIMITIVOS = {
     naranja100: '#FFECD4', naranja200: '#FFCEA3', naranja300: '#FFAF73', naranja400: '#FF801F',
     naranja500: '#F56A00', naranja600: '#D95003', naranja700: '#BD4200',
     neutro000: '#FFFFFF', neutro100: '#F7F4F2', neutro200: '#F0EDEA', neutro300: '#DBD5CE',
@@ -32,17 +35,85 @@
     alerta: '#FFB521', alertaFuerte: '#8B6200', alertaSuave: '#FFF3D0',
     error: '#D0021B', errorFuerte: '#720010', errorSuave: '#FAD4D8'
   };
-  var T = {
-    series: [P.naranja500, P.neutro600, P.naranja300, P.neutro400, P.naranja700, P.naranja200],
-    otros: P.neutro300,
-    lineas: [P.naranja500, P.neutro600, P.naranja700, P.neutro500],
-    actual: P.naranja500, objetivo: P.neutro700, anterior: P.neutro400, prevision: P.naranja500,
-    fondo: P.neutro000, fondoPagina: P.neutro100, rejilla: P.neutro200, base: P.neutro400,
-    etiquetaEje: P.neutro500, leyenda: P.neutro600, titulo: P.neutro700, etiquetaDato: P.neutro700,
-    texto: P.neutro700, textoSecundario: P.neutro500, borde: P.neutro300, pista: P.neutro300,
-    tooltip: P.neutro700, subida: P.naranja500, bajada: P.neutro600
+  var FAMILIAS = {
+    titillium: "'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+    barlow: "Barlow, 'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   };
-  var FUENTE = "'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+  /* Por modo: k (unidades de salida por px lógico), roles tipográficos en unidades de salida (px en web y en
+     presentación, pt en impresión) y roles de color con el nombre del primitivo (sin «semanticos», los de web) */
+  var MODOS = {
+    web: {
+      k: 1, unidad: 'px',
+      texto: {
+        eje: { familia: 'titillium', tam: 11, alto: 13, peso: 400 },
+        leyenda: { familia: 'titillium', tam: 11, alto: 14, peso: 400 },
+        dato: { familia: 'titillium', tam: 11, alto: 13, peso: 600 },
+        titulo: { familia: 'titillium', tam: 14, alto: 18, peso: 600 },
+        unidad: { familia: 'titillium', tam: 11, alto: 14, peso: 400 },
+        cifra: { familia: 'titillium', tam: 30, alto: 36, peso: 700 }
+      },
+      semanticos: {
+        series: ['naranja500', 'neutro600', 'naranja300', 'neutro400', 'naranja700', 'naranja200'],
+        otros: 'neutro300',
+        lineas: ['naranja500', 'neutro600', 'naranja700', 'neutro500'],
+        actual: 'naranja500', objetivo: 'neutro700', anterior: 'neutro400', prevision: 'naranja500',
+        fondo: 'neutro000', fondoPagina: 'neutro100', rejilla: 'neutro200', base: 'neutro400',
+        etiquetaEje: 'neutro500', leyenda: 'neutro600', titulo: 'neutro700', etiquetaDato: 'neutro700',
+        texto: 'neutro700', textoSecundario: 'neutro500', borde: 'neutro300', pista: 'neutro300',
+        tooltip: 'neutro700', subida: 'naranja500', bajada: 'neutro600'
+      }
+    },
+    presentacion: {
+      k: 24 / 11, unidad: 'px', temas: ['blanco', 'negro'],
+      texto: {
+        eje: { familia: 'barlow', tam: 24, alto: 32, peso: 400 },
+        leyenda: { familia: 'barlow', tam: 24, alto: 32, peso: 400 },
+        dato: { familia: 'barlow', tam: 32, alto: 40, peso: 400 },
+        titulo: { familia: 'titillium', tam: 38, alto: 46, peso: 600 },
+        unidad: { familia: 'titillium', tam: 24, alto: 32, peso: 400 },
+        cifra: { familia: 'titillium', tam: 112, alto: 120, peso: 300 }
+      }
+    },
+    impresion: {
+      k: 8 / 11, unidad: 'pt',
+      texto: {
+        eje: { familia: 'barlow', tam: 8, alto: 11, peso: 400 },
+        leyenda: { familia: 'barlow', tam: 9, alto: 12, peso: 400 },
+        dato: { familia: 'barlow', tam: 9, alto: 12, peso: 600 },
+        titulo: { familia: 'titillium', tam: 11, alto: 16, peso: 600 },
+        unidad: { familia: 'titillium', tam: 9, alto: 12, peso: 400 },
+        cifra: { familia: 'titillium', tam: 32, alto: 36, peso: 600 }
+      }
+    }
+  };
+  /* </tokens:generado> */
+
+  /* Tokens resueltos para un modo: P (primitivos), T (roles de color), TX (roles tipográficos con «px», el tamaño
+     en px lógicos, y «css», la familia), FUENTE (la familia del texto dentro del gráfico) y K */
+  function tokensDe(modo, tema) {
+    var m = MODOS[modo], P = copia(PRIMITIVOS), T = {}, TX = {};
+    var sem = m.semanticos || MODOS.web.semanticos;
+    Object.keys(sem).forEach(function (k) {
+      T[k] = Array.isArray(sem[k]) ? sem[k].map(function (n) { return P[n]; }) : P[sem[k]];
+    });
+    Object.keys(m.texto).forEach(function (r) {
+      var x = m.texto[r];
+      TX[r] = { familia: x.familia, css: FAMILIAS[x.familia], tam: x.tam, alto: x.alto, peso: x.peso, px: x.tam / m.k, altoPx: x.alto / m.k };
+    });
+    return { modo: modo, tema: tema || null, P: P, T: T, TX: TX, FUENTE: TX.eje.css, K: m.k };
+  }
+
+  /* El modo es de la página: EG.configurar({ modo, tema }) recalcula los tokens y todo lo que depende de ellos
+     (las constantes declaradas con derivado()) */
+  var P, T, TX, FUENTE, K, MODO, TEMA;
+  var DERIVADOS = [];
+  function derivado(f) { DERIVADOS.push(f); f(); }
+  function aplicarModo(modo, tema) {
+    var t = tokensDe(modo, tema);
+    MODO = t.modo; TEMA = t.tema; P = t.P; T = t.T; TX = t.TX; FUENTE = t.FUENTE; K = t.K;
+    DERIVADOS.forEach(function (f) { f(); });
+  }
+  aplicarModo('web');
 
   var ICONOS = {"subida":"M328-400q-9 0-14.5-6t-5.5-14q0-2 6-14l145-145q5-5 10-7t11-2q6 0 11 2t10 7l145 145q3 3 4.5 6.5t1.5 7.5q0 8-5.5 14t-14.5 6H328Z","bajada":"M459-381 314-526q-3-3-4.5-6.5T308-540q0-8 5.5-14t14.5-6h304q9 0 14.5 6t5.5 14q0 2-6 14L501-381q-5 5-10 7t-11 2q-6 0-11-2t-10-7Z","sinCambio":"M240-440q-17 0-28.5-11.5T200-480q0-17 11.5-28.5T240-520h480q17 0 28.5 11.5T760-480q0 17-11.5 28.5T720-440H240Z","cumplido":"m382-354 339-339q12-12 28-12t28 12q12 12 12 28.5T777-636L410-268q-12 12-28 12t-28-12L182-440q-12-12-11.5-28.5T183-497q12-12 28.5-12t28.5 12l142 143Z","objetivo":"M280-400v240q0 17-11.5 28.5T240-120q-17 0-28.5-11.5T200-160v-600q0-17 11.5-28.5T240-800h287q14 0 25 9t14 23l10 48h184q17 0 28.5 11.5T800-680v320q0 17-11.5 28.5T760-320H553q-14 0-25-9t-14-23l-10-48H280Zm306 0h134v-240H543q-14 0-25-9t-14-23l-10-48H280v240h257q14 0 25 9t14 23l10 48Zm-86-160Z","info":"M480-280q17 0 28.5-11.5T520-320v-160q0-17-11.5-28.5T480-520q-17 0-28.5 11.5T440-480v160q0 17 11.5 28.5T480-280Zm0-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","periodo":"M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z","tendenciaSube":"M108-255q-12-12-11.5-28.5T108-311l211-214q23-23 57-23t57 23l103 104 208-206h-64q-17 0-28.5-11.5T640-667q0-17 11.5-28.5T680-707h160q17 0 28.5 11.5T880-667v160q0 17-11.5 28.5T840-467q-17 0-28.5-11.5T800-507v-64L593-364q-23 23-57 23t-57-23L376-467 164-255q-11 11-28 11t-28-11Z","tendenciaBaja":"M744-320 536-526 433-423q-23 23-57 23t-57-23L108-636q-11-11-11.5-27.5T108-692q11-11 28-11t28 11l212 212 103-103q23-23 57-23t57 23l207 207v-64q0-17 11.5-28.5T840-480q17 0 28.5 11.5T880-440v160q0 17-11.5 28.5T840-240H680q-17 0-28.5-11.5T640-280q0-17 11.5-28.5T680-320h64Z","entregado":"m424-408-86-86q-11-11-28-11t-28 11q-11 11-11 28t11 28l114 114q12 12 28 12t28-12l226-226q11-11 11-28t-11-28q-11-11-28-11t-28 11L424-408Zm56 328q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","enCurso":"M520-496v-144q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v159q0 8 3 15.5t9 13.5l132 132q11 11 28 11t28-11q11-11 11-28t-11-28L520-496ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z","incidencia":"M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480v-160q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v160q0 17 11.5 28.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","pendiente":"M320-440h320q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H320q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"};
 
@@ -162,7 +233,8 @@
   };
   var ROLES = ['actual', 'anterior', 'objetivo', 'prevision'];
   /* Estados: siempre icono + texto + color, en este orden fijo */
-  var ESTADOS = {
+  var ESTADOS;
+  derivado(function () { ESTADOS = {
     'entregado': { texto: 'Entregado', icono: 'entregado', fondo: P.exitoSuave, color: P.exitoFuerte },
     'en-proceso': { texto: 'En proceso', icono: 'enCurso', fondo: P.alertaSuave, color: P.alertaFuerte },
     'incidencia': { texto: 'Incidencia', icono: 'incidencia', fondo: P.errorSuave, color: P.errorFuerte },
@@ -171,7 +243,7 @@
     'en-objetivo': { texto: 'En objetivo', icono: 'cumplido', fondo: P.exitoSuave, color: P.exitoFuerte },
     'en-riesgo': { texto: 'En riesgo', icono: 'enCurso', fondo: P.alertaSuave, color: P.alertaFuerte },
     'fuera': { texto: 'Fuera de objetivo', icono: 'incidencia', fondo: P.errorSuave, color: P.errorFuerte }
-  };
+  }; });
   var COLUMNAS = ['texto', 'numero', 'porcentaje', 'variacion', 'barra', 'sparkline', 'estado', 'fecha'];
 
   function esNum(x) { return typeof x === 'number' && isFinite(x); }
@@ -1183,13 +1255,14 @@
     return { a: my - b * mx, b: b, r: r, r2: r * r };
   }
   /* Clases del coeficiente de correlación: divergente de 5 clases con Neutro 100 en el centro (Figma «Heatmap de correlación») */
-  var CLASES_CORRELACION = [
+  var CLASES_CORRELACION;
+  derivado(function () { CLASES_CORRELACION = [
     { color: P.naranja700, texto: '\u2265 0,6', nombre: 'Positiva fuerte' },
     { color: P.naranja400, texto: '0,2 a 0,6', nombre: 'Positiva moderada' },
     { color: P.neutro100, texto: '\u22120,2 a 0,2', nombre: 'Débil o nula' },
     { color: P.neutro400, texto: '\u22120,6 a \u22120,2', nombre: 'Negativa moderada' },
     { color: P.neutro500, texto: '\u2264 \u22120,6', nombre: 'Negativa fuerte' }
-  ];
+  ]; });
   /* Se clasifica el valor redondeado a 2 decimales, el mismo que se rotula */
   function claseCorrelacion(r) { r = Math.round(r * 100) / 100; return r >= 0.6 ? 0 : (r >= 0.2 ? 1 : (r > -0.2 ? 2 : (r > -0.6 ? 3 : 4))); }
   /* Máximo redondo de una escala que parte de cero (radar): el menor que sale de 2 a 5 tramos de paso bonito */
@@ -1862,7 +1935,8 @@
   }
 
   /* Matriz de cohortes: una fila por cohorte y una columna por periodo desde su inicio (triángulo: las cohortes recientes tienen menos) */
-  var CLASES_COHORTE = [P.naranja100, P.naranja300, P.naranja500, P.naranja600, P.naranja700];
+  var CLASES_COHORTE;
+  derivado(function () { CLASES_COHORTE = [P.naranja100, P.naranja300, P.naranja500, P.naranja600, P.naranja700]; });
   function validarCohortes(s, err, aviso) {
     var d = s.datos, C = d.cohortes, Pr = d.periodos, V = d.valores;
     if (s.nombreCasos != null) aviso('«nombreCasos» no se usa en la variante "cohortes"; se ignora.');
@@ -2721,7 +2795,8 @@
     return [0, 1, 2, 3].map(function (k) { return limpio(c1 + k * paso); });
   }
   function claseMapa(x, cortes) { for (var k = 0; k < 4; k++) if (x < cortes[k]) return k; return 4; }
-  var CLASES_MAPA = [P.naranja100, P.naranja300, P.naranja500, P.naranja600, P.naranja700];
+  var CLASES_MAPA;
+  derivado(function () { CLASES_MAPA = [P.naranja100, P.naranja300, P.naranja500, P.naranja600, P.naranja700]; });
   var NIVELES_MAPA = ['Muy baja', 'Baja', 'Media', 'Alta', 'Muy alta'];
   /* Rótulos de las clases: «< 35 %», «35 – 49 %», «≥ 80 %». Con datos y cortes enteros, el tramo acaba una unidad antes del corte */
   function rotulosClases(cortes, enteros, s) {
@@ -2949,7 +3024,7 @@
          de un mes y el ciclo de vida no miden una magnitud; arbol y anidados dibujan una estructura (el dendrograma, una distancia); red dibuja conexiones (en dependencias, la unidad es la de la duración);
          mapa: los puntos y las celdas cuentan casos (con «valor» en los casos, lo comprueba validarGeografia), las áreas, rutas y conexiones no miden una magnitud */
     } else if (!esTexto(s.unidad)) err('falta «unidad» (por ejemplo "€", "%", "pedidos"). La unidad forma parte del significado del dato.');
-    if (s.medio && s.medio !== 'web') aviso('el kit solo tiene por ahora el modo "web"; se dibuja en modo web.');
+    if (s.medio != null && s.medio !== MODO) err(MODOS[s.medio] ? 'la especificación pide el medio "' + s.medio + '", pero la página está en modo "' + MODO + '". El modo es de la página: cámbialo con EG.configurar({ modo: "' + s.medio + '" }) o quita «medio».' : '«medio» debe ser "web", "presentacion" o "impresion".');
     if (s.colores || s.color || s.fuente || s.estilo) aviso('los colores, fuentes y estilos los pone el sistema; se ignoran «colores», «color», «fuente» y «estilo».');
 
     var d = s.datos;
@@ -3014,7 +3089,8 @@
   /* ------------------------------------------------------------------ */
   /* Estilos                                                             */
   /* ------------------------------------------------------------------ */
-  var CSS = [
+  var CSS;
+  derivado(function () { CSS = [
     '.eg-pagina{background:' + T.fondoPagina + ';color:' + T.texto + ';font-family:' + FUENTE + ';margin:0}',
     '.eg{font-family:' + FUENTE + ';color:' + T.texto + ';box-sizing:border-box;-webkit-font-smoothing:antialiased}',
     '.eg *,.eg *::before,.eg *::after{box-sizing:border-box}',
@@ -3312,14 +3388,18 @@
     '.eg-error .eg-titulo{display:flex;gap:8px;align-items:center}',
     '.eg-error ul{margin:12px 0 0;padding-left:18px;font-size:12px;line-height:17px}',
     '.eg-error li+li{margin-top:4px}'
-  ].join('\n');
+  ].join('\n'); });
 
   function asegurarEstilos() {
-    if (document.getElementById('eg-estilos')) return;
-    var st = document.createElement('style');
-    st.id = 'eg-estilos';
+    var st = document.getElementById('eg-estilos');
+    if (st && st.getAttribute('data-eg-modo') === MODO + (TEMA ? '-' + TEMA : '')) return;
+    if (!st) {
+      st = document.createElement('style');
+      st.id = 'eg-estilos';
+      document.head.appendChild(st);
+    }
+    st.setAttribute('data-eg-modo', MODO + (TEMA ? '-' + TEMA : ''));
     st.textContent = CSS;
-    document.head.appendChild(st);
   }
 
   /* ------------------------------------------------------------------ */
@@ -3457,7 +3537,7 @@
     return {
       type: 'value', min: 0, splitNumber: 4,
       axisLine: { show: false }, axisTick: { show: false },
-      axisLabel: { color: T.etiquetaEje, fontSize: 11, fontFamily: FUENTE, formatter: formatoEje },
+      axisLabel: { color: T.etiquetaEje, fontSize: TX.eje.px, fontFamily: TX.eje.css, formatter: formatoEje },
       splitLine: { lineStyle: { color: T.rejilla, width: 1 } }
     };
   }
@@ -3466,14 +3546,14 @@
     return {
       type: 'category', data: datos, boundaryGap: bordes,
       axisLine: { lineStyle: { color: T.base, width: 1 } }, axisTick: { show: false },
-      axisLabel: { color: T.etiquetaEje, fontSize: 11, fontFamily: FUENTE, margin: 10, hideOverlap: true }
+      axisLabel: { color: T.etiquetaEje, fontSize: TX.eje.px, fontFamily: TX.eje.css, margin: 10, hideOverlap: true }
     };
   }
 
   function leyenda(mostrar) {
     return {
       show: mostrar, top: 0, left: 0, itemWidth: 8, itemHeight: 8, itemGap: 16,
-      textStyle: { color: T.leyenda, fontSize: 11, fontFamily: FUENTE }
+      textStyle: { color: T.leyenda, fontSize: TX.leyenda.px, fontFamily: TX.leyenda.css }
     };
   }
 
@@ -3526,20 +3606,24 @@
     });
   }
 
-  /* Medida de texto a 11 px con la fuente del sistema (para reservar espacio a las etiquetas) */
+  /* Fuente de un rol tipográfico (eje, leyenda, dato…) en px lógicos. Sin rol, el peso decide: 600 es un dato y
+     el resto, un eje (en web, los dos a 11 px). «peso» manda sobre el del rol */
+  function rolDe(peso, rol) { return TX[rol || (peso === 600 ? 'dato' : 'eje')]; }
+  function fuenteTx(peso, rol) { var r = rolDe(peso, rol); return (peso || r.peso) + ' ' + r.px + 'px ' + r.css; }
+  /* Medida de texto con la fuente de su rol (para reservar espacio a las etiquetas) */
   var contextoMedida = null;
-  function medir(txt, peso) {
+  function medir(txt, peso, rol) {
     if (!contextoMedida) contextoMedida = document.createElement('canvas').getContext('2d');
-    contextoMedida.font = (peso || 400) + ' 11px ' + FUENTE;
+    contextoMedida.font = fuenteTx(peso || 400, rol);
     return Math.ceil(contextoMedida.measureText(String(txt)).width);
   }
-  function maxMedida(textos, peso) { return textos.reduce(function (a, t) { return Math.max(a, medir(t, peso)); }, 0); }
+  function maxMedida(textos, peso, rol) { return textos.reduce(function (a, t) { return Math.max(a, medir(t, peso, rol)); }, 0); }
   function lienzo(s, alto) {
     return '<div class="eg-lienzo" role="img" aria-label="' + esc(s.titulo) + '"' + (alto ? ' style="height:' + Math.round(alto) + 'px"' : '') + '></div>';
   }
   function fmtDato(v, s) { return formatear(v, { decimales: s.decimales, abreviar: s.abreviar }).texto; }
   function conSigno(v, s) { return (v > 0 ? '+' : (v < 0 ? '\u2212' : '')) + fmtDato(Math.abs(v), s); }
-  function estiloTexto(color, peso) { return { color: color, fontSize: 11, fontWeight: peso || 400, fontFamily: FUENTE }; }
+  function estiloTexto(color, peso, rol) { var r = rolDe(peso || 400, rol); return { color: color, fontSize: r.px, fontWeight: peso || 400, fontFamily: r.css }; }
   function etiquetaBarra(s, posicion) {
     return Object.assign(estiloTexto(T.etiquetaDato, 600), { show: true, position: posicion, distance: 4, formatter: function (p) { return fmtDato(Array.isArray(p.value) ? p.value[0] : p.value, s); } });
   }
@@ -3583,7 +3667,7 @@
   /* Elementos gráficos para los componentes que se dibujan a medida (en píxeles) */
   function gTexto(txt, x, y, o) {
     o = o || {};
-    return { type: 'text', silent: true, z: o.z || 20, style: { text: String(txt), x: x, y: y, fill: o.color || T.leyenda, font: (o.peso || 400) + ' 11px ' + FUENTE, align: o.align || 'left', verticalAlign: o.va || 'middle' } };
+    return { type: 'text', silent: true, z: o.z || 20, style: { text: String(txt), x: x, y: y, fill: o.color || T.leyenda, font: fuenteTx(o.peso || 400, o.rol), align: o.align || 'left', verticalAlign: o.va || 'middle' } };
   }
   function gLinea(x1, y1, x2, y2, color, ancho, z) {
     return { type: 'line', silent: true, z: z || 1, shape: { x1: x1, y1: y1, x2: x2, y2: y2 }, style: { stroke: color, lineWidth: ancho, lineCap: 'round' } };
@@ -3605,7 +3689,7 @@
       else if (it.forma === 'circulo') { els.push(gCirculo(x + 4, y, 4, it.color, 20)); x += 13; }
       else if (it.forma === 'rombo') { els.push({ type: 'polygon', silent: true, z: 20, shape: { points: [[x + 4.5, y - 4.5], [x + 9, y], [x + 4.5, y + 4.5], [x, y]] }, style: { fill: it.color } }); x += 14; }
       else { els.push(gRect(x, y - 4, 8, 8, it.color, 1.5, 20, it.borde, it.grosor)); x += 13; }
-      els.push(gTexto(it.texto, x, y, { color: T.leyenda })); x += medir(it.texto) + 16;
+      els.push(gTexto(it.texto, x, y, { color: T.leyenda, rol: 'leyenda' })); x += medir(it.texto, 400, 'leyenda') + 16;
     });
     return els;
   }
@@ -3789,8 +3873,10 @@
 
 
   /* ---- Utilidades de la familia Variación (cascada, desviación, contribución, antes y después) ---- */
-  var TOTAL_VAR = P.neutro400; /* totales de la cascada y de la contribución */
-  var LEYENDA_CASCADA = [{ texto: 'Aumenta', color: T.subida }, { texto: 'Disminuye', color: T.bajada }, { texto: 'Total', color: TOTAL_VAR }];
+  var TOTAL_VAR;
+  derivado(function () { TOTAL_VAR = P.neutro400; }); /* totales de la cascada y de la contribución */
+  var LEYENDA_CASCADA;
+  derivado(function () { LEYENDA_CASCADA = [{ texto: 'Aumenta', color: T.subida }, { texto: 'Disminuye', color: T.bajada }, { texto: 'Total', color: TOTAL_VAR }]; });
   function colorSigno(v) { return v < 0 ? T.bajada : T.subida; }
   function conSignoU(v, s) {
     var f = formatear(Math.abs(v), { unidad: s.unidad, decimales: s.decimales, abreviar: s.abreviar });
@@ -3826,7 +3912,8 @@
     var z0 = lo > 0 ? z(lo) : null;
     return z0 == null ? null : { min: -z0 / lo, max: (ancho - z0) / lo, px: lo * rango };
   }
-  var LINEA_CERO = { silent: true, symbol: 'none', animation: false, label: { show: false }, lineStyle: { color: T.base, width: 1, type: 'solid' }, data: [{ yAxis: 0 }] };
+  var LINEA_CERO;
+  derivado(function () { LINEA_CERO = { silent: true, symbol: 'none', animation: false, label: { show: false }, lineStyle: { color: T.base, width: 1, type: 'solid' }, data: [{ yAxis: 0 }] }; });
 
   /* Actual vs. target: barras horizontales con la marca del objetivo y el % alcanzado a la derecha */
   function barrasCumplimiento(el, s) {
@@ -3859,7 +3946,7 @@
             var i = params.dataIndex, p = api.coord([api.value(1), i]), alto = Math.min(20, api.size([0, 1])[1] * 0.5) + 8, xm = Math.round(p[0]);
             return { type: 'group', children: [
               { type: 'line', shape: { x1: xm, y1: p[1] - alto / 2, x2: xm, y2: p[1] + alto / 2 }, style: { stroke: T.objetivo, lineWidth: 2.5 } },
-              { type: 'text', silent: true, style: { text: textos[i], x: api.getWidth() - 2, y: p[1], align: 'right', verticalAlign: 'middle', fill: T.etiquetaDato, font: '600 11px ' + FUENTE } }
+              { type: 'text', silent: true, style: { text: textos[i], x: api.getWidth() - 2, y: p[1], align: 'right', verticalAlign: 'middle', fill: T.etiquetaDato, font: fuenteTx(600) } }
             ] };
           }
         }
@@ -4019,15 +4106,15 @@
             var x = Math.min(p0[0], p1[0]), ancho = Math.abs(p1[0] - p0[0]), neg = f.valor < 0;
             var hijos = [
               { type: 'rect', shape: { x: x, y: p0[1] - alto / 2, width: ancho, height: alto, r: neg ? [2, 0, 0, 2] : [0, 2, 2, 0] }, style: { fill: f.total ? TOTAL_VAR : colorSigno(f.valor) } },
-              { type: 'text', silent: true, style: { text: etiquetas[i], x: neg ? x - 6 : x + ancho + 6, y: p0[1], align: neg ? 'right' : 'left', verticalAlign: 'middle', fill: T.etiquetaDato, font: '600 11px ' + FUENTE } }
+              { type: 'text', silent: true, style: { text: etiquetas[i], x: neg ? x - 6 : x + ancho + 6, y: p0[1], align: neg ? 'right' : 'left', verticalAlign: 'middle', fill: T.etiquetaDato, font: fuenteTx(600) } }
             ];
             if (f.total) { var ys = Math.round(p0[1] - banda / 2) + 0.5; hijos.push({ type: 'line', silent: true, shape: { x1: 0, y1: ys, x2: api.getWidth(), y2: ys }, style: { stroke: P.neutro300, lineWidth: 1 } }); }
             if (i === 0) {
               var cs = params.coordSys, xz = Math.round(p0[0]) + 0.5;
               hijos.push({ type: 'line', silent: true, z2: 10, shape: { x1: xz, y1: cs.y - (conLados ? 18 : 0), x2: xz, y2: cs.y + cs.height }, style: { stroke: T.base, lineWidth: 1 } });
               if (conLados) {
-                hijos.push({ type: 'text', silent: true, style: { text: o.lados[0], x: xz - 8, y: cs.y - 12, align: 'right', verticalAlign: 'middle', fill: T.etiquetaEje, font: '400 11px ' + FUENTE } });
-                hijos.push({ type: 'text', silent: true, style: { text: o.lados[1], x: xz + 8, y: cs.y - 12, align: 'left', verticalAlign: 'middle', fill: T.etiquetaEje, font: '400 11px ' + FUENTE } });
+                hijos.push({ type: 'text', silent: true, style: { text: o.lados[0], x: xz - 8, y: cs.y - 12, align: 'right', verticalAlign: 'middle', fill: T.etiquetaEje, font: fuenteTx(400) } });
+                hijos.push({ type: 'text', silent: true, style: { text: o.lados[1], x: xz + 8, y: cs.y - 12, align: 'left', verticalAlign: 'middle', fill: T.etiquetaEje, font: fuenteTx(400) } });
               }
             }
             return { type: 'group', children: hijos };
@@ -4690,7 +4777,7 @@
             }
             if (conEtiquetas || f.total) {
               var sube = f.valor >= 0;
-              hijos.push({ type: 'text', silent: true, style: { text: textos[i], x: a[0], y: sube ? y - 4 : y + alto + 4, align: 'center', verticalAlign: sube ? 'bottom' : 'top', fill: T.etiquetaDato, font: '600 11px ' + FUENTE } });
+              hijos.push({ type: 'text', silent: true, style: { text: textos[i], x: a[0], y: sube ? y - 4 : y + alto + 4, align: 'center', verticalAlign: sube ? 'bottom' : 'top', fill: T.etiquetaDato, font: fuenteTx(600) } });
             }
             return { type: 'group', children: hijos };
           }
@@ -4730,7 +4817,7 @@
             var x = Math.min(a[0], b[0]), ancho = Math.max(1, Math.abs(b[0] - a[0])), y = a[1] - alto / 2;
             var hijos = [
               { type: 'rect', shape: { x: x, y: y, width: ancho, height: alto }, style: { fill: f.total ? TOTAL_VAR : colorSigno(f.valor) } },
-              { type: 'text', silent: true, style: { text: textos[i], x: x + ancho + 6, y: a[1], align: 'left', verticalAlign: 'middle', fill: T.etiquetaDato, font: '600 11px ' + FUENTE } }
+              { type: 'text', silent: true, style: { text: textos[i], x: x + ancho + 6, y: a[1], align: 'left', verticalAlign: 'middle', fill: T.etiquetaDato, font: fuenteTx(600) } }
             ];
             if (i < filas.length - 1) {
               var xc = Math.round(b[0]) + 0.5, siguiente = api.coord([f.hasta, i + 1])[1] - alto / 2;
@@ -4922,7 +5009,7 @@
   function rectRotulado(r, color, lineas) {
     var hijos = [{ type: 'rect', shape: { x: r.x, y: r.y, width: Math.max(0, r.w), height: Math.max(0, r.h) }, style: { fill: color, stroke: T.fondo, lineWidth: 2 } }];
     lineas.forEach(function (l) {
-      hijos.push({ type: 'text', silent: true, style: { text: l.texto, x: l.x, y: l.y, fill: textoSobre(color), font: (l.peso || 400) + ' 11px ' + FUENTE, align: l.align || 'left', verticalAlign: 'top' } });
+      hijos.push({ type: 'text', silent: true, style: { text: l.texto, x: l.x, y: l.y, fill: textoSobre(color), font: fuenteTx(l.peso || 400), align: l.align || 'left', verticalAlign: 'top' } });
     });
     return { type: 'group', children: hijos };
   }
@@ -5097,7 +5184,8 @@
   /* ================================================================== */
   /* Familia Distribución                                                */
   /* ================================================================== */
-  var RELLENO_DIST = P.naranja100; /* caja, violín, densidad, banda de ±1 desviación y rangos */
+  var RELLENO_DIST;
+  derivado(function () { RELLENO_DIST = P.naranja100; }); /* caja, violín, densidad, banda de ±1 desviación y rangos */
   function nombreCasos(s) { return esTexto(s.nombreCasos) ? s.nombreCasos : 'casos'; }
   function mayus(t) { t = String(t); return t.charAt(0).toUpperCase() + t.slice(1); }
   function rangoTexto(a, b, s) { return fmtDato(a, s) + '\u2013' + formatear(b, opcionesTooltip(s)).texto; }
@@ -5127,7 +5215,7 @@
         var izq = x + 6 + ancho > cs.x + cs.width + 8;
         return { type: 'group', children: [
           { type: 'line', shape: { x1: x, y1: y0, x2: x, y2: cs.y + cs.height }, style: { stroke: P.neutro700, lineWidth: 1.5, lineDash: [5, 3] } },
-          { type: 'text', style: { text: texto, x: izq ? x - 6 : x + 6, y: y0, fill: P.neutro700, font: '600 11px ' + FUENTE, align: izq ? 'right' : 'left', verticalAlign: 'middle' } }
+          { type: 'text', style: { text: texto, x: izq ? x - 6 : x + 6, y: y0, fill: P.neutro700, font: fuenteTx(600), align: izq ? 'right' : 'left', verticalAlign: 'middle' } }
         ] };
       }
     };
@@ -5135,8 +5223,8 @@
   /* Leyenda de una línea a la derecha, arriba (media del grupo, media global) */
   function leyendaDerecha(w, texto, o) {
     o = o || {};
-    var x = w - 2, tw = medir(texto, o.peso), els = [];
-    els.push(gTexto(texto, x, 8, { color: o.color || T.etiquetaEje, peso: o.peso, align: 'right' }));
+    var x = w - 2, tw = medir(texto, o.peso, 'leyenda'), els = [];
+    els.push(gTexto(texto, x, 8, { color: o.color || T.etiquetaEje, peso: o.peso, rol: 'leyenda', align: 'right' }));
     var l = gLinea(x - tw - 22, 8, x - tw - 6, 8, o.trazo || P.neutro700, o.grosor || 2.5, 20);
     if (o.discontinua) { l.style.lineDash = o.discontinua; l.style.lineCap = 'butt'; }
     els.push(l);
@@ -5225,7 +5313,7 @@
             var ys = desolapar(rot.map(function (r) { return Y(r[1]); }), 13, cs.y - 2, cs.y + cs.height + 2);
             rot.forEach(function (r, k) {
               var fuerte = r[0] === 'Mediana';
-              hijos.push({ type: 'text', silent: true, style: { text: r[0], x: x + bw / 2 + 12, y: ys[k], fill: fuerte ? P.neutro700 : T.etiquetaEje, font: (fuerte ? 600 : 400) + ' 11px ' + FUENTE, align: 'left', verticalAlign: 'middle' } });
+              hijos.push({ type: 'text', silent: true, style: { text: r[0], x: x + bw / 2 + 12, y: ys[k], fill: fuerte ? P.neutro700 : T.etiquetaEje, font: fuenteTx(fuerte ? 600 : 400), align: 'left', verticalAlign: 'middle' } });
             });
           }
           return { type: 'group', children: hijos };
@@ -5520,7 +5608,7 @@
             renderItem: function (params, api) {
               var p = api.coord([api.value(0), api.value(1)]), ancho = api.coord([mu + sd, 0])[0] - api.coord([mu - sd, 0])[0];
               var txt = '68\u00A0% de los ' + nombreCasos(s), cabe = medir(txt, 600) + 8 <= ancho;
-              return { type: 'text', style: { text: cabe ? txt : '68\u00A0%\nde los ' + nombreCasos(s), x: p[0], y: p[1], align: 'center', verticalAlign: 'middle', fill: P.neutro700, font: '600 11px ' + FUENTE, lineHeight: 14, backgroundColor: RELLENO_DIST, padding: [2, 3] } };
+              return { type: 'text', style: { text: cabe ? txt : '68\u00A0%\nde los ' + nombreCasos(s), x: p[0], y: p[1], align: 'center', verticalAlign: 'middle', fill: P.neutro700, font: fuenteTx(600), lineHeight: 14, backgroundColor: RELLENO_DIST, padding: [2, 3] } };
             }
           }
         ]
@@ -5575,7 +5663,7 @@
     return montarECharts(c.firstChild, {
       textStyle: { fontFamily: FUENTE }, animationDuration: 500,
       grid: { left: 4, right: 12, top: 4, bottom: 24, containLabel: true },
-      graphic: { elements: [{ type: 'text', silent: true, right: 12, bottom: 2, style: { text: 'Percentil dentro del grupo', fill: T.etiquetaEje, font: '400 11px ' + FUENTE } }] },
+      graphic: { elements: [{ type: 'text', silent: true, right: 12, bottom: 2, style: { text: 'Percentil dentro del grupo', fill: T.etiquetaEje, font: fuenteTx(400) } }] },
       tooltip: Object.assign(tooltipBase(), {
         trigger: 'item',
         formatter: function (p) {
@@ -5671,7 +5759,7 @@
             var y1 = api.coord([i, api.value(2)])[1], y0 = api.coord([i, api.value(1)])[1], h = Math.max(cw, y0 - y1), top = (y0 + y1) / 2 - h / 2;
             var hijos = [
               { type: 'rect', shape: { x: x - cw / 2, y: top, width: cw, height: h, r: cw / 2 }, style: { fill: RELLENO_DIST } },
-              { type: 'text', silent: true, style: { text: fmtDato(d.maximos[i], s), x: x, y: top - 11, fill: T.leyenda, font: '400 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } }
+              { type: 'text', silent: true, style: { text: fmtDato(d.maximos[i], s), x: x, y: top - 11, fill: T.leyenda, font: fuenteTx(400), align: 'center', verticalAlign: 'middle' } }
             ];
             if (d.valores) hijos.push({ type: 'circle', shape: { cx: x, cy: api.coord([i, d.valores[i]])[1], r: 5 }, style: { fill: T.actual, stroke: T.fondo, lineWidth: 1.5 } });
             return { type: 'group', children: hijos };
@@ -5728,8 +5816,10 @@
   /* ================================================================== */
   /* Familia Relación y correlación                                      */
   /* ================================================================== */
-  var COLOR_GRUPO = [P.naranja500, P.neutro600, P.naranja300]; /* un color por grupo, hasta 3 (Bubble scatter) */
-  var COLOR_HEX = [P.naranja100, P.naranja300, P.naranja500, P.naranja600, P.naranja700]; /* hexbin: secuencial de 5 clases */
+  var COLOR_GRUPO;
+  derivado(function () { COLOR_GRUPO = [P.naranja500, P.neutro600, P.naranja300]; }); /* un color por grupo, hasta 3 (Bubble scatter) */
+  var COLOR_HEX;
+  derivado(function () { COLOR_HEX = [P.naranja100, P.naranja300, P.naranja500, P.naranja600, P.naranja700]; }); /* hexbin: secuencial de 5 clases */
   var RADIO_HEX = 11.5; /* hexágono de 20 × 23 px, con el vértice arriba */
   function tituloEje(e) { return e.nombre + (e.unidad ? ' (' + e.unidad + ')' : ''); }
   function fmtEje(v, e, s) { return formatear(v, { unidad: e.unidad, decimales: s.decimales, abreviar: s.abreviar }).texto; }
@@ -5799,7 +5889,7 @@
   function leyendaArriba(items, w, ocupado) {
     if (!items.length) return { elementos: [], arriba: 26, fila1: false };
     var muestra = function (it) { return it.forma === 'tamano' ? 18 : (it.forma === 'linea' ? 16 : 8); };
-    var anchos = items.map(function (it) { return it.forma === 'escala' ? medir(it.texto) + 80 + medir(it.despues) : muestra(it) + 5 + medir(it.texto); });
+    var anchos = items.map(function (it) { return it.forma === 'escala' ? medir(it.texto, 400, 'leyenda') + 80 + medir(it.despues, 400, 'leyenda') : muestra(it) + 5 + medir(it.texto, 400, 'leyenda'); });
     var total = suma(anchos) + 16 * (items.length - 1), filas = [];
     if (total <= w - ocupado - 16) filas.push({ y: 8, x: w - total, k: items.map(function (it, k) { return k; }) });
     else {
@@ -5817,9 +5907,9 @@
         var it = items[k], y = f.y;
         if (it.forma === 'escala') {
           /* Escala secuencial: «Menos», las muestras de 14 × 10 px con borde Neutro 300 y «Más …» */
-          els.push(gTexto(it.texto, x, y, { color: T.leyenda })); x += medir(it.texto) + 5;
+          els.push(gTexto(it.texto, x, y, { color: T.leyenda, rol: 'leyenda' })); x += medir(it.texto, 400, 'leyenda') + 5;
           it.colores.forEach(function (col, j) { els.push(gRect(x + j * 14 + 0.5, y - 4.5, 13, 9, col, 0, 20, P.neutro300, 1)); });
-          x += 75; els.push(gTexto(it.despues, x, y, { color: T.leyenda })); x += medir(it.despues) + 16;
+          x += 75; els.push(gTexto(it.despues, x, y, { color: T.leyenda, rol: 'leyenda' })); x += medir(it.despues, 400, 'leyenda') + 16;
           return;
         }
         if (it.forma === 'tamano') {
@@ -5831,7 +5921,7 @@
           els.push(l);
         } else els.push(gCirculo(x + 4, y, 4, it.color, 20));
         x += muestra(it) + 5;
-        els.push(gTexto(it.texto, x, y, { color: T.leyenda })); x += medir(it.texto) + 16;
+        els.push(gTexto(it.texto, x, y, { color: T.leyenda, rol: 'leyenda' })); x += medir(it.texto, 400, 'leyenda') + 16;
       });
     });
     var ultima = filas[filas.length - 1];
@@ -6008,7 +6098,7 @@
             if (Q) Q.forEach(function (nq, k) {
               var der = k % 2 === 1, abajo = k >= 2, e = esquinas[k];
               hijos.push({ type: 'text', style: { text: recortar(nq, e[2] - 20, 600), x: der ? cs.x + cs.width - 10 : cs.x + 10, y: abajo ? cs.y + cs.height - 10 : cs.y + 10,
-                fill: nq === clave ? T.leyenda : T.etiquetaEje, font: '600 11px ' + FUENTE, align: der ? 'right' : 'left', verticalAlign: abajo ? 'bottom' : 'top' } });
+                fill: nq === clave ? T.leyenda : T.etiquetaEje, font: fuenteTx(600), align: der ? 'right' : 'left', verticalAlign: abajo ? 'bottom' : 'top' } });
             });
             return { type: 'group', children: hijos };
           }
@@ -6170,7 +6260,7 @@
             var j = api.value(0), i = api.value(1), p = api.coord([j, i]), cw = api.size([1, 1]);
             var color = i === j ? CLASES_CORRELACION[0].color : CLASES_CORRELACION[claseCorrelacion(M[i][j])].color;
             var hijos = [{ type: 'rect', shape: { x: p[0] - cw[0] / 2 + 1, y: p[1] - cw[1] / 2 + 1, width: cw[0] - 2, height: cw[1] - 2 }, style: { fill: color } }];
-            if (Dp.valores) hijos.push({ type: 'text', silent: true, style: { text: texto(i, j), x: p[0], y: p[1], fill: textoSobre(color), font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+            if (Dp.valores) hijos.push({ type: 'text', silent: true, style: { text: texto(i, j), x: p[0], y: p[1], fill: textoSobre(color), font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } });
             return { type: 'group', children: hijos };
           }
         }]
@@ -6223,7 +6313,7 @@
         radar: {
           center: [cx, cy], radius: radio, startAngle: 90, splitNumber: 4, shape: dos ? 'circle' : 'polygon', nameGap: 10,
           indicator: nombres.map(function (t) { return { name: t, min: 0, max: max }; }),
-          axisName: { color: T.leyenda, fontSize: 11, fontFamily: FUENTE, lineHeight: 14 },
+          axisName: { color: T.leyenda, fontSize: TX.eje.px, fontFamily: TX.eje.css, lineHeight: TX.eje.px * 14 / 11 },
           splitLine: { lineStyle: { color: T.rejilla, width: 1 } }, splitArea: { show: false },
           axisLine: { lineStyle: { color: T.rejilla, width: 1 } }, axisTick: { show: false }, axisLabel: { show: false }
         },
@@ -6287,7 +6377,7 @@
   var PASO_EMBUDO = 38, ALTO_EMBUDO = 34; /* Funnel chart: etapas de 34 px separadas 4 px */
   function tasa(x) { return isFinite(x) ? porcentaje(x) : '\u2013'; }
   function textoG(txt, x, y, color, peso, align) {
-    return { type: 'text', silent: true, style: { text: txt, x: x, y: y, align: align || 'center', verticalAlign: 'middle', fill: color, font: (peso || 400) + ' 11px ' + FUENTE } };
+    return { type: 'text', silent: true, style: { text: txt, x: x, y: y, align: align || 'center', verticalAlign: 'middle', fill: color, font: fuenteTx(peso || 400) } };
   }
   /* Tooltip de una etapa: su valor, el % sobre la primera etapa y el % sobre la anterior */
   function tooltipEmbudo(s, i) {
@@ -6433,11 +6523,12 @@
 
   /* Process flow: cajas por paso (completado en Neutro 300, actual en Naranja 500, pendiente sin relleno) y decisiones en rombo.
      Si no caben en una fila, siguen en la de abajo, también de izquierda a derecha, unidas por un conector en codo. */
-  var ESTILO_PASO = {
+  var ESTILO_PASO;
+  derivado(function () { ESTILO_PASO = {
     completado: { nombre: 'Completado', fondo: P.neutro300, borde: P.neutro300, texto: P.neutro700, peso: 400 },
     actual: { nombre: 'Actual', fondo: P.naranja500, borde: P.naranja500, texto: P.neutro700, peso: 600 },
     pendiente: { nombre: 'Pendiente', fondo: P.neutro000, borde: P.neutro400, texto: P.neutro500, peso: 400 }
-  };
+  }; });
   /* Parte un texto en líneas que caben en ancho (máximo max; la última se recorta con «…») */
   function partirLineas(txt, ancho, peso, max) {
     var lineas = [], cur = '';
@@ -6628,7 +6719,8 @@
   /* ================================================================== */
   /* Familia Temporal especializado                                      */
   /* ================================================================== */
-  var COLOR_HOY = P.neutro700;
+  var COLOR_HOY;
+  derivado(function () { COLOR_HOY = P.neutro700; });
   /* Texto con fondo blanco: la línea de «Hoy» pasa por detrás sin taparlo */
   function gTextoFondo(txt, x, y, o) { var g = gTexto(txt, x, y, o); g.style.backgroundColor = T.fondo; g.style.padding = [1, 2]; return g; }
   /* Rango de un eje de tiempo: meses enteros o, si dura menos de dos meses, días (con uno de margen a cada lado) */
@@ -6899,7 +6991,8 @@
 
   /* Calendar heatmap: semanas en columnas (de lunes a domingo) y días en filas. Secuencial de 5 clases: Neutro 200 para el cero
      y cuatro tramos iguales hasta el máximo en Naranja 100, 300, 500 y 700 */
-  var CLASES_CALOR = [P.neutro200, P.naranja100, P.naranja300, P.naranja500, P.naranja700];
+  var CLASES_CALOR;
+  derivado(function () { CLASES_CALOR = [P.neutro200, P.naranja100, P.naranja300, P.naranja500, P.naranja700]; });
   function claseCalor(v, max) { return v > 0 ? Math.min(4, 1 + Math.floor(v / max * 4 - 1e-9)) : 0; }
   function calendarioCalor(el, s) {
     var d = s.datos, D = d._dias, lunes = D[0].t - diaSemana(D[0].t) * DIA_MS, izq = 16, ARR = 20;
@@ -7145,7 +7238,7 @@
           renderItem: function (p) {
             var q = celdas[p.dataIndex], color = CLASES_COHORTE[claseCohorte(q[2], ct)], x = izq + q[0] * paso, y = ARR + q[1] * PF;
             var hijos = [{ type: 'rect', shape: { x: x, y: y, width: cw, height: AF, r: 3 }, style: { fill: color } }];
-            if (conValores) hijos.push({ type: 'text', silent: true, style: { text: porcentaje(Math.round(q[2]), 0), x: x + cw / 2, y: y + AF / 2, fill: textoSobre(color), font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+            if (conValores) hijos.push({ type: 'text', silent: true, style: { text: porcentaje(Math.round(q[2]), 0), x: x + cw / 2, y: y + AF / 2, fill: textoSobre(color), font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } });
             return { type: 'group', children: hijos };
           }
         }]
@@ -7158,8 +7251,10 @@
   /* arbol, anidados y tabla · jerarquica                                */
   /* ================================================================== */
   /* Familias de tonos: el grupo destacado en naranja y el resto en neutros; los hijos, escalones del color del padre */
-  var RAMPA_NARANJA = [P.naranja700, P.naranja600, P.naranja500, P.naranja400, P.naranja300, P.naranja200, P.naranja100];
-  var RAMPA_NEUTRO = [P.neutro700, P.neutro600, P.neutro500, P.neutro400, P.neutro300, P.neutro200];
+  var RAMPA_NARANJA;
+  derivado(function () { RAMPA_NARANJA = [P.naranja700, P.naranja600, P.naranja500, P.naranja400, P.naranja300, P.naranja200, P.naranja100]; });
+  var RAMPA_NEUTRO;
+  derivado(function () { RAMPA_NEUTRO = [P.neutro700, P.neutro600, P.neutro500, P.neutro400, P.neutro300, P.neutro200]; });
   /* n índices de la rampa desde «desde»: de dos en dos si caben; si no, repartidos hasta el último */
   function indicesTonos(desde, ultimo, n) {
     var r = [];
@@ -7458,12 +7553,12 @@
               hijos = [{ type: 'circle', shape: { cx: q.cx, cy: q.cy, r: Math.max(0, q.r - 0.75) }, style: { fill: P.neutro100, stroke: P.neutro300, lineWidth: 1.5 } }];
               var cuerda = 2 * Math.sqrt(Math.max(0, q.r * q.r - (q.r - 13) * (q.r - 13))) - 8;
               var txt = recortar(q.n.nombre, cuerda, 600);
-              if (txt && q.r >= 24) hijos.push({ type: 'text', silent: true, style: { text: txt, x: q.cx, y: q.cy - q.r + 13, fill: T.leyenda, font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+              if (txt && q.r >= 24) hijos.push({ type: 'text', silent: true, style: { text: txt, x: q.cx, y: q.cy - q.r + 13, fill: T.leyenda, font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } });
               return { type: 'group', children: hijos };
             }
             hijos = [{ type: 'circle', shape: { cx: q.cx, cy: q.cy, r: Math.max(0, q.r) }, style: { fill: q.n._color, stroke: T.fondo, lineWidth: 1.5 } }];
             var v = fmtDato(q.n.valor, s);
-            if (q.r >= 9 && medir(v, 600) <= 2 * q.r - 8) hijos.push({ type: 'text', silent: true, style: { text: v, x: q.cx, y: q.cy, fill: textoSobre(q.n._color), font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+            if (q.r >= 9 && medir(v, 600) <= 2 * q.r - 8) hijos.push({ type: 'text', silent: true, style: { text: v, x: q.cx, y: q.cy, fill: textoSobre(q.n._color), font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } });
             return { type: 'group', children: hijos };
           }
         }]
@@ -7528,7 +7623,7 @@
           renderItem: function (p) {
             var q = nodos[p.dataIndex], e = q.etq;
             var hijos = [{ type: 'circle', shape: { cx: q.x, cy: q.y, r: q.r }, style: { fill: q.color } }];
-            if (e.texto) hijos.push({ type: 'text', silent: true, style: { text: e.texto, x: e.x, y: e.y, fill: e.color, font: e.peso + ' 11px ' + FUENTE, align: e.align, verticalAlign: 'middle' } });
+            if (e.texto) hijos.push({ type: 'text', silent: true, style: { text: e.texto, x: e.x, y: e.y, fill: e.color, font: fuenteTx(e.peso), align: e.align, verticalAlign: 'middle' } });
             return { type: 'group', children: hijos };
           }
         }]
@@ -7614,7 +7709,7 @@
             var borde = n === foco ? T.actual : (n.nivel === 0 ? P.neutro700 : P.neutro300);
             return { type: 'group', children: [
               { type: 'rect', shape: { x: x + 0.75, y: y + 0.75, width: w - 1.5, height: CAJA - 1.5, r: 6 }, style: { fill: fondo, stroke: borde, lineWidth: 1.5 } },
-              { type: 'text', silent: true, style: { text: recortar(n.nombre, w - 12, 600), x: x + w / 2, y: y + CAJA / 2, fill: textoSobre(fondo), font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } }
+              { type: 'text', silent: true, style: { text: recortar(n.nombre, w - 12, 600), x: x + w / 2, y: y + CAJA / 2, fill: textoSobre(fondo), font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } }
             ] };
           }
         }]
@@ -7735,7 +7830,8 @@
   /* ================================================================== */
   /* Flujo y relaciones: sankey, cuerdas, flujo y red                    */
   /* ================================================================== */
-  var NODO_NEUTRO = { fondo: P.neutro100, borde: P.neutro300, texto: P.neutro700 };
+  var NODO_NEUTRO;
+  derivado(function () { NODO_NEUTRO = { fondo: P.neutro100, borde: P.neutro300, texto: P.neutro700 }; });
   function valorNodo(g, n) { return Math.max(sumaEnlaces(g, n.entra), sumaEnlaces(g, n.sale)); }
   function nombresDe(g, lista, campo) { return lista.map(function (e) { return g.nodos[g.enlaces[e][campo]].nombre; }); }
   function listaCorta(nombres, max) { return nombres.length <= max ? nombres.join(', ') : nombres.slice(0, max).join(', ') + ' y ' + (nombres.length - max) + ' más'; }
@@ -7743,7 +7839,7 @@
   function cajaG(cx, cy, w, h, e, txt, peso, r) {
     return [
       { type: 'rect', shape: { x: cx - w / 2 + 0.75, y: cy - h / 2 + 0.75, width: w - 1.5, height: h - 1.5, r: r == null ? 6 : r }, style: { fill: e.fondo, stroke: e.borde, lineWidth: 1.5 } },
-      { type: 'text', silent: true, style: { text: txt, x: cx, y: cy, fill: e.texto, font: (peso || 600) + ' 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } }
+      { type: 'text', silent: true, style: { text: txt, x: cx, y: cy, fill: e.texto, font: fuenteTx(peso || 600), align: 'center', verticalAlign: 'middle' } }
     ];
   }
   /* Flecha con grosor: línea de grosor t y punta proporcional (como la del Flow diagram de Figma) */
@@ -7832,7 +7928,8 @@
   }
 
   /* Aluvial: una columna por momento; nodos y cintas con el color de su categoría (cintas un tono más claro, del origen) */
-  var TONOS_ALUVIAL = [[P.naranja500, P.naranja300], [P.neutro600, P.neutro400], [P.neutro500, P.neutro300]];
+  var TONOS_ALUVIAL;
+  derivado(function () { TONOS_ALUVIAL = [[P.naranja500, P.naranja300], [P.neutro600, P.neutro400], [P.neutro500, P.neutro300]]; });
   function aluvial(el, s) {
     var d = s.datos, C = d.categorias, M = d._momentos, tot = d._tot, X = d.cambios, n = M.length, k = C.length;
     var tonos = []; tonos[d._foco] = TONOS_ALUVIAL[0];
@@ -7905,7 +8002,7 @@
         }
       }
       els.push(gTexto('Convierte', X(n - 1), y0 + 46 + 22, { color: T.textoSecundario, align: 'center' }));
-      els.push({ type: 'text', silent: true, z: 20, style: { text: porcentaje(pct[n - 1], 0), x: X(n - 1), y: y0 + 46 + 40, fill: T.texto, font: '600 14px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+      els.push({ type: 'text', silent: true, z: 20, style: { text: porcentaje(pct[n - 1], 0), x: X(n - 1), y: y0 + 46 + 40, fill: T.texto, font: '600 ' + TX.dato.px * 14 / 11 + 'px ' + TX.dato.css, align: 'center', verticalAlign: 'middle' } });
       return {
         animation: false, graphic: { elements: els },
         tooltip: Object.assign(tooltipBase(), {
@@ -7926,7 +8023,7 @@
             var ult = i === n - 1, e = ult ? { fondo: T.actual, borde: T.actual, texto: P.neutro700 } : NODO_NEUTRO;
             var hijos = cajaG(x, y0 + 16, bw, 46, e, recortar(N[i], bw - 10, 600), 600);
             hijos[0].shape.y = y0 + 0.75; hijos[0].shape.height = 44.5;
-            hijos.push({ type: 'text', silent: true, style: { text: porcentaje(pct[i], 0), x: x, y: y0 + 32, fill: ult ? P.neutro700 : T.textoSecundario, font: '400 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+            hijos.push({ type: 'text', silent: true, style: { text: porcentaje(pct[i], 0), x: x, y: y0 + 32, fill: ult ? P.neutro700 : T.textoSecundario, font: fuenteTx(400), align: 'center', verticalAlign: 'middle' } });
             return { type: 'group', children: hijos };
           }
         }]
@@ -7937,7 +8034,8 @@
   /* Cuerdas (Chord diagram): grupos en el anillo (6 px) y cintas entre pares, 4 px por dentro, con borde blanco de 1 px; solo las
      del grupo destacado en Naranja 300 (encima). Se dibuja a medida (como d3-chord): cada grupo ocupa un arco proporcional a su
      total y, dentro, cada enlace un tramo, en el orden de los grupos del otro extremo. */
-  var TONOS_CUERDAS = [P.neutro600, P.neutro500, P.neutro400];
+  var TONOS_CUERDAS;
+  derivado(function () { TONOS_CUERDAS = [P.neutro600, P.neutro500, P.neutro400]; });
   function arcoCuerdas(n, g, pad) {
     var total = suma(g.nodos.map(function (x) { return x.total; })), util = 2 * Math.PI - pad * n, a = -Math.PI / 2, arcos = [], tramos = {};
     g.nodos.forEach(function (x) {
@@ -8171,7 +8269,7 @@
             var k = q.dataIndex, f = k === foco, izq = I.indexOf(k) >= 0, x = pos[k].x, y = pos[k].y;
             return { type: 'group', children: [
               { type: 'circle', shape: { cx: x, cy: y, r: f ? 8 : 6 }, style: { fill: f ? T.actual : P.neutro400, stroke: T.fondo, lineWidth: 1.5 } },
-              { type: 'text', silent: true, style: { text: recortar(g.nodos[k].nombre, (izq ? xi : w - xd) - 20, f ? 600 : 400), x: izq ? x - 14 : x + 14, y: y, fill: f ? T.texto : T.leyenda, font: (f ? 600 : 400) + ' 11px ' + FUENTE, align: izq ? 'right' : 'left', verticalAlign: 'middle' } }
+              { type: 'text', silent: true, style: { text: recortar(g.nodos[k].nombre, (izq ? xi : w - xd) - 20, f ? 600 : 400), x: izq ? x - 14 : x + 14, y: y, fill: f ? T.texto : T.leyenda, font: fuenteTx(f ? 600 : 400), align: izq ? 'right' : 'left', verticalAlign: 'middle' } }
             ] };
           }
         }]
@@ -8367,19 +8465,19 @@
   function leyendaFilas(titulo, filas, paso) {
     /* filas: { color, borde, texto, forma ('cuadro' | 'linea' | 'circulo' | 'numero'), grosor, numero } */
     paso = paso || 20;
-    var ancho = Math.max(titulo ? medir(titulo, 600) : 0, maxMedida(filas.map(function (f) { return f.texto; })) + (filas.some(function (f) { return f.forma === 'linea'; }) ? 32 : 22));
+    var ancho = Math.max(titulo ? medir(titulo, 600, 'leyenda') : 0, maxMedida(filas.map(function (f) { return f.texto; }), 400, 'leyenda') + (filas.some(function (f) { return f.forma === 'linea'; }) ? 32 : 22));
     return {
       ancho: ancho, alto: (titulo ? 21 : 0) + filas.length * paso - (paso - 14),
       dibujar: function (x, y) {
         var els = [];
-        if (titulo) { els.push(gTexto(titulo, x, y + 7, { color: T.texto, peso: 600 })); y += 21; }
+        if (titulo) { els.push(gTexto(titulo, x, y + 7, { color: T.texto, peso: 600, rol: 'leyenda' })); y += 21; }
         filas.forEach(function (f, i) {
           var yy = y + i * paso + 7;
-          if (f.forma === 'linea') { els.push(gLinea(x, yy, x + 24, yy, f.color, f.grosor || 2, 20)); els.push(gTexto(f.texto, x + 32, yy, { color: T.leyenda })); return; }
+          if (f.forma === 'linea') { els.push(gLinea(x, yy, x + 24, yy, f.color, f.grosor || 2, 20)); els.push(gTexto(f.texto, x + 32, yy, { color: T.leyenda, rol: 'leyenda' })); return; }
           if (f.forma === 'circulo') els.push(circuloG(x + 7, yy, f.r || 4.5, f.color, T.fondo, 1.5));
           else if (f.forma === 'numero') { els.push(circuloG(x + 7, yy, 7, P.naranja500)); els.push(gTexto(f.numero, x + 7, yy, { color: T.texto, peso: 600, align: 'center', z: 22 })); }
           else els.push({ type: 'rect', silent: true, z: 20, shape: { x: x + 0.5, y: yy - 6.5, width: 13, height: 13, r: 2 }, style: { fill: f.color, stroke: f.borde || null, lineWidth: f.borde ? 1 : 0 } });
-          els.push(gTexto(f.texto, x + 22, yy, { color: T.leyenda }));
+          els.push(gTexto(f.texto, x + 22, yy, { color: T.leyenda, rol: 'leyenda' }));
         });
         return els;
       }
@@ -8448,7 +8546,8 @@
     return cabeceraTooltip(nombre) + (esNum(x) ? filaTooltip('Valor', fmtU(x, s).texto) : notaTooltip('Sin dato')) + (extra || '');
   }
   function porZona(g) { var m = {}; (g.ids || []).forEach(function (id, k) { m[id] = k; }); return m; }
-  var BASE_MAPA = { fill: P.neutro200 };
+  var BASE_MAPA;
+  derivado(function () { BASE_MAPA = { fill: P.neutro200 }; });
 
   var OPCIONES_MAPA = {
     coropletas: function (s, g) {
@@ -8525,10 +8624,10 @@
             m.push({ tooltip: tip, el: { type: 'path', shape: { pathData: 'M' + o[0].toFixed(1) + ' ' + o[1].toFixed(1) + 'Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + bx.toFixed(1) + ' ' + by.toFixed(1) }, style: { fill: null, stroke: P.naranja500, lineWidth: w, lineCap: 'round' } } });
             m.push({ tooltip: tip, el: { type: 'polygon', shape: { points: [[px, py], [bx - uy * ancho / 2, by + ux * ancho / 2], [bx + uy * ancho / 2, by - ux * ancho / 2]] }, style: { fill: P.naranja500 } } });
             m.push({ el: { type: 'circle', shape: { cx: d[0], cy: d[1], r: 3 }, style: { fill: P.neutro700 } } });
-            m.push({ el: { type: 'text', style: { text: fmtDato(g.valores[i], s), x: d[0] + (dx >= 0 ? 6 : -6), y: Math.max(7, d[1] - 8), fill: T.texto, font: '600 11px ' + FUENTE, align: dx >= 0 ? 'left' : 'right', verticalAlign: 'middle', stroke: T.fondo, lineWidth: 3 } } });
+            m.push({ el: { type: 'text', style: { text: fmtDato(g.valores[i], s), x: d[0] + (dx >= 0 ? 6 : -6), y: Math.max(7, d[1] - 8), fill: T.texto, font: fuenteTx(600), align: dx >= 0 ? 'left' : 'right', verticalAlign: 'middle', stroke: T.fondo, lineWidth: 3 } } });
           });
           m.push({ el: { type: 'circle', shape: { cx: o[0], cy: o[1], r: 6 }, style: { fill: P.neutro700, stroke: T.fondo, lineWidth: 1.5 } }, tooltip: function () { return cabeceraTooltip(g.origen.nombre || 'Origen') + filaTooltip('Total', fmtU(suma(g.valores), s).texto); } });
-          m.push({ el: { type: 'text', style: { text: g.origen.nombre || 'Origen', x: o[0] - 6, y: o[1] - 12, fill: T.texto, font: '600 11px ' + FUENTE, align: 'right', verticalAlign: 'middle', stroke: T.fondo, lineWidth: 3 } } });
+          m.push({ el: { type: 'text', style: { text: g.origen.nombre || 'Origen', x: o[0] - 6, y: o[1] - 12, fill: T.texto, font: fuenteTx(600), align: 'right', verticalAlign: 'middle', stroke: T.fondo, lineWidth: 3 } } });
           return m;
         }
       };
@@ -8542,7 +8641,7 @@
           q.forEach(function (p, i) {
             var tip = function () { return cabeceraTooltip((i + 1) + '. ' + g.paradas[i].nombre) + notaTooltip(i === 0 ? 'Inicio' : (i === q.length - 1 ? 'Final' : 'Parada ' + (i + 1) + ' de ' + q.length)); };
             m.push({ tooltip: tip, el: { type: 'circle', shape: { cx: p[0], cy: p[1], r: 9 }, style: { fill: P.naranja500, stroke: T.fondo, lineWidth: 2 } } });
-            m.push({ el: { type: 'text', style: { text: String(i + 1), x: p[0], y: p[1], fill: T.texto, font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } } });
+            m.push({ el: { type: 'text', style: { text: String(i + 1), x: p[0], y: p[1], fill: T.texto, font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } } });
           });
           return m;
         }
@@ -8599,7 +8698,7 @@
           var p = f(geoF.zonas[g.ids[i]].punto), l = lado(g.valores[i], dmax), txt = fmtDato(g.valores[i], s), tip = function () { return tooltipValor(s, nombreZona(g, i), g.valores[i]); };
           m.push({ tooltip: tip, el: cuadrados ? { type: 'rect', shape: { x: p[0] - l / 2, y: p[1] - l / 2, width: l, height: l }, style: { fill: color(i), stroke: T.fondo, lineWidth: 1.5 } }
             : { type: 'circle', shape: { cx: p[0], cy: p[1], r: l / 2 }, style: { fill: color(i), stroke: T.fondo, lineWidth: 1.5 } } });
-          if (rango < 6 && medir(txt, 600) + 4 <= l) m.push({ tooltip: tip, el: { type: 'text', style: { text: txt, x: p[0], y: p[1], fill: textoSobre(color(i)), font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } } });
+          if (rango < 6 && medir(txt, 600) + 4 <= l) m.push({ tooltip: tip, el: { type: 'text', style: { text: txt, x: p[0], y: p[1], fill: textoSobre(color(i)), font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } } });
         });
         return m;
       }
@@ -8709,9 +8808,9 @@
             var fondo = cl == null ? trama() : CLASES_MAPA[cl], tx = cl == null ? T.textoSecundario : textoSobre(CLASES_MAPA[cl]), val = i == null || !esNum(g.valores[i]) ? '\u2014' : fmtDato(g.valores[i], s) + (s.unidad && s.unidad.length <= 2 ? NBSP + s.unidad : '');
             var hijos = [{ type: 'rect', shape: { x: x, y: y, width: fw, height: fh, r: 6 }, style: { fill: fondo, stroke: cl == null || cl === 0 ? P.neutro300 : null, lineWidth: cl == null || cl === 0 ? 1 : 0 } }];
             if (fh >= 30) {
-              hijos.push({ type: 'text', style: { text: f[2], x: x + fw / 2, y: y + fh / 2 - 7, fill: tx, font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
-              if (medir(val) <= fw - 4) hijos.push({ type: 'text', style: { text: val, x: x + fw / 2, y: y + fh / 2 + 8, fill: tx, font: '400 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
-            } else hijos.push({ type: 'text', style: { text: f[2], x: x + fw / 2, y: y + fh / 2, fill: tx, font: '600 11px ' + FUENTE, align: 'center', verticalAlign: 'middle' } });
+              hijos.push({ type: 'text', style: { text: f[2], x: x + fw / 2, y: y + fh / 2 - 7, fill: tx, font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } });
+              if (medir(val) <= fw - 4) hijos.push({ type: 'text', style: { text: val, x: x + fw / 2, y: y + fh / 2 + 8, fill: tx, font: fuenteTx(400), align: 'center', verticalAlign: 'middle' } });
+            } else hijos.push({ type: 'text', style: { text: f[2], x: x + fw / 2, y: y + fh / 2, fill: tx, font: fuenteTx(600), align: 'center', verticalAlign: 'middle' } });
             return { type: 'group', children: hijos };
           }
         }]
@@ -9049,7 +9148,21 @@
     });
   }
 
-  function configurar(opc) { Object.keys(opc || {}).forEach(function (k) { config[k] = opc[k]; }); }
+  /* EG.configurar({ modo: 'web' | 'presentacion' | 'impresion', tema: 'blanco' | 'negro' }) fija el modo de la página;
+     el resto de opciones (echarts, fuente, mapas) van a config */
+  function configurar(opc) {
+    opc = opc || {};
+    Object.keys(opc).forEach(function (k) { if (k !== 'modo' && k !== 'tema') config[k] = opc[k]; });
+    if (opc.modo == null && opc.tema == null) return;
+    var modo = opc.modo != null ? opc.modo : MODO;
+    if (!MODOS[modo]) throw new Error(PREFIJO + 'modo «' + modo + '» desconocido; usa "web", "presentacion" o "impresion".');
+    var temas = MODOS[modo].temas, tema = opc.tema != null ? opc.tema : (temas ? (TEMA || temas[0]) : null);
+    if (tema != null && !(temas && temas.indexOf(tema) >= 0)) throw new Error(PREFIJO + (temas ? 'el modo «' + modo + '» admite los temas ' + temas.map(function (t) { return '"' + t + '"'; }).join(' y ') + '.' : 'el modo «' + modo + '» no tiene temas.'));
+    aplicarModo(modo, tema);
+    api.tokens = tokensPublicos();
+    if (typeof document !== 'undefined') asegurarEstilos();
+  }
+  function tokensPublicos() { return { modo: MODO, tema: TEMA, primitivos: P, semanticos: T, texto: TX, fuente: FUENTE, k: K }; }
 
   var api = {
     version: VERSION,
@@ -9061,7 +9174,7 @@
     alias: copia(ALIAS),
     variantes: copia(VARIANTES),
     estados: Object.keys(ESTADOS),
-    tokens: { primitivos: P, semanticos: T, fuente: FUENTE },
+    tokens: tokensPublicos(),
     iconos: ICONOS
   };
 
