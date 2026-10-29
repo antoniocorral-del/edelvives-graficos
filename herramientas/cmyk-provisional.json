@@ -1,0 +1,43 @@
+{
+  "$description": "CMYK provisionales: tonos que el kit usa en impresión y el sistema de diseño no define en CMYK. Calculados por herramientas/tokens.py --recalcular; se sustituyen en cuanto el sistema les dé valor.",
+  "metodo": "sRGB → CoatedFOGRA39 (ICC), intento colorimétrico relativo con compensación de punto negro, redondeo al entero",
+  "perfil": "CoatedFOGRA39.icc",
+  "valores": {
+    "naranja-700": {
+      "hex": "#BD4200",
+      "cmyk": [
+        18,
+        83,
+        100,
+        9
+      ]
+    },
+    "neutro-400": {
+      "hex": "#A39B93",
+      "cmyk": [
+        35,
+        32,
+        36,
+        12
+      ]
+    },
+    "neutro-600": {
+      "hex": "#4A4540",
+      "cmyk": [
+        59,
+        54,
+        56,
+        55
+      ]
+    },
+    "neutro-700": {
+      "hex": "#222222",
+      "cmyk": [
+        72,
+        65,
+        60,
+        78
+      ]
+    }
+  }
+}

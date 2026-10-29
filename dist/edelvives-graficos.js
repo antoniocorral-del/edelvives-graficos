@@ -26,26 +26,66 @@
   /* Tokens por modo                                                     */
   /* ------------------------------------------------------------------ */
   /* <tokens:generado> */
-  /* Fuente: Figma «Gráficos y métricas Edelvives», modo claro. Desde la 0.10.0 este bloque lo escribe
-     herramientas/tokens.py a partir del sistema de diseño (no editar a mano entre los marcadores). */
+  /* Generado por herramientas/tokens.py desde el sistema de diseño de Edelvives (Sistemas de diseño de Edelvives: interfaces v6.2, documentos v1.1 y presentaciones v1.0, versión 1).
+     No editar a mano entre los marcadores: python3 herramientas/tokens.py */
   var PRIMITIVOS = {
-    naranja100: '#FFECD4', naranja200: '#FFCEA3', naranja300: '#FFAF73', naranja400: '#FF801F',
-    naranja500: '#F56A00', naranja600: '#D95003', naranja700: '#BD4200',
-    neutro000: '#FFFFFF', neutro100: '#F7F4F2', neutro200: '#F0EDEA', neutro300: '#DBD5CE',
-    neutro400: '#A39B93', neutro500: '#706B65', neutro600: '#4A4540', neutro700: '#222222', neutro800: '#000000',
-    exito: '#20BA76', exitoFuerte: '#0D6B43', exitoSuave: '#D1F7E8',
-    alerta: '#FFB521', alertaFuerte: '#8B6200', alertaSuave: '#FFF3D0',
-    error: '#D0021B', errorFuerte: '#720010', errorSuave: '#FAD4D8'
+    naranja100: '#FFECD4', naranja300: '#FFAF73', naranja400: '#FF801F', naranja500: '#F56A00',
+    naranja600: '#D95003', naranja700: '#BD4200', neutro000: '#FFFFFF', neutro100: '#F7F4F2',
+    neutro200: '#F0EDEA', neutro300: '#D8D5CE', neutro300Doc: '#DBD5CE', neutro400: '#A39B93',
+    neutro500: '#706B65', neutro600: '#4A4540', neutro700: '#222222', neutro800: '#000000',
+    neutro900: '#181614', azulFocus: '#2650C5', verdeLight: '#D1F7E8', verdeBase: '#20BA76',
+    verdeDark: '#0D6B43', amarilloLight: '#FFF3D0', amarilloBase: '#FFB521', amarilloDark: '#886200',
+    rojoLight: '#FAD4D8', rojoBase: '#D0021B', rojoDark: '#720010', amarillo100: '#F9F4C9',
+    amarillo200: '#F7EDB7', amarillo300: '#F7DF93', amarillo400: '#FACB61', amarillo500: '#FFB404',
+    amarillo600: '#CA8E00', amarillo700: '#986A00', amarillo800: '#694800', rojo100: '#FFE4E2',
+    rojo200: '#FFD0CC', rojo300: '#FFAAA1', rojo400: '#FF725F', rojo500: '#EE370A',
+    rojo600: '#BE2600', rojo700: '#8F1A00', rojo800: '#620F00', verde100: '#DAF7CD',
+    verde200: '#C9EDB8', verde300: '#AADC91', verde400: '#82C55C', verde500: '#59AE09',
+    verde600: '#448900', verde700: '#316600', verde800: '#1F4500', azul100: '#DBE8FF',
+    azul200: '#BFD6FF', azul300: '#91B5F5', azul400: '#5C8BDF', azul500: '#2760C8',
+    azul600: '#1248A8', azul700: '#033285', azul800: '#001F5D', morado100: '#EBE3FF',
+    morado200: '#DCCCFF', morado300: '#BFA6F2', morado400: '#9B77DC', morado500: '#7A45C4',
+    morado600: '#622DA4', morado700: '#491981', morado800: '#32085C', rosa100: '#FFE6EE',
+    rosa200: '#FFD5E4', rosa300: '#FFB5D1', rosa400: '#FF88BA', rosa500: '#FD4FA3',
+    rosa600: '#D12C81', rosa700: '#A30A60', rosa800: '#720041'
+  };
+  /* CMYK FOGRA39 de los tonos de impresión (los provisionales, calculados; ver PROVISIONALES) */
+  var CMYK = {
+    naranja100: [0, 10, 25, 0], naranja400: [0, 60, 100, 0], naranja500: [0, 70, 100, 0], naranja600: [0, 75, 100, 10],
+    naranja700: [18, 83, 100, 9], neutro000: [0, 0, 0, 0], neutro100: [4, 4, 5, 0], neutro200: [7, 6, 8, 0],
+    neutro300Doc: [17, 15, 19, 0], neutro400: [35, 32, 36, 12], neutro500: [10, 10, 15, 66], neutro600: [59, 54, 56, 55],
+    neutro700: [72, 65, 60, 78], neutro800: [0, 0, 0, 100], neutro900: [20, 20, 20, 100], amarillo100: [4, 4, 27, 0],
+    amarillo200: [4, 5, 36, 0], amarillo300: [5, 11, 51, 0], amarillo400: [5, 22, 69, 0], amarillo500: [0, 33, 94, 2],
+    amarillo600: [5, 38, 98, 22], amarillo700: [12, 43, 100, 43], amarillo800: [20, 47, 100, 63], rojo100: [4, 13, 9, 0],
+    rojo200: [0, 26, 15, 0], rojo300: [0, 43, 30, 0], rojo400: [0, 67, 59, 0], rojo500: [0, 87, 96, 1],
+    rojo600: [0, 93, 99, 22], rojo700: [4, 94, 96, 45], rojo800: [6, 96, 85, 69], verde100: [16, 0, 22, 0],
+    verde200: [25, 0, 34, 0], verde300: [38, 1, 52, 0], verde400: [55, 0, 78, 1], verde500: [65, 0, 99, 4],
+    verde600: [64, 0, 100, 31], verde700: [64, 2, 100, 56], verde800: [69, 16, 100, 69], azul100: [16, 8, 2, 0],
+    azul200: [28, 13, 0, 0], azul300: [46, 25, 0, 0], azul400: [65, 42, 0, 0], azul500: [84, 62, 0, 0],
+    azul600: [95, 75, 0, 1], azul700: [99, 84, 0, 13], azul800: [100, 84, 0, 46], morado100: [11, 12, 1, 0],
+    morado200: [19, 21, 0, 0], morado300: [33, 36, 0, 0], morado400: [51, 55, 0, 0], morado500: [69, 75, 0, 0],
+    morado600: [80, 90, 0, 0], morado700: [87, 100, 0, 4], morado800: [90, 99, 0, 39], rosa100: [4, 12, 4, 0],
+    rosa200: [1, 23, 4, 0], rosa300: [3, 38, 6, 0], rosa400: [2, 58, 6, 0], rosa500: [2, 80, 4, 0],
+    rosa600: [8, 92, 3, 9], rosa700: [10, 96, 4, 31], rosa800: [16, 98, 8, 57]
+  };
+  var PROVISIONALES = ['naranja700', 'neutro400', 'neutro600', 'neutro700'];
+  var SOLO_PANTALLA = ['naranja300', 'neutro300', 'azulFocus', 'verdeLight', 'verdeBase', 'verdeDark', 'amarilloLight', 'amarilloBase', 'amarilloDark', 'rojoLight', 'rojoBase', 'rojoDark'];
+  /* Colores de presentación por tema (pres-*) */
+  var PRES = {
+    blanco: { fondo: '#FFFFFF', texto: '#1F1F1F', texto2: '#5C5C5C', acento: '#FF801F', separador: '#CCCCCC', barra: '#B8B8B8', marcador: '#EFEDEB', serie1: '#FF801F', serie2: '#B8B8B8', serie3: '#8C8C8C', serie4: '#5C5C5C', serie5: '#DEDEDE', grafica1: '#FF801F', grafica2: '#2760C8', grafica3: '#59AE09', grafica4: '#FFB404', grafica5: '#7A45C4', grafica6: '#FD4FA3', grafica7: '#EE370A', portadillaFondo: '#FFFFFF', portadillaTexto: '#1F1F1F', portadaFondo: '#F56A00' },
+    negro: { fondo: '#000000', texto: '#F7F4F2', texto2: '#A39B93', acento: '#FF801F', separador: '#393532', barra: '#DBD5CE', marcador: '#1C1A18', serie1: '#FF801F', serie2: '#DBD5CE', serie3: '#A39B93', serie4: '#706B65', serie5: '#4A4541', grafica1: '#FF801F', grafica2: '#2760C8', grafica3: '#59AE09', grafica4: '#FFB404', grafica5: '#7A45C4', grafica6: '#FD4FA3', grafica7: '#EE370A', portadillaFondo: '#F56A00', portadillaTexto: '#FFFFFF', portadaFondo: '#F56A00' }
   };
   var FAMILIAS = {
     titillium: "'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
     barlow: "Barlow, 'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   };
-  /* Por modo: k (unidades de salida por px lógico), roles tipográficos en unidades de salida (px en web y en
-     presentación, pt en impresión) y roles de color con el nombre del primitivo (sin «semanticos», los de web) */
+  /* Por modo: k (unidades de salida por px lógico, como fracción), unidad, roles tipográficos en unidades de salida
+     y roles de color con el nombre del primitivo (sin «semanticos», los de web) */
   var MODOS = {
     web: {
-      k: 1, unidad: 'px',
+      k: 11 / 11, unidad: 'px',
+      grosorLinea: 2.5,
+      grosorMinimo: 1,
       texto: {
         eje: { familia: 'titillium', tam: 11, alto: 13, peso: 400 },
         leyenda: { familia: 'titillium', tam: 11, alto: 14, peso: 400 },
@@ -55,36 +95,168 @@
         cifra: { familia: 'titillium', tam: 30, alto: 36, peso: 700 }
       },
       semanticos: {
-        series: ['naranja500', 'neutro600', 'naranja300', 'neutro400', 'naranja700', 'naranja200'],
+        series: ['naranja500', 'neutro600', 'naranja300', 'neutro400', 'naranja700', 'naranja100'],
         otros: 'neutro300',
         lineas: ['naranja500', 'neutro600', 'naranja700', 'neutro500'],
-        actual: 'naranja500', objetivo: 'neutro700', anterior: 'neutro400', prevision: 'naranja500',
-        fondo: 'neutro000', fondoPagina: 'neutro100', rejilla: 'neutro200', base: 'neutro400',
-        etiquetaEje: 'neutro500', leyenda: 'neutro600', titulo: 'neutro700', etiquetaDato: 'neutro700',
-        texto: 'neutro700', textoSecundario: 'neutro500', borde: 'neutro300', pista: 'neutro300',
-        tooltip: 'neutro700', subida: 'naranja500', bajada: 'neutro600'
+        actual: 'naranja500',
+        objetivo: 'neutro700',
+        anterior: 'neutro400',
+        prevision: 'naranja500',
+        fondo: 'neutro000',
+        fondoPagina: 'neutro100',
+        rejilla: 'neutro200',
+        base: 'neutro400',
+        etiquetaEje: 'neutro500',
+        leyenda: 'neutro600',
+        titulo: 'neutro700',
+        etiquetaDato: 'neutro700',
+        texto: 'neutro700',
+        textoSecundario: 'neutro500',
+        borde: 'neutro300',
+        pista: 'neutro300',
+        tooltip: 'neutro700',
+        subida: 'naranja500',
+        bajada: 'neutro600',
+        foco: 'naranja500',
+        contexto: 'neutro400',
+        rankingResto: 'neutro300',
+        conector: 'neutro300',
+        divergenteNegativoFuerte: 'neutro500',
+        divergenteNegativo: 'neutro400',
+        divergentePositivo: 'naranja400',
+        divergentePositivoFuerte: 'naranja700',
+        rangoBajo: 'neutro300',
+        rangoMedio: 'neutro200',
+        rangoAlto: 'neutro100',
+        tablaCabecera: 'neutro100',
+        tablaLineaCabecera: 'neutro400',
+        tablaLinea: 'neutro200',
+        referencia: 'neutro600',
+        tendencia: 'neutro700',
+        mediaMovilBase: 'neutro400',
+        areaRelleno: 'naranja100',
+        bandaPrevision: 'naranja100',
+        separadorAreas: 'neutro000',
+        marcaObjetivo: 'neutro700',
+        posicionRanking: 'neutro700',
+        separadorPartes: 'neutro000',
+        parteDestacada: 'naranja500',
+        totalVariacion: 'neutro400',
+        conectorCascada: 'neutro400',
+        previsionBarra: 'naranja500',
+        descomposicionObservada: 'naranja500',
+        descomposicionTendencia: 'neutro600',
+        descomposicionEstacionalidad: 'naranja700',
+        descomposicionResiduo: 'neutro500',
+        distribucionRelleno: 'naranja100',
+        distribucionCaso: 'naranja500',
+        distribucionCentro: 'neutro700',
+        distribucionBigote: 'neutro600',
+        distribucionGuia: 'neutro400',
+        percentilPista: 'neutro300',
+        relacionPunto: 'naranja500',
+        relacionGrupo: ['naranja500', 'neutro600', 'naranja300'],
+        relacionBurbuja: 'naranja500',
+        relacionTendencia: 'neutro700',
+        hexbin: ['naranja100', 'naranja300', 'naranja500', 'naranja600', 'naranja700'],
+        correlacionPositivaFuerte: 'naranja700',
+        correlacionPositiva: 'naranja400',
+        correlacionNula: 'neutro100',
+        correlacionNegativa: 'neutro400',
+        correlacionNegativaFuerte: 'neutro500',
+        cuadranteClave: 'neutro100',
+        radarRelleno: 'naranja100',
+        radarComparado: 'neutro600',
+        paralelasResto: 'neutro400',
+        conectadaInicio: 'neutro400',
+        embudoEtapa: 'naranja500',
+        conversionBarra: 'naranja500',
+        retencionRetenido: 'naranja500',
+        retencionPerdido: 'neutro300',
+        pipelineTarjeta: 'neutro100',
+        pipelineFoco: 'naranja500',
+        procesoCompletado: 'neutro300',
+        procesoActual: 'naranja500',
+        procesoPendiente: 'neutro400',
+        procesoConector: 'neutro400',
+        progresionCompletada: 'naranja500',
+        progresionPendiente: 'neutro300',
+        recorridoBanda: 'neutro100',
+        recorridoLinea: 'naranja500',
+        recorridoMedia: 'neutro400',
+        hoy: 'neutro700',
+        cronologiaEje: 'neutro400',
+        cronologiaHito: 'neutro600',
+        cronologiaFoco: 'naranja500',
+        carrilFondo: 'neutro100',
+        carrilTramo: 'neutro400',
+        hitoHecho: 'naranja500',
+        hitoEnCurso: 'naranja500',
+        hitoPendiente: 'neutro300',
+        ganttPrevisto: 'neutro300',
+        ganttRealizado: 'naranja500',
+        ganttHito: 'neutro700',
+        calorCero: 'neutro200',
+        calor: ['naranja100', 'naranja300', 'naranja500', 'naranja700'],
+        calendarioBorde: 'neutro200',
+        calendarioFinde: 'neutro100',
+        calendarioFestivo: 'neutro300',
+        calendarioHoy: 'naranja500',
+        periodoActual: 'naranja500',
+        periodoAnterior: 'neutro400',
+        cohorte: ['naranja100', 'naranja300', 'naranja500', 'naranja600', 'naranja700'],
+        cicloLinea: 'naranja500',
+        cicloRelleno: 'naranja100',
+        cicloFase: 'neutro100',
+        jerarquiaFamiliaFoco: 'naranja500',
+        jerarquiaFamiliaResto: 'neutro600',
+        treemapCabecera: 'neutro700',
+        sunburstCentro: 'neutro700',
+        icicleTotal: 'neutro700',
+        circulosGrupo: 'neutro100',
+        arbolEnlace: 'neutro400',
+        arbolRaiz: 'neutro700',
+        dendrogramaCorte: 'naranja500',
+        organigramaCabeza: 'neutro700',
+        tablaJerarquicaTotal: 'neutro400',
+        tablaJerarquicaHoja: 'naranja500',
+        anidadosCategoria: 'neutro100',
+        sankeyCamino: 'naranja500',
+        sankeyEnlace: 'neutro300',
+        sankeyEnlaceCamino: 'naranja300',
+        aluvialCategorias: 'naranja500',
+        recorridoAvance: 'naranja500',
+        recorridoSalida: 'neutro400',
+        cuerdasGrupoFoco: 'naranja500',
+        cuerdasCinta: 'neutro300',
+        cuerdasCintaFoco: 'naranja300',
+        flujoPrincipal: 'naranja500',
+        redEnlace: 'neutro300',
+        redBipartitaFoco: 'naranja500',
+        redRadialCentro: 'naranja500',
+        redRutaCritica: 'naranja500'
       }
     },
     presentacion: {
       k: 24 / 11, unidad: 'px', temas: ['blanco', 'negro'],
       texto: {
-        eje: { familia: 'barlow', tam: 24, alto: 32, peso: 400 },
-        leyenda: { familia: 'barlow', tam: 24, alto: 32, peso: 400 },
-        dato: { familia: 'barlow', tam: 32, alto: 40, peso: 400 },
-        titulo: { familia: 'titillium', tam: 38, alto: 46, peso: 600 },
-        unidad: { familia: 'titillium', tam: 24, alto: 32, peso: 400 },
-        cifra: { familia: 'titillium', tam: 112, alto: 120, peso: 300 }
+        eje: { familia: 'barlow', tam: 24, alto: 32, peso: 400, estilo: 'pres-axis' },
+        leyenda: { familia: 'barlow', tam: 24, alto: 32, peso: 400, estilo: 'pres-axis' },
+        dato: { familia: 'barlow', tam: 32, alto: 40, peso: 400, estilo: 'pres-data-label' },
+        titulo: { familia: 'titillium', tam: 38, alto: 46, peso: 600, estilo: 'pres-heading-3' },
+        unidad: { familia: 'titillium', tam: 24, alto: 32, peso: 400, estilo: 'pres-page-number' },
+        cifra: { familia: 'titillium', tam: 112, alto: 120, peso: 300, estilo: 'pres-metric' }
       }
     },
     impresion: {
       k: 8 / 11, unidad: 'pt',
       texto: {
-        eje: { familia: 'barlow', tam: 8, alto: 11, peso: 400 },
-        leyenda: { familia: 'barlow', tam: 9, alto: 12, peso: 400 },
-        dato: { familia: 'barlow', tam: 9, alto: 12, peso: 600 },
-        titulo: { familia: 'titillium', tam: 11, alto: 16, peso: 600 },
-        unidad: { familia: 'titillium', tam: 9, alto: 12, peso: 400 },
-        cifra: { familia: 'titillium', tam: 32, alto: 36, peso: 600 }
+        eje: { familia: 'barlow', tam: 8, alto: 11, peso: 400, estilo: 'doc-diagram-detail' },
+        leyenda: { familia: 'barlow', tam: 9, alto: 12, peso: 400, estilo: 'doc-leyenda' },
+        dato: { familia: 'barlow', tam: 9, alto: 12, peso: 600, estilo: 'doc-diagram-text' },
+        titulo: { familia: 'titillium', tam: 11, alto: 16, peso: 600, estilo: 'doc-h4' },
+        unidad: { familia: 'titillium', tam: 9, alto: 12, peso: 400, estilo: 'doc-small-text' },
+        cifra: { familia: 'titillium', tam: 32, alto: 36, peso: 600, estilo: 'doc-kpi' }
       }
     }
   };
@@ -237,14 +409,14 @@
   /* Estados: siempre icono + texto + color, en este orden fijo */
   var ESTADOS;
   derivado(function () { ESTADOS = {
-    'entregado': { texto: 'Entregado', icono: 'entregado', fondo: P.exitoSuave, color: P.exitoFuerte },
-    'en-proceso': { texto: 'En proceso', icono: 'enCurso', fondo: P.alertaSuave, color: P.alertaFuerte },
-    'incidencia': { texto: 'Incidencia', icono: 'incidencia', fondo: P.errorSuave, color: P.errorFuerte },
+    'entregado': { texto: 'Entregado', icono: 'entregado', fondo: P.verdeLight, color: P.verdeDark },
+    'en-proceso': { texto: 'En proceso', icono: 'enCurso', fondo: P.amarilloLight, color: P.amarilloDark },
+    'incidencia': { texto: 'Incidencia', icono: 'incidencia', fondo: P.rojoLight, color: P.rojoDark },
     'pendiente': { texto: 'Pendiente', icono: 'pendiente', fondo: P.neutro100, color: P.neutro600 },
     /* Estados frente a un objetivo */
-    'en-objetivo': { texto: 'En objetivo', icono: 'cumplido', fondo: P.exitoSuave, color: P.exitoFuerte },
-    'en-riesgo': { texto: 'En riesgo', icono: 'enCurso', fondo: P.alertaSuave, color: P.alertaFuerte },
-    'fuera': { texto: 'Fuera de objetivo', icono: 'incidencia', fondo: P.errorSuave, color: P.errorFuerte }
+    'en-objetivo': { texto: 'En objetivo', icono: 'cumplido', fondo: P.verdeLight, color: P.verdeDark },
+    'en-riesgo': { texto: 'En riesgo', icono: 'enCurso', fondo: P.amarilloLight, color: P.amarilloDark },
+    'fuera': { texto: 'Fuera de objetivo', icono: 'incidencia', fondo: P.rojoLight, color: P.rojoDark }
   }; });
   var COLUMNAS = ['texto', 'numero', 'porcentaje', 'variacion', 'barra', 'sparkline', 'estado', 'fecha'];
 
@@ -3144,8 +3316,8 @@
     '.eg-chip-subida{background:' + P.naranja100 + '}',
     '.eg-chip .eg-icono[width="22"]{margin:0 -3px 0 -5px}',
     '.eg-chip-bajada,.eg-chip-igual,.eg-chip-neutro{background:' + P.neutro200 + '}',
-    '.eg-chip-mejora{background:' + P.exitoSuave + '}',
-    '.eg-chip-empeora{background:' + P.errorSuave + '}',
+    '.eg-chip-mejora{background:' + P.verdeLight + '}',
+    '.eg-chip-empeora{background:' + P.rojoLight + '}',
     '.eg-spark{display:flex;flex-direction:column;gap:8px;min-width:0}',
     '.eg-spark svg{display:block;width:100%;height:56px;overflow:visible}',
     '.eg-spark .eg-fila{justify-content:space-between}',
@@ -3249,7 +3421,7 @@
     '.eg-ritmo{display:flex;flex-direction:column;gap:14px}.eg-ritmo .eg-fila{align-items:baseline}',
     '.eg-extremos{justify-content:space-between}',
     '.eg-logro{display:flex;align-items:center;gap:20px}',
-    '.eg-logro-icono{flex:none;width:64px;height:64px;border-radius:50%;background:' + P.exitoSuave + ';display:flex;align-items:center;justify-content:center}',
+    '.eg-logro-icono{flex:none;width:64px;height:64px;border-radius:50%;background:' + P.verdeLight + ';display:flex;align-items:center;justify-content:center}',
     '.eg-logro-no{background:' + P.neutro200 + '}',
     '.eg-logro-texto{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:11px}',
     '.eg-umbral{font-size:11px;line-height:14px}',
@@ -3409,7 +3581,7 @@
     '.eg-tj-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}',
     '.eg-tj tr[hidden]{display:none}',
     /* Error */
-    '.eg-error{border-color:' + P.error + ';border-left-width:4px}',
+    '.eg-error{border-color:' + P.rojoBase + ';border-left-width:4px}',
     '.eg-error .eg-titulo{display:flex;gap:8px;align-items:center}',
     '.eg-error ul{margin:12px 0 0;padding-left:18px;font-size:12px;line-height:17px}',
     '.eg-error li+li{margin-top:4px}'
@@ -3553,7 +3725,7 @@
   function tooltipBase() {
     return {
       backgroundColor: T.tooltip, borderWidth: 0, padding: [6, 10],
-      textStyle: { color: '#FFFFFF', fontSize: 11, fontFamily: FUENTE },
+      textStyle: { color: P.neutro000, fontSize: 11, fontFamily: FUENTE },
       extraCssText: 'border-radius:6px;box-shadow:none;'
     };
   }
@@ -3742,7 +3914,7 @@
 
   function textoTooltip(nombre, filas, opc) {
     return '<div style="font-weight:600;margin-bottom:2px">' + esc(nombre) + '</div>' + filas.map(function (f) {
-      return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:#DBD5CE">' + esc(f[0]) + '</span><span style="font-weight:600">' + formatear(f[1], opc).texto + '</span></div>';
+      return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:' + P.neutro300 + '">' + esc(f[0]) + '</span><span style="font-weight:600">' + formatear(f[1], opc).texto + '</span></div>';
     }).join('');
   }
 
@@ -3839,9 +4011,9 @@
         formatter: function (ps) {
           var j = ps[0].dataIndex;
           return '<div style="font-weight:600;margin-bottom:2px">' + esc(ps[0].axisValue) + '</div>' + ps.map(function (p) {
-            return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:#DBD5CE">' + esc(p.seriesName) + '</span><span style="font-weight:600">' +
+            return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:' + P.neutro300 + '">' + esc(p.seriesName) + '</span><span style="font-weight:600">' +
               porcentaje(p.value, 0) + ' · ' + formatear(d.series[p.seriesIndex].valores[j], opc).texto + '</span></div>';
-          }).join('') + '<div style="margin-top:2px;color:#DBD5CE">Total ' + formatear(totales[j], opc).texto + '</div>';
+          }).join('') + '<div style="margin-top:2px;color:' + P.neutro300 + '">Total ' + formatear(totales[j], opc).texto + '</div>';
         }
       }),
       xAxis: { type: 'value', min: 0, max: 100, show: false },
@@ -3872,7 +4044,7 @@
         trigger: 'axis', axisPointer: SOMBRA_EJE,
         formatter: function (ps) {
           var j = ps[0].dataIndex, pct = objetivos[j] ? se.valores[j] / objetivos[j] * 100 : 0;
-          return textoTooltip(ps[0].axisValue, [['Real', se.valores[j]], [nombreObj, objetivos[j]]], opc) + '<div style="margin-top:2px;color:#DBD5CE">' + porcentaje(pct, 0) + (nombreObj === 'Objetivo' ? ' del objetivo' : ' de «' + esc(nombreObj) + '»') + '</div>';
+          return textoTooltip(ps[0].axisValue, [['Real', se.valores[j]], [nombreObj, objetivos[j]]], opc) + '<div style="margin-top:2px;color:' + P.neutro300 + '">' + porcentaje(pct, 0) + (nombreObj === 'Objetivo' ? ' del objetivo' : ' de «' + esc(nombreObj) + '»') + '</div>';
         }
       }),
       xAxis: ejeCategoriaColumnas(d.categorias, w),
@@ -3911,9 +4083,9 @@
   function sinLlaves(t) { return String(t).replace(/[{}]/g, ''); }
   function cabeceraTooltip(nombre) { return '<div style="font-weight:600;margin-bottom:2px">' + esc(nombre) + '</div>'; }
   function filaTooltip(etiqueta, valor) {
-    return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:#DBD5CE">' + esc(etiqueta) + '</span><span style="font-weight:600">' + valor + '</span></div>';
+    return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:' + P.neutro300 + '">' + esc(etiqueta) + '</span><span style="font-weight:600">' + valor + '</span></div>';
   }
-  function notaTooltip(txt) { return '<div style="margin-top:2px;color:#DBD5CE">' + txt + '</div>'; }
+  function notaTooltip(txt) { return '<div style="margin-top:2px;color:' + P.neutro300 + '">' + txt + '</div>'; }
   /* Cambio de a a b: en puntos si la unidad es %; en % relativo en el resto */
   function cambioTexto(a, b, s) {
     if (s.unidad === '%') return conSigno(b - a, s) + NBSP + 'p.' + NBSP + 'p.';
@@ -4052,14 +4224,14 @@
     var pares = ordenarPares(d.categorias, d.valores, s.orden || (conEstados ? 'natural' : 'valor'), true);
     var maxAbs = pares.reduce(function (a, x) { return Math.max(a, Math.abs(x.valor)); }, 0) || 1;
     function color(v) {
-      if (conEstados) return v >= 0 ? P.exito : (v >= s.limiteRiesgo ? P.alerta : P.error);
+      if (conEstados) return v >= 0 ? P.verdeBase : (v >= s.limiteRiesgo ? P.amarilloBase : P.rojoBase);
       var fuerte = Math.abs(v) > maxAbs / 2; return v < 0 ? (fuerte ? P.neutro500 : P.neutro400) : (fuerte ? P.naranja700 : P.naranja400);
     }
     var sufijo = conEstados && s.unidad === '%' ? NBSP + '%' : '';
     var min = Math.min(0, pares.reduce(function (a, x) { return Math.min(a, x.valor); }, 0));
     var max = Math.max(0, pares.reduce(function (a, x) { return Math.max(a, x.valor); }, 0));
     var margen = (max - min) * 0.2;
-    var c = tarjeta(el, s, (conEstados ? leyendaHTML([{ texto: 'En objetivo', color: P.exito }, { texto: 'En riesgo', color: P.alerta }, { texto: 'Fuera de objetivo', color: P.error }]) : '') + lienzo(s, Math.max(120, pares.length * 28 + 8)));
+    var c = tarjeta(el, s, (conEstados ? leyendaHTML([{ texto: 'En objetivo', color: P.verdeBase }, { texto: 'En riesgo', color: P.amarilloBase }, { texto: 'Fuera de objetivo', color: P.rojoBase }]) : '') + lienzo(s, Math.max(120, pares.length * 28 + 8)));
     return montarECharts(c.querySelector('.eg-lienzo'), {
       textStyle: { fontFamily: FUENTE }, animationDuration: 500,
       grid: { left: 4, right: 8, top: 4, bottom: 4, containLabel: true },
@@ -4287,7 +4459,7 @@
       tooltip: Object.assign(tooltipBase(), {
         trigger: 'item', formatter: function (p) {
           var i = p.dataIndex, dif = B.valores[i] - A.valores[i];
-          return textoTooltip(d.categorias[i], [[A.nombre, A.valores[i]], [B.nombre, B.valores[i]]], opc) + '<div style="margin-top:2px;color:#DBD5CE">Cambio ' + conSigno(dif, s) + (s.unidad === '%' ? NBSP + 'p.' + NBSP + 'p.' : NBSP + esc(s.unidad)) + '</div>';
+          return textoTooltip(d.categorias[i], [[A.nombre, A.valores[i]], [B.nombre, B.valores[i]]], opc) + '<div style="margin-top:2px;color:' + P.neutro300 + '">Cambio ' + conSigno(dif, s) + (s.unidad === '%' ? NBSP + 'p.' + NBSP + 'p.' : NBSP + esc(s.unidad)) + '</div>';
         }
       }),
       xAxis: ejeValorX(s.ejeDesdeCero),
@@ -4668,7 +4840,7 @@
     }
     var extraTooltip = v === 'prevision' && pv.minimo ? function (j) {
       if (j < kReal) return '';
-      return '<div style="margin-top:2px;color:#DBD5CE">Entre ' + formatear(pv.minimo[j - kReal], opc).texto + ' y ' + formatear(pv.maximo[j - kReal], opc).texto + '</div>';
+      return '<div style="margin-top:2px;color:' + P.neutro300 + '">Entre ' + formatear(pv.minimo[j - kReal], opc).texto + ' y ' + formatear(pv.maximo[j - kReal], opc).texto + '</div>';
     } : null;
     var conLeyenda = leyendaDatos.length > 1 && v !== 'prevision';
     return montarECharts(c.firstChild, {
@@ -4712,10 +4884,10 @@
           var j = ps[0].dataIndex;
           var filas = ps.slice().reverse().map(function (p) {
             var real = d.series[orden[p.seriesIndex]].valores[j];
-            return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:#DBD5CE">' + esc(p.seriesName) + '</span><span style="font-weight:600">' +
+            return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:' + P.neutro300 + '">' + esc(p.seriesName) + '</span><span style="font-weight:600">' +
               (cien ? porcentaje(p.value, 0) + ' · ' : '') + formatear(real, opc).texto + '</span></div>';
           }).join('');
-          return '<div style="font-weight:600;margin-bottom:2px">' + esc(ps[0].axisValue) + '</div>' + filas + (apilada ? '<div style="margin-top:2px;color:#DBD5CE">Total ' + formatear(totales[j], opc).texto + '</div>' : '');
+          return '<div style="font-weight:600;margin-bottom:2px">' + esc(ps[0].axisValue) + '</div>' + filas + (apilada ? '<div style="margin-top:2px;color:' + P.neutro300 + '">Total ' + formatear(totales[j], opc).texto + '</div>' : '');
         }
       }),
       xAxis: ejeCategoria(d.periodos, false),
@@ -5955,7 +6127,7 @@
   /* Tooltip de un caso: nombre (o grupo), grupo y los valores de cada eje con su unidad */
   function tooltipCaso(s, E, p, grupos, extra) {
     var multi = grupos && grupos.length > 1, cab = p.nombre || (multi ? grupos[p.g] : '');
-    var html = (cab ? cabeceraTooltip(cab) : '') + (p.nombre && multi ? '<div style="color:#DBD5CE;margin:-2px 0 2px">' + esc(grupos[p.g]) + '</div>' : '');
+    var html = (cab ? cabeceraTooltip(cab) : '') + (p.nombre && multi ? '<div style="color:' + P.neutro300 + ';margin:-2px 0 2px">' + esc(grupos[p.g]) + '</div>' : '');
     html += filaTooltip(E.x.nombre, fmtEje(p.x, E.x, s)) + filaTooltip(E.y.nombre, fmtEje(p.y, E.y, s));
     if (p.t != null && E.tamano) html += filaTooltip(E.tamano.nombre, fmtEje(p.t, E.tamano, s));
     return html + (extra || '');
@@ -7277,7 +7449,7 @@
   /* ================================================================== */
   /* Familias de tonos: el grupo destacado en naranja y el resto en neutros; los hijos, escalones del color del padre */
   var RAMPA_NARANJA;
-  derivado(function () { RAMPA_NARANJA = [P.naranja700, P.naranja600, P.naranja500, P.naranja400, P.naranja300, P.naranja200, P.naranja100]; });
+  derivado(function () { RAMPA_NARANJA = [P.naranja700, P.naranja600, P.naranja500, P.naranja400, P.naranja300, P.naranja100]; });
   var RAMPA_NEUTRO;
   derivado(function () { RAMPA_NEUTRO = [P.neutro700, P.neutro600, P.neutro500, P.neutro400, P.neutro300, P.neutro200]; });
   /* n índices de la rampa desde «desde»: de dos en dos si caben; si no, repartidos hasta el último */
@@ -7307,13 +7479,13 @@
   }
   /* Los tonos más claros llevan un borde para no perderse sobre el blanco */
   function bordeTono(c) {
-    if (c === P.naranja100 || c === P.naranja200) return P.naranja300;
+    if (c === P.naranja100) return P.naranja300;
     if (c === P.neutro200 || c === P.neutro100) return P.neutro300;
     return null;
   }
   function pctDe(n, base) { return base && base.valor ? n.valor / base.valor * 100 : 0; }
   function filaTip(etiqueta, texto) {
-    return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:#DBD5CE">' + esc(etiqueta) + '</span><span style="font-weight:600">' + esc(texto) + '</span></div>';
+    return '<div style="display:flex;gap:12px;justify-content:space-between"><span style="color:' + P.neutro300 + '">' + esc(etiqueta) + '</span><span style="font-weight:600">' + esc(texto) + '</span></div>';
   }
   function cabeceraTip(txt) { return '<div style="font-weight:600;margin-bottom:2px">' + esc(txt) + '</div>'; }
   /* Tooltip de un nodo con valor: el valor, el % sobre su grupo y el % sobre el total */
@@ -8863,7 +9035,7 @@
     if (modo === 'valorado' && sentido !== 'igual') {
       var bueno = (sentido === 'subida') === (sentidoPositivo === 'subir');
       clase = bueno ? 'eg-chip-mejora' : 'eg-chip-empeora';
-      ic = sentido; color = bueno ? P.exitoFuerte : P.errorFuerte;
+      ic = sentido; color = bueno ? P.verdeDark : P.rojoDark;
       textoEstado = bueno ? ' · mejora' : ' · empeora';
     } else {
       ic = sentido === 'igual' ? 'sinCambio' : sentido;
@@ -8943,7 +9115,7 @@
         debajo += barraEscala({ relleno: pct / tope * 100, marcas: [100 / tope * 100], rotulos: [{ pos: 0, texto: '0' }, { pos: 100 / tope * 100, texto: '100 %', fuerte: true }, { pos: 100, texto: porcentaje(tope, 0) }] });
       } else if (b.forma === 'logro') {
         var topeL = Math.max(120, Math.ceil(pct / 20) * 20);
-        cab = '<div class="eg-logro"><span class="eg-logro-icono' + (cumplido ? '' : ' eg-logro-no') + '">' + icono(cumplido ? 'cumplido' : 'objetivo', cumplido ? P.exitoFuerte : P.neutro600, 36) + '</span><div class="eg-logro-texto">' +
+        cab = '<div class="eg-logro"><span class="eg-logro-icono' + (cumplido ? '' : ' eg-logro-no') + '">' + icono(cumplido ? 'cumplido' : 'objetivo', cumplido ? P.verdeDark : P.neutro600, 36) + '</span><div class="eg-logro-texto">' +
           '<p class="eg-kpi-valor">' + numero(Math.round(pct), 0) + '<span class="eg-kpi-unidad">%</span></p>' +
           (cumplido ? chipEstado('en-objetivo', pct > 100 ? 'Objetivo superado' : 'Objetivo alcanzado') : chipEstado('en-riesgo', 'Objetivo no alcanzado')) +
           '<span class="eg-secundario">de ' + esc(fo.texto) + ' de objetivo</span></div></div>';
@@ -9142,7 +9314,7 @@
 
   function pintarError(el, s, errores) {
     var nombre = s && esTexto(s.titulo) ? '«' + s.titulo + '»' : 'el gráfico';
-    el.innerHTML = '<section class="eg eg-tarjeta eg-error" role="alert"><header><h3 class="eg-titulo">' + icono('incidencia', P.error, 18) +
+    el.innerHTML = '<section class="eg eg-tarjeta eg-error" role="alert"><header><h3 class="eg-titulo">' + icono('incidencia', P.rojoBase, 18) +
       'No se puede dibujar ' + esc(nombre) + '</h3></header><ul>' + errores.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></section>';
   }
 
