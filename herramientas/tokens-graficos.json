@@ -786,6 +786,33 @@
       "$type": "color",
       "$value": "{naranja-500}",
       "$description": "Dependency graph: tareas en cajas de 30 px por columnas; dependencias en curva con punta de 8 × 9 px en Neutro 400 de 1,5 px y la ruta crítica en Naranja 500 de 3 px (sus tareas en Naranja 500 y SemiBold)."
+    },
+    "variacion-mejora": {
+      "$type": "color",
+      "$value": "{verde-dark}",
+      "$description": "KPI: variación favorable según «mejor» (texto e icono). Fuera de web: impresión verde-700; presentación, el acento (sin colores de estado)."
+    },
+    "variacion-mejora-fondo": {
+      "$type": "color",
+      "$value": "{verde-light}"
+    },
+    "variacion-empeora": {
+      "$type": "color",
+      "$value": "{rojo-dark}",
+      "$description": "KPI: variación desfavorable según «mejor». Presentación: pres-texto."
+    },
+    "variacion-empeora-fondo": {
+      "$type": "color",
+      "$value": "{rojo-light}"
+    },
+    "logro": {
+      "$type": "color",
+      "$value": "{verde-dark}",
+      "$description": "KPI · logro: icono del objetivo cumplido."
+    },
+    "logro-fondo": {
+      "$type": "color",
+      "$value": "{verde-light}"
     }
   },
   "estados": {
@@ -1134,7 +1161,47 @@
       "etiqueta-dato": "{pres-texto}",
       "texto": "{pres-texto}",
       "tooltip": "{pres-texto}",
-      "objetivo": "{pres-texto}"
+      "objetivo": "{pres-texto}",
+      "variacion-mejora": "{pres-acento}",
+      "variacion-mejora-fondo": "{pres-fondo}",
+      "variacion-empeora": "{pres-texto}",
+      "variacion-empeora-fondo": "{pres-fondo}",
+      "logro": "{pres-acento}",
+      "logro-fondo": "{pres-fondo}",
+      "estados": {
+        "entregado": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}"
+        },
+        "en-proceso": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}"
+        },
+        "incidencia": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}"
+        },
+        "pendiente": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}"
+        },
+        "en-objetivo": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}",
+          "barra": "{pres-acento}"
+        },
+        "en-riesgo": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}",
+          "barra": "{pres-serie-3}"
+        },
+        "fuera": {
+          "fondo": "{pres-fondo}",
+          "texto": "{pres-texto}",
+          "barra": "{pres-serie-4}"
+        }
+      },
+      "$description": "Sin colores de estado en presentación: la variación del KPI va en pres-acento (favorable) o pres-texto (desfavorable) con signo, flecha y texto; los estados, con icono y texto en pres-texto."
     }
   }
 }

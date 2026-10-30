@@ -43,6 +43,13 @@ for (const [modo, lista] of Object.entries(casos)) {
     console.log((r.ok ? 'OK   ' : 'ERROR') + ' ' + nombre + (r.errores.length ? '\n      ' + r.errores.join('\n      ') : '') + (r.avisos.length ? '\n      aviso: ' + r.avisos.join('\n      aviso: ') : ''));
   }
 }
+/* KPI: «mejor» y su alias «sentidoPositivo» dan lo mismo; sin ninguno, «subir» */
+const kpi = v => ({ tipo: 'kpi', titulo: 'Devoluciones', unidad: 'pedidos', valor: 120, variacion: Object.assign({ anterior: 100, referencia: 'vs. 2025' }, v) });
+const m = v => JSON.stringify(EG.validar(kpi(v)).spec.variacion.mejor);
+console.log('== kpi\nmejor bajar:', m({ mejor: 'bajar' }), '· sentidoPositivo bajar:', m({ sentidoPositivo: 'bajar' }), '· sin sentido:', m({}),
+  '· «mejor» en el KPI:', JSON.stringify(EG.validar(Object.assign(kpi({}), { mejor: 'bajar' })).spec.variacion.mejor), '· no válido:', EG.validar(kpi({ mejor: 'menos' })).errores.length, 'error');
+const sc = i => ({ tipo: 'tabla', variante: 'scorecard', titulo: 'T', unidad: '%', datos: { indicadores: [Object.assign({ nombre: 'Bajas', valor: 4, objetivo: 5 }, i)] } });
+console.log('scorecard: sentidoPositivo bajar →', EG.validar(sc({ sentidoPositivo: 'bajar' })).spec.datos.indicadores[0].mejor, '· mejor bajar →', EG.validar(sc({ mejor: 'bajar' })).spec.datos.indicadores[0].mejor);
 /* Tokens: ningún tono de solo pantalla en impresión, y naranja-300 sustituido fuera de web */
 const pantalla = new Set(), imp = {};
 EG.configurar({ modo: 'web' }); const web = EG.tokens.primitivos;

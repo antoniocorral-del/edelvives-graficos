@@ -2,7 +2,7 @@
  * Edelvives Gráficos v0.9.2
  * Sistema de gráficos y métricas de Edelvives. Modo web.
  * Uso: EdelvivesGraficos.render('#destino', especificacion)
- * Iconos: Material Symbols (Google), licencia Apache 2.0.
+ * Iconos: Feather (feathericons.com), licencia MIT.
  */
 (function (global) {
   'use strict';
@@ -235,7 +235,14 @@
         redEnlace: 'neutro300',
         redBipartitaFoco: 'naranja500',
         redRadialCentro: 'naranja500',
-        redRutaCritica: 'naranja500'
+        redRutaCritica: 'naranja500',
+        variacionMejora: 'verdeDark',
+        variacionMejoraFondo: 'verdeLight',
+        variacionEmpeora: 'rojoDark',
+        variacionEmpeoraFondo: 'rojoLight',
+        logro: 'verdeDark',
+        logroFondo: 'verdeLight',
+        estados: { entregado: { fondo: 'verdeLight', texto: 'verdeDark' }, 'en-proceso': { fondo: 'amarilloLight', texto: 'amarilloDark' }, incidencia: { fondo: 'rojoLight', texto: 'rojoDark' }, pendiente: { fondo: 'neutro100', texto: 'neutro600' }, 'en-objetivo': { fondo: 'verdeLight', texto: 'verdeDark', barra: 'verdeBase' }, 'en-riesgo': { fondo: 'amarilloLight', texto: 'amarilloDark', barra: 'amarilloBase' }, fuera: { fondo: 'rojoLight', texto: 'rojoDark', barra: 'rojoBase' } }
       }
     },
     presentacion: {
@@ -277,7 +284,14 @@
         etiquetaDato: 'pres.texto',
         texto: 'pres.texto',
         tooltip: 'pres.texto',
-        objetivo: 'pres.texto'
+        objetivo: 'pres.texto',
+        variacionMejora: 'pres.acento',
+        variacionMejoraFondo: 'pres.fondo',
+        variacionEmpeora: 'pres.texto',
+        variacionEmpeoraFondo: 'pres.fondo',
+        logro: 'pres.acento',
+        logroFondo: 'pres.fondo',
+        estados: { entregado: { fondo: 'pres.fondo', texto: 'pres.texto' }, 'en-proceso': { fondo: 'pres.fondo', texto: 'pres.texto' }, incidencia: { fondo: 'pres.fondo', texto: 'pres.texto' }, pendiente: { fondo: 'pres.fondo', texto: 'pres.texto' }, 'en-objetivo': { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.acento' }, 'en-riesgo': { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.serie3' }, fuera: { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.serie4' } }
       }
     },
     impresion: {
@@ -325,9 +339,12 @@
     Object.keys(m.sustituirProvisional || {}).forEach(function (n) { P[n] = PRIMITIVOS[m.sustituirProvisional[n]]; });
     var color = function (n) { return n.indexOf('pres.') === 0 ? PRES[tema][n.slice(5)] : P[n]; };
     var sem = Object.assign({}, MODOS.web.semanticos, m.semanticos || {});
-    Object.keys(sem).forEach(function (k) {
-      T[k] = Array.isArray(sem[k]) ? sem[k].map(color) : color(sem[k]);
-    });
+    var resolver = function (v) {
+      if (Array.isArray(v)) return v.map(resolver);
+      if (typeof v === 'object') { var o = {}; Object.keys(v).forEach(function (k) { o[k] = resolver(v[k]); }); return o; }
+      return color(v);
+    };
+    Object.keys(sem).forEach(function (k) { T[k] = resolver(sem[k]); });
     Object.keys(m.texto).forEach(function (r) {
       var x = m.texto[r];
       TX[r] = { familia: x.familia, css: FAMILIAS[x.familia], tam: x.tam, alto: x.alto, peso: x.peso, px: x.tam / m.k, altoPx: x.alto / m.k };
@@ -347,11 +364,27 @@
   }
   aplicarModo('web');
 
-  var ICONOS = {"subida":"M328-400q-9 0-14.5-6t-5.5-14q0-2 6-14l145-145q5-5 10-7t11-2q6 0 11 2t10 7l145 145q3 3 4.5 6.5t1.5 7.5q0 8-5.5 14t-14.5 6H328Z","bajada":"M459-381 314-526q-3-3-4.5-6.5T308-540q0-8 5.5-14t14.5-6h304q9 0 14.5 6t5.5 14q0 2-6 14L501-381q-5 5-10 7t-11 2q-6 0-11-2t-10-7Z","sinCambio":"M240-440q-17 0-28.5-11.5T200-480q0-17 11.5-28.5T240-520h480q17 0 28.5 11.5T760-480q0 17-11.5 28.5T720-440H240Z","cumplido":"m382-354 339-339q12-12 28-12t28 12q12 12 12 28.5T777-636L410-268q-12 12-28 12t-28-12L182-440q-12-12-11.5-28.5T183-497q12-12 28.5-12t28.5 12l142 143Z","objetivo":"M280-400v240q0 17-11.5 28.5T240-120q-17 0-28.5-11.5T200-160v-600q0-17 11.5-28.5T240-800h287q14 0 25 9t14 23l10 48h184q17 0 28.5 11.5T800-680v320q0 17-11.5 28.5T760-320H553q-14 0-25-9t-14-23l-10-48H280Zm306 0h134v-240H543q-14 0-25-9t-14-23l-10-48H280v240h257q14 0 25 9t14 23l10 48Zm-86-160Z","info":"M480-280q17 0 28.5-11.5T520-320v-160q0-17-11.5-28.5T480-520q-17 0-28.5 11.5T440-480v160q0 17 11.5 28.5T480-280Zm0-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","periodo":"M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z","tendenciaSube":"M108-255q-12-12-11.5-28.5T108-311l211-214q23-23 57-23t57 23l103 104 208-206h-64q-17 0-28.5-11.5T640-667q0-17 11.5-28.5T680-707h160q17 0 28.5 11.5T880-667v160q0 17-11.5 28.5T840-467q-17 0-28.5-11.5T800-507v-64L593-364q-23 23-57 23t-57-23L376-467 164-255q-11 11-28 11t-28-11Z","tendenciaBaja":"M744-320 536-526 433-423q-23 23-57 23t-57-23L108-636q-11-11-11.5-27.5T108-692q11-11 28-11t28 11l212 212 103-103q23-23 57-23t57 23l207 207v-64q0-17 11.5-28.5T840-480q17 0 28.5 11.5T880-440v160q0 17-11.5 28.5T840-240H680q-17 0-28.5-11.5T640-280q0-17 11.5-28.5T680-320h64Z","entregado":"m424-408-86-86q-11-11-28-11t-28 11q-11 11-11 28t11 28l114 114q12 12 28 12t28-12l226-226q11-11 11-28t-11-28q-11-11-28-11t-28 11L424-408Zm56 328q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","enCurso":"M520-496v-144q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v159q0 8 3 15.5t9 13.5l132 132q11 11 28 11t28-11q11-11 11-28t-11-28L520-496ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z","incidencia":"M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480v-160q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v160q0 17 11.5 28.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z","pendiente":"M320-440h320q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H320q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"};
+  /* Iconos Feather (feathericons.com, licencia MIT, © Cole Bemis): trazo de 1,5 px sin relleno, en una caja de 24 */
+  var ICONOS = {
+    subida: '<line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>',
+    bajada: '<line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>',
+    sinCambio: '<line x1="5" y1="12" x2="19" y2="12"/>',
+    cumplido: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+    objetivo: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    info: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>',
+    periodo: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+    tendenciaSube: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+    tendenciaBaja: '<polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/>',
+    entregado: '<polyline points="20 6 9 17 4 12"/>',
+    enCurso: '<line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>',
+    incidencia: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+    pendiente: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'
+  };
 
+  /* El trazo no escala con el tamaño (1,5 px siempre; vector-effect en .eg-icono *) */
   function icono(nombre, color, tam) {
     tam = tam || 16;
-    return '<svg class="eg-icono" width="' + tam + '" height="' + tam + '" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path fill="' + color + '" d="' + ICONOS[nombre] + '"/></svg>';
+    return '<svg class="eg-icono" width="' + tam + '" height="' + tam + '" viewBox="0 0 24 24" fill="none" stroke="' + color + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONOS[nombre] + '</svg>';
   }
 
   /* ------------------------------------------------------------------ */
@@ -467,15 +500,17 @@
   /* Estados: siempre icono + texto + color, en este orden fijo */
   var ESTADOS;
   derivado(function () { ESTADOS = {
-    'entregado': { texto: 'Entregado', icono: 'entregado', fondo: P.verdeLight, color: P.verdeDark },
-    'en-proceso': { texto: 'En proceso', icono: 'enCurso', fondo: P.amarilloLight, color: P.amarilloDark },
-    'incidencia': { texto: 'Incidencia', icono: 'incidencia', fondo: P.rojoLight, color: P.rojoDark },
-    'pendiente': { texto: 'Pendiente', icono: 'pendiente', fondo: P.neutro100, color: P.neutro600 },
+    'entregado': { texto: 'Entregado', icono: 'entregado' },
+    'en-proceso': { texto: 'En proceso', icono: 'enCurso' },
+    'incidencia': { texto: 'Incidencia', icono: 'incidencia' },
+    'pendiente': { texto: 'Pendiente', icono: 'pendiente' },
     /* Estados frente a un objetivo */
-    'en-objetivo': { texto: 'En objetivo', icono: 'cumplido', fondo: P.verdeLight, color: P.verdeDark },
-    'en-riesgo': { texto: 'En riesgo', icono: 'enCurso', fondo: P.amarilloLight, color: P.amarilloDark },
-    'fuera': { texto: 'Fuera de objetivo', icono: 'incidencia', fondo: P.rojoLight, color: P.rojoDark }
-  }; });
+    'en-objetivo': { texto: 'En objetivo', icono: 'cumplido' },
+    'en-riesgo': { texto: 'En riesgo', icono: 'enCurso' },
+    'fuera': { texto: 'Fuera de objetivo', icono: 'incidencia' }
+  };
+  /* Colores del modo (en presentación, sin colores de estado: icono y texto en pres-texto) */
+  Object.keys(ESTADOS).forEach(function (k) { var c = T.estados[k]; ESTADOS[k].fondo = c.fondo; ESTADOS[k].color = c.texto; if (c.barra) ESTADOS[k].barra = c.barra; }); });
   var COLUMNAS = ['texto', 'numero', 'porcentaje', 'variacion', 'barra', 'sparkline', 'estado', 'fecha'];
 
   function esNum(x) { return typeof x === 'number' && isFinite(x); }
@@ -950,7 +985,10 @@
       if (!Array.isArray(d.indicadores) || !d.indicadores.length || d.indicadores.length > 12) { err('«datos.indicadores» debe tener entre 1 y 12 indicadores { nombre, valor, objetivo }.'); return; }
       d.indicadores.forEach(function (x, i) {
         if (!x || !esTexto(x.nombre) || !esNum(x.valor) || !esNum(x.objetivo) || x.objetivo <= 0) err('el indicador ' + (i + 1) + ' debe tener «nombre», «valor» y «objetivo» (mayor que cero).');
-        else if (x.sentidoPositivo != null && x.sentidoPositivo !== 'subir' && x.sentidoPositivo !== 'bajar') err('«sentidoPositivo» del indicador «' + x.nombre + '» debe ser "subir" o "bajar".');
+        else {
+          if (x.mejor == null && x.sentidoPositivo != null) x.mejor = x.sentidoPositivo;
+          if (x.mejor != null && x.mejor !== 'subir' && x.mejor !== 'bajar') err('«mejor» del indicador «' + x.nombre + '» debe ser "subir" o "bajar".');
+        }
       });
       var um = s.umbrales || {};
       s.umbrales = { objetivo: esNum(um.objetivo) ? um.objetivo : 100, riesgo: esNum(um.riesgo) ? um.riesgo : 90 };
@@ -1033,10 +1071,17 @@
       else {
         if (!esNum(b.anterior) && !esNum(b.porcentaje)) err('«variacion» necesita «anterior» (valor de referencia) o «porcentaje».');
         if (!esTexto(b.referencia)) err('falta «referencia» en la variación (por ejemplo "vs. 2025"). Toda variación declara respecto a qué se calcula.');
-        if (b.modo && b.modo !== 'neutro' && b.modo !== 'valorado') err('«modo» debe ser "neutro" o "valorado".');
-        if (b.modo === 'valorado' && b.sentidoPositivo !== 'subir' && b.sentidoPositivo !== 'bajar') err('el modo "valorado" exige «sentidoPositivo»: "subir" o "bajar".');
+        if (b.modo && b.modo !== 'neutro' && b.modo !== 'valorado') err('«modo» debe ser "neutro" (sin sentido claro: sube en naranja, baja en gris) o "valorado" (por defecto).');
       }
     }
+    /* «mejor»: "subir" (por defecto) o "bajar"; va en el KPI o en su bloque «variacion» o «anterior». «sentidoPositivo» es
+       su nombre antiguo y se acepta en toda la serie 0.x */
+    ['variacion', 'anterior'].forEach(function (k) {
+      var x = s[k]; if (!x || typeof x !== 'object') return;
+      var m = x.mejor != null ? x.mejor : (x.sentidoPositivo != null ? x.sentidoPositivo : (s.mejor != null ? s.mejor : s.sentidoPositivo));
+      if (m != null && m !== 'subir' && m !== 'bajar') err('«mejor» debe ser "subir" (más es mejor, por defecto) o "bajar" (menos es mejor, por ejemplo devoluciones o incidencias).');
+      x.mejor = m === 'bajar' ? 'bajar' : 'subir'; delete x.sentidoPositivo;
+    });
     if ((b = u('tendencia')) != null) {
       if (typeof b !== 'object' || ['sube', 'baja', 'estable'].indexOf(b.sentido) < 0) err('«tendencia.sentido» debe ser "sube", "baja" o "estable".');
       else if (!esTexto(b.periodo)) err('falta «tendencia.periodo»: la flecha siempre fija su periodo (por ejemplo "Últimos 3 meses").');
@@ -3364,7 +3409,7 @@
     '.eg-nota{font-size:11px;line-height:14px;color:' + T.textoSecundario + ';margin:12px 0 0}',
     '.eg-nota a{color:inherit;text-decoration:underline;text-underline-offset:2px}',
     '.eg-nota+.eg-fuente{margin-top:4px}',
-    '.eg-icono{display:inline-block;flex:none;vertical-align:middle}',
+    '.eg-icono{display:inline-block;flex:none;vertical-align:middle}.eg-icono *{vector-effect:non-scaling-stroke}',
     /* KPI */
     '.eg-kpi .eg-titulo{font-size:11px;line-height:14px;font-weight:400;color:' + T.textoSecundario + '}',
     '.eg-kpi .eg-cuerpo{margin-top:8px;display:flex;flex-direction:column;gap:12px}',
@@ -3376,10 +3421,9 @@
     '.eg-fuerte{font-weight:600;color:' + T.texto + '}',
     '.eg-chip{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 10px 0 6px;border-radius:12px;font-size:11px;font-weight:600;color:' + T.texto + ';white-space:nowrap}',
     '.eg-chip-subida{background:' + P.naranja100 + '}',
-    '.eg-chip .eg-icono[width="22"]{margin:0 -3px 0 -5px}',
     '.eg-chip-bajada,.eg-chip-igual,.eg-chip-neutro{background:' + P.neutro200 + '}',
-    '.eg-chip-mejora{background:' + P.verdeLight + '}',
-    '.eg-chip-empeora{background:' + P.rojoLight + '}',
+    '.eg-chip-mejora{background:' + T.variacionMejoraFondo + ';color:' + T.variacionMejora + '}',
+    '.eg-chip-empeora{background:' + T.variacionEmpeoraFondo + ';color:' + T.variacionEmpeora + '}',
     '.eg-spark{display:flex;flex-direction:column;gap:8px;min-width:0}',
     '.eg-spark svg{display:block;width:100%;height:56px;overflow:visible}',
     '.eg-spark .eg-fila{justify-content:space-between}',
@@ -3483,7 +3527,7 @@
     '.eg-ritmo{display:flex;flex-direction:column;gap:14px}.eg-ritmo .eg-fila{align-items:baseline}',
     '.eg-extremos{justify-content:space-between}',
     '.eg-logro{display:flex;align-items:center;gap:20px}',
-    '.eg-logro-icono{flex:none;width:64px;height:64px;border-radius:50%;background:' + P.verdeLight + ';display:flex;align-items:center;justify-content:center}',
+    '.eg-logro-icono{flex:none;width:64px;height:64px;border-radius:50%;background:' + T.logroFondo + ';display:flex;align-items:center;justify-content:center}',
     '.eg-logro-no{background:' + P.neutro200 + '}',
     '.eg-logro-texto{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:11px}',
     '.eg-umbral{font-size:11px;line-height:14px}',
@@ -4351,14 +4395,14 @@
     var pares = ordenarPares(d.categorias, d.valores, s.orden || (conEstados ? 'natural' : 'valor'), true);
     var maxAbs = pares.reduce(function (a, x) { return Math.max(a, Math.abs(x.valor)); }, 0) || 1;
     function color(v) {
-      if (conEstados) return v >= 0 ? P.verdeBase : (v >= s.limiteRiesgo ? P.amarilloBase : P.rojoBase);
+      if (conEstados) return v >= 0 ? ESTADOS['en-objetivo'].barra : (v >= s.limiteRiesgo ? ESTADOS['en-riesgo'].barra : ESTADOS.fuera.barra);
       var fuerte = Math.abs(v) > maxAbs / 2; return v < 0 ? (fuerte ? P.neutro500 : P.neutro400) : (fuerte ? P.naranja700 : P.naranja400);
     }
     var sufijo = conEstados && s.unidad === '%' ? NBSP + '%' : '';
     var min = Math.min(0, pares.reduce(function (a, x) { return Math.min(a, x.valor); }, 0));
     var max = Math.max(0, pares.reduce(function (a, x) { return Math.max(a, x.valor); }, 0));
     var margen = (max - min) * 0.2;
-    var c = tarjeta(el, s, (conEstados ? leyendaHTML([{ texto: 'En objetivo', color: P.verdeBase }, { texto: 'En riesgo', color: P.amarilloBase }, { texto: 'Fuera de objetivo', color: P.rojoBase }]) : '') + lienzo(s, Math.max(120, pares.length * 28 + 8)));
+    var c = tarjeta(el, s, (conEstados ? leyendaHTML([{ texto: 'En objetivo', color: ESTADOS['en-objetivo'].barra }, { texto: 'En riesgo', color: ESTADOS['en-riesgo'].barra }, { texto: 'Fuera de objetivo', color: ESTADOS.fuera.barra }]) : '') + lienzo(s, Math.max(120, pares.length * 28 + 8)));
     return montarECharts(c.querySelector('.eg-lienzo'), {
       textStyle: { fontFamily: FUENTE }, animationDuration: 500,
       grid: { left: 4, right: 8, top: 4, bottom: 4, containLabel: true },
@@ -4804,7 +4848,7 @@
         case 'estado':
           var clave = typeof v === 'object' ? v.estado : v, e = ESTADOS[clave];
           var texto = typeof v === 'object' && esTexto(v.texto) ? v.texto : e.texto;
-          return '<td><span class="eg-estado eg-estado-' + clave + '">' + icono(e.icono, e.color, 16) + esc(texto) + '</span></td>';
+          return '<td><span class="eg-estado eg-estado-' + clave + '">' + icono(e.icono, e.color, 14) + esc(texto) + '</span></td>';
         default: return '<td>' + esc(v) + '</td>';
       }
     }
@@ -9177,24 +9221,26 @@
   }
   function chipEstado(clave, texto, tam) {
     var e = ESTADOS[clave];
-    return '<span class="eg-estado eg-estado-' + clave + '">' + icono(e.icono, e.color, tam || 16) + esc(texto || e.texto) + '</span>';
+    return '<span class="eg-estado eg-estado-' + clave + '">' + icono(e.icono, e.color, tam || 14) + esc(texto || e.texto) + '</span>';
   }
-  /* Chip de variación en % (modo neutro por defecto) */
-  function chipVariacion(pct, modo, sentidoPositivo, sufijo) {
+  /* Chip de variación en %. «valorado» (el KPI): favorable o desfavorable según «mejor» ("subir" o "bajar"), en verde o
+     rojo (en presentación, acento o texto, sin colores de estado), con flecha, signo y «mejora» o «empeora». Sin modo
+     (comparaciones de los gráficos) o «neutro»: sube en naranja, baja en gris */
+  function chipVariacion(pct, modo, mejor, sufijo) {
     var redondeo = Math.round(pct * 10) / 10;
     var sentido = redondeo > 0 ? 'subida' : (redondeo < 0 ? 'bajada' : 'igual');
     var clase = 'eg-chip-' + sentido, ic, color, textoEstado = '';
     if (modo === 'valorado' && sentido !== 'igual') {
-      var bueno = (sentido === 'subida') === (sentidoPositivo === 'subir');
+      var bueno = (sentido === 'subida') === (mejor !== 'bajar');
       clase = bueno ? 'eg-chip-mejora' : 'eg-chip-empeora';
-      ic = sentido; color = bueno ? P.verdeDark : P.rojoDark;
+      ic = sentido; color = bueno ? T.variacionMejora : T.variacionEmpeora;
       textoEstado = bueno ? ' · mejora' : ' · empeora';
     } else {
       ic = sentido === 'igual' ? 'sinCambio' : sentido;
       color = sentido === 'subida' ? T.subida : (sentido === 'bajada' ? T.bajada : T.textoSecundario);
     }
     var txt = sufijo != null ? sufijo : (redondeo > 0 ? '+' : '') + porcentaje(redondeo, 1).replace('-', '\u2212');
-    return '<span class="eg-chip ' + clase + '">' + icono(ic, color, 22) + esc(txt) + textoEstado + '</span>';
+    return '<span class="eg-chip ' + clase + '">' + icono(ic, color, 14) + esc(txt) + textoEstado + '</span>';
   }
   /* Barra con escala: relleno, marca y rótulos debajo */
   function barraEscala(o) {
@@ -9250,13 +9296,13 @@
     if ((b = s.variacion)) {
       pct = esNum(b.porcentaje) ? b.porcentaje : (b.anterior ? (s.valor - b.anterior) / Math.abs(b.anterior) * 100 : 0);
       var ant = esNum(b.anterior) ? ' (' + fmtU(b.anterior, s).texto + ')' : '';
-      debajo += '<div class="eg-fila">' + chipVariacion(pct, b.modo, b.sentidoPositivo) + '<span class="eg-secundario">' + esc(b.referencia) + esc(ant) + '</span></div>';
+      debajo += '<div class="eg-fila">' + chipVariacion(pct, b.modo || 'valorado', b.mejor) + '<span class="eg-secundario">' + esc(b.referencia) + esc(ant) + '</span></div>';
     }
     if ((b = s.tendencia)) {
       var icT = b.sentido === 'sube' ? 'tendenciaSube' : (b.sentido === 'baja' ? 'tendenciaBaja' : 'sinCambio');
       var colT = b.sentido === 'sube' ? T.subida : (b.sentido === 'baja' ? T.bajada : T.textoSecundario);
       var txtT = esTexto(b.texto) ? b.texto : { sube: 'Al alza', baja: 'A la baja', estable: 'Estable' }[b.sentido];
-      lateral = '<div class="eg-lateral eg-tendencia">' + icono(icT, colT, 44) + '<b>' + esc(txtT) + '</b><span class="eg-secundario">' + esc(b.periodo) + '</span></div>';
+      lateral = '<div class="eg-lateral eg-tendencia">' + icono(icT, colT, 32) + '<b>' + esc(txtT) + '</b><span class="eg-secundario">' + esc(b.periodo) + '</span></div>';
     }
     if ((b = s.objetivo)) {
       pct = s.valor / b.valor * 100;
@@ -9267,19 +9313,19 @@
         debajo += barraEscala({ relleno: pct / tope * 100, marcas: [100 / tope * 100], rotulos: [{ pos: 0, texto: '0' }, { pos: 100 / tope * 100, texto: '100 %', fuerte: true }, { pos: 100, texto: porcentaje(tope, 0) }] });
       } else if (b.forma === 'logro') {
         var topeL = Math.max(120, Math.ceil(pct / 20) * 20);
-        cab = '<div class="eg-logro"><span class="eg-logro-icono' + (cumplido ? '' : ' eg-logro-no') + '">' + icono(cumplido ? 'cumplido' : 'objetivo', cumplido ? P.verdeDark : P.neutro600, 36) + '</span><div class="eg-logro-texto">' +
+        cab = '<div class="eg-logro"><span class="eg-logro-icono' + (cumplido ? '' : ' eg-logro-no') + '">' + icono(cumplido ? 'cumplido' : 'objetivo', cumplido ? T.logro : P.neutro600, 28) + '</span><div class="eg-logro-texto">' +
           '<p class="eg-kpi-valor">' + numero(Math.round(pct), 0) + '<span class="eg-kpi-unidad">%</span></p>' +
           (cumplido ? chipEstado('en-objetivo', pct > 100 ? 'Objetivo superado' : 'Objetivo alcanzado') : chipEstado('en-riesgo', 'Objetivo no alcanzado')) +
           '<span class="eg-secundario">de ' + esc(fo.texto) + ' de objetivo</span></div></div>';
         debajo += barraEscala({ relleno: pct / topeL * 100, marcas: [100 / topeL * 100], rotulos: [{ pos: 0, texto: '0' }, { pos: 100 / topeL * 100, texto: '100 %', fuerte: true }, { pos: 100, texto: porcentaje(topeL, 0) }] });
       } else {
         debajo += '<div class="eg-fila"><span class="eg-secundario">Objetivo</span><span class="eg-fuerte">' + fo.texto + '</span></div>' +
-          '<div class="eg-fila"><span class="eg-chip eg-chip-neutro">' + (cumplido ? icono('cumplido', T.actual, 16) : icono('objetivo', T.bajada, 16)) + porcentaje(pct, 0) + ' del objetivo</span></div>';
+          '<div class="eg-fila"><span class="eg-chip eg-chip-neutro">' + (cumplido ? icono('cumplido', T.actual, 14) : icono('objetivo', T.bajada, 14)) + porcentaje(pct, 0) + ' del objetivo</span></div>';
       }
     }
     if ((b = s.anterior)) {
       pct = b.valor ? (s.valor - b.valor) / Math.abs(b.valor) * 100 : 0;
-      cab = '<div class="eg-kpi-dos eg-kpi-dividida">' + columnaKpi('Actual', valorGrande(s.valor, s) + '<div class="eg-fila">' + chipVariacion(pct) + '</div>') +
+      cab = '<div class="eg-kpi-dos eg-kpi-dividida">' + columnaKpi('Actual', valorGrande(s.valor, s) + '<div class="eg-fila">' + chipVariacion(pct, b.modo || 'valorado', b.mejor) + '</div>') +
         columnaKpi(b.etiqueta, valorGrande(b.valor, s, 'eg-kpi-gris') + '<span class="eg-secundario">' + esc(b.nota || 'Base de comparación') + '</span>') + '</div>';
     }
     if ((b = s.prevision)) {
@@ -9386,7 +9432,7 @@
   };
 
   /* Cumplimiento en % y estado según umbrales (sentido "bajar": menos es mejor) */
-  function cumplimiento(x) { return x.sentidoPositivo === 'bajar' ? (x.valor ? x.objetivo / x.valor * 100 : 100) : x.valor / x.objetivo * 100; }
+  function cumplimiento(x) { return x.mejor === 'bajar' ? (x.valor ? x.objetivo / x.valor * 100 : 100) : x.valor / x.objetivo * 100; }
   function estadoPorUmbral(c, u) { return c >= u.objetivo ? 'en-objetivo' : (c >= u.riesgo ? 'en-riesgo' : 'fuera'); }
 
   R.progreso = function (el, s) {

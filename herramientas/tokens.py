@@ -179,17 +179,20 @@ def construir():
     else:
       sem[camel(k)] = nombre_ref(v['$value'])
   sem = {k: [x for _, x in sorted(v)] if isinstance(v, list) else v for k, v in sem.items()}
+  # Estados (chips y barras): estados.<clave>.{fondo, texto, barra}
+  sem['estados'] = {k: {p: nombre_ref(x['$value']) for p, x in v.items() if not p.startswith('$')} for k, v in g['estados'].items() if not k.startswith('$')}
   modos['web']['semanticos'] = sem
   # Fuera de web, solo los roles que cambian; {pres-x} pasa a 'pres.x' (el color del tema)
   def nombre_modo(v):
     if isinstance(v, list): return [nombre_modo(x) for x in v]
+    if isinstance(v, dict): return {k: nombre_modo(x) for k, x in v.items()}
     m = re.fullmatch(r'\{pres-([a-z0-9-]+)\}', v)
     return 'pres.' + camel(m.group(1)) if m else nombre_ref(v)
   for modo in ('presentacion', 'impresion'):
     modos[modo]['semanticos'] = {camel(k): nombre_modo(v) for k, v in g['semanticos'][modo].items() if not k.startswith('$')}
     if modo == 'impresion':
       for k, v in modos[modo]['semanticos'].items():
-        for n in (v if isinstance(v, list) else [v]):
+        for n in (v if isinstance(v, list) else ([y for x in v.values() for y in (x.values() if isinstance(x, dict) else [x])] if isinstance(v, dict) else [v])):
           q = [x for x in prim if camel(x) == n][0]
           if prim[q]['cmyk'] is None or prim[q]['provisional']: raise ErrorTokens('semanticos.impresion.%s usa %s, sin CMYK del sistema' % (k, q))
   return s, g, prim, pres, familias, modos
