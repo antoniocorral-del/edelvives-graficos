@@ -1,0 +1,5128 @@
+{
+ "$description": "Variables para Figma generadas por herramientas/tokens.py (sistema Sistemas de diseño de Edelvives: interfaces v6.2, documentos v1.1 y presentaciones v1.0, versión 1). Los valores de «Gráficos» son alias de «Primitivos». Texto: tamaños en px en web y presentación y en pt en impresión.",
+ "colecciones": [
+  {
+   "nombre": "Primitivos",
+   "modos": [
+    "Valor"
+   ],
+   "ocultas": true,
+   "variables": [
+    {
+     "nombre": "naranja/100",
+     "hex": "#FFECD4",
+     "descripcion": "CMYK 0/10/25/0"
+    },
+    {
+     "nombre": "naranja/300",
+     "hex": "#FFAF73",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "naranja/400",
+     "hex": "#FF801F",
+     "descripcion": "CMYK 0/60/100/0"
+    },
+    {
+     "nombre": "naranja/500",
+     "hex": "#F56A00",
+     "descripcion": "CMYK 0/70/100/0"
+    },
+    {
+     "nombre": "naranja/600",
+     "hex": "#D95003",
+     "descripcion": "CMYK 0/75/100/10"
+    },
+    {
+     "nombre": "naranja/700",
+     "hex": "#BD4200",
+     "descripcion": "CMYK 18/83/100/9 (provisional)"
+    },
+    {
+     "nombre": "neutro/000",
+     "hex": "#FFFFFF",
+     "descripcion": "CMYK 0/0/0/0"
+    },
+    {
+     "nombre": "neutro/100",
+     "hex": "#F7F4F2",
+     "descripcion": "CMYK 4/4/5/0"
+    },
+    {
+     "nombre": "neutro/200",
+     "hex": "#F0EDEA",
+     "descripcion": "CMYK 7/6/8/0"
+    },
+    {
+     "nombre": "neutro/300",
+     "hex": "#D8D5CE",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "neutro/300-doc",
+     "hex": "#DBD5CE",
+     "descripcion": "CMYK 17/15/19/0"
+    },
+    {
+     "nombre": "neutro/400",
+     "hex": "#A39B93",
+     "descripcion": "CMYK 35/32/36/12 (provisional)"
+    },
+    {
+     "nombre": "neutro/500",
+     "hex": "#706B65",
+     "descripcion": "CMYK 10/10/15/66"
+    },
+    {
+     "nombre": "neutro/600",
+     "hex": "#4A4540",
+     "descripcion": "CMYK 59/54/56/55 (provisional)"
+    },
+    {
+     "nombre": "neutro/700",
+     "hex": "#222222",
+     "descripcion": "CMYK 72/65/60/78 (provisional)"
+    },
+    {
+     "nombre": "neutro/800",
+     "hex": "#000000",
+     "descripcion": "CMYK 0/0/0/100"
+    },
+    {
+     "nombre": "neutro/900",
+     "hex": "#181614",
+     "descripcion": "CMYK 20/20/20/100"
+    },
+    {
+     "nombre": "azul/focus",
+     "hex": "#2650C5",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "verde/light",
+     "hex": "#D1F7E8",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "verde/base",
+     "hex": "#20BA76",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "verde/dark",
+     "hex": "#0D6B43",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "amarillo/light",
+     "hex": "#FFF3D0",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "amarillo/base",
+     "hex": "#FFB521",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "amarillo/dark",
+     "hex": "#886200",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "rojo/light",
+     "hex": "#FAD4D8",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "rojo/base",
+     "hex": "#D0021B",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "rojo/dark",
+     "hex": "#720010",
+     "descripcion": "Solo pantalla"
+    },
+    {
+     "nombre": "amarillo/100",
+     "hex": "#F9F4C9",
+     "descripcion": "CMYK 4/4/27/0"
+    },
+    {
+     "nombre": "amarillo/200",
+     "hex": "#F7EDB7",
+     "descripcion": "CMYK 4/5/36/0"
+    },
+    {
+     "nombre": "amarillo/300",
+     "hex": "#F7DF93",
+     "descripcion": "CMYK 5/11/51/0"
+    },
+    {
+     "nombre": "amarillo/400",
+     "hex": "#FACB61",
+     "descripcion": "CMYK 5/22/69/0"
+    },
+    {
+     "nombre": "amarillo/500",
+     "hex": "#FFB404",
+     "descripcion": "CMYK 0/33/94/2"
+    },
+    {
+     "nombre": "amarillo/600",
+     "hex": "#CA8E00",
+     "descripcion": "CMYK 5/38/98/22"
+    },
+    {
+     "nombre": "amarillo/700",
+     "hex": "#986A00",
+     "descripcion": "CMYK 12/43/100/43"
+    },
+    {
+     "nombre": "amarillo/800",
+     "hex": "#694800",
+     "descripcion": "CMYK 20/47/100/63"
+    },
+    {
+     "nombre": "rojo/100",
+     "hex": "#FFE4E2",
+     "descripcion": "CMYK 4/13/9/0"
+    },
+    {
+     "nombre": "rojo/200",
+     "hex": "#FFD0CC",
+     "descripcion": "CMYK 0/26/15/0"
+    },
+    {
+     "nombre": "rojo/300",
+     "hex": "#FFAAA1",
+     "descripcion": "CMYK 0/43/30/0"
+    },
+    {
+     "nombre": "rojo/400",
+     "hex": "#FF725F",
+     "descripcion": "CMYK 0/67/59/0"
+    },
+    {
+     "nombre": "rojo/500",
+     "hex": "#EE370A",
+     "descripcion": "CMYK 0/87/96/1"
+    },
+    {
+     "nombre": "rojo/600",
+     "hex": "#BE2600",
+     "descripcion": "CMYK 0/93/99/22"
+    },
+    {
+     "nombre": "rojo/700",
+     "hex": "#8F1A00",
+     "descripcion": "CMYK 4/94/96/45"
+    },
+    {
+     "nombre": "rojo/800",
+     "hex": "#620F00",
+     "descripcion": "CMYK 6/96/85/69"
+    },
+    {
+     "nombre": "verde/100",
+     "hex": "#DAF7CD",
+     "descripcion": "CMYK 16/0/22/0"
+    },
+    {
+     "nombre": "verde/200",
+     "hex": "#C9EDB8",
+     "descripcion": "CMYK 25/0/34/0"
+    },
+    {
+     "nombre": "verde/300",
+     "hex": "#AADC91",
+     "descripcion": "CMYK 38/1/52/0"
+    },
+    {
+     "nombre": "verde/400",
+     "hex": "#82C55C",
+     "descripcion": "CMYK 55/0/78/1"
+    },
+    {
+     "nombre": "verde/500",
+     "hex": "#59AE09",
+     "descripcion": "CMYK 65/0/99/4"
+    },
+    {
+     "nombre": "verde/600",
+     "hex": "#448900",
+     "descripcion": "CMYK 64/0/100/31"
+    },
+    {
+     "nombre": "verde/700",
+     "hex": "#316600",
+     "descripcion": "CMYK 64/2/100/56"
+    },
+    {
+     "nombre": "verde/800",
+     "hex": "#1F4500",
+     "descripcion": "CMYK 69/16/100/69"
+    },
+    {
+     "nombre": "azul/100",
+     "hex": "#DBE8FF",
+     "descripcion": "CMYK 16/8/2/0"
+    },
+    {
+     "nombre": "azul/200",
+     "hex": "#BFD6FF",
+     "descripcion": "CMYK 28/13/0/0"
+    },
+    {
+     "nombre": "azul/300",
+     "hex": "#91B5F5",
+     "descripcion": "CMYK 46/25/0/0"
+    },
+    {
+     "nombre": "azul/400",
+     "hex": "#5C8BDF",
+     "descripcion": "CMYK 65/42/0/0"
+    },
+    {
+     "nombre": "azul/500",
+     "hex": "#2760C8",
+     "descripcion": "CMYK 84/62/0/0"
+    },
+    {
+     "nombre": "azul/600",
+     "hex": "#1248A8",
+     "descripcion": "CMYK 95/75/0/1"
+    },
+    {
+     "nombre": "azul/700",
+     "hex": "#033285",
+     "descripcion": "CMYK 99/84/0/13"
+    },
+    {
+     "nombre": "azul/800",
+     "hex": "#001F5D",
+     "descripcion": "CMYK 100/84/0/46"
+    },
+    {
+     "nombre": "morado/100",
+     "hex": "#EBE3FF",
+     "descripcion": "CMYK 11/12/1/0"
+    },
+    {
+     "nombre": "morado/200",
+     "hex": "#DCCCFF",
+     "descripcion": "CMYK 19/21/0/0"
+    },
+    {
+     "nombre": "morado/300",
+     "hex": "#BFA6F2",
+     "descripcion": "CMYK 33/36/0/0"
+    },
+    {
+     "nombre": "morado/400",
+     "hex": "#9B77DC",
+     "descripcion": "CMYK 51/55/0/0"
+    },
+    {
+     "nombre": "morado/500",
+     "hex": "#7A45C4",
+     "descripcion": "CMYK 69/75/0/0"
+    },
+    {
+     "nombre": "morado/600",
+     "hex": "#622DA4",
+     "descripcion": "CMYK 80/90/0/0"
+    },
+    {
+     "nombre": "morado/700",
+     "hex": "#491981",
+     "descripcion": "CMYK 87/100/0/4"
+    },
+    {
+     "nombre": "morado/800",
+     "hex": "#32085C",
+     "descripcion": "CMYK 90/99/0/39"
+    },
+    {
+     "nombre": "rosa/100",
+     "hex": "#FFE6EE",
+     "descripcion": "CMYK 4/12/4/0"
+    },
+    {
+     "nombre": "rosa/200",
+     "hex": "#FFD5E4",
+     "descripcion": "CMYK 1/23/4/0"
+    },
+    {
+     "nombre": "rosa/300",
+     "hex": "#FFB5D1",
+     "descripcion": "CMYK 3/38/6/0"
+    },
+    {
+     "nombre": "rosa/400",
+     "hex": "#FF88BA",
+     "descripcion": "CMYK 2/58/6/0"
+    },
+    {
+     "nombre": "rosa/500",
+     "hex": "#FD4FA3",
+     "descripcion": "CMYK 2/80/4/0"
+    },
+    {
+     "nombre": "rosa/600",
+     "hex": "#D12C81",
+     "descripcion": "CMYK 8/92/3/9"
+    },
+    {
+     "nombre": "rosa/700",
+     "hex": "#A30A60",
+     "descripcion": "CMYK 10/96/4/31"
+    },
+    {
+     "nombre": "rosa/800",
+     "hex": "#720041",
+     "descripcion": "CMYK 16/98/8/57"
+    },
+    {
+     "nombre": "presentacion/blanco/fondo",
+     "hex": "#FFFFFF",
+     "descripcion": "pres-fondo del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/texto",
+     "hex": "#1F1F1F",
+     "descripcion": "pres-texto del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/texto-2",
+     "hex": "#5C5C5C",
+     "descripcion": "pres-texto-2 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/acento",
+     "hex": "#FF801F",
+     "descripcion": "pres-acento del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/separador",
+     "hex": "#CCCCCC",
+     "descripcion": "pres-separador del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/barra",
+     "hex": "#B8B8B8",
+     "descripcion": "pres-barra del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/marcador",
+     "hex": "#EFEDEB",
+     "descripcion": "pres-marcador del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/serie-1",
+     "hex": "#FF801F",
+     "descripcion": "pres-serie-1 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/serie-2",
+     "hex": "#B8B8B8",
+     "descripcion": "pres-serie-2 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/serie-3",
+     "hex": "#8C8C8C",
+     "descripcion": "pres-serie-3 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/serie-4",
+     "hex": "#5C5C5C",
+     "descripcion": "pres-serie-4 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/serie-5",
+     "hex": "#DEDEDE",
+     "descripcion": "pres-serie-5 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-1",
+     "hex": "#FF801F",
+     "descripcion": "pres-grafica-1 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-2",
+     "hex": "#2760C8",
+     "descripcion": "pres-grafica-2 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-3",
+     "hex": "#59AE09",
+     "descripcion": "pres-grafica-3 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-4",
+     "hex": "#FFB404",
+     "descripcion": "pres-grafica-4 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-5",
+     "hex": "#7A45C4",
+     "descripcion": "pres-grafica-5 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-6",
+     "hex": "#FD4FA3",
+     "descripcion": "pres-grafica-6 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/grafica-7",
+     "hex": "#EE370A",
+     "descripcion": "pres-grafica-7 del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/portadilla-fondo",
+     "hex": "#FFFFFF",
+     "descripcion": "pres-portadilla-fondo del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/portadilla-texto",
+     "hex": "#1F1F1F",
+     "descripcion": "pres-portadilla-texto del tema blanco"
+    },
+    {
+     "nombre": "presentacion/blanco/portada-fondo",
+     "hex": "#F56A00",
+     "descripcion": "pres-portada-fondo del tema blanco"
+    },
+    {
+     "nombre": "presentacion/negro/fondo",
+     "hex": "#000000",
+     "descripcion": "pres-fondo del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/texto",
+     "hex": "#F7F4F2",
+     "descripcion": "pres-texto del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/texto-2",
+     "hex": "#A39B93",
+     "descripcion": "pres-texto-2 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/acento",
+     "hex": "#FF801F",
+     "descripcion": "pres-acento del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/separador",
+     "hex": "#393532",
+     "descripcion": "pres-separador del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/barra",
+     "hex": "#DBD5CE",
+     "descripcion": "pres-barra del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/marcador",
+     "hex": "#1C1A18",
+     "descripcion": "pres-marcador del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/serie-1",
+     "hex": "#FF801F",
+     "descripcion": "pres-serie-1 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/serie-2",
+     "hex": "#DBD5CE",
+     "descripcion": "pres-serie-2 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/serie-3",
+     "hex": "#A39B93",
+     "descripcion": "pres-serie-3 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/serie-4",
+     "hex": "#706B65",
+     "descripcion": "pres-serie-4 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/serie-5",
+     "hex": "#4A4541",
+     "descripcion": "pres-serie-5 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-1",
+     "hex": "#FF801F",
+     "descripcion": "pres-grafica-1 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-2",
+     "hex": "#2760C8",
+     "descripcion": "pres-grafica-2 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-3",
+     "hex": "#59AE09",
+     "descripcion": "pres-grafica-3 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-4",
+     "hex": "#FFB404",
+     "descripcion": "pres-grafica-4 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-5",
+     "hex": "#7A45C4",
+     "descripcion": "pres-grafica-5 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-6",
+     "hex": "#FD4FA3",
+     "descripcion": "pres-grafica-6 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/grafica-7",
+     "hex": "#EE370A",
+     "descripcion": "pres-grafica-7 del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/portadilla-fondo",
+     "hex": "#F56A00",
+     "descripcion": "pres-portadilla-fondo del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/portadilla-texto",
+     "hex": "#FFFFFF",
+     "descripcion": "pres-portadilla-texto del tema negro"
+    },
+    {
+     "nombre": "presentacion/negro/portada-fondo",
+     "hex": "#F56A00",
+     "descripcion": "pres-portada-fondo del tema negro"
+    }
+   ]
+  },
+  {
+   "nombre": "Gráficos",
+   "modos": [
+    "Web",
+    "Presentación blanco",
+    "Presentación negro",
+    "Impresión"
+   ],
+   "claves": [
+    "web",
+    "presentacion-blanco",
+    "presentacion-negro",
+    "impresion"
+   ],
+   "variables": [
+    {
+     "nombre": "color/series/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/series/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/series/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/series/4",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/series/5",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "descripcion": "No existe en Impresión (la paleta tiene menos colores): lleva el color de «otros».",
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/series/6",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "descripcion": "No existe en Presentación blanco, Presentación negro, Impresión (la paleta tiene menos colores): lleva el color de «otros».",
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "azul/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/grafica-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/grafica-2"
+      },
+      "impresion": {
+       "alias": "azul/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/grafica-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/grafica-3"
+      },
+      "impresion": {
+       "alias": "verde/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/4",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "amarillo/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/grafica-4"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/grafica-4"
+      },
+      "impresion": {
+       "alias": "amarillo/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/5",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "morado/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/grafica-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/grafica-5"
+      },
+      "impresion": {
+       "alias": "morado/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/6",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rosa/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/grafica-6"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/grafica-6"
+      },
+      "impresion": {
+       "alias": "rosa/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gama/7",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/grafica-7"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/grafica-7"
+      },
+      "impresion": {
+       "alias": "rojo/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/otros",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/lineas/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/lineas/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/lineas/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/lineas/4",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/actual",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/objetivo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/anterior",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/prevision",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/000"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "neutro/000"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/fondo-pagina",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "neutro/000"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/rejilla",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/200"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/base",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/etiqueta-eje",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/leyenda",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/titulo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/etiqueta-dato",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/texto-secundario",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/borde",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/pista",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tooltip",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/subida",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/bajada",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/contexto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/ranking-resto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/conector",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/divergente-negativo-fuerte",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/divergente-negativo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/divergente-positivo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/divergente-positivo-fuerte",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/700"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/700"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/700"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/rango-bajo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/rango-medio",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/200"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/rango-alto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tabla-cabecera",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tabla-linea-cabecera",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tabla-linea",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/200"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/referencia",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tendencia",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/media-movil-base",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/area-relleno",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/banda-prevision",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/separador-areas",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/000"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "neutro/000"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/marca-objetivo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/posicion-ranking",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/separador-partes",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/000"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "neutro/000"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/parte-destacada",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/total-variacion",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/conector-cascada",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/prevision-barra",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/descomposicion-observada",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/descomposicion-tendencia",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/descomposicion-estacionalidad",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/700"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/700"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/700"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/descomposicion-residuo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/distribucion-relleno",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/distribucion-caso",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/distribucion-centro",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/distribucion-bigote",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/distribucion-guia",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/percentil-pista",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/relacion-punto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/relacion-grupo/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/relacion-grupo/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/relacion-grupo/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/relacion-burbuja",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/relacion-tendencia",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hexbin/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hexbin/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hexbin/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hexbin/4",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/600"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/600"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/600"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hexbin/5",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/700"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/700"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/700"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/correlacion-positiva-fuerte",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/700"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/700"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/700"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/correlacion-positiva",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/correlacion-nula",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/correlacion-negativa",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/correlacion-negativa-fuerte",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/500"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cuadrante-clave",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/radar-relleno",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/radar-comparado",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/paralelas-resto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/conectada-inicio",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/embudo-etapa",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/conversion-barra",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/retencion-retenido",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/retencion-perdido",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/pipeline-tarjeta",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/pipeline-foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/proceso-completado",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/proceso-actual",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/proceso-pendiente",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/proceso-conector",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/progresion-completada",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/progresion-pendiente",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/recorrido-banda",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/recorrido-linea",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/recorrido-media",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hoy",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cronologia-eje",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cronologia-hito",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cronologia-foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/carril-fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/carril-tramo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hito-hecho",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hito-en-curso",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/hito-pendiente",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gantt-previsto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gantt-realizado",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/gantt-hito",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calor-cero",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/200"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calor/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calor/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calor/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calor/4",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/700"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/700"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/700"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calendario-borde",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/200"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-5"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/separador"
+      },
+      "impresion": {
+       "alias": "neutro/200"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calendario-finde",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calendario-festivo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/calendario-hoy",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/periodo-actual",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/periodo-anterior",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cohorte/1",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cohorte/2",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cohorte/3",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cohorte/4",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/600"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/600"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/600"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cohorte/5",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/700"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/700"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/700"
+      },
+      "impresion": {
+       "alias": "naranja/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/ciclo-linea",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/ciclo-relleno",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/100"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/100"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "naranja/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/ciclo-fase",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/jerarquia-familia-foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/jerarquia-familia-resto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/barra"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/treemap-cabecera",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/sunburst-centro",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/icicle-total",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/circulos-grupo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/arbol-enlace",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/arbol-raiz",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/dendrograma-corte",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/organigrama-cabeza",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/700"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/800"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tabla-jerarquica-total",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/tabla-jerarquica-hoja",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/anidados-categoria",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/marcador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/marcador"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/sankey-camino",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/sankey-enlace",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/sankey-enlace-camino",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/aluvial-categorias",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/recorrido-avance",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/recorrido-salida",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/400"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/barra"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cuerdas-grupo-foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cuerdas-cinta",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/cuerdas-cinta-foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "naranja/400"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/flujo-principal",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/red-enlace",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/300"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/separador"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-5"
+      },
+      "impresion": {
+       "alias": "neutro/300-doc"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/red-bipartita-foco",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/red-radial-centro",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/red-ruta-critica",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "naranja/500"
+      },
+      "presentacion-blanco": {
+       "alias": "naranja/500"
+      },
+      "presentacion-negro": {
+       "alias": "naranja/500"
+      },
+      "impresion": {
+       "alias": "naranja/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/variacion-mejora",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "verde/700"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/variacion-mejora-fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "verde/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/variacion-empeora",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "rojo/600"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/variacion-empeora-fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "rojo/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/logro",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "verde/700"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/logro-fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "verde/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/entregado/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "verde/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/entregado/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "verde/700"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-proceso/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "amarillo/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "amarillo/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-proceso/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "amarillo/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "amarillo/700"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/incidencia/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "rojo/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/incidencia/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "rojo/600"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/pendiente/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/100"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "neutro/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/pendiente/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "neutro/600"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "neutro/500"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-objetivo/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "verde/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-objetivo/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "verde/700"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-objetivo/barra",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "verde/base"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/acento"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/acento"
+      },
+      "impresion": {
+       "alias": "verde/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-riesgo/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "amarillo/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "amarillo/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-riesgo/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "amarillo/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "amarillo/700"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/en-riesgo/barra",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "amarillo/base"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/serie-3"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto-2"
+      },
+      "impresion": {
+       "alias": "amarillo/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/fuera/fondo",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/light"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/fondo"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/fondo"
+      },
+      "impresion": {
+       "alias": "rojo/100"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "color/estado/fuera/texto",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/dark"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/texto"
+      },
+      "impresion": {
+       "alias": "rojo/600"
+      }
+     },
+     "ambitos": [
+      "TEXT_FILL"
+     ]
+    },
+    {
+     "nombre": "color/estado/fuera/barra",
+     "tipo": "COLOR",
+     "valores": {
+      "web": {
+       "alias": "rojo/base"
+      },
+      "presentacion-blanco": {
+       "alias": "presentacion/blanco/texto-2"
+      },
+      "presentacion-negro": {
+       "alias": "presentacion/negro/serie-4"
+      },
+      "impresion": {
+       "alias": "rojo/500"
+      }
+     },
+     "ambitos": [
+      "ALL_FILLS",
+      "STROKE_COLOR"
+     ]
+    },
+    {
+     "nombre": "texto/eje/familia",
+     "tipo": "STRING",
+     "valores": {
+      "web": "Titillium Web",
+      "presentacion-blanco": "Barlow",
+      "presentacion-negro": "Barlow",
+      "impresion": "Barlow"
+     },
+     "ambitos": [
+      "FONT_FAMILY"
+     ]
+    },
+    {
+     "nombre": "texto/eje/tamano",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 11,
+      "presentacion-blanco": 24,
+      "presentacion-negro": 24,
+      "impresion": 8
+     },
+     "ambitos": [
+      "FONT_SIZE"
+     ]
+    },
+    {
+     "nombre": "texto/eje/interlineado",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 13,
+      "presentacion-blanco": 32,
+      "presentacion-negro": 32,
+      "impresion": 11
+     },
+     "ambitos": [
+      "LINE_HEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/eje/peso",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 400,
+      "presentacion-blanco": 400,
+      "presentacion-negro": 400,
+      "impresion": 400
+     },
+     "ambitos": [
+      "FONT_WEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/leyenda/familia",
+     "tipo": "STRING",
+     "valores": {
+      "web": "Titillium Web",
+      "presentacion-blanco": "Barlow",
+      "presentacion-negro": "Barlow",
+      "impresion": "Barlow"
+     },
+     "ambitos": [
+      "FONT_FAMILY"
+     ]
+    },
+    {
+     "nombre": "texto/leyenda/tamano",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 11,
+      "presentacion-blanco": 24,
+      "presentacion-negro": 24,
+      "impresion": 9
+     },
+     "ambitos": [
+      "FONT_SIZE"
+     ]
+    },
+    {
+     "nombre": "texto/leyenda/interlineado",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 14,
+      "presentacion-blanco": 32,
+      "presentacion-negro": 32,
+      "impresion": 12
+     },
+     "ambitos": [
+      "LINE_HEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/leyenda/peso",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 400,
+      "presentacion-blanco": 400,
+      "presentacion-negro": 400,
+      "impresion": 400
+     },
+     "ambitos": [
+      "FONT_WEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/dato/familia",
+     "tipo": "STRING",
+     "valores": {
+      "web": "Titillium Web",
+      "presentacion-blanco": "Barlow",
+      "presentacion-negro": "Barlow",
+      "impresion": "Barlow"
+     },
+     "ambitos": [
+      "FONT_FAMILY"
+     ]
+    },
+    {
+     "nombre": "texto/dato/tamano",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 11,
+      "presentacion-blanco": 32,
+      "presentacion-negro": 32,
+      "impresion": 9
+     },
+     "ambitos": [
+      "FONT_SIZE"
+     ]
+    },
+    {
+     "nombre": "texto/dato/interlineado",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 13,
+      "presentacion-blanco": 40,
+      "presentacion-negro": 40,
+      "impresion": 12
+     },
+     "ambitos": [
+      "LINE_HEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/dato/peso",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 600,
+      "presentacion-blanco": 400,
+      "presentacion-negro": 400,
+      "impresion": 600
+     },
+     "ambitos": [
+      "FONT_WEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/titulo/familia",
+     "tipo": "STRING",
+     "valores": {
+      "web": "Titillium Web",
+      "presentacion-blanco": "Titillium Web",
+      "presentacion-negro": "Titillium Web",
+      "impresion": "Titillium Web"
+     },
+     "ambitos": [
+      "FONT_FAMILY"
+     ]
+    },
+    {
+     "nombre": "texto/titulo/tamano",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 14,
+      "presentacion-blanco": 38,
+      "presentacion-negro": 38,
+      "impresion": 11
+     },
+     "ambitos": [
+      "FONT_SIZE"
+     ]
+    },
+    {
+     "nombre": "texto/titulo/interlineado",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 18,
+      "presentacion-blanco": 46,
+      "presentacion-negro": 46,
+      "impresion": 16
+     },
+     "ambitos": [
+      "LINE_HEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/titulo/peso",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 600,
+      "presentacion-blanco": 600,
+      "presentacion-negro": 600,
+      "impresion": 600
+     },
+     "ambitos": [
+      "FONT_WEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/unidad/familia",
+     "tipo": "STRING",
+     "valores": {
+      "web": "Titillium Web",
+      "presentacion-blanco": "Titillium Web",
+      "presentacion-negro": "Titillium Web",
+      "impresion": "Titillium Web"
+     },
+     "ambitos": [
+      "FONT_FAMILY"
+     ]
+    },
+    {
+     "nombre": "texto/unidad/tamano",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 11,
+      "presentacion-blanco": 24,
+      "presentacion-negro": 24,
+      "impresion": 9
+     },
+     "ambitos": [
+      "FONT_SIZE"
+     ]
+    },
+    {
+     "nombre": "texto/unidad/interlineado",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 14,
+      "presentacion-blanco": 32,
+      "presentacion-negro": 32,
+      "impresion": 12
+     },
+     "ambitos": [
+      "LINE_HEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/unidad/peso",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 400,
+      "presentacion-blanco": 400,
+      "presentacion-negro": 400,
+      "impresion": 400
+     },
+     "ambitos": [
+      "FONT_WEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/cifra/familia",
+     "tipo": "STRING",
+     "valores": {
+      "web": "Titillium Web",
+      "presentacion-blanco": "Titillium Web",
+      "presentacion-negro": "Titillium Web",
+      "impresion": "Titillium Web"
+     },
+     "ambitos": [
+      "FONT_FAMILY"
+     ]
+    },
+    {
+     "nombre": "texto/cifra/tamano",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 30,
+      "presentacion-blanco": 112,
+      "presentacion-negro": 112,
+      "impresion": 32
+     },
+     "ambitos": [
+      "FONT_SIZE"
+     ]
+    },
+    {
+     "nombre": "texto/cifra/interlineado",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 36,
+      "presentacion-blanco": 120,
+      "presentacion-negro": 120,
+      "impresion": 36
+     },
+     "ambitos": [
+      "LINE_HEIGHT"
+     ]
+    },
+    {
+     "nombre": "texto/cifra/peso",
+     "tipo": "FLOAT",
+     "valores": {
+      "web": 700,
+      "presentacion-blanco": 300,
+      "presentacion-negro": 300,
+      "impresion": 600
+     },
+     "ambitos": [
+      "FONT_WEIGHT"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -13,7 +13,7 @@ Contenido:
 - `sistema/tokens-sistema-diseno.json`: los tokens del sistema de diseño de Edelvives (interfaces v6.2, documentos v1.1, presentaciones v1.0), la fuente de verdad de los colores y la tipografía. No se publica en npm.
 - `ejemplos/`: una especificación válida por componente.
 - `datos/`: CSV ficticios para la prueba del dashboard comercial.
-- `herramientas/tokens.py`: traductor de tokens. Lee el sistema y `herramientas/tokens-graficos.json` (lo propio de los gráficos: roles, paletas, estados, mapa y tipografía por modo, que solo nombran tokens del sistema) y escribe `tokens.json` y el bloque de tokens del script. `--comprobar` falla si no coinciden; `--recalcular` rehace los CMYK provisionales (`herramientas/cmyk-provisional.json`).
+- `herramientas/tokens.py`: traductor de tokens. Lee el sistema y `herramientas/tokens-graficos.json` (lo propio de los gráficos: roles, paletas, estados, mapa y tipografía por modo, que solo nombran tokens del sistema) y escribe `tokens.json` y el bloque de tokens del script. `--comprobar` falla si no coinciden; `--recalcular` rehace los CMYK provisionales (`herramientas/cmyk-provisional.json`); `--figma` escribe además `herramientas/figma-variables.json`, las variables para Figma (colecciones «Primitivos» y «Gráficos» con los modos Web, Presentación blanco, Presentación negro e Impresión, sacadas del propio script).
 - `herramientas/generar.py`: regenera `esquema.json` y `vista-previa.html`. `herramientas/mapas.py`: prepara `dist/mapas/` a partir de los shapefiles de la BDDAE (necesita mapshaper). No se publican en npm.
 
 ## Novedades de la 0.10.0

@@ -7,6 +7,7 @@ gráficos, que solo nombra tokens del sistema) y escribe:
 
 Uso (desde la raíz del repositorio):
   python3 herramientas/tokens.py               escribe los dos archivos
+  python3 herramientas/tokens.py --figma       además, herramientas/figma-variables.json (variables para Figma; necesita node)
   python3 herramientas/tokens.py --comprobar   falla si no coinciden con lo que se genera
   python3 herramientas/tokens.py --recalcular  vuelve a calcular los CMYK provisionales (Pillow y el perfil CoatedFOGRA39)
 
@@ -20,6 +21,7 @@ SISTEMA = os.path.join(RAIZ, 'sistema', 'tokens-sistema-diseno.json')
 GRAFICOS = os.path.join(RAIZ, 'herramientas', 'tokens-graficos.json')
 PROVISIONAL = os.path.join(RAIZ, 'herramientas', 'cmyk-provisional.json')
 TOKENS = os.path.join(RAIZ, 'tokens.json')
+FIGMA = os.path.join(RAIZ, 'herramientas', 'figma-variables.json')
 SCRIPT = os.path.join(RAIZ, 'dist', 'edelvives-graficos.js')
 PERFIL = '/Library/Application Support/Adobe/Color/Profiles/Recommended/CoatedFOGRA39.icc'
 
@@ -296,6 +298,68 @@ def tokens_json(s, g, prim, pres, familias, modos):
   return json.dumps(out, ensure_ascii=False, indent=2) + '\n'
 
 
+def figma_json(s, prim, pres, script):
+  """Variables para Figma: «Primitivos» (los tokens del sistema y los pres-* de cada tema; ocultos en los selectores) y
+  «Gráficos» con los modos Web, Presentación blanco, Presentación negro e Impresión. Los valores de cada modo salen del
+  propio script (EG.configurar + EG.tokens), así que son los que dibuja el kit; cada color es un alias del primitivo."""
+  import subprocess, tempfile
+  with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, encoding='utf-8') as f:
+    f.write(script); ruta = f.name
+  js = ("const EG = require(%s); const o = {};" % json.dumps(ruta) +
+        "[['web'], ['presentacion', 'blanco'], ['presentacion', 'negro'], ['impresion']].forEach(([m, t]) => {"
+        " EG.configurar({ modo: m, tema: t }); o[m + (t ? '-' + t : '')] = { T: EG.tokens.semanticos, TX: EG.tokens.texto }; });"
+        "process.stdout.write(JSON.stringify(o));")
+  try: datos = json.loads(subprocess.run(['node', '-e', js], capture_output=True, text=True, check=True).stdout)
+  finally: os.remove(ruta)
+  primitivos = [{'nombre': n.replace('-', '/', 1), 'hex': p['hex'],
+                 'descripcion': ('CMYK %s%s' % ('/'.join(map(str, p['cmyk'])), ' (provisional)' if p['provisional'] else '') if p['cmyk'] else 'Solo pantalla')}
+                for n, p in prim.items()]
+  for tema, c in pres.items():
+    for k, v in c.items():
+      n = re.sub(r'(\d+)$', r'-\1', re.sub(r'([A-Z])', lambda m: '-' + m.group(1).lower(), k))
+      primitivos.append({'nombre': 'presentacion/%s/%s' % (tema, n), 'hex': v, 'descripcion': 'pres-%s del tema %s' % (n, tema)})
+  modos = [('web', 'Web'), ('presentacion-blanco', 'Presentación blanco'), ('presentacion-negro', 'Presentación negro'), ('impresion', 'Impresión')]
+  def primitivo(hexa, modo):
+    tema = modo.split('-')[1] if modo.startswith('presentacion-') else None
+    candidatos = [x for x in primitivos if x['hex'] == hexa and 'portad' not in x['nombre']]  # (portada y portadilla no son de gráficos)
+    pref = [x for x in candidatos if tema and x['nombre'].startswith('presentacion/%s/' % tema)] or \
+           [x for x in candidatos if not x['nombre'].startswith('presentacion/')] or candidatos
+    if not pref: raise ErrorTokens('el color %s del modo %s no es un primitivo' % (hexa, modo))
+    return pref[0]['nombre']
+  kebab = lambda k: re.sub(r'([A-Z])', lambda m: '-' + m.group(1).lower(), k)
+  variables = {}
+  def poner(nombre, tipo, modo, valor, alias=False):
+    v = variables.setdefault(nombre, {'nombre': nombre, 'tipo': tipo, 'valores': {}})
+    v['valores'][modo] = {'alias': valor} if alias else valor
+  for modo, _ in modos:
+    T, TX = datos[modo]['T'], datos[modo]['TX']
+    for k, v in T.items():
+      if isinstance(v, list):
+        for i, c in enumerate(v): poner('color/%s/%d' % (kebab(k), i + 1), 'COLOR', modo, primitivo(c, modo), True)
+      elif isinstance(v, dict):
+        for est, partes in v.items():
+          for parte, c in partes.items(): poner('color/estado/%s/%s' % (est, parte), 'COLOR', modo, primitivo(c, modo), True)
+      else: poner('color/%s' % kebab(k), 'COLOR', modo, primitivo(v, modo), True)
+    for rol, x in TX.items():
+      poner('texto/%s/familia' % rol, 'STRING', modo, {'barlow': 'Barlow', 'titillium': 'Titillium Web'}[x['familia']])
+      poner('texto/%s/tamano' % rol, 'FLOAT', modo, x['tam'])
+      poner('texto/%s/interlineado' % rol, 'FLOAT', modo, x['alto'])
+      poner('texto/%s/peso' % rol, 'FLOAT', modo, x['peso'])
+  # Listas más cortas en un modo (la paleta foco tiene 6, 5 o 4 colores): el hueco toma el color de «otros» y lo dice
+  for v in variables.values():
+    faltan = [m for m, _ in modos if m not in v['valores']]
+    if faltan:
+      for m in faltan: v['valores'][m] = {'alias': primitivo(datos[m]['T']['otros'], m)}
+      v['descripcion'] = 'No existe en %s (la paleta tiene menos colores): lleva el color de «otros».' % ', '.join(dict(modos)[m] for m in faltan)
+    texto = any(seg in ('texto', 'titulo', 'etiqueta-eje', 'etiqueta-dato', 'leyenda', 'tooltip', 'texto-secundario') for seg in v['nombre'].split('/'))
+    v['ambitos'] = {'COLOR': ['TEXT_FILL'] if texto else ['ALL_FILLS', 'STROKE_COLOR'], 'STRING': ['FONT_FAMILY'],
+                    'FLOAT': ['FONT_SIZE'] if v['nombre'].endswith('tamano') else (['LINE_HEIGHT'] if v['nombre'].endswith('interlineado') else ['FONT_WEIGHT'])}[v['tipo']]
+  return {'$description': 'Variables para Figma generadas por herramientas/tokens.py (sistema %s, versión %s). Los valores de «Gráficos» son alias de «Primitivos». '
+                          'Texto: tamaños en px en web y presentación y en pt en impresión.' % (s['meta']['source'].split(' (')[0].rstrip('.'), s['version']),
+          'colecciones': [{'nombre': 'Primitivos', 'modos': ['Valor'], 'ocultas': True, 'variables': primitivos},
+                          {'nombre': 'Gráficos', 'modos': [n for _, n in modos], 'claves': [m for m, _ in modos], 'variables': list(variables.values())}]}
+
+
 def main():
   try:
     s, g, prim, pres, familias, modos = construir()
@@ -306,8 +370,12 @@ def main():
   if script.count(INICIO) != 1 or script.count(FIN) != 1: sys.exit('tokens.py: no encuentro los marcadores en ' + SCRIPT)
   a, b = script.index(INICIO), script.index(FIN) + len(FIN)
   nuevo_script = script[:a] + bloque(s, prim, pres, familias, modos) + script[b:]
+  if '--figma' in sys.argv or ('--comprobar' in sys.argv and os.path.exists(FIGMA)):
+    nuevo_figma = json.dumps(figma_json(s, prim, pres, nuevo_script), ensure_ascii=False, indent=1) + '\n'
+  else: nuevo_figma = None
   if '--comprobar' in sys.argv:
     mal = []
+    if nuevo_figma and open(FIGMA, encoding='utf-8').read() != nuevo_figma: mal.append('herramientas/figma-variables.json')
     if open(TOKENS, encoding='utf-8').read() != nuevo_json: mal.append('tokens.json')
     if script != nuevo_script: mal.append('el bloque de tokens de dist/edelvives-graficos.js')
     if mal: sys.exit('tokens.py --comprobar: no coinciden con el sistema: ' + ' y '.join(mal) + ' (python3 herramientas/tokens.py)')
@@ -316,6 +384,7 @@ def main():
     return
   open(TOKENS, 'w', encoding='utf-8').write(nuevo_json)
   open(SCRIPT, 'w', encoding='utf-8').write(nuevo_script)
+  if nuevo_figma: open(FIGMA, 'w', encoding='utf-8').write(nuevo_figma)
   print('tokens.py: escritos tokens.json y el bloque del script (%d primitivos)' % len(prim))
 
 
