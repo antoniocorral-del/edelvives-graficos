@@ -3417,6 +3417,8 @@
     '.eg-nota{font-size:11px;line-height:14px;color:' + T.textoSecundario + ';margin:12px 0 0}',
     '.eg-nota a{color:inherit;text-decoration:underline;text-underline-offset:2px}',
     '.eg-nota+.eg-fuente{margin-top:4px}',
+    /* EG.svg: sin relleno ni borde, el contenido ocupa justo el ancho pedido */
+    '.eg-exportar .eg-tarjeta{padding:0;border:0;border-radius:0;height:auto}',
     '.eg-icono{display:inline-block;flex:none;vertical-align:middle}.eg-icono *{vector-effect:non-scaling-stroke}',
     /* KPI */
     '.eg-kpi .eg-titulo{font-size:11px;line-height:14px;font-weight:400;color:' + T.textoSecundario + '}',
@@ -3963,6 +3965,7 @@
       var ancho = chart.getWidth();
       var o0 = dinamica ? opcion(ancho, chart.getHeight()) : opcion;
       if (contenedor.closest && contenedor.closest('.eg-exportar')) o0.animation = false; /* EG.svg: sin animación */
+      opacoEnImpresion(o0);
       chart.setOption(o0);
       var ro = null;
       if (global.ResizeObserver) {
@@ -3970,7 +3973,7 @@
           chart.resize();
           if (dinamica && Math.abs(chart.getWidth() - ancho) > 1) {
             ancho = chart.getWidth();
-            var o = opcion(ancho, chart.getHeight()); o.animation = false;
+            var o = opcion(ancho, chart.getHeight()); o.animation = false; opacoEnImpresion(o);
             chart.setOption(o, true);
           }
         });
@@ -3978,6 +3981,19 @@
       }
       instancias.set(contenedor, { chart: chart, ro: ro });
       return chart;
+    });
+  }
+
+  /* En impresión no hay transparencias (el SVG solo lleva tintas planas): las series que ECharts dibuja translúcidas
+     por defecto (los puntos de la dispersión al 80 %, las áreas al 70 %, los enlaces de grafos al 50 %) pasan a opacas */
+  function opacoEnImpresion(o) {
+    if (MODO !== 'impresion' || !o || !o.series) return;
+    (Array.isArray(o.series) ? o.series : [o.series]).forEach(function (se) {
+      ['itemStyle', 'lineStyle', 'areaStyle'].forEach(function (k) {
+        if (k === 'areaStyle' && !se.areaStyle) return;
+        se[k] = se[k] || {};
+        if (se[k].opacity == null) se[k].opacity = 1;
+      });
     });
   }
 
@@ -9674,7 +9690,54 @@
     }
     recorrer(raiz, true);
     if (caja.x0 === Infinity) caja = { x0: 0, y0: 0, x1: o.width, y1: o.height };
-    return { cuerpo: partes.join('\n'), x: caja.x0, y: caja.y0, w: caja.x1 - caja.x0, h: caja.y1 - caja.y0 };
+    /* Ancho fijo, el de la tarjeta (el pedido); el alto, el del contenido */
+    var izq = Math.max(0, -caja.x0), der = Math.max(0, caja.x1 - o.width);
+    return { cuerpo: partes.join('\n'), x: 0, y: caja.y0, w: o.width, h: caja.y1 - caja.y0, izq: izq, der: der, sale: izq > 2.5 || der > 2.5 /* (la tabla sobresale 2 px a propósito) */ };
+  }
+  /* Limpia el SVG exportado: sin estilos de hover, clases ni elementos invisibles (símbolos de tamaño 0, cajas
+     transparentes), con los colores en hexadecimal en mayúsculas */
+  function hexNormal(v) {
+    v = String(v).trim();
+    if (/^#[0-9a-f]{3}$/i.test(v)) v = '#' + v.slice(1).split('').map(function (c) { return c + c; }).join('');
+    if (/^#[0-9a-f]{6}$/i.test(v)) return { hex: v.toUpperCase(), a: 1 };
+    var c = colorCss(v);
+    if (c) return c;
+    if (/^rgba?\(/.test(v)) return { hex: null, a: 0 };
+    return null;
+  }
+  function limpiarSvg(svg) {
+    svg = svg.replace(/<style[^>]*>[\s\S]*?<\/style>/g, '').replace(/ class="zr[^"]*"/g, '');
+    svg = svg.replace(/<(\w+)\b[^>]*transform="matrix\(0,0,0,0,[^"]*"[^>]*?(\/>|>\s*<\/\1>)/g, '');
+    /* fill-opacity="0" o stroke-width="0": no se pinta */
+    svg = svg.replace(/<(\w+)\b[^>]*>/g, function (et) {
+      if (/ fill-opacity="0"/.test(et)) et = et.replace(/ fill="[^"]*"/, ' fill="none"').replace(/ fill-opacity="0"/, '');
+      if (/ stroke-width="0"/.test(et)) et = et.replace(/ stroke="[^"]*"/, ' stroke="none"').replace(/ stroke-width="0"/, '');
+      return et;
+    });
+    return svg.replace(/ (fill|stroke|stop-color)="([^"]*)"/g, function (m, a, v) {
+      if (/^(none|transparent)$/i.test(v)) return ' ' + a + '="none"';
+      if (/^url\(/.test(v)) return m;
+      var c = hexNormal(v);
+      if (!c) return m;
+      if (!c.hex) return ' ' + a + '="none"';
+      return ' ' + a + '="' + c.hex + '"' + (c.a < 1 ? ' ' + (a === 'stop-color' ? 'stop' : a) + '-opacity="' + num(c.a) + '"' : '');
+    }).replace(/ (fill-opacity|stroke-opacity|opacity|stop-opacity)="1"/g, '');
+  }
+  /* Impresión: cada color debe ser un token de impresión (con CMYK) y no puede haber transparencias. Devuelve el mapa
+     { hexadecimal: [c, m, y, k] } de los colores usados, para que un servidor cambie cada uno por su CMYK exacto */
+  function comprobarImpresion(svg, errores, avisos) {
+    var porHex = {}, usados = {}, malos = {}, provisionales = {};
+    Object.keys(CMYK).forEach(function (n) { if (SOLO_PANTALLA.indexOf(n) < 0) porHex[PRIMITIVOS[n]] = n; });
+    svg.replace(/ (fill|stroke|stop-color)="(#[0-9A-F]{6})"/g, function (m, a, hex) {
+      var n = porHex[hex];
+      if (!n) malos[hex] = true;
+      else { usados[hex] = CMYK[n]; if (PROVISIONALES.indexOf(n) >= 0) provisionales[n.replace(/(\d+)/, '-$1')] = true; }
+    });
+    var opac = svg.match(/ (fill-opacity|stroke-opacity|opacity|stop-opacity)="[^"]*"/g);
+    if (Object.keys(malos).length) errores.push('el SVG de impresión tiene colores que no son tokens de impresión: ' + Object.keys(malos).join(', ') + '.');
+    if (opac) errores.push('el SVG de impresión tiene transparencias (' + opac.length + '), que no se pueden pasar a una tinta plana.');
+    if (Object.keys(provisionales).length) avisos.push('usa tonos con CMYK provisional (' + Object.keys(provisionales).join(', ') + ', calculados con el perfil FOGRA39): pide prueba de color antes de imprimir.');
+    return usados;
   }
   function esperarMarcos(n) { return new Promise(function (r) { (function f(k) { if (!k) return r(); requestAnimationFrame(function () { f(k - 1); }); })(n); }); }
   function svgDe(spec, opc) {
@@ -9691,21 +9754,42 @@
     document.body.appendChild(caja);
     var hueco = document.createElement('div');
     caja.appendChild(hueco);
-    var resultado;
-    return render(hueco, spec).then(function (r) {
-      resultado = r;
-      if (!r.ok) throw new Error(r.errores.join(' '));
-      return (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { return esperarMarcos(3); });
-    }).then(function () {
-      var tarjeta = hueco.querySelector('.eg-tarjeta');
-      var c = htmlASvg(tarjeta, conCabecera, conNota), avisos = resultado.avisos.slice();
+    var resultado, W0 = ancho / K;
+    function dibujar() {
+      return render(hueco, spec).then(function (r) {
+        resultado = r;
+        if (!r.ok) throw new Error(r.errores.join(' '));
+        return (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { return esperarMarcos(3); });
+      });
+    }
+    return dibujar().then(function () {
+      /* Si algo sobresale (un rótulo de eje en el borde, una tabla), se vuelve a dibujar más estrecho para que quepa */
+      var c = htmlASvg(hueco.querySelector('.eg-tarjeta'), conCabecera, conNota);
+      if (!c.sale) return c;
+      hueco.style.margin = '0 ' + num(c.der) + 'px 0 ' + num(c.izq) + 'px';
+      return dibujar().then(function () {
+        var c2 = htmlASvg(hueco.querySelector('.eg-tarjeta'), conCabecera, conNota);
+        c2.x = -c.izq; c2.w = W0; c2.sale = c2.izq > c.izq + 2.5 || c2.der > c.der + 2.5;
+        return c2;
+      });
+    }).then(function (c) {
+      var tarjeta = hueco.querySelector('.eg-tarjeta'), avisos = resultado.avisos.slice();
+      if (c.sale) avisos.push('parte del contenido se sale del ancho (' + Math.round(c.w * K) + (MODO === 'impresion' ? ' pt' : ' px') + '): queda recortado; usa más ancho o más columnas.');
       var notas = [].map.call(tarjeta.querySelectorAll(':scope > .eg-nota'), function (n) { return n.textContent; });
-      var W = num(c.w * K), H = num(c.h * K), u = MODO === 'impresion' ? 'pt' : (MODO === 'presentacion' ? '' : '');
+      var W = num(ancho), H = num(c.h * K), u = MODO === 'impresion' ? 'pt' : (MODO === 'presentacion' ? '' : '');
       if (alto && H > alto + 0.5) avisos.push('el gráfico mide ' + Math.round(H) + ' de alto y el hueco, ' + Math.round(alto) + ': redúcelo (menos categorías) o dale más alto.');
       var fondo = opc.fondo ? '<rect x="' + num(c.x) + '" y="' + num(c.y) + '" width="' + num(c.w) + '" height="' + num(c.h) + '" fill="' + T.fondo + '"/>\n' : '';
-      var svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + W + u + '" height="' + H + u + '" viewBox="' + num(c.x) + ' ' + num(c.y) + ' ' + num(c.w) + ' ' + num(c.h) + '">\n' +
+      var svg0 = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + W + u + '" height="' + H + u + '" viewBox="' + num(c.x) + ' ' + num(c.y) + ' ' + num(c.w) + ' ' + num(c.h) + '">\n' +
         '<title>' + xml(spec.titulo || '') + '</title>\n' + fondo + c.cuerpo + '\n</svg>';
-      return { svg: svg, ancho: W, alto: H, unidad: MODO === 'impresion' ? 'pt' : 'px', modo: MODO, tema: TEMA, nota: notas.join(' '), avisos: avisos };
+      var svg = limpiarSvg(svg0), errores = [], cmyk = null;
+      if (MODO === 'impresion') {
+        /* El aviso general de CMYK provisional del validador se cambia por el de los tonos que de verdad lleva el SVG */
+        avisos = avisos.filter(function (a) { return a.indexOf('CMYK provisional') < 0; });
+        cmyk = comprobarImpresion(svg, errores, avisos);
+        if (errores.length) { var e = new Error(PREFIJO + errores.join(' ')); e.errores = errores; throw e; }
+        if ((opc.columnas || 4) === 1 && ['sparkline', 'kpi', 'progreso'].indexOf(resultado.spec ? resultado.spec.tipo : spec.tipo) < 0) avisos.push('a una columna (100 pt) solo caben bien sparkline, kpi y progreso; usa 2 columnas o más.');
+      }
+      return { svg: svg, cmyk: cmyk, ancho: W, alto: H, unidad: MODO === 'impresion' ? 'pt' : 'px', modo: MODO, tema: TEMA, nota: notas.join(' '), avisos: avisos };
     }).then(function (x) { quitar(); return x; }, function (e) { quitar(); throw e; });
     function quitar() {
       [].forEach.call(caja.querySelectorAll('.eg-lienzo'), function (el) {

@@ -15,7 +15,7 @@ Promise.all(['400', '600', '700'].map(w => document.fonts.load(w + ' 14px "Titil
   for (let i = 0; i < specs.length; i++) {
     const s = specs[i];
     try {
-      const r = await EG.svg(s, { titulo: q.get('titulo') === '1', columnas: +q.get('columnas') || undefined });
+      const r = await EG.svg(s, { titulo: q.get('titulo') === '1' ? true : undefined, columnas: +q.get('columnas') || undefined });
       window.SVGS.push({ i, tipo: s.tipo, variante: s.variante, ok: true, ancho: r.ancho, alto: r.alto, avisos: r.avisos, svg: r.svg });
       /* En línea (no como imagen) para que use las fuentes de la página; a la mitad de tamaño */
       const d = document.createElement('div'); d.id = 'g' + i; d.className = 'svg'; d.innerHTML = r.svg;
