@@ -1045,6 +1045,33 @@
       "sustituir": {
         "naranja-300": "naranja-400",
         "neutro-300": "neutro-300-doc"
+      },
+      "sustituirTema": {
+        "blanco": {
+          "neutro-000": "{pres-fondo}",
+          "neutro-100": "{pres-marcador}",
+          "neutro-200": "{pres-serie-5}",
+          "neutro-300-doc": "{pres-separador}",
+          "neutro-400": "{pres-barra}",
+          "neutro-500": "{pres-serie-3}",
+          "neutro-600": "{pres-texto-2}",
+          "neutro-700": "{pres-texto}",
+          "neutro-800": "{pres-texto}",
+          "neutro-900": "{pres-texto}"
+        },
+        "negro": {
+          "neutro-000": "{pres-fondo}",
+          "neutro-100": "{pres-marcador}",
+          "neutro-200": "{pres-separador}",
+          "neutro-300-doc": "{pres-serie-5}",
+          "neutro-400": "{pres-serie-4}",
+          "neutro-500": "{pres-texto-2}",
+          "neutro-600": "{pres-barra}",
+          "neutro-700": "{pres-texto}",
+          "neutro-800": "{pres-texto}",
+          "neutro-900": "{pres-texto}",
+          "naranja-100": "{pres-serie-5}"
+        }
       }
     },
     "impresion": {
@@ -1070,7 +1097,7 @@
         "neutro-700": "neutro-800"
       }
     },
-    "$description": "sustituir: tonos de solo pantalla que fuera de web pasan a su equivalente (naranja-300 al tono de la rampa con CMYK más cercano). sustituirProvisional: en impresión, los usos sueltos de un tono provisional pasan al tono con CMYK más cercano; las rampas (mapas, calor, cohortes, correlación, hexágonos y jerarquía) conservan el provisional y el validador avisa."
+    "$description": "sustituir: tonos de solo pantalla que fuera de web pasan a su equivalente (naranja-300 al tono de la rampa con CMYK más cercano). sustituirProvisional: en impresión, los usos sueltos de un tono provisional pasan al tono con CMYK más cercano; las rampas (mapas, calor, cohortes, correlación, hexágonos y jerarquía) conservan el provisional y el validador avisa. sustituirTema (presentación): la escala neutra pasa a los colores pres-* del tema (en el negro, invertida), para que todo lo que usa un neutro siga el tema."
   },
   "familias": {
     "$description": "Fuentes de reserva del kit, detrás de la familia del sistema (Barlow lleva Titillium Web de reserva).",
@@ -1201,7 +1228,10 @@
           "barra": "{pres-serie-4}"
         }
       },
-      "$description": "Sin colores de estado en presentación: la variación del KPI va en pres-acento (favorable) o pres-texto (desfavorable) con signo, flecha y texto; los estados, con icono y texto en pres-texto."
+      "$description": "Sin colores de estado en presentación: la variación del KPI va en pres-acento (favorable) o pres-texto (desfavorable) con signo, flecha y texto; los estados, con icono y texto en pres-texto.",
+      "tabla-cabecera": "{pres-fondo}",
+      "tabla-linea-cabecera": "{pres-acento}",
+      "tabla-linea": "{pres-separador}"
     }
   }
 }

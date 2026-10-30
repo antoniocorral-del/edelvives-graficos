@@ -248,6 +248,7 @@
     presentacion: {
       k: 24 / 11, unidad: 'px', temas: ['blanco', 'negro'],
       sustituir: { naranja300: 'naranja400', neutro300: 'neutro300Doc' },
+      sustituirTema: { blanco: { neutro000: 'pres.fondo', neutro100: 'pres.marcador', neutro200: 'pres.serie5', neutro300Doc: 'pres.separador', neutro400: 'pres.barra', neutro500: 'pres.serie3', neutro600: 'pres.texto2', neutro700: 'pres.texto', neutro800: 'pres.texto', neutro900: 'pres.texto' }, negro: { neutro000: 'pres.fondo', neutro100: 'pres.marcador', neutro200: 'pres.separador', neutro300Doc: 'pres.serie5', neutro400: 'pres.serie4', neutro500: 'pres.texto2', neutro600: 'pres.barra', neutro700: 'pres.texto', neutro800: 'pres.texto', neutro900: 'pres.texto', naranja100: 'pres.serie5' } },
       texto: {
         eje: { familia: 'barlow', tam: 24, alto: 32, peso: 400, estilo: 'pres-axis' },
         leyenda: { familia: 'barlow', tam: 24, alto: 32, peso: 400, estilo: 'pres-axis' },
@@ -291,7 +292,10 @@
         variacionEmpeoraFondo: 'pres.fondo',
         logro: 'pres.acento',
         logroFondo: 'pres.fondo',
-        estados: { entregado: { fondo: 'pres.fondo', texto: 'pres.texto' }, 'en-proceso': { fondo: 'pres.fondo', texto: 'pres.texto' }, incidencia: { fondo: 'pres.fondo', texto: 'pres.texto' }, pendiente: { fondo: 'pres.fondo', texto: 'pres.texto' }, 'en-objetivo': { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.acento' }, 'en-riesgo': { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.serie3' }, fuera: { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.serie4' } }
+        estados: { entregado: { fondo: 'pres.fondo', texto: 'pres.texto' }, 'en-proceso': { fondo: 'pres.fondo', texto: 'pres.texto' }, incidencia: { fondo: 'pres.fondo', texto: 'pres.texto' }, pendiente: { fondo: 'pres.fondo', texto: 'pres.texto' }, 'en-objetivo': { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.acento' }, 'en-riesgo': { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.serie3' }, fuera: { fondo: 'pres.fondo', texto: 'pres.texto', barra: 'pres.serie4' } },
+        tablaCabecera: 'pres.fondo',
+        tablaLineaCabecera: 'pres.acento',
+        tablaLinea: 'pres.separador'
       }
     },
     impresion: {
@@ -335,6 +339,10 @@
     var m = MODOS[modo], PR = copia(PRIMITIVOS), P, T = {}, TX = {};
     if (m.temas && m.temas.indexOf(tema) < 0) tema = m.temas[0];
     Object.keys(m.sustituir || {}).forEach(function (n) { PR[n] = PRIMITIVOS[m.sustituir[n]]; });
+    /* En presentación, la escala neutra pasa a los colores del tema (en el negro, invertida) */
+    var deTema = (m.sustituirTema || {})[tema] || {};
+    Object.keys(deTema).forEach(function (n) { PR[n] = PRES[tema][deTema[n].slice(5)]; });
+    if (deTema.neutro300Doc && m.sustituir && m.sustituir.neutro300 === 'neutro300Doc') PR.neutro300 = PR.neutro300Doc;
     P = copia(PR);
     Object.keys(m.sustituirProvisional || {}).forEach(function (n) { P[n] = PRIMITIVOS[m.sustituirProvisional[n]]; });
     var color = function (n) { return n.indexOf('pres.') === 0 ? PRES[tema][n.slice(5)] : P[n]; };
@@ -3401,7 +3409,7 @@
     '.eg-rejilla-kpi{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}',
     '.eg-doble{grid-column:span 2}',
     '@media (max-width:720px){.eg-doble{grid-column:auto}}',
-    '.eg-tarjeta{background:' + T.fondo + ';border:1px solid ' + T.borde + ';border-radius:8px;padding:20px 24px 24px;height:100%;container-type:inline-size;min-width:0;display:flex;flex-direction:column}',
+    '.eg-tarjeta{background:' + T.fondo + ';border:' + (MODO === 'web' ? '1px solid ' + T.borde : '0') + ';border-radius:' + (MODO === 'web' ? 8 : 0) + 'px;padding:20px 24px 24px;height:100%;container-type:inline-size;min-width:0;display:flex;flex-direction:column}',
     '.eg-titulo{font-size:14px;line-height:18px;font-weight:600;margin:0;color:' + T.titulo + '}',
     '.eg-subtitulo{font-size:11px;line-height:14px;margin:2px 0 0;color:' + T.textoSecundario + '}',
     '.eg-cuerpo{margin-top:16px;position:relative;flex:1;min-height:0}',
@@ -3573,8 +3581,8 @@
     /* Tabla */
     '.eg-tabla-envoltura{overflow-x:auto;margin:0 -2px}',
     '.eg-tabla{width:100%;border-collapse:collapse;font-size:11px;line-height:14px;font-variant-numeric:tabular-nums;color:' + T.texto + '}',
-    '.eg-tabla th{background:' + P.neutro100 + ';color:' + T.leyenda + ';font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid ' + T.base + ';white-space:nowrap}',
-    '.eg-tabla td{padding:7px 10px;border-bottom:1px solid ' + T.rejilla + ';white-space:nowrap;vertical-align:middle}',
+    '.eg-tabla th{background:' + T.tablaCabecera + ';color:' + T.leyenda + ';font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid ' + T.tablaLineaCabecera + ';white-space:nowrap}',
+    '.eg-tabla td{padding:7px 10px;border-bottom:1px solid ' + T.tablaLinea + ';white-space:nowrap;vertical-align:middle}',
     '.eg-tabla .eg-num{text-align:right}',
     '.eg-tabla .eg-vacia{color:' + T.textoSecundario + '}',
     '.eg-celda-barra{width:45%;min-width:140px}',
@@ -3953,7 +3961,9 @@
       var chart = ec.init(contenedor, null, { renderer: 'svg' });
       var dinamica = typeof opcion === 'function';
       var ancho = chart.getWidth();
-      chart.setOption(dinamica ? opcion(ancho, chart.getHeight()) : opcion);
+      var o0 = dinamica ? opcion(ancho, chart.getHeight()) : opcion;
+      if (contenedor.closest && contenedor.closest('.eg-exportar')) o0.animation = false; /* EG.svg: sin animación */
+      chart.setOption(o0);
       var ro = null;
       if (global.ResizeObserver) {
         ro = new ResizeObserver(function () {
@@ -9559,6 +9569,306 @@
   }
   function tokensPublicos() { return { modo: MODO, tema: TEMA, primitivos: P, semanticos: T, texto: TX, fuente: FUENTE, k: K }; }
 
+  /* ================================================================== */
+  /* Exportación a SVG: EG.svg(especificación, opciones)                 */
+  /* ================================================================== */
+  /* Dibuja el gráfico fuera de pantalla con el modo de la página y lo pasa a un SVG: el lienzo de ECharts (que ya es SVG)
+     y las partes en HTML (leyendas, centros, chips, notas, tablas) como rectángulos, líneas y textos en su sitio. Las
+     medidas van en px lógicos dentro de un viewBox; el ancho y el alto, en unidades de salida (× K: px en presentación,
+     pt en impresión). En presentación se omiten por defecto el título y la unidad, que pone la diapositiva
+     ({ titulo: true } los incluye). */
+  var PRES_ANCHO = 1648, PRES_ALTO = 930 - 320; /* pres-ancho-util; de pres-contenido-y a pres-limite-y */
+  function colorCss(c) {
+    var m = /rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/.exec(c || '');
+    if (!m) return null;
+    var a = m[4] == null ? 1 : +m[4];
+    if (a === 0) return null;
+    return { hex: '#' + [m[1], m[2], m[3]].map(function (x) { return ('0' + Math.round(+x).toString(16)).slice(-2); }).join('').toUpperCase(), a: a };
+  }
+  function xml(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function num(x) { return Math.round(x * 100) / 100; }
+  function pintura(atrib, c) { return c ? ' ' + atrib + '="' + c.hex + '"' + (c.a < 1 ? ' ' + atrib + '-opacity="' + num(c.a) + '"' : '') : ' ' + atrib + '="none"'; }
+  function htmlASvg(raiz, conCabecera, conNota) {
+    var o = raiz.getBoundingClientRect(), partes = [], caja = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity };
+    function ampliar(x, y, w, h) { caja.x0 = Math.min(caja.x0, x); caja.y0 = Math.min(caja.y0, y); caja.x1 = Math.max(caja.x1, x + w); caja.y1 = Math.max(caja.y1, y + h); }
+    function rel(r) { return { x: r.left - o.left, y: r.top - o.top, w: r.width, h: r.height }; }
+    function cajaYBordes(el, cs, r) {
+      var f = colorCss(cs.backgroundColor), rad = parseFloat(cs.borderTopLeftRadius) || 0;
+      rad = Math.min(rad, r.w / 2, r.h / 2);
+      var lados = ['Top', 'Right', 'Bottom', 'Left'].map(function (l) { return { w: parseFloat(cs['border' + l + 'Width']) || 0, c: colorCss(cs['border' + l + 'Color']), estilo: cs['border' + l + 'Style'] }; });
+      var iguales = lados.every(function (l) { return l.w === lados[0].w && l.estilo === lados[0].estilo && (l.c && lados[0].c ? l.c.hex === lados[0].c.hex : l.c === lados[0].c); });
+      if (f || (iguales && lados[0].w && lados[0].c && lados[0].estilo !== 'none')) {
+        var b = iguales && lados[0].w && lados[0].c && lados[0].estilo !== 'none' ? lados[0] : null, d = b ? b.w / 2 : 0;
+        partes.push('<rect x="' + num(r.x + d) + '" y="' + num(r.y + d) + '" width="' + num(r.w - 2 * d) + '" height="' + num(r.h - 2 * d) + '"' + (rad ? ' rx="' + num(rad) + '"' : '') +
+          pintura('fill', f) + (b ? pintura('stroke', b.c) + ' stroke-width="' + num(b.w) + '"' : '') + '/>');
+        ampliar(r.x, r.y, r.w, r.h);
+        if (b) return;
+      }
+      if (iguales) return;
+      lados.forEach(function (l, i) {
+        if (!l.w || !l.c || l.estilo === 'none') return;
+        var x1 = i === 1 ? r.x + r.w - l.w / 2 : (i === 3 ? r.x + l.w / 2 : r.x), x2 = i === 1 || i === 3 ? x1 : r.x + r.w;
+        var y1 = i === 0 ? r.y + l.w / 2 : (i === 2 ? r.y + r.h - l.w / 2 : r.y), y2 = i === 0 || i === 2 ? y1 : r.y + r.h;
+        partes.push('<line x1="' + num(x1) + '" y1="' + num(y1) + '" x2="' + num(x2) + '" y2="' + num(y2) + '"' + pintura('stroke', l.c) + ' stroke-width="' + num(l.w) + '"' + (l.estilo === 'dashed' ? ' stroke-dasharray="4 3"' : '') + '/>');
+        ampliar(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x2 - x1), Math.abs(y2 - y1));
+      });
+    }
+    function textos(nodo, cs) {
+      var t = nodo.textContent;
+      if (!t.trim()) return;
+      var c = colorCss(cs.color), mayus = cs.textTransform === 'uppercase', rango = document.createRange(), re = /[^ \t\n\r]+/g, m, lineas = [];
+      while ((m = re.exec(t))) {
+        rango.setStart(nodo, m.index); rango.setEnd(nodo, m.index + m[0].length);
+        var b = rango.getBoundingClientRect();
+        if (!b.width) continue;
+        var cy = b.top + b.height / 2, l = lineas[lineas.length - 1];
+        if (l && Math.abs(l.cy - cy) < 2) { l.texto += t.slice(l.fin, m.index).replace(/[ \t\n\r]+/g, ' ') + m[0]; l.fin = m.index + m[0].length; l.der = b.right - o.left; }
+        else lineas.push({ texto: m[0], fin: m.index + m[0].length, x: b.left - o.left, der: b.right - o.left, cy: cy - o.top, h: b.height });
+      }
+      var fam = cs.fontFamily.replace(/"/g, "'"), ls = cs.letterSpacing !== 'normal' ? ' letter-spacing="' + cs.letterSpacing + '"' : '';
+      lineas.forEach(function (l) {
+        partes.push('<text x="' + num(l.x) + '" y="' + num(l.cy) + '" dominant-baseline="central" font-family="' + xml(fam) + '" font-size="' + cs.fontSize.replace('px', '') + '" font-weight="' + cs.fontWeight + '"' +
+          (cs.fontStyle === 'italic' ? ' font-style="italic"' : '') + ls + pintura('fill', c) + ' xml:space="preserve">' + xml(mayus ? l.texto.toUpperCase() : l.texto) + '</text>');
+        ampliar(l.x, l.cy - l.h / 2, l.der - l.x, l.h);
+      });
+    }
+    function svgEnLinea(el, r) {
+      var copia = el.cloneNode(true), orig = el.querySelectorAll('*'), dest = copia.querySelectorAll('*');
+      for (var i = 0; i < orig.length; i++) {
+        if (!/^(path|line|polyline|polygon|circle|rect|ellipse|text|tspan)$/i.test(orig[i].tagName)) continue;
+        var cs = getComputedStyle(orig[i]);
+        dest[i].setAttribute('fill', cs.fill === 'none' ? 'none' : (colorCss(cs.fill) || { hex: 'none' }).hex);
+        dest[i].setAttribute('stroke', cs.stroke === 'none' ? 'none' : (colorCss(cs.stroke) || { hex: 'none' }).hex);
+        if (cs.stroke !== 'none') dest[i].setAttribute('stroke-width', parseFloat(cs.strokeWidth));
+        if (cs.vectorEffect && cs.vectorEffect !== 'none') dest[i].setAttribute('vector-effect', cs.vectorEffect);
+        if (/text/i.test(orig[i].tagName)) { dest[i].setAttribute('font-family', cs.fontFamily.replace(/"/g, "'")); dest[i].setAttribute('font-size', parseFloat(cs.fontSize)); dest[i].setAttribute('font-weight', cs.fontWeight); }
+        dest[i].removeAttribute('class');
+      }
+      copia.removeAttribute('class'); copia.removeAttribute('style'); copia.removeAttribute('aria-hidden'); copia.removeAttribute('focusable');
+      copia.setAttribute('x', num(r.x)); copia.setAttribute('y', num(r.y)); copia.setAttribute('width', num(r.w)); copia.setAttribute('height', num(r.h));
+      copia.setAttribute('overflow', 'visible');
+      partes.push(new XMLSerializer().serializeToString(copia).replace(/ xmlns="http:\/\/www\.w3\.org\/2000\/svg"/g, ''));
+      ampliar(r.x, r.y, r.w, r.h);
+    }
+    function recorrer(el, raizMisma) {
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || el.hidden) return;
+      if (!conCabecera && el.tagName === 'HEADER' && el.parentNode === raiz) return;
+      if (!conNota && el.classList && el.classList.contains('eg-nota') && el.parentNode === raiz) return;
+      var r = rel(el.getBoundingClientRect());
+      if (!raizMisma) cajaYBordes(el, cs, r);
+      if (el.classList && el.classList.contains('eg-lienzo')) {
+        var ins = instancias.get(el);
+        if (ins) {
+          partes.push(ins.chart.renderToSVGString().replace(/^<svg /, '<svg x="' + num(r.x) + '" y="' + num(r.y) + '" ').replace(/ xmlns="[^"]*"/, '').replace(/ xmlns:xlink="[^"]*"/, ''));
+          ampliar(r.x, r.y, r.w, r.h);
+        }
+        return;
+      }
+      if (el.tagName.toLowerCase() === 'svg') { svgEnLinea(el, r); return; }
+      for (var i = 0; i < el.childNodes.length; i++) {
+        var n = el.childNodes[i];
+        if (n.nodeType === 3) textos(n, cs);
+        else if (n.nodeType === 1) recorrer(n, false);
+      }
+    }
+    recorrer(raiz, true);
+    if (caja.x0 === Infinity) caja = { x0: 0, y0: 0, x1: o.width, y1: o.height };
+    return { cuerpo: partes.join('\n'), x: caja.x0, y: caja.y0, w: caja.x1 - caja.x0, h: caja.y1 - caja.y0 };
+  }
+  function esperarMarcos(n) { return new Promise(function (r) { (function f(k) { if (!k) return r(); requestAnimationFrame(function () { f(k - 1); }); })(n); }); }
+  function svgDe(spec, opc) {
+    opc = opc || {};
+    if (typeof document === 'undefined') return Promise.reject(new Error(PREFIJO + 'EG.svg necesita un navegador (dibuja con ECharts); en Node, EG.pptx da los gráficos nativos de PowerPoint.'));
+    var ancho = opc.ancho || (MODO === 'presentacion' ? PRES_ANCHO : (MODO === 'impresion' ? anchoColumnas(opc.columnas || 4) : 640));
+    var alto = opc.alto || (MODO === 'presentacion' ? PRES_ALTO : null);
+    var conCabecera = MODO === 'presentacion' ? opc.titulo === true : opc.titulo !== false;
+    /* En presentación, la nota y la fuente van al pie de la diapositiva (pres-nota-y): se devuelven aparte */
+    var conNota = MODO === 'presentacion' ? opc.nota === true : opc.nota !== false;
+    var caja = document.createElement('div');
+    caja.className = 'eg-exportar';
+    caja.style.cssText = 'position:absolute;left:-30000px;top:0;width:' + num(ancho / K) + 'px';
+    document.body.appendChild(caja);
+    var hueco = document.createElement('div');
+    caja.appendChild(hueco);
+    var resultado;
+    return render(hueco, spec).then(function (r) {
+      resultado = r;
+      if (!r.ok) throw new Error(r.errores.join(' '));
+      return (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { return esperarMarcos(3); });
+    }).then(function () {
+      var tarjeta = hueco.querySelector('.eg-tarjeta');
+      var c = htmlASvg(tarjeta, conCabecera, conNota), avisos = resultado.avisos.slice();
+      var notas = [].map.call(tarjeta.querySelectorAll(':scope > .eg-nota'), function (n) { return n.textContent; });
+      var W = num(c.w * K), H = num(c.h * K), u = MODO === 'impresion' ? 'pt' : (MODO === 'presentacion' ? '' : '');
+      if (alto && H > alto + 0.5) avisos.push('el gráfico mide ' + Math.round(H) + ' de alto y el hueco, ' + Math.round(alto) + ': redúcelo (menos categorías) o dale más alto.');
+      var fondo = opc.fondo ? '<rect x="' + num(c.x) + '" y="' + num(c.y) + '" width="' + num(c.w) + '" height="' + num(c.h) + '" fill="' + T.fondo + '"/>\n' : '';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + W + u + '" height="' + H + u + '" viewBox="' + num(c.x) + ' ' + num(c.y) + ' ' + num(c.w) + ' ' + num(c.h) + '">\n' +
+        '<title>' + xml(spec.titulo || '') + '</title>\n' + fondo + c.cuerpo + '\n</svg>';
+      return { svg: svg, ancho: W, alto: H, unidad: MODO === 'impresion' ? 'pt' : 'px', modo: MODO, tema: TEMA, nota: notas.join(' '), avisos: avisos };
+    }).then(function (x) { quitar(); return x; }, function (e) { quitar(); throw e; });
+    function quitar() {
+      [].forEach.call(caja.querySelectorAll('.eg-lienzo'), function (el) {
+        var ins = instancias.get(el);
+        if (ins) { if (ins.ro) ins.ro.disconnect(); ins.chart.dispose(); instancias.delete(el); }
+      });
+      document.body.removeChild(caja);
+    }
+  }
+  /* Impresión: ancho de n columnas de la rejilla del A4 (doc-columna 100,63 pt y doc-medianil 17,008 pt) */
+  function anchoColumnas(n) { n = Math.max(1, Math.min(4, Math.round(n) || 4)); return num(n * 100.63 + (n - 1) * 17.008); }
+
+  /* ================================================================== */
+  /* PowerPoint: EG.pptx(especificación, opciones)                       */
+  /* ================================================================== */
+  /* Función pura (sin DOM: funciona en Node). Devuelve lo que necesita PptxGenJS para un gráfico nativo y editable:
+       { ok, nativo: true, tipo, datos, opciones, tema, avisos }   →   slide.addChart(tipo, datos, opciones)
+       { ok, nativo: true, tipo: 'tabla', filas, opciones, … }      →   slide.addTable(filas, opciones)
+       { ok, nativo: false, motivo }                                →   usa EG.svg en el navegador
+     Siempre en modo presentación (tema de opc.tema, el de la página o «negro»). Medidas de la diapositiva de 1920 × 1080:
+     1 px = 1/144 in y tamaños en pt = px / 2. Las fuentes, como el script de presentaciones del sistema: Barlow con la
+     fuente del tema «+mn-lt» y Titillium con «+mj-lt», así que la presentación debe tener pres.theme = tema
+     ({ headFontFace: 'Titillium Web Light', bodyFontFace: 'Barlow' }); las tablas nombran la familia de Office.
+     Sin título ni unidad por defecto (los pone la diapositiva): { titulo: true } los incluye. */
+  var TEMA_PPTX = { headFontFace: 'Titillium Web Light', bodyFontFace: 'Barlow' };
+  var FUENTES_OFFICE = { barlow: { 400: 'Barlow', 500: 'Barlow Medium', 600: 'Barlow SemiBold' }, titillium: { 300: 'Titillium Web Light', 400: 'Titillium Web', 600: 'Titillium Web SemiBold', 700: 'Titillium Web' } };
+  function pptxDe(spec, opc) {
+    opc = opc || {};
+    var antes = { modo: MODO, tema: TEMA };
+    aplicarModo('presentacion', opc.tema || (MODO === 'presentacion' ? TEMA : 'negro'));
+    try { return pptxEnModo(spec, opc); } finally { aplicarModo(antes.modo, antes.tema); }
+  }
+  function pptxEnModo(spec, opc) {
+    var v = validar(spec);
+    if (!v.ok) return { ok: false, errores: v.errores, avisos: v.avisos };
+    var s = v.spec, t = s.tipo, va = s.variante, d = s.datos;
+    var IN = function (px) { return Math.round(px / 144 * 10000) / 10000; }, PT = function (px) { return Math.round(px / 2 * 100) / 100; };
+    var hex = function (c) { return String(c).replace('#', ''); };
+    var res = function (o) { return Object.assign({ ok: true, nativo: true, tema: TEMA_PPTX, modo: 'presentacion', temaColor: TEMA, avisos: v.avisos, nota: [s.nota, esTexto(s.fuente) ? 'Fuente: ' + s.fuente.replace(/^fuente:\s*/i, '') : null].filter(esTexto).join(' ') }, o); };
+    var noNativo = function (motivo) { return { ok: true, nativo: false, motivo: motivo + ' Usa EG.svg (imagen vectorial).', avisos: v.avisos }; };
+    var caja = { x: IN(opc.x != null ? opc.x : 136), y: IN(opc.y != null ? opc.y : 320), w: IN(opc.ancho || PRES_ANCHO), h: IN(opc.alto || PRES_ALTO) };
+    /* Formato numérico de PowerPoint (el separador lo pone el idioma de Office); «mil» y «M» como el kit */
+    function formato(valores, unidad) {
+      var max = Math.max.apply(null, valores.filter(esNum).map(Math.abs).concat([0]));
+      var dec = s.decimales != null ? s.decimales : (valores.some(function (x) { return esNum(x) && Math.round(x) !== x; }) ? 1 : 0);
+      var base = '#,##0' + (dec ? '.' + Array(dec + 1).join('0') : '');
+      var suf = unidad === '%' ? '" %"' : (unidad === '€' ? '" €"' : '');
+      if (s.abreviar !== false && max >= 1e6) return '#,##0.0,," M' + (unidad === '€' ? ' €' : '') + '"';
+      if (s.abreviar !== false && max >= 1e4) return '#,##0," mil' + (unidad === '€' ? ' €' : '') + '"';
+      return base + suf;
+    }
+    function texto(rol) { return { face: TX[rol].familia === 'barlow' ? '+mn-lt' : '+mj-lt', size: PT(TX[rol].tam) }; }
+    var eje = texto('eje'), ley = texto('leyenda'), dato = texto('dato');
+    var comun = Object.assign({}, caja, {
+      catAxisLabelColor: hex(T.etiquetaEje), catAxisLabelFontFace: eje.face, catAxisLabelFontSize: eje.size, catAxisLineShow: true, catAxisLineColor: hex(T.base),
+      valAxisLabelColor: hex(T.etiquetaEje), valAxisLabelFontFace: eje.face, valAxisLabelFontSize: eje.size, valAxisLineShow: false,
+      valGridLine: { color: hex(T.rejilla), size: 0.5, style: 'solid' }, catGridLine: { style: 'none' },
+      legendPos: 't', legendFontFace: ley.face, legendFontSize: ley.size, legendColor: hex(T.leyenda),
+      dataLabelFontFace: dato.face, dataLabelFontSize: dato.size, dataLabelColor: hex(T.etiquetaDato),
+      plotArea: { fill: { color: hex(T.fondo) } }, altText: s.titulo
+    });
+    if (opc.titulo === true) Object.assign(comun, { showTitle: true, title: s.titulo + (esTexto(s.unidad) ? ' (' + s.unidad + ')' : ''), titleFontFace: FUENTES_OFFICE.titillium[TX.titulo.peso] || 'Titillium Web SemiBold', titleFontSize: PT(TX.titulo.tam), titleColor: hex(T.titulo) });
+    var pal = paletaDe(s), palL = paletaDe(s, true);
+    var serie = function (nombre, etiquetas, valores) { return { name: nombre, labels: etiquetas, values: valores }; };
+
+    if (t === 'barras' && ['verticales', 'horizontales', 'agrupadas', 'apiladas', 'apiladas-100'].indexOf(va) >= 0) {
+      var multi = d.series.length > 1, horiz = va === 'horizontales';
+      var cats = d.categorias, series = d.series;
+      if (horiz) {
+        var pares = ordenarPares(d.categorias, d.series[0].valores, s.orden).reverse(); /* PowerPoint dibuja la primera abajo */
+        cats = pares.map(function (x) { return x.nombre; }); series = [{ nombre: d.series[0].nombre, valores: pares.map(function (x) { return x.valor; }) }];
+      }
+      var colores = va === 'apiladas' || va === 'apiladas-100' ? series.map(function (x, i) { return pal[i % pal.length]; }) : (multi ? coloresSeries(series, pal) : [T.actual]);
+      var todos = [].concat.apply([], series.map(function (x) { return x.valores; }));
+      var apil = va === 'apiladas' || va === 'apiladas-100', conValor = s.etiquetas === true || (!apil && cats.length * series.length <= 18);
+      return res({ tipo: 'bar', datos: series.map(function (x) { return serie(x.nombre, cats, x.valores); }), opciones: Object.assign(comun, {
+        barDir: horiz ? 'bar' : 'col', barGrouping: va === 'apiladas' ? 'stacked' : (va === 'apiladas-100' ? 'percentStacked' : 'clustered'), barGapWidthPct: apil ? 60 : 50,
+        chartColors: colores.map(hex), showLegend: multi, showValue: conValor, dataLabelPosition: apil ? 'ctr' : 'outEnd',
+        dataLabelFormatCode: va === 'apiladas-100' ? '0%' : formato(todos, s.unidad), valAxisLabelFormatCode: va === 'apiladas-100' ? '0%' : formato(todos, s.unidad),
+        valAxisMinVal: 0, valAxisHidden: horiz, valGridLine: horiz ? { style: 'none' } : comun.valGridLine
+      }) });
+    }
+    if (t === 'lineas' && ['simple', 'multiples', 'acumulada', 'vs-anterior'].indexOf(va) >= 0) {
+      var sl = d.series.map(function (se) {
+        var vals = se.valores.slice();
+        if (va === 'acumulada') { var acum = 0; vals = vals.map(function (x) { acum += x; return acum; }); }
+        return { nombre: se.nombre, rol: se.rol, valores: vals };
+      });
+      var todosL = [].concat.apply([], sl.map(function (x) { return x.valores; }));
+      return res({ tipo: 'line', datos: sl.map(function (x) { return serie(x.nombre, d.periodos, x.valores); }), opciones: Object.assign(comun, {
+        chartColors: coloresSeries(sl, palL).map(hex), lineSize: PT(2.5 * K), lineDataSymbol: 'none', showLegend: sl.length > 1,
+        showValue: false, valAxisLabelFormatCode: formato(todosL, s.unidad), valAxisMinVal: s.ejeDesdeCero === false ? undefined : 0
+      }) });
+    }
+    if (t === 'areas' && ['simple', 'apiladas', 'apiladas-100'].indexOf(va) >= 0) {
+      var todosA = [].concat.apply([], d.series.map(function (x) { return x.valores; }));
+      return res({ tipo: 'area', datos: d.series.map(function (x) { return serie(x.nombre, d.periodos, x.valores); }), opciones: Object.assign(comun, {
+        barGrouping: va === 'apiladas' ? 'stacked' : (va === 'apiladas-100' ? 'percentStacked' : 'standard'),
+        chartColors: (d.series.length > 1 ? d.series.map(function (x, i) { return pal[i % pal.length]; }) : [T.actual]).map(hex), showLegend: d.series.length > 1,
+        valAxisLabelFormatCode: va === 'apiladas-100' ? '0%' : formato(todosA, s.unidad), valAxisMinVal: 0
+      }) });
+    }
+    if (t === 'sectores' && (va === 'donut' || va === 'pie')) {
+      var partes = partesOrdenadas(d, undefined, pal);
+      /* Valor junto a cada sector: en la leyenda («Nombre · 38 %»), como la leyenda del kit */
+      return res({ tipo: va === 'donut' ? 'doughnut' : 'pie', datos: [serie(s.titulo, partes.map(function (x) { return x.nombre + ' · ' + porcentaje(x.pct, 0); }), partes.map(function (x) { return x.valor; }))],
+        opciones: Object.assign(comun, { holeSize: va === 'donut' ? 56 : undefined, chartColors: partes.map(function (x) { return hex(x.color); }), showLegend: true, legendPos: 'r',
+          showValue: false, showPercent: false, dataBorder: { pt: 2, color: hex(T.fondo) }, firstSliceAng: 0, w: Math.min(caja.w, IN(1100)) }) });
+    }
+    if (t === 'dispersion' && (va === 'simple' || va === 'burbujas')) {
+      var ej = s.ejes || {}, nom = function (e) { return typeof e === 'string' ? e : (e && e.nombre) || ''; };
+      var datosD = [{ name: nom(ej.x), values: d.x }, va === 'burbujas' ? { name: nom(ej.y), values: d.y, sizes: d.tamanos } : { name: nom(ej.y), values: d.y }];
+      return res({ tipo: va === 'burbujas' ? 'bubble' : 'scatter', datos: datosD, opciones: Object.assign(comun, {
+        chartColors: [hex(T.actual)], lineSize: 0, lineDataSymbol: 'circle', lineDataSymbolSize: PT(12), showLegend: false,
+        showCatAxisTitle: true, catAxisTitle: nom(ej.x), showValAxisTitle: true, valAxisTitle: nom(ej.y),
+        catAxisTitleColor: hex(T.etiquetaEje), valAxisTitleColor: hex(T.etiquetaEje), catAxisTitleFontFace: eje.face, valAxisTitleFontFace: eje.face,
+        catAxisTitleFontSize: eje.size, valAxisTitleFontSize: eje.size, catGridLine: comun.valGridLine
+      }) });
+    }
+    if (t === 'radar') {
+      var sr = d.series || [{ nombre: s.titulo, valores: d.valores }];
+      return res({ tipo: 'radar', datos: sr.map(function (x) { return serie(x.nombre, d.dimensiones, x.valores); }), opciones: Object.assign(comun, {
+        radarStyle: 'standard', chartColors: coloresSeries(sr, palL).map(hex), lineSize: PT(2.5 * K), showLegend: sr.length > 1, valAxisMaxVal: d.maximo || undefined, valAxisMinVal: 0
+      }) });
+    }
+    if (t === 'tabla' && ['comparativa', 'con-estados', 'scorecard', 'semaforo'].indexOf(va) >= 0) return res(tablaPptx(s, caja, IN, PT, hex));
+    return noNativo('«' + t + (va ? ' · ' + va : '') + '» no tiene gráfico nativo en PowerPoint.');
+  }
+  /* Tabla nativa (modelo 11 del sistema): cabecera Titillium SemiBold en el acento con filete inferior; celdas en Barlow */
+  function tablaPptx(s, caja, IN, PT, hex) {
+    var d = s.datos, va = s.variante, cab, filas, derecha = [];
+    var f = function (v, u) { return formatear(v, { unidad: u || s.unidad, decimales: s.decimales, abreviar: s.abreviar }).texto; };
+    if (va === 'scorecard' || va === 'semaforo') {
+      var ind = d.indicadores.map(function (x) { var c = cumplimiento(x); return { x: x, c: c, e: estadoPorUmbral(c, s.umbrales) }; });
+      if (va === 'scorecard') {
+        cab = ['Indicador', 'Real', 'Objetivo', 'Estado']; derecha = [1, 2];
+        filas = ind.map(function (r) { return [r.x.nombre, f(r.x.valor, r.x.unidad), f(r.x.objetivo, r.x.unidad), ESTADOS[r.e].texto]; });
+      } else {
+        var u = s.umbrales, rangos = { 'en-objetivo': '≥ ' + porcentaje(u.objetivo, 0), 'en-riesgo': porcentaje(u.riesgo, 0) + ' – < ' + porcentaje(u.objetivo, 0), 'fuera': '< ' + porcentaje(u.riesgo, 0) };
+        cab = ['Estado', 'Umbral de cumplimiento', 'Indicadores']; derecha = [2];
+        filas = ESTADOS_OBJETIVO.map(function (e) { return [ESTADOS[e].texto, rangos[e], ind.filter(function (r) { return r.e === e; }).map(function (r) { return r.x.nombre + ' · ' + porcentaje(r.c, 0); }).join('\n') || '–']; });
+      }
+    } else {
+      cab = d.columnas.map(function (c) { return c.titulo; });
+      derecha = d.columnas.map(function (c, j) { return ['numero', 'porcentaje', 'variacion', 'fecha'].indexOf(c.tipo) >= 0 ? j : -1; }).filter(function (j) { return j >= 0; });
+      filas = d.filas.map(function (fi) { return fi.map(function (v, j) {
+        var c = d.columnas[j];
+        if (v == null || v === '') return '–';
+        if (c.tipo === 'numero') return c.unidad === '%' ? porcentaje(v, c.decimales) : f(v, '');
+        if (c.tipo === 'porcentaje') return porcentaje(v, c.decimales);
+        if (c.tipo === 'variacion') return (v > 0 ? '+' : (v < 0 ? '−' : '')) + porcentaje(Math.abs(v), c.decimales != null ? c.decimales : 1);
+        if (c.tipo === 'estado') { var k = typeof v === 'object' ? v.estado : v; return typeof v === 'object' && esTexto(v.texto) ? v.texto : ESTADOS[k].texto; }
+        return String(v);
+      }); });
+    }
+    var filete = { type: 'solid', pt: 1, color: hex(T.tablaLineaCabecera) }, linea = { type: 'solid', pt: 0.5, color: hex(T.tablaLinea) }, nada = { type: 'none' };
+    var celda = function (txt, j, o) { return { text: txt, options: Object.assign({ align: derecha.indexOf(j) >= 0 ? 'right' : 'left' }, o) }; };
+    var tabla = [cab.map(function (c, j) { return celda(c, j, { fontFace: 'Titillium Web SemiBold', fontSize: PT(38), color: hex(T.tablaLineaCabecera), border: [nada, nada, filete, nada] }); })]
+      .concat(filas.map(function (fi) { return fi.map(function (c, j) { return celda(c, j, { fontFace: 'Barlow', fontSize: PT(36), color: hex(T.texto), border: [nada, nada, linea, nada] }); }); }));
+    var avisos = filas.length > 5 || cab.length > 4 ? ['la tabla tiene ' + cab.length + ' columnas y ' + filas.length + ' filas; en una diapositiva caben 4 × 5 (modelo 11 del sistema): divídela.'] : [];
+    return { tipo: 'tabla', filas: tabla, opciones: { x: caja.x, y: caja.y, w: caja.w, rowH: IN(100), valign: 'middle', margin: [PT(20), PT(24), PT(20), 0].map(function (v) { return v / 72; }), objectName: 'tabla' }, avisosTabla: avisos };
+  }
+
   var api = {
     version: VERSION,
     render: render,
@@ -9570,6 +9880,8 @@
     variantes: copia(VARIANTES),
     estados: Object.keys(ESTADOS),
     tokens: tokensPublicos(),
+    svg: svgDe,
+    pptx: pptxDe,
     iconos: ICONOS
   };
 

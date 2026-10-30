@@ -1,0 +1,28 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="/fuente.css" data-eg-fuente><link rel="stylesheet" href="/barlow.css" data-eg-fuente-barlow>
+<script src="/kit.js"></script>
+<style>body{margin:0;padding:24px;background:#888}.svg{display:inline-block;vertical-align:top;margin:0 24px 24px 0;background:var(--fondo,#fff)}.svg svg{display:block;height:auto}</style>
+</head><body>
+<script>
+/* EG.svg de una lista de especificaciones: deja cada SVG en window.SVGS y lo muestra como imagen (para capturar) */
+const q = new URLSearchParams(location.search);
+EG.configurar({ echarts: [q.get('ec')], fuente: '/fuente.css', barlow: '/barlow.css', mapas: '/mapas/' });
+if (q.get('modo')) EG.configurar({ modo: q.get('modo'), tema: q.get('tema') || undefined });
+document.documentElement.style.setProperty('--fondo', EG.tokens.semanticos.fondo);
+Promise.all(['400', '600', '700'].map(w => document.fonts.load(w + ' 14px "Titillium Web"')).concat(['400', '600'].map(w => document.fonts.load(w + ' 14px Barlow'))))
+  .then(() => fetch(q.get('specs'))).then(r => r.json()).then(async specs => {
+  window.SVGS = [];
+  for (let i = 0; i < specs.length; i++) {
+    const s = specs[i];
+    try {
+      const r = await EG.svg(s, { titulo: q.get('titulo') === '1', columnas: +q.get('columnas') || undefined });
+      window.SVGS.push({ i, tipo: s.tipo, variante: s.variante, ok: true, ancho: r.ancho, alto: r.alto, avisos: r.avisos, svg: r.svg });
+      /* En línea (no como imagen) para que use las fuentes de la página; a la mitad de tamaño */
+      const d = document.createElement('div'); d.id = 'g' + i; d.className = 'svg'; d.innerHTML = r.svg;
+      const el = d.firstChild; el.setAttribute('width', r.ancho / (q.get('modo') === 'impresion' ? 0.75 : 1) / (+q.get('escala') || 2)); el.removeAttribute('height');
+      document.body.appendChild(d);
+    } catch (e) { window.SVGS.push({ i, tipo: s.tipo, variante: s.variante, ok: false, error: String(e.message || e) }); }
+  }
+  window.LISTO = true;
+});
+</script></body></html>

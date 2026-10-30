@@ -161,6 +161,11 @@ def construir():
         if modo == 'impresion' and (prim[a]['cmyk'] is None or prim[a]['provisional']):
           raise ErrorTokens('modos.impresion.%s: %s no tiene CMYK del sistema' % (clave, a))
       m[clave] = {camel(de): camel(a) for de, a in m[clave].items()}
+    if 'sustituirTema' in m:
+      for tema, mapa in m['sustituirTema'].items():
+        for de, a in mapa.items():
+          if de not in prim or not re.fullmatch(r'\{pres-[a-z0-9-]+\}', a): raise ErrorTokens('modos.presentacion.sustituirTema.%s: %s → %s' % (tema, de, a))
+      m['sustituirTema'] = {t: {camel(de): 'pres.' + camel(a[6:-1]) for de, a in mapa.items()} for t, mapa in m['sustituirTema'].items()}
     m['k'] = [texto[modo]['eje']['tam'], texto['web']['eje']['tam']]  # k = eje del modo ÷ eje de web
     m['texto'] = texto[modo]
     modos[modo] = m
