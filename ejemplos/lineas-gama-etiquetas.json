@@ -1,0 +1,81 @@
+{
+  "tipo": "lineas",
+  "variante": "multiples",
+  "titulo": "Usuarios activos por plataforma",
+  "unidad": "usuarios",
+  "periodo": "2026",
+  "paleta": "gama",
+  "etiquetas": true,
+  "abreviar": true,
+  "datos": {
+    "periodos": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep"
+    ],
+    "series": [
+      {
+        "nombre": "Aula digital",
+        "valores": [
+          41200,
+          43800,
+          45100,
+          46900,
+          47400,
+          39800,
+          31200,
+          33500,
+          52800
+        ]
+      },
+      {
+        "nombre": "Biblioteca",
+        "valores": [
+          18300,
+          19100,
+          20400,
+          21800,
+          22500,
+          19700,
+          15100,
+          16200,
+          24900
+        ]
+      },
+      {
+        "nombre": "Evaluación",
+        "valores": [
+          9800,
+          11200,
+          12900,
+          14100,
+          15600,
+          11800,
+          6200,
+          7100,
+          13900
+        ]
+      },
+      {
+        "nombre": "Familias",
+        "valores": [
+          5200,
+          5600,
+          6100,
+          6400,
+          6900,
+          6300,
+          4800,
+          5100,
+          8700
+        ]
+      }
+    ]
+  }
+}

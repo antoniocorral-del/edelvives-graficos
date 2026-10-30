@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/esquema.json",
-  "title": "Especificación de gráfico Edelvives (kit v0.9)",
+  "$id": "https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/esquema.json",
+  "title": "Especificación de gráfico Edelvives (kit v0.10)",
   "description": "Formato que escribe la IA. Las reglas de cantidad (series, categorías, partes) y de coherencia entre campos las comprueba además EG.validar().",
   "type": "object",
   "required": [
@@ -120,8 +120,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -326,8 +345,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -497,8 +535,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -598,8 +655,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -720,8 +796,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -829,8 +924,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -963,8 +1077,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -1149,6 +1282,13 @@
                     "objetivo": {
                       "type": "number"
                     },
+                    "mejor": {
+                      "enum": [
+                        "subir",
+                        "bajar"
+                      ],
+                      "description": "Sentido favorable del indicador: subir (por defecto) o bajar. Alias antiguo: sentidoPositivo."
+                    },
                     "sentidoPositivo": {
                       "enum": [
                         "subir",
@@ -1214,8 +1354,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -1422,8 +1581,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -1538,8 +1716,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -1640,8 +1837,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "nombre": {
             "type": "string",
@@ -1672,6 +1888,13 @@
                   "neutro",
                   "valorado"
                 ]
+              },
+              "mejor": {
+                "enum": [
+                  "subir",
+                  "bajar"
+                ],
+                "description": "Sentido favorable del indicador: subir (por defecto) o bajar. Alias antiguo: sentidoPositivo."
               },
               "sentidoPositivo": {
                 "enum": [
@@ -1743,6 +1966,19 @@
               "nota": {
                 "type": "string",
                 "minLength": 1
+              },
+              "mejor": {
+                "enum": [
+                  "subir",
+                  "bajar"
+                ],
+                "description": "Sentido favorable del indicador: subir (por defecto) o bajar. Alias antiguo: sentidoPositivo."
+              },
+              "modo": {
+                "enum": [
+                  "neutro",
+                  "valorado"
+                ]
               }
             }
           },
@@ -2045,6 +2281,13 @@
                 }
               }
             }
+          },
+          "mejor": {
+            "enum": [
+              "subir",
+              "bajar"
+            ],
+            "description": "Sentido favorable del indicador: subir (por defecto) o bajar. Alias antiguo: sentidoPositivo."
           }
         },
         "additionalProperties": false
@@ -2098,8 +2341,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2206,8 +2468,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2326,8 +2607,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2428,8 +2728,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2591,8 +2910,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2712,8 +3050,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2820,8 +3177,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -2949,8 +3325,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3065,8 +3460,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3187,8 +3601,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3349,8 +3782,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3481,8 +3933,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3594,8 +4065,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3702,8 +4192,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -3858,8 +4367,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -4183,8 +4711,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -4379,8 +4926,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -4512,8 +5078,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -4626,8 +5211,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -4750,8 +5354,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -4924,8 +5547,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5037,8 +5679,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5180,8 +5841,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5320,8 +6000,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5492,8 +6191,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5617,8 +6335,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5713,8 +6450,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5854,8 +6610,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -5993,8 +6768,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -6193,8 +6987,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -6331,8 +7144,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -6630,8 +7462,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -6811,8 +7662,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -7012,8 +7882,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "variante": {
             "enum": [
@@ -7234,8 +8123,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "mapa": {
             "enum": [
@@ -7732,8 +8640,27 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           },
           "mapa": {
             "const": "comunidades"
@@ -7849,11 +8776,30 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "valor": {
             "type": "number"
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false
@@ -7909,8 +8855,11 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "valor": {
             "type": "number"
@@ -7936,6 +8885,29 @@
               "subir",
               "bajar"
             ]
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
+          },
+          "mejor": {
+            "enum": [
+              "subir",
+              "bajar"
+            ],
+            "description": "Sentido favorable del indicador: subir (por defecto) o bajar. Alias antiguo: sentidoPositivo."
           }
         },
         "additionalProperties": false
@@ -7991,14 +8963,33 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "valor": {
             "type": "number"
           },
           "objetivo": {
             "type": "number"
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false
@@ -8055,8 +9046,11 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "valor": {
             "type": "number"
@@ -8067,6 +9061,22 @@
               "type": "number"
             },
             "minItems": 3
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false
@@ -8122,8 +9132,11 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "valor": {
             "type": "number"
@@ -8136,6 +9149,22 @@
             },
             "minItems": 1,
             "maxItems": 2
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false
@@ -8190,8 +9219,11 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "datos": {
             "type": "object",
@@ -8244,6 +9276,22 @@
               }
             },
             "additionalProperties": false
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false
@@ -8298,8 +9346,11 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "centro": {
             "type": "object",
@@ -8339,6 +9390,22 @@
               }
             },
             "additionalProperties": false
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false
@@ -8393,8 +9460,11 @@
           },
           "medio": {
             "enum": [
-              "web"
-            ]
+              "web",
+              "presentacion",
+              "impresion"
+            ],
+            "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."
           },
           "datos": {
             "type": "object",
@@ -8426,6 +9496,22 @@
               }
             },
             "additionalProperties": false
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."
+          },
+          "paleta": {
+            "enum": [
+              "foco",
+              "gama"
+            ],
+            "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."
+          },
+          "etiquetas": {
+            "type": "boolean",
+            "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."
           }
         },
         "additionalProperties": false

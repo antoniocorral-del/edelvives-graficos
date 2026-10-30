@@ -1,4 +1,4 @@
-# Composición · referencia del kit v0.5
+# Composición · referencia del kit v0.10
 
 Para mostrar qué parte del total representa cada categoría. Los campos comunes están en `DESIGN.md`. Pasa los valores en bruto: el kit calcula los porcentajes. Todas las partes son positivas (para valores con signo usa `barras-divergentes`). Si hay más partes de las permitidas, el kit agrupa las pequeñas en «Otros» (Neutro 300) y lo avisa; una categoría que se llame «Otros», «Otras…» o «Resto» también va en Neutro 300 y al final.
 
@@ -9,6 +9,8 @@ Para mostrar qué parte del total representa cada categoría. Los campos comunes
 | `donut` (por defecto) | ¿Qué parte del total es cada categoría y cuál es el total? | 2-6 |
 | `pie` | ¿Qué parte del total es cada categoría? (sin cifra central) | 2-6 |
 | `semidonut` | ¿Cómo se reparte un total en pocas partes y cuál es el dato central? (poco espacio) | 2-4 |
+
+Fuera de web (presentación e impresión) el donut y el pie admiten 5 sectores como máximo: deja los 4 mayores y agrupa el resto en «Otros». Con la paleta `foco` caben 6 partes con color en web, 5 en presentación y 4 en impresión; con `paleta:'gama'` y 3 partes o más, `etiquetas: true` (el % de cada parte, siempre en la leyenda).
 
 Datos: `categorias` y `valores`. Las partes van de mayor a menor desde las 12 h. En `donut` y `semidonut`, el centro muestra el total; `centro.valor` lo sustituye por otra cifra y `centro.etiqueta` cambia el texto (por defecto «Total»). `donut` sigue funcionando como alias de `sectores` · `donut`.
 

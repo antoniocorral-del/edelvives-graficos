@@ -13,7 +13,12 @@ POS = {"type": "number", "minimum": 0}
 LNUM = {"type": "array", "items": NUM, "minItems": 1}
 LTXT = lambda mx: {"type": "array", "items": TXT, "minItems": 1, "maxItems": mx}
 COMUNES = {"titulo": TXT, "unidad": TXT, "periodo": TXT, "subtitulo": TXT, "nota": TXT,
-           "decimales": {"type": "integer", "minimum": 0, "maximum": 3}, "abreviar": {"type": "boolean"}, "medio": {"enum": ["web"]}}
+           "decimales": {"type": "integer", "minimum": 0, "maximum": 3}, "abreviar": {"type": "boolean"},
+           "medio": {"enum": ["web", "presentacion", "impresion"], "description": "Debe coincidir con el modo de la página (EG.configurar({ modo }))."},
+           "fuente": dict(TXT, description="Origen de los datos (se rotula «Fuente: …»). Obligatoria en impresión."),
+           "paleta": {"enum": ["foco", "gama"], "description": "foco (por defecto): un protagonista en naranja y el resto en neutros; gama: hasta 7 colores."},
+           "etiquetas": {"type": "boolean", "description": "Valor junto a cada elemento (o nombre y último valor al final de la línea). Obligatorio con gama y 3 series o más sobre fondo claro."}}
+MEJOR = {"enum": ["subir", "bajar"], "description": "Sentido favorable del indicador: subir (por defecto) o bajar. Alias antiguo: sentidoPositivo."}
 SERIE = {"type": "object", "required": ["nombre", "valores"], "additionalProperties": False,
          "properties": {"nombre": TXT, "valores": LNUM, "rol": {"enum": ["actual", "anterior", "prevision"]}}}
 def series(mn, mx): return {"type": "array", "items": SERIE, "minItems": mn, "maxItems": mx}
@@ -24,7 +29,7 @@ UMBRALES = {"type": "object", "additionalProperties": False, "properties": {"obj
 def INDICADORES(mx, conEstado):
     props = {"nombre": TXT, "valor": NUM, "unidad": TXT}
     if conEstado: props.update({"estado": {"enum": ["en-objetivo", "en-riesgo", "fuera"]}, "texto": TXT})
-    else: props.update({"objetivo": NUM, "sentidoPositivo": {"enum": ["subir", "bajar"]}})
+    else: props.update({"objetivo": NUM, "mejor": MEJOR, "sentidoPositivo": {"enum": ["subir", "bajar"]}})
     return {"type": "array", "minItems": 1, "maxItems": mx, "items": {"type": "object", "additionalProperties": False,
             "required": ["nombre", "valor"] + (["estado"] if conEstado else ["objetivo"]), "properties": props}}
 def CATEGORIAS_O_PERIODOS(d): d["anyOf"] = [{"required": ["categorias"]}, {"required": ["periodos"]}]; return d
@@ -150,7 +155,7 @@ NUEVOS = {
               "datos": datos({"series": {"type": "array", "minItems": 1, "maxItems": 8, "items": {"type": "object", "additionalProperties": False, "required": ["nombre", "valores"],
                  "properties": {"nombre": TXT, "valores": {"type": "array", "items": NUM, "minItems": 3}, "unidad": TXT, "valor": NUM}}}}, ["series"])}, ["datos"]),
   "kpi": ({"nombre": TXT, "valor": NUM,
-     "variacion": OBJ({"anterior": NUM, "porcentaje": NUM, "referencia": TXT, "modo": {"enum": ["neutro", "valorado"]}, "sentidoPositivo": {"enum": ["subir", "bajar"]}}, ["referencia"]),
+     "variacion": OBJ({"anterior": NUM, "porcentaje": NUM, "referencia": TXT, "modo": {"enum": ["neutro", "valorado"]}, "mejor": MEJOR, "sentidoPositivo": {"enum": ["subir", "bajar"]}}, ["referencia"]),
      "tendencia": OBJ({"sentido": {"enum": ["sube", "baja", "estable"]}, "texto": TXT, "periodo": TXT}, ["sentido", "periodo"]),
      "objetivo": OBJ({"valor": NUM, "forma": {"enum": ["texto", "barra", "logro"]}}, ["valor"]),
      "anterior": OBJ({"valor": NUM, "etiqueta": TXT, "nota": TXT}, ["valor", "etiqueta"]),
@@ -271,6 +276,21 @@ for t, (props, req) in NUEVOS.items():
     base = ["tipo", "titulo"] if t in SIN_UNIDAD else ["tipo", "titulo", "unidad"]
     nuevos.append({"if": {"properties": {"tipo": {"const": t}}}, "then": {"required": base + req, "properties": p, "additionalProperties": False}})
 esq["allOf"] = nuevos + previos
+# Campos comunes de la 0.10.0 también en los tipos que se conservan del esquema anterior; «mejor» junto a «sentidoPositivo»
+def con_mejor(o):
+    if isinstance(o, dict):
+        if "sentidoPositivo" in o and "mejor" not in o: o["mejor"] = MEJOR
+        for v in o.values(): con_mejor(v)
+    elif isinstance(o, list):
+        for v in o: con_mejor(v)
+for e in esq["allOf"]:
+    props = e["then"]["properties"]
+    props.update({k: v for k, v in COMUNES.items() if k in ("medio", "fuente", "paleta", "etiquetas")})
+    con_mejor(props)
+    if e["if"]["properties"]["tipo"]["const"] == "kpi":
+        props["mejor"] = MEJOR
+        if isinstance(props.get("anterior"), dict) and "properties" in props["anterior"]:
+            props["anterior"]["properties"].update({"mejor": MEJOR, "modo": {"enum": ["neutro", "valorado"]}})
 esq["$defs"] = {"nodoJerarquia": DEF_NODO}
 tipos = list(NUEVOS) + [e["if"]["properties"]["tipo"]["const"] for e in previos]
 orden = ["barras", "barras-divergentes", "puntos", "dos-momentos", "bullet", "ranking", "tabla", "lineas", "areas", "sparkline", "kpi", "kpi-rejilla", "progreso", "sectores", "treemap", "proporcion", "marimekko", "cascada", "descomposicion",
@@ -284,12 +304,12 @@ print('esquema.json:', len(tipos), 'tipos')
 
 # ---------------------------------------------------------------- vista previa
 FAMILIAS = [
-  ("Comparación", [("barras-verticales", "Barras verticales"), ("barras-horizontales", "Barras horizontales"), ("barras-agrupadas", "Barras agrupadas"),
+  ("Comparación", [("barras-verticales", "Barras verticales"), ("barras-horizontales", "Barras horizontales"), ("barras-agrupadas", "Barras agrupadas"), ("barras-agrupadas-gama", "Barras agrupadas · gama"),
      ("barras-apiladas", "Barras apiladas"), ("barras-apiladas-100", "Barras 100 % apiladas"), ("barras-con-referencia", "Barras con referencia"),
      ("barras-divergentes", "Barras divergentes"), ("barras-piramide", "Barras bidireccionales"), ("puntos", "Dot plot"), ("piruleta", "Lollipop chart"),
      ("pesas", "Dumbbell chart"), ("pendiente", "Slope chart"), ("bullet", "Bullet chart"), ("ranking", "Ranking"), ("ranking-evolucion", "Bump chart"),
      ("tabla-comparativa", "Tabla comparativa"), ("tabla-con-barras", "Tabla con barras"), ("tabla-con-estados", "Tabla con indicadores")]),
-  ("Evolución y tendencias", [("lineas-simple", "Gráfico de líneas"), ("lineas-multiples", "Líneas múltiples"), ("areas-simple", "Área"),
+  ("Evolución y tendencias", [("lineas-simple", "Gráfico de líneas"), ("lineas-multiples", "Líneas múltiples"), ("lineas-gama-etiquetas", "Líneas · gama con etiquetas"), ("areas-simple", "Área"),
      ("areas-superpuestas", "Área múltiple"), ("areas-apiladas", "Área apilada"), ("areas-apiladas-100", "Área 100 % apilada"), ("lineas-escalonada", "Step chart"),
      ("sparkline", "Sparkline"), ("lineas-tendencia", "Gráfico de tendencia"), ("lineas-acumulada", "Línea acumulada"), ("lineas-media-movil", "Media móvil"),
      ("lineas-referencia", "Línea de referencia"), ("lineas-objetivo", "Línea objetivo"), ("lineas-prevision", "Línea de previsión"),
@@ -321,7 +341,7 @@ FAMILIAS = [
      ("mapa-flujos", "Mapa de flujo"), ("mapa-ruta", "Mapa de rutas"), ("mapa-conexiones", "Mapa de conexiones"), ("mapa-con-ranking", "Distribución territorial")]),
   ("Objetivos y cumplimiento", [("progreso-medidor", "Gauge"), ("progreso-barras", "Progress bar"), ("progreso-anillo", "Progress ring"), ("progreso-ritmo", "Goal progress"),
      ("kpi-logro", "Achievement"), ("barras-desviacion-objetivo", "Variance to target"), ("progreso-distancia", "Distance to target"), ("tabla-semaforo", "Semáforo"), ("tabla-scorecard", "Scorecard")]),
-  ("Patrones de KPI", [("kpi-simple", "KPI simple"), ("kpi-unidad", "KPI + unidad"), ("kpi-contexto", "KPI + contexto"), ("kpi-variacion", "KPI + variación"),
+  ("Patrones de KPI", [("kpi-simple", "KPI simple"), ("kpi-unidad", "KPI + unidad"), ("kpi-contexto", "KPI + contexto"), ("kpi-variacion", "KPI + variación"), ("kpi-mejor-bajar", "KPI · menos es mejor"),
      ("kpi-tendencia", "KPI + tendencia"), ("kpi-objetivo", "KPI + objetivo"), ("kpi-progreso", "KPI + progreso"), ("kpi-vs-anterior", "KPI actual vs. anterior"),
      ("kpi-vs-objetivo", "KPI actual vs. objetivo"), ("kpi-vs-prevision", "KPI actual vs. forecast"), ("kpi-sparkline", "KPI con sparkline"),
      ("kpi-estado", "KPI con indicador de estado"), ("kpi-ranking", "KPI con ranking"), ("kpi-comparativo", "KPI comparativo"), ("kpi-compuesto", "KPI compuesto"),
@@ -340,7 +360,7 @@ for familia, piezas in FAMILIAS:
         clave = spec['tipo'] + (' · ' + spec['variante'] if spec.get('variante') else '')
         partes.append('<article class="pieza"><h3>%s <code>%s</code></h3><div id="c%d"></div>\n<details><summary>Ver la especificación</summary><pre>%s</pre></details></article>'
                       % (html.escape(nombre), html.escape(clave), n, html.escape(json.dumps(spec, ensure_ascii=False, indent=2))))
-        llamadas.append("EG.render('#c%d', %s);" % (n, json.dumps(spec, ensure_ascii=False)))
+        llamadas.append(json.dumps(spec, ensure_ascii=False))
         n += 1
     partes.append('</div>')
 
@@ -358,16 +378,46 @@ pagina = """<!DOCTYPE html>
  .pieza h3 code{font-family:inherit;font-weight:400;color:#706B65;margin-left:6px}
  details{margin-top:8px;font-size:12px;color:#4A4540}
  summary{cursor:pointer}
- pre{background:#fff;border:1px solid #DBD5CE;border-radius:8px;padding:12px 16px;overflow-x:auto;font-size:12px;line-height:17px}
+ pre{background:#fff;border:1px solid #DBD5CE;border-radius:8px;padding:12px 16px;overflow-x:auto;font-size:12px;line-height:17px;color:#222}
+ .modos{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:16px 0 0;font-size:14px}
+ .modos select{font:inherit;padding:4px 8px}
+ .fuera-web .pieza h3,.fuera-web details,.fuera-web .familia,.fuera-web h1,.fuera-web .intro,.fuera-web .modos{color:var(--texto-pagina)}
 </style></head>
 <body class="eg-pagina"><main class="contenedor">
 <h1>Vista previa del kit v%(v)s</h1>
 <p class="intro">Los %(n)d componentes del kit, dibujados con los ejemplos de la carpeta <code>ejemplos/</code>. Los datos son ilustrativos. Necesita conexión a internet para cargar ECharts y la tipografía.</p>
+<form class="modos" id="modos"><label>Modo <select name="modo">
+<option value="web">Web</option><option value="presentacion-blanco">Presentación · tema blanco</option><option value="presentacion-negro">Presentación · tema negro</option><option value="impresion">Impresión</option>
+</select></label><label id="col">Columnas del A4 <select name="columnas"><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+<span id="explica"></span></form>
 %(cuerpo)s
 </main>
 <script>
+/* Modo de la página por la URL (?modo=presentacion-negro, ?modo=impresion&columnas=2): el modo es de toda la página.
+   Fuera de web, cada tarjeta tiene el ancho del destino (presentación: 1648 px; impresión: las columnas del A4) en px
+   lógicos; en impresión, los ejemplos sin «fuente» llevan una de muestra. Los tipos solo web muestran su error. */
+var SPECS = [
 %(llamadas)s
+];
+var q = new URLSearchParams(location.search), sel = q.get('modo') || 'web', col = +q.get('columnas') || 4;
+var f = document.getElementById('modos');
+f.modo.value = sel; f.columnas.value = col;
+f.onchange = function () { location.search = '?modo=' + f.modo.value + (f.modo.value === 'impresion' ? '&columnas=' + f.columnas.value : ''); };
+document.getElementById('col').hidden = sel !== 'impresion';
+var partes = sel.split('-');
+if (partes[0] !== 'web') EG.configurar({ modo: partes[0], tema: partes[1] });
+var t = EG.tokens, ancho = partes[0] === 'presentacion' ? 1648 / t.k : (partes[0] === 'impresion' ? (col * 100.63 + (col - 1) * 17.008) / t.k : 0);
+if (ancho) {
+  document.body.classList.add('fuera-web');
+  document.body.style.setProperty('--texto-pagina', t.semanticos.texto);
+  [].forEach.call(document.querySelectorAll('.catalogo'), function (c) { c.style.gridTemplateColumns = 'repeat(auto-fill,' + Math.round(ancho) + 'px)'; });
+  document.getElementById('explica').textContent = partes[0] === 'presentacion' ? 'Ancho útil de la diapositiva (1648 px); EG.svg y EG.pptx omiten el título y la unidad.' : 'Ancho de ' + col + ' columna' + (col > 1 ? 's' : '') + ' (' + (col * 100.63 + (col - 1) * 17.008).toFixed(2).replace('.', ',') + ' pt).';
+}
+SPECS.forEach(function (s, i) {
+  if (partes[0] === 'impresion' && !s.fuente) s = Object.assign({}, s, { fuente: 'Datos de ejemplo' });
+  EG.render('#c' + i, s);
+});
 </script></body></html>
-""" % {"v": corto, "n": n, "cuerpo": "\n".join(partes), "llamadas": "\n".join(llamadas)}
+""" % {"v": corto, "n": n, "cuerpo": "\n".join(partes), "llamadas": ",\n".join(llamadas)}
 open(os.path.join(RAIZ, 'vista-previa.html'), 'w').write(pagina)
 print('vista-previa.html:', n, 'componentes')

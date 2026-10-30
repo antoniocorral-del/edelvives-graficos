@@ -1,0 +1,43 @@
+{
+  "tipo": "barras",
+  "variante": "agrupadas",
+  "titulo": "Adopciones por etapa y línea",
+  "unidad": "centros",
+  "periodo": "Curso 2026-27",
+  "paleta": "gama",
+  "etiquetas": true,
+  "fuente": "Datos internos de Edelvives",
+  "datos": {
+    "categorias": [
+      "Infantil",
+      "Primaria",
+      "ESO"
+    ],
+    "series": [
+      {
+        "nombre": "Papel",
+        "valores": [
+          412,
+          688,
+          355
+        ]
+      },
+      {
+        "nombre": "Digital",
+        "valores": [
+          198,
+          402,
+          281
+        ]
+      },
+      {
+        "nombre": "Mixto",
+        "valores": [
+          126,
+          240,
+          174
+        ]
+      }
+    ]
+  }
+}

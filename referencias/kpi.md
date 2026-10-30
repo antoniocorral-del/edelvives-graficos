@@ -1,4 +1,4 @@
-# Patrones de KPI · referencia del kit v0.5
+# Patrones de KPI · referencia del kit v0.10
 
 Para mostrar una cifra clave con lo que la acompaña. Los campos comunes están en `DESIGN.md`. Un KPI es siempre `tipo:'kpi'` con `valor`; no usa `datos`.
 
@@ -27,12 +27,16 @@ Para mostrar una cifra clave con lo que la acompaña. Los campos comunes están 
 | ¿Qué otras cifras acompañan al valor principal? | `secundarios: [ { etiqueta, valor, unidad } ]` (1-3) |
 | ¿Cuánto del camino hemos recorrido? | `progreso: { meta, etiqueta }` |
 
-`contexto`: 1 o 2 frases con alcance, exclusiones y fuente. `periodos` (selector de mes, trimestre o año) sustituye a `valor` y solo se combina con `contexto`.
+`contexto`: 1 o 2 frases con alcance, exclusiones y fuente. `periodos` (selector de mes, trimestre o año) sustituye a `valor` y solo se combina con `contexto`; es solo web (fuera de web, un KPI por periodo).
+
+En presentación, la variación no lleva colores de estado: flecha, signo y texto en el acento (favorable) o en el color de texto (desfavorable).
 
 ```js
 { tipo:'kpi', titulo:'Pedidos', unidad:'pedidos', valor:1284 }
 { tipo:'kpi', titulo:'Pedidos', unidad:'pedidos', valor:1284, variacion:{ anterior:1184, referencia:'vs. febrero' } }
-  // variacion admite modo:'valorado' + sentidoPositivo:'subir'|'bajar' para verde/rojo; por defecto, neutro.
+  // la variación se valora con «mejor»: 'subir' (por defecto) o 'bajar'; favorable en verde y desfavorable en rojo, con flecha, signo y «mejora» o «empeora».
+  // «mejor» va en el KPI o en «variacion» y «anterior»; «sentidoPositivo» es su nombre antiguo. modo:'neutro' (sube en naranja, baja en gris) si no hay sentido claro.
+{ tipo:'kpi', titulo:'Devoluciones', unidad:'pedidos', valor:118, mejor:'bajar', variacion:{ anterior:142, referencia:'vs. marzo' } }
 { tipo:'kpi', titulo:'Pedidos', unidad:'pedidos', valor:1284, variacion:{ porcentaje:8.4, referencia:'vs. febrero' },
   serie:{ valores:[880,940,1010,960,1120,1284] }, periodo:'Últimos 6 meses' }
 { tipo:'kpi', titulo:'Pedidos frente al objetivo', unidad:'pedidos', valor:1284, objetivo:{ valor:1200, forma:'barra' } }

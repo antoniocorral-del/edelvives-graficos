@@ -1,21 +1,42 @@
-# Kit de gráficos Edelvives v0.9 (modo web)
+# Kit de gráficos Edelvives v0.10 (web, presentaciones e impresión)
 
-Para ver los gráficos, abre con doble clic `vista-previa.html` (los 156 componentes, agrupados por familia) o `demo-dashboard-comercial.html` (el dashboard de la primera prueba, con el kit v0.1 incrustado). Se abren en el navegador y necesitan conexión a internet.
+Para ver los gráficos, abre con doble clic `vista-previa.html` (los 159 ejemplos, agrupados por familia, con un selector de modo: web, presentación en los dos temas e impresión por columnas) o `demo-dashboard-comercial.html` (el dashboard de la primera prueba, con el kit v0.1 incrustado). Se abren en el navegador y necesitan conexión a internet.
 
 Contenido:
 
-- `dist/edelvives-graficos.js`: el script que dibuja (tokens, validador, renderizador, iconos de Material Symbols con licencia Apache 2.0). Carga ECharts 6.1.0 y Titillium Web por su cuenta.
+- `dist/edelvives-graficos.js`: el script que dibuja (tokens, validador, renderizador, exportación a SVG y a PowerPoint, iconos de Feather con licencia MIT). Carga ECharts 6.1.0, Titillium Web y, fuera de web, Barlow por su cuenta.
 - `dist/mapas/`: los contornos de España por comunidades y por provincias (TopoJSON, en `.js`, que es lo que carga el kit, y en `.json`). Obra derivada de BDLJE CC-BY 4.0 [ign.es](https://www.ign.es/) (Límites municipales, provinciales y autonómicos del IGN, fichero del 28/07/2026; licencia de la Orden FOM/2807/2015, compatible con CC-BY 4.0). Se cargan solo al dibujar un mapa.
 - `DESIGN.md`: la guía que lee la IA. Es un índice corto: tabla de selección, reglas comunes y carga.
 - `referencias/`: una referencia por familia con el formato, los límites y ejemplos de cada componente. La IA solo lee la que necesita.
 - `esquema.json`: el formato de la especificación (JSON Schema).
-- `tokens.json`: colores, tipografía, estados y contraste en formato W3C DTCG, con CMYK aproximado.
+- `tokens.json`: colores, tipografía por modo, estados y contraste en formato W3C DTCG, con el CMYK FOGRA39 del sistema. Lo genera `herramientas/tokens.py`: no se edita a mano.
+- `sistema/tokens-sistema-diseno.json`: los tokens del sistema de diseño de Edelvives (interfaces v6.2, documentos v1.1, presentaciones v1.0), la fuente de verdad de los colores y la tipografía. No se publica en npm.
 - `ejemplos/`: una especificación válida por componente.
 - `datos/`: CSV ficticios para la prueba del dashboard comercial.
+- `herramientas/tokens.py`: traductor de tokens. Lee el sistema y `herramientas/tokens-graficos.json` (lo propio de los gráficos: roles, paletas, estados, mapa y tipografía por modo, que solo nombran tokens del sistema) y escribe `tokens.json` y el bloque de tokens del script. `--comprobar` falla si no coinciden; `--recalcular` rehace los CMYK provisionales (`herramientas/cmyk-provisional.json`).
 - `herramientas/generar.py`: regenera `esquema.json` y `vista-previa.html`. `herramientas/mapas.py`: prepara `dist/mapas/` a partir de los shapefiles de la BDDAE (necesita mapshaper). No se publican en npm.
 
-## Novedades de la 0.10.0 (en preparación)
+## Novedades de la 0.10.0
 
+El kit se alinea con el sistema de diseño de Edelvives y sale de la web: el sistema manda en la página, la diapositiva o el documento; el kit, dentro del gráfico.
+
+- **Modos.** `EG.configurar({ modo: 'web' | 'presentacion' | 'impresion', tema })`. El modo es de la página y `medio` en la especificación debe coincidir con él. Todo en `referencias/modos.md`.
+- **Presentación** (lienzo de 1920 × 1080, temas blanco y negro con los colores `pres-*`, acento naranja-400, Barlow en ejes, leyendas y etiquetas; Titillium en título, unidad y cifras). `EG.pptx(spec)` devuelve el gráfico nativo de PowerPoint para PptxGenJS (barras, líneas, áreas, donut, pie, dispersión, burbujas y radar) o la tabla nativa; funciona también en Node. Las fuentes, como el script de presentaciones del sistema (Barlow con la fuente del tema). `EG.svg(spec)` da la imagen vectorial para el resto. Sin título ni unidad por defecto (los pone la diapositiva) y sin colores de estado.
+- **Impresión** (A4 en pt, Barlow 8/9 pt y Titillium). `EG.svg(spec, { columnas: 1-4 })` da el SVG al ancho de la rejilla del A4, solo con colores de tokens y sin transparencias, y el mapa de cada hexadecimal a su CMYK FOGRA39. `fuente` es obligatoria.
+- **Tokens del sistema.** `tokens.json` y los colores del script se generan desde el sistema (`herramientas/tokens.py`). Desaparece naranja-200; neutro-300 es #D8D5CE en pantalla y neutro-300-doc #DBD5CE en documentos y presentaciones; el texto de aviso pasa a #886200. naranja-700, neutro-400, neutro-600 y neutro-700 no tienen CMYK en el sistema: el kit los calcula con el perfil FOGRA39, los marca como provisionales y avisa cuando un gráfico de impresión los usa.
+- **Paletas.** `paleta: 'foco'` (por defecto: un protagonista en naranja y el resto en neutros; 6 colores en web, 5 en presentación y 4 en impresión) o `paleta: 'gama'` (naranja, azul, verde, amarillo, morado, rosa y rojo; hasta 7). Con gama y 3 series o más sobre fondo claro, `etiquetas: true` (valor junto a cada barra o segmento, nombre y último valor al final de cada línea): verde y amarillo no llegan a 3:1.
+- **KPI con `mejor`.** `mejor: 'subir' | 'bajar'` (por defecto `subir`): la variación es favorable (verde) o desfavorable (rojo), con flecha, signo y «mejora» o «empeora». `sentidoPositivo` sigue valiendo como alias en toda la serie 0.x. `modo: 'neutro'` queda para cuando no hay sentido claro.
+- **Iconos Feather** (trazo de 1,5 px, sin relleno, licencia MIT) en lugar de Material Symbols.
+- **`fuente`** es ahora el origen de los datos (se rotula «Fuente: …» al pie). Para avisar de estilos que el kit ignora, el campo es `tipografia`.
+- **Validador:** series por paleta y modo, `etiquetas` con gama, donut de 5 sectores fuera de web, fuente en impresión, tipos solo web fuera de web (pipeline, progresión, cronología vertical, calendario · mes, anidados y tabla jerárquica) y CMYK provisional.
+- **Esquema y ejemplos:** `paleta`, `etiquetas`, `fuente` y `mejor` en el esquema; `medio` admite los tres modos. Ejemplos nuevos: `barras-agrupadas-gama`, `lineas-gama-etiquetas` y `kpi-mejor-bajar`.
+
+Cambios visibles en web (gráficos ya publicados con la 0.9):
+
+- Las series 3 a 6 de los gráficos de varias series pasan de naranjas a neutros (paleta foco): áreas, barras apiladas, sectores, treemap, marimekko, mapa de categorías, red y otros. Neutro 300 va el último de la paleta porque es el color de «Otros».
+- La variación del KPI deja de ser neutra por defecto: ahora es verde o roja según `mejor`, y el chip lleva «mejora» o «empeora».
+- Iconos nuevos en KPI, estados y tablas; «Pendiente» pasa a un reloj y «En proceso», a `loader`.
+- Neutro 300 (bordes de tarjeta, pistas, «Otros») pasa de #DBD5CE a #D8D5CE y el texto de aviso, de #8B6200 a #886200. La rampa naranja de Jerarquía pierde naranja-200 (6 tonos en vez de 7).
 - Carga de la fuente: el kit espera a que Titillium Web (y Barlow, en presentación e impresión) haya cargado antes de medir y dibujar. Antes, en la primera visita, `document.fonts.load` se pedía antes de leer la hoja de estilos y se resolvía en el acto: los rótulos se medían con la fuente de reserva y salían recortados («Canaria», «Baleare») o mal repartidos. Ahora espera a la hoja y luego a cada peso; si algo falla o tarda más de 5 s, dibuja igual. Barlow se pide a Google Fonts (`EG.configurar({ barlow: url })` para servirla desde otro sitio) y solo fuera de web.
 
 ## Novedades de la 0.9.2
@@ -149,19 +170,19 @@ Salen de la prueba del dashboard Actividad Comercial (campaña Curso 2026), hech
 
 ## URL pública
 
-`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/dist/edelvives-graficos.js`
+`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/dist/edelvives-graficos.js`
 
-Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/referencias/comparacion.md`.
+Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/referencias/comparacion.md`.
 
 El kit se publica en npm (paquete `edelvives-graficos`) y jsDelivr lo sirve desde ahí. Es la misma URL para la skill de Claude (incluidos los artefactos publicados), los Gems de Gemini, los GPT de ChatGPT y los servidores de Edelvives.
 
 ## Publicar una versión nueva
 
-1. Si has cambiado ejemplos o tipos, ejecuta `python3 herramientas/generar.py`.
+1. Si ha cambiado el sistema de diseño, copia su archivo en `sistema/tokens-sistema-diseno.json` y ejecuta `python3 herramientas/tokens.py`. Si has cambiado ejemplos o tipos, ejecuta `python3 herramientas/generar.py`. `python3 herramientas/tokens.py --comprobar` debe pasar antes de publicar.
 2. Sube los cambios al repositorio.
 3. Cambia `version` en `package.json` y la versión de las URL de `DESIGN.md`.
 4. Publica con `npm publish` desde la carpeta del repositorio.
-5. Actualiza la skill de Claude: sustituye su guía por el contenido de `DESIGN.md` (conservando la cabecera de la skill), copia la carpeta `referencias/` junto a ella y actualiza la copia de `dist/edelvives-graficos.js`. Los mapas se cargan desde jsDelivr (no hace falta copiar `dist/mapas/` en la skill).
+5. Actualiza la skill de Claude: `python3 herramientas/skill.py` genera la carpeta `herramientas/skill/graficos-edelvives/` (SKILL.md desde `herramientas/skill.md`, `referencias/`, `assets/` con el script y `tokens.json`, `scripts/validar.js`) y el .zip para subir a Claude. Los mapas se cargan desde jsDelivr (no hace falta copiar `dist/mapas/` en la skill).
 6. Si cambia la cartografía, descarga de nuevo `LINEAS_LIMITE.ZIP` («Límites municipales, provinciales y autonómicos») del Centro de Descargas del CNIG, pon su fecha en `FUENTE` de `herramientas/mapas.py` y ejecuta `python3 herramientas/mapas.py <carpeta con SHP_ETRS89 y SHP_WGS84>`.
 
 Un número de versión publicado en npm no se puede reutilizar: cada cambio necesita una versión nueva.

@@ -1,8 +1,16 @@
-# Evolución y tendencias · referencia del kit v0.5
+# Evolución y tendencias · referencia del kit v0.10
 
 Para mostrar cómo cambia una magnitud a lo largo del tiempo. Los campos comunes (`titulo`, `unidad`, `periodo`, `abreviar`…) están en `DESIGN.md`. El eje temporal va en `datos.periodos`, continuo y ordenado (`"Ene"`, `"T1"`, `"S12"`…), y cada serie tiene un valor por periodo.
 
 `rol` de una serie: `actual` (naranja, destacada), `anterior` (gris), `prevision` (discontinua). Sin `rol`, la primera serie se destaca. `ejeDesdeCero:false` ajusta el eje a los datos cuando las variaciones son pequeñas (no en áreas).
+
+`paleta`: `"foco"` (por defecto; la serie protagonista en naranja y el resto en neutros) o `"gama"` (naranja, azul, verde, amarillo, morado, rosa y rojo; hasta 7). Con `gama` y 3 series o más sobre fondo claro, `etiquetas: true` es obligatorio: verde y amarillo no llegan a 3:1 y necesitan el valor junto a cada elemento. En líneas y áreas, `etiquetas: true` escribe el nombre y el último valor al final de cada serie (leyenda directa).
+
+```js
+{ tipo:'lineas', variante:'multiples', titulo:'Usuarios activos por plataforma', unidad:'usuarios', paleta:'gama', etiquetas:true, abreviar:true,
+  datos:{ periodos:['Ene','Feb','Mar','Abr'], series:[ {nombre:'Aula digital', valores:[41200,43800,45100,46900]}, {nombre:'Biblioteca', valores:[18300,19100,20400,21800]},
+    {nombre:'Evaluación', valores:[9800,11200,12900,14100]}, {nombre:'Familias', valores:[5200,5600,6100,6400]} ] } }
+```
 
 ## `lineas`
 

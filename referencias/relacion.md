@@ -1,4 +1,4 @@
-# Relación y correlación · referencia del kit v0.6
+# Relación y correlación · referencia del kit v0.10
 
 Para mostrar cómo se relacionan dos o más variables numéricas. Los campos comunes están en `DESIGN.md`. Pasa los valores en bruto, un número por caso: el kit calcula la tendencia, los coeficientes de correlación, los hexágonos y las escalas. `nombreCasos` dice qué es cada caso, en plural (`"centros"`, `"títulos"`; por defecto `"casos"`), y el subtítulo muestra cuántos hay.
 
@@ -6,7 +6,7 @@ Para mostrar cómo se relacionan dos o más variables numéricas. Los campos com
 
 Un punto por caso, con una variable en cada eje. `ejes` es obligatorio: el nombre de cada variable, `{ x: "Inversión", y: "Ventas" }`. La unidad va en el título de cada eje, entre paréntesis. Si las dos variables comparten unidad, basta con `unidad`; si no, ponla en cada eje: `{ x: { nombre, unidad }, y: { nombre, unidad } }` (entonces `unidad` puede faltar).
 
-Datos: `x` e `y` (un número por caso, en el mismo orden) y, si quieres nombrar los casos, `nombres`. Para distinguir grupos con color (hasta 3), `series: [{ nombre, x, y, nombres }]`. `destacar` (un nombre) pinta ese caso en naranja y el resto en gris; `rotular` (hasta 8 nombres) escribe el nombre junto a los casos clave.
+Datos: `x` e `y` (un número por caso, en el mismo orden) y, si quieres nombrar los casos, `nombres`. Para distinguir grupos con color (hasta 3: naranja y dos neutros), `series: [{ nombre, x, y, nombres }]`. `destacar` (un nombre) pinta ese caso en naranja y el resto en gris; `rotular` (hasta 8 nombres) escribe el nombre junto a los casos clave.
 
 | `variante` | Pregunta | Casos |
 | --- | --- | --- |

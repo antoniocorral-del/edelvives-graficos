@@ -1,4 +1,4 @@
-# Objetivos y cumplimiento · referencia del kit v0.5
+# Objetivos y cumplimiento · referencia del kit v0.10
 
 Para mostrar el avance hacia una meta y el estado frente al objetivo. Los campos comunes están en `DESIGN.md`. Para un único KPI con su objetivo usa `kpi` (`kpi.md`); para logro frente a objetivo y rangos de calidad, `bullet` (`comparacion.md`).
 
@@ -26,7 +26,7 @@ En `barras` y `anillo`, sin `objetivos` los valores son porcentajes y `unidad` d
 
 ## Estados frente al objetivo
 
-`"en-objetivo"`, `"en-riesgo"` y `"fuera"`, siempre con icono, texto y color. El estado se calcula con el **cumplimiento** (valor / objetivo, en %) y los `umbrales`: por defecto `{ objetivo: 100, riesgo: 90 }`. En los indicadores donde menos es mejor (incidencias, plazos), `sentidoPositivo:'bajar'`.
+`"en-objetivo"`, `"en-riesgo"` y `"fuera"`, siempre con icono, texto y color. El estado se calcula con el **cumplimiento** (valor / objetivo, en %) y los `umbrales`: por defecto `{ objetivo: 100, riesgo: 90 }`. En los indicadores donde menos es mejor (incidencias, plazos), `mejor:'bajar'` (`sentidoPositivo`, su nombre antiguo, también vale).
 
 ## `tabla` · `scorecard` y `semaforo`
 
@@ -38,7 +38,7 @@ En `barras` y `anillo`, sin `objetivos` los valores son porcentajes y `unidad` d
 ```js
 { tipo:'tabla', variante:'scorecard', titulo:'Scorecard del trimestre', periodo:'1.er trimestre 2026', umbrales:{ objetivo:100, riesgo:90 },
   datos:{ indicadores:[ {nombre:'Ventas', valor:1402, objetivo:1300, unidad:'pedidos'},
-                        {nombre:'Incidencias', valor:21, objetivo:25, unidad:'incidencias', sentidoPositivo:'bajar'} ] } }
+                        {nombre:'Incidencias', valor:21, objetivo:25, unidad:'incidencias', mejor:'bajar'} ] } }
 ```
 
 Hasta 12 indicadores, en orden fijo. `unidad` va en cada indicador o una común en la especificación.

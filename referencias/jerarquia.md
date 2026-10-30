@@ -1,4 +1,4 @@
-# Jerarquía · referencia del kit v0.9.2
+# Jerarquía · referencia del kit v0.10
 
 Para mostrar estructuras en niveles: cuánto pesa cada parte dentro de su grupo, cómo se ramifica algo desde su origen y qué contiene cada categoría. Los campos comunes están en `DESIGN.md`.
 

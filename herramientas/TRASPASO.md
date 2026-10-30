@@ -2,10 +2,25 @@
 
 ## Estado
 
-- Versión del kit: **0.9.2** (paquete npm `edelvives-graficos`; motor ECharts 6.1.0; solo modo web).
+- Versión del kit: **0.10.0** (paquete npm `edelvives-graficos`; motor ECharts 6.1.0; modos web, presentación e impresión). La publica el usuario en npm; la skill se sube después (el .zip lo genera `herramientas/skill.py`).
 - Tandas hechas: 1 Comparación (0.2.0), 2 Evolución y tendencias (0.3.0), 3 Patrones de KPI + Objetivos y cumplimiento (0.4.0), 4a Composición (0.5.0), 4b Variación (0.5.1), 5a Distribución (0.6.0), 5b Relación y correlación (0.6.1), 6a Procesos y conversión (0.7.0), 6b Temporal especializado (0.7.1), 7a Jerarquía (0.8.0), 7b Flujo y relaciones (0.8.1), 8 Geografía (0.9.0).
 - **157 de 157 componentes de Figma implementados** (156 piezas en la vista previa). El detalle está en `herramientas/manifiesto.json`.
 - Archivo de Figma: «Gráficos y métricas Edelvives», fileKey `G67co0mI352BbRLMkZMnun`. Cada página tiene un marco «Cuadrícula» (en la 08, «Catálogo · Variación») con los componentes y su descripción (pregunta y uso recomendado); en la 07 cada componente está en su «Tarjeta · …»; la 13 (Geografía) tiene sus 12 componentes en «Catálogo · Geografía» (nodos 22:68 a 22:1501).
+
+## 0.10.0: alineación con el sistema de diseño y modos
+
+Fuente de verdad: `sistema/tokens-sistema-diseno.json` (interfaces v6.2, documentos v1.1, presentaciones v1.0; 27-10-2026). En cualquier discrepancia manda el sistema. Hecho por fases, cada una en su commit:
+
+- Fase 0: banco de pruebas en el Mac (`.banco/`) y referencia de la 0.9.2. Paso propio: el kit espera a que carguen las fuentes.
+- Fase 1: bloque de tokens entre marcadores `<tokens:generado>`; `tokensDe(modo, tema)` da `P`, `PR`, `T`, `TX` (roles tipográficos eje, leyenda, dato, titulo, unidad y cifra en px lógicos) y `K`. Los renderizadores calculan en px lógicos y la salida se escala por `K` (presentación 24/11, impresión 8/11 pt por px). Las constantes que leen tokens al cargar van en `derivado()`. Sin rol, `medir` y `estiloTexto` toman 600 como dato y el resto como eje.
+- Fase 2: `herramientas/tokens.py` (traductor) y `herramientas/tokens-graficos.json` (lo propio de los gráficos, solo con referencias a tokens del sistema). CMYK del sistema leídos del texto `usage`; los provisionales, en `herramientas/cmyk-provisional.json`.
+- Fase 3: paletas `foco` y `gama`, sustituciones por modo (fuera de web, naranja-300 → naranja-400 y neutro-300 → neutro-300-doc; en impresión, estados de interfaz → tonos de documento y tonos provisionales sueltos → el más cercano con CMYK; las rampas usan `PR` y conservan el provisional), `etiquetas`, `fuente` y validador por modo (`validarModo`).
+- Fase 4: `mejor` (alias `sentidoPositivo`), colores de variación y estados por modo (`T.estados`, `T.variacionMejora`…) e iconos Feather.
+- Fase 5: presentación (sin tarjeta; la escala neutra pasa a los `pres-*` del tema con `sustituirTema`, invertida en el negro), `EG.svg` (convierte a SVG el lienzo de ECharts y el HTML de la tarjeta: `htmlASvg`) y `EG.pptx` (función pura; tema de PowerPoint { Titillium Web Light, Barlow } y `+mn-lt`, como `edelvives_pptx.js` del sistema).
+- Fase 6: impresión (`EG.svg` por columnas del A4; `limpiarSvg` y `comprobarImpresion`: solo tokens de impresión, sin transparencias, mapa { hex: CMYK }; series opacas en impresión con `opacoEnImpresion`).
+- Fase 7: esquema, vista previa con selector de modo, ejemplos, `DESIGN.md`, `referencias/modos.md`, README, manifiesto y skill.
+
+Pendiente: revisar el .pptx de prueba en PowerPoint (`.banco/prueba-eg-pptx.pptx`, de `pptx_prueba.js`), la prueba de color de los CMYK provisionales, actualizar el catálogo de Figma a partir de `tokens.json` (Fase 8, opcional: variables para Figma), las leyendas HTML con línea discontinua (se dibujan con un degradado CSS y no pasan al SVG) y afinar a ojo algunos gráficos del tema negro.
 
 ## Siguiente
 
@@ -31,7 +46,7 @@ Distribución quedó hecha en la 0.6.0: `histograma`, `cajas` · `caja` / `violi
 - Motor ECharts 6.1.0 (versión fijada; no usar versiones de menos de 14 días).
 - KPI: un único tipo `kpi` con bloques; límite de valor + 1 comparación + 1 visual + contexto.
 - Umbrales de estado por defecto: en objetivo ≥ 100 %, en riesgo ≥ 90 % de cumplimiento.
-- Variación neutra por defecto (sube naranja, baja gris); Pendiente en Neutro 300; Naranja 200 #FFCEA3; techo de 6 series; sin modo oscuro; iconos Material.
+- Hasta la 0.9: variación neutra por defecto, Naranja 200, techo de 6 series e iconos Material. Desde la 0.10.0: variación valorada con `mejor` (por defecto `subir`), sin naranja-200, techo por paleta (foco 6/5/4 según el modo, gama 7), tema negro solo en presentación e iconos Feather.
 - La unidad va en el subtítulo de la tarjeta (no encima del eje, aunque algunos componentes de Figma la pongan ahí). Excepción en `dispersion`: va entre paréntesis en el título de cada eje, porque cada eje puede tener una unidad distinta (Figma pide «Ejes con título y unidad»).
 - Las barras y la cascada parten de cero: sin eje recortado.
 - Variación (0.5.1): `desviacion` se dibuja en barras horizontales con `categorias` y en columnas con `periodos`; «Actual vs. target» es `con-referencia` con `cumplimiento:true`; la contribución ordena por magnitud con «Otros» al final; antes y después rotula el cambio en % (en puntos si la unidad es %); la descomposición la calcula el kit con `ciclo` o acepta los componentes, y el residuo es opcional.
@@ -138,6 +153,7 @@ En el entorno de Claude los CDN están bloqueados. `sh herramientas/pruebas/prep
 
 - `shot.py <kit.js> /node_modules/echarts/dist/echarts.min.js /<specs.json> salida.png '&ancho=400px&cols=3'`: dibuja una lista de especificaciones con Playwright y devuelve `ok`, errores y avisos (probar también con `&ancho=330px&cols=4`). La primera captura de la sesión sale en frío (la fuente aún no está en caché): repetirla antes de comparar píxeles.
 - `hover2.py`, `hover_composicion.py`, `hover_variacion.py`, `hover_distribucion.py`, `hover_relacion.py`, `hover_procesos.py`, `hover_temporal.py`, `hover_jerarquia.py` (este también pliega la tabla jerárquica), `hover_flujo.py` (también pasa el ratón por una cinta) y `hover_geografia.py` (con `showTip` el índice de las fichas del cartograma no corresponde; con el ratón, sí): comprueban tooltips situando el ratón sobre un dato o con `showTip`.
+- `val_modos.js`: modos, paletas, etiquetas, donut fuera de web, fuente en impresión, tipos solo web, CMYK provisional y `mejor` frente a `sentidoPositivo`. `svgs.py <kit.js> <carpeta> <modo> [tema] [columnas]`: EG.svg de todos los ejemplos (con `harness-svg.html`). `pptx_prueba.js <kit.js> salida.pptx`: presentación de prueba con EG.pptx (necesita `pptxgenjs`). `vp.py` abre la vista previa en los cuatro modos.
 - `val_ej.js`: pasa todos los ejemplos por `EG.validar`. `val_ref.js`: hace lo mismo con las especificaciones de ejemplo de todas las referencias. `val_variacion.js`, `val_distribucion.js`, `val_relacion.js`, `val_procesos.js`, `val_temporal.js`, `val_jerarquia.js`, `val_flujo.js` y `val_geografia.js`: casos erróneos y límite de cada familia.
 - `vp.py`: abre `vp/index.html` (copia de `vista-previa.html` con `kit.js` y `EG.configurar` apuntando a los archivos locales) y cuenta tarjetas y errores.
 - En el Mac: `sh herramientas/pruebas/preparar.sh .banco` monta el banco en `.banco/` (fuera de git) con las rutas de los scripts cambiadas a esa carpeta y al repositorio, y `vp/index.html` hecho desde `vista-previa.html`. Playwright, Pillow y jsonschema van en `.banco/venv` (`python3 -m venv .banco/venv`, `.banco/venv/bin/pip install playwright pillow jsonschema`, `.banco/venv/bin/python -m playwright install chromium`). El arnés carga Titillium antes de dibujar, para que la captura no dependa de cuándo llega la fuente.

@@ -1,11 +1,11 @@
-# Sistema de gráficos y métricas Edelvives · guía para IA (kit v0.9, modo web)
+# Sistema de gráficos y métricas Edelvives · guía para IA (kit v0.10)
 
-Usa este kit para cualquier gráfico, tabla de datos o KPI en páginas web de Edelvives. Tú escribes una especificación JSON corta; el script `edelvives-graficos.js` aplica colores, tipografía, medidas y reglas. No dibujes gráficos a mano ni uses otra librería.
+Usa este kit para cualquier gráfico, tabla de datos o KPI de Edelvives: en páginas web, en presentaciones y en documentos impresos. Tú escribes una especificación JSON corta; el script `edelvives-graficos.js` aplica colores, tipografía, medidas y reglas. No dibujes gráficos a mano ni uses otra librería.
 
 ## 1. Carga
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/dist/edelvives-graficos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/dist/edelvives-graficos.js"></script>
 ```
 
 Ponlo en el `<head>`, con esta URL exacta. El script carga por su cuenta ECharts y la fuente Titillium Web. No lo copies ni lo reescribas dentro del HTML.
@@ -28,9 +28,25 @@ Ponlo en el `<head>`, con esta URL exacta. El script carga por su cuenta ECharts
 - `EG.render` devuelve una promesa con `{ ok, errores, avisos }`. Si hay errores, el componente muestra el motivo: corrige la especificación y vuelve a probar.
 - Para actualizar un gráfico, vuelve a llamar a `EG.render` en el mismo destino.
 
-## 3. Elige el componente por la pregunta
+## 3. Modos: web, presentaciones y documentos
 
-Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa familia antes de escribir la especificación** (formato, límites y ejemplos). Lee solo las referencias que necesites. Están en la carpeta `referencias/` junto a esta guía y en `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/referencias/<archivo>`.
+El sistema de diseño de Edelvives manda en la página, la diapositiva o el documento (márgenes, títulos, rejilla, notas); el kit manda dentro del gráfico (colores, tipografía, escalas, rótulos). El modo es de toda la página y se fija antes de dibujar:
+
+```js
+EG.configurar({ modo: 'presentacion', tema: 'negro' });   // 'web' (por defecto) · 'presentacion' (tema 'blanco' o 'negro') · 'impresion'
+```
+
+| Modo | Soporte | Entrega |
+| --- | --- | --- |
+| `web` | páginas, dashboards y artefactos | `EG.render(destino, spec)` |
+| `presentacion` | diapositivas de 1920 × 1080 | `EG.pptx(spec)`: gráfico nativo de PowerPoint (también en Node); si no hay nativo, `EG.svg(spec)` |
+| `impresion` | documentos A4 | `EG.svg(spec, { columnas: 1-4 })`: medidas en pt y solo colores con CMYK |
+
+En presentación el gráfico no lleva título ni unidad (los pone la diapositiva). En impresión `fuente` es obligatoria. Fuera de web hay menos colores en la paleta `foco` (5 en presentación, 4 en impresión), el donut admite 5 sectores y algunos tipos interactivos son solo web. Todo esto, en `referencias/modos.md`.
+
+## 4. Elige el componente por la pregunta
+
+Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa familia antes de escribir la especificación** (formato, límites y ejemplos). Lee solo las referencias que necesites. Están en la carpeta `referencias/` junto a esta guía y en `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/referencias/<archivo>`. Fuera de web, lee también `modos.md`.
 
 | Pregunta | `tipo` · `variante` | Referencia |
 | --- | --- | --- |
@@ -121,29 +137,29 @@ Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa fam
 
 Un dashboard: fila de 3-4 KPI arriba y 2-4 gráficos debajo, con un solo mensaje. Si dudas entre dos componentes, elige el más simple. Si la pregunta no está en la tabla, dilo al usuario en vez de inventar un gráfico.
 
-## 4. Campos comunes
+## 5. Campos comunes
 
-`tipo`, `titulo` y `unidad` son obligatorios (unidad, por ejemplo `"€"`, `"%"`, `"pedidos"`; en `dispersion` puede ir en cada eje, la `matriz` de correlación no lleva, `etapas` solo la necesita con importes y `cronologia`, `gantt`, `calendario` · `mes`, `ciclo-vida`, `arbol`, `anidados`, `red` y los `mapa` de puntos, celdas, áreas, rutas y conexiones no la llevan). Opcionales: `variante`, `periodo`, `subtitulo`, `nota`, `decimales`, `abreviar` (`true` muestra `14,2 M€` o `350 mil €`). Pasa los números en bruto, sin formatear: el kit usa el formato español. Las fechas, en ISO: `"2026-04-20"` o `"2026-04"`.
+`tipo`, `titulo` y `unidad` son obligatorios (unidad, por ejemplo `"€"`, `"%"`, `"pedidos"`; en `dispersion` puede ir en cada eje, la `matriz` de correlación no lleva, `etapas` solo la necesita con importes y `cronologia`, `gantt`, `calendario` · `mes`, `ciclo-vida`, `arbol`, `anidados`, `red` y los `mapa` de puntos, celdas, áreas, rutas y conexiones no la llevan). Opcionales: `variante`, `periodo`, `subtitulo`, `nota`, `fuente` (origen de los datos, que se rotula «Fuente: …»; obligatoria en impresión), `decimales`, `abreviar` (`true` muestra `14,2 M€` o `350 mil €`), `paleta` (`"foco"` por defecto: un protagonista en naranja y el resto en neutros; `"gama"`: hasta 7 colores) y `etiquetas` (`true`: el valor junto a cada elemento). Pasa los números en bruto, sin formatear: el kit usa el formato español. Las fechas, en ISO: `"2026-04-20"` o `"2026-04"`.
 
-## 5. Reglas (el validador las comprueba)
+## 6. Reglas (el validador las comprueba)
 
 1. La unidad es obligatoria y toda comparación declara su referencia (`referencia`, `objetivo`, `rol: 'anterior'`…).
 2. Las barras parten de cero: sin valores negativos. Para valores con signo usa `barras-divergentes` o `cascada`.
 3. Respeta los límites de series, categorías y partes de cada componente (están en su referencia).
 4. Un solo foco por gráfico: `destacar` resalta un elemento en naranja; el resto va en neutro.
-5. Variación en modo neutro por defecto: subida en naranja, bajada en gris.
+5. La variación del KPI se valora según `mejor` (`"subir"` por defecto; `"bajar"` cuando menos es mejor, como devoluciones o incidencias): favorable en verde y desfavorable en rojo, siempre con flecha, signo y «mejora» o «empeora». En presentación no hay colores de estado: acento o color de texto. `modo: "neutro"` (sube en naranja, baja en gris) solo cuando no hay un sentido claro.
 6. Los estados siempre llevan icono y texto, nunca solo color (el kit lo hace en `tabla` · `con-estados`).
+7. Con `paleta: "gama"` y 3 series o más sobre fondo claro, `etiquetas: true`: verde y amarillo no llegan a 3:1 y necesitan el valor junto a cada elemento.
+8. Fuera de web: donut de 5 sectores como máximo, `fuente` en impresión y nada de tipos solo web (ver `referencias/modos.md`).
 
-## 6. No hagas
+## 7. No hagas
 
 - No pongas colores, fuentes, tamaños ni CSS a los componentes: el kit los ignora o los sobrescribe.
 - No uses Chart.js, D3, Recharts ni gráficos SVG propios para lo que cubre este kit.
 - No formatees los números en los datos (`"14,2 M€"` es un error; usa `14204022` y `abreviar:true`).
 
-## 7. Si el script no carga
+## 8. Si el script no carga
 
 Si tu entorno de vista previa bloquea scripts externos, díselo al usuario: la página funcionará al abrirla en el navegador o al alojarla en un servidor. No reproduzcas el kit a mano.
 
-En servidores internos sin salida a internet, aloja el script y llama antes a `EG.configurar({ echarts: ['https://…/echarts.min.js'], fuente: 'https://…/titillium.css' })` (ECharts 6.1.0). Para los mapas, copia también la carpeta `dist/mapas/` del paquete y añade `mapas: 'https://…/mapas/'`.
-
-Fuera de la web (presentaciones, documentos impresos) el kit aún no tiene modo propio: aplica los valores de `tokens.json` y las reglas de esta guía, y avisa al usuario de que es una aproximación.
+En servidores internos sin salida a internet, aloja el script y llama antes a `EG.configurar({ echarts: ['https://…/echarts.min.js'], fuente: 'https://…/titillium.css', barlow: 'https://…/barlow.css' })` (ECharts 6.1.0; Barlow solo se carga en presentación e impresión). Para los mapas, copia también la carpeta `dist/mapas/` del paquete y añade `mapas: 'https://…/mapas/'`.

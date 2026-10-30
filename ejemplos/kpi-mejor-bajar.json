@@ -1,0 +1,14 @@
+{
+  "tipo": "kpi",
+  "titulo": "Devoluciones",
+  "unidad": "pedidos",
+  "valor": 118,
+  "mejor": "bajar",
+  "variacion": {
+    "anterior": 142,
+    "referencia": "vs. marzo"
+  },
+  "contexto": [
+    "Pedidos devueltos por los centros en abril."
+  ]
+}

@@ -1,13 +1,14 @@
 /*!
- * Edelvives Gráficos v0.9.2
- * Sistema de gráficos y métricas de Edelvives. Modo web.
- * Uso: EdelvivesGraficos.render('#destino', especificacion)
+ * Edelvives Gráficos v0.10.0
+ * Sistema de gráficos y métricas de Edelvives. Modos web, presentación e impresión.
+ * Uso: EdelvivesGraficos.render('#destino', especificacion); EG.svg(especificacion) y EG.pptx(especificacion) fuera de la web.
+ * Colores y tipografía: sistema de diseño de Edelvives (interfaces v6.2, documentos v1.1, presentaciones v1.0).
  * Iconos: Feather (feathericons.com), licencia MIT.
  */
 (function (global) {
   'use strict';
 
-  var VERSION = '0.9.2';
+  var VERSION = '0.10.0';
   var config = {
     echarts: [
       'https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js',
@@ -17,7 +18,7 @@
     /* Barlow: ejes, leyendas y etiquetas de datos en presentación e impresión (no se carga en web) */
     barlow: 'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap',
     /* Carpeta de los contornos de los mapas (TopoJSON); se cargan solo al dibujar un mapa */
-    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.9.2/dist/mapas/'
+    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/dist/mapas/'
   };
   var PREFIJO = '[EdelvivesGraficos] ';
   var NBSP = '\u00A0';
@@ -3851,6 +3852,7 @@
     if (s.etiquetas != null && typeof s.etiquetas !== 'boolean') err('«etiquetas» debe ser true o false.');
     if (s.fuente != null && !esTexto(s.fuente)) err('«fuente» es el origen de los datos, en texto (por ejemplo "INE, 2025"); el kit lo rotula «Fuente: …».');
     if (MODO === 'impresion' && !esTexto(s.fuente)) err('en impresión cada gráfico lleva la fuente de los datos: añade «fuente» (por ejemplo "INE, 2025" o "Datos internos de Edelvives").');
+    if (MODO !== 'web' && t === 'kpi' && s.periodos != null) aviso('fuera de web el selector de «periodos» no se puede usar: sale el primer periodo con las pestañas como texto. Mejor un KPI por periodo, con «valor» y «periodo».');
     if (MODO !== 'web' && SOLO_WEB[tv]) err('la variante «' + v + '» solo está en web (es HTML interactivo). Fuera de web, ' + SOLO_WEB[tv] + '.');
     var n = coloresDePaleta(s);
     if (n) {

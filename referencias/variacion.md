@@ -1,4 +1,4 @@
-# Variación · referencia del kit v0.5
+# Variación · referencia del kit v0.10
 
 Para explicar por qué cambia un valor: desviaciones, contribuciones y puentes entre dos cifras. Los campos comunes están en `DESIGN.md`. La variación es neutra: lo que sube va en naranja y lo que baja en gris oscuro, sin juzgar si es bueno o malo; los totales van en Neutro 400. Pasa los cambios con signo (`-18`, no `18` con un campo aparte).
 

@@ -19,5 +19,5 @@ mkdir -p vp && ln -sfn "$DESTINO"/node_modules vp/node_modules && cp fuente.css 
 ln -sfn "$RAIZ"/dist/mapas mapas && ln -sfn "$RAIZ"/dist/mapas vp/mapas
 # vp/index.html: la vista previa con el kit del repositorio y los recursos locales (para vp.py)
 cp "$RAIZ"/dist/edelvives-graficos.js vp/kit.js
-sed 's#<script src="dist/edelvives-graficos.js"></script>#<link rel="stylesheet" href="fuente.css" data-eg-fuente><script src="kit.js"></script><script>EG.configurar({ echarts: ["/node_modules/echarts/dist/echarts.min.js"], fuente: "fuente.css", mapas: "/mapas/" });</script>#' "$RAIZ"/vista-previa.html > vp/index.html
+sed 's#<script src="dist/edelvives-graficos.js"></script>#<link rel="stylesheet" href="fuente.css" data-eg-fuente><script src="kit.js"></script><script>EG.configurar({ echarts: ["/node_modules/echarts/dist/echarts.min.js"], fuente: "fuente.css", barlow: "barlow.css", mapas: "/mapas/" });</script>#' "$RAIZ"/vista-previa.html > vp/index.html
 echo "Listo en $DESTINO. Ejemplos: python3 shot.py <kit.js> /node_modules/echarts/dist/echarts.min.js /<specs.json> salida.png '&ancho=400px&cols=3'"

@@ -1,4 +1,4 @@
-# Comparación · referencia del kit v0.5
+# Comparación · referencia del kit v0.10
 
 Para comparar magnitudes entre categorías, productos, territorios, periodos o grupos. Los campos comunes (`titulo`, `unidad`, `periodo`, `abreviar`…) están en `DESIGN.md`.
 
@@ -7,6 +7,7 @@ Campos de esta familia:
 - `orden`: `"valor"` (de mayor a menor) o `"natural"` (el orden de los datos). Cada variante indica su orden por defecto.
 - `destacar`: nombre exacto del único elemento que se resalta en naranja.
 - `rol` de una serie: `actual` (naranja), `anterior` (gris), `prevision` (discontinua).
+- `paleta`: `"foco"` (por defecto; la serie protagonista en naranja y el resto en neutros) o `"gama"` (naranja, azul, verde, amarillo, morado, rosa y rojo; hasta 7). Con `gama` y 3 series o más sobre fondo claro, `etiquetas: true` es obligatorio: verde y amarillo no llegan a 3:1 y necesitan el valor junto a cada elemento. En `agrupadas` pone el valor encima de cada barra y en `apiladas` dentro de cada segmento.
 
 ## `barras`
 

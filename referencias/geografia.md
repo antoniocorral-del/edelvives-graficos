@@ -1,4 +1,4 @@
-# Geografía · referencia del kit v0.9
+# Geografía · referencia del kit v0.10
 
 Para mostrar dónde ocurre algo y cómo varía entre territorios de España, por comunidades autónomas o por provincias. Los campos comunes están en `DESIGN.md`.
 
@@ -27,7 +27,7 @@ Un **lugar** (origen, destino, parada o nodo) es el nombre de una zona del mapa,
 - `con-ranking`: el mapa y la lista de las `ranking` primeras zonas (8 por defecto) con los mismos colores.
 - `cartograma`: una ficha igual por comunidad en su posición aproximada, con la abreviatura y el valor. Ceuta y Melilla solo salen si están en los datos.
 - `burbujas` y `simbolos`: el área es proporcional al valor; la leyenda muestra tres tamaños de referencia (`leyenda` la titula; por defecto, la unidad). En `simbolos`, el mayor va en naranja y el resto en gris; `destacar` elige otro y `false` no destaca ninguno.
-- `categorias`: `categorias` da la zona de cada territorio (`null` = sin asignar); `datos.grupos` fija el orden de la leyenda. Los colores son los de la paleta de series, en ese orden.
+- `categorias`: `categorias` da la zona de cada territorio (`null` = sin asignar); `datos.grupos` fija el orden de la leyenda. Los colores son los de la paleta de series, en ese orden: con la paleta `foco`, 6 categorías como máximo en web (5 en presentación, 4 en impresión); con `paleta:'gama'`, 5 sobre fondo claro (sin verde ni amarillo, porque el mapa no rotula cada territorio).
 - `puntos`: `puntos` es una lista de `{ lat, lon }` (cada punto, un caso) o, con `territorios` y `valores` (recuentos), el kit pone un punto por cada `porPunto` casos dentro de cada zona. `nombreCasos` (plural) va en la leyenda y en el subtítulo; `nombreCaso` corrige el singular si hace falta («1 punto = 1 centro»).
 - `rejilla` y `hexagonos`: la IA pasa los casos (`{ lat, lon }`, con `valor` si cada uno pesa distinto, y entonces con `unidad`) y el kit los cuenta en celdas de `celda` km de lado (25 por defecto); los hexágonos tienen la misma área que esas celdas. Cinco clases de igual amplitud de 0 al máximo, de «Muy baja» a «Muy alta»; el subtítulo dice el tamaño de celda.
 - `flujos`: flechas curvas desde el `origen` con grosor proporcional al valor (6 px el mayor) y el valor junto a cada destino.
