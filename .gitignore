@@ -1,2 +1,5 @@
 .banco/
 herramientas/skill/
+.DS_Store
+package-lock.json
+encargo/
