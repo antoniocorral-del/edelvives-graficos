@@ -1,4 +1,4 @@
-# Distribución · referencia del kit v0.10
+# Distribución · referencia del kit v0.11
 
 Para mostrar cómo se reparten los valores: su forma, su centro, su dispersión y los casos que se salen. Los campos comunes están en `DESIGN.md`. Pasa los valores en bruto (un número por caso, sin agrupar ni ordenar): el kit calcula los intervalos, los cuartiles, la densidad y los percentiles, y pone en el subtítulo la unidad y el número de casos. `nombreCasos` dice qué es cada caso, en plural (`"alumnos"`, `"pedidos"`; por defecto `"casos"`). `marca` señala el centro: `"mediana"`, `"media"`, `"moda"` (solo en la densidad) o `"ninguna"`.
 

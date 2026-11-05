@@ -1,4 +1,4 @@
-# Evolución y tendencias · referencia del kit v0.10
+# Evolución y tendencias · referencia del kit v0.11
 
 Para mostrar cómo cambia una magnitud a lo largo del tiempo. Los campos comunes (`titulo`, `unidad`, `periodo`, `abreviar`…) están en `DESIGN.md`. El eje temporal va en `datos.periodos`, continuo y ordenado (`"Ene"`, `"T1"`, `"S12"`…), y cada serie tiene un valor por periodo.
 

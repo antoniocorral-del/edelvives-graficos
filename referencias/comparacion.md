@@ -1,4 +1,4 @@
-# Comparación · referencia del kit v0.10
+# Comparación · referencia del kit v0.11
 
 Para comparar magnitudes entre categorías, productos, territorios, periodos o grupos. Los campos comunes (`titulo`, `unidad`, `periodo`, `abreviar`…) están en `DESIGN.md`.
 

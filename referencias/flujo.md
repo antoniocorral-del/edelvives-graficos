@@ -1,4 +1,4 @@
-# Flujo y relaciones · referencia del kit v0.10
+# Flujo y relaciones · referencia del kit v0.11
 
 Para mostrar cómo circula una cantidad entre etapas o entidades y cómo se conectan los elementos entre sí. Los campos comunes están en `DESIGN.md`.
 

@@ -1,4 +1,4 @@
-# Kit de gráficos Edelvives v0.10 (web, presentaciones e impresión)
+# Kit de gráficos Edelvives v0.11 (web, presentaciones e impresión)
 
 Para ver los gráficos, abre con doble clic `vista-previa.html` (los 159 ejemplos, agrupados por familia, con un selector de modo: web, presentación en los dos temas e impresión por columnas) o `demo-dashboard-comercial.html` (el dashboard de la primera prueba, con el kit v0.1 incrustado). Se abren en el navegador y necesitan conexión a internet.
 
@@ -15,6 +15,16 @@ Contenido:
 - `datos/`: CSV ficticios para la prueba del dashboard comercial.
 - `herramientas/tokens.py`: traductor de tokens. Lee el sistema y `herramientas/tokens-graficos.json` (lo propio de los gráficos: roles, paletas, estados, mapa y tipografía por modo, que solo nombran tokens del sistema) y escribe `tokens.json` y el bloque de tokens del script. `--comprobar` falla si no coinciden; `--recalcular` rehace los CMYK provisionales (`herramientas/cmyk-provisional.json`); `--figma` escribe además `herramientas/figma-variables.json`, las variables para Figma (colecciones «Primitivos» y «Gráficos» con los modos Web, Presentación blanco, Presentación negro e Impresión, sacadas del propio script).
 - `herramientas/generar.py`: regenera `esquema.json` y `vista-previa.html`. `herramientas/mapas.py`: prepara `dist/mapas/` a partir de los shapefiles de la BDDAE (necesita mapshaper). No se publican en npm.
+
+## Novedades de la 0.11.0
+
+Colores sincronizados con el sistema de diseño publicado el 5 de noviembre de 2026 (`tokens.json` del artifact «Sistema de diseño Edelvives»). No cambia la API ni las especificaciones.
+
+- **Amarillos nuevos.** Toda la rampa cambia de HEX y de CMYK: amarillo-100 #FFF2CE, 200 #FFE7AC, 300 #FFDB7C, 400 #FFCE45, 500 #FBB400 (antes #FFB404; es la serie 4 de la paleta gama y `pres-grafica-4`), 600 #E59A00, 700 #D88100 y 800 #BA6900. Los tonos 600 a 800 son bastante más claros que antes.
+- **Neutros en CMYK de una tinta.** neutro-100 a neutro-700 y neutro-300-doc pasan a CMYK con solo amarillo y negro (por ejemplo, neutro-500 0/0/7/60). Los HEX no cambian.
+- **Menos CMYK provisional.** neutro-400, neutro-600 y neutro-700 ya tienen CMYK en el sistema: en impresión se usan tal cual (antes se cambiaban por neutro-500 y neutro-800) y dejan de dar aviso. Solo naranja-700 sigue siendo provisional, así que los gráficos con rampa naranja (mapas, calor, cohortes, correlación, hexágonos y Jerarquía) siguen pidiendo prueba de color.
+- **Texto de aviso en impresión.** El estado de aviso (amarillo-dark) pasa a amarillo-800 en lugar de amarillo-700: el nuevo amarillo-700 se queda en 2,67:1 sobre amarillo-100 y amarillo-800 da 3,69:1.
+- **Otros CMYK corregidos:** rojo-100 y rojo-500 a rojo-800 (los cuatro últimos, 0/100/100/K), verde-500, verde-700, verde-800, azul-500 y morado-100.
 
 ## Novedades de la 0.10.0
 
@@ -170,9 +180,9 @@ Salen de la prueba del dashboard Actividad Comercial (campaña Curso 2026), hech
 
 ## URL pública
 
-`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/dist/edelvives-graficos.js`
+`https://cdn.jsdelivr.net/npm/edelvives-graficos@0.11.0/dist/edelvives-graficos.js`
 
-Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/referencias/comparacion.md`.
+Las referencias también se sirven desde ahí: `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.11.0/referencias/comparacion.md`.
 
 El kit se publica en npm (paquete `edelvives-graficos`) y jsDelivr lo sirve desde ahí. Es la misma URL para la skill de Claude (incluidos los artefactos publicados), los Gems de Gemini, los GPT de ChatGPT y los servidores de Edelvives.
 

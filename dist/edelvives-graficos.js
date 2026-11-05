@@ -1,5 +1,5 @@
 /*!
- * Edelvives Gráficos v0.10.0
+ * Edelvives Gráficos v0.11.0
  * Sistema de gráficos y métricas de Edelvives. Modos web, presentación e impresión.
  * Uso: EdelvivesGraficos.render('#destino', especificacion); EG.svg(especificacion) y EG.pptx(especificacion) fuera de la web.
  * Colores y tipografía: sistema de diseño de Edelvives (interfaces v6.2, documentos v1.1, presentaciones v1.0).
@@ -8,7 +8,7 @@
 (function (global) {
   'use strict';
 
-  var VERSION = '0.10.0';
+  var VERSION = '0.11.0';
   var config = {
     echarts: [
       'https://cdn.jsdelivr.net/npm/echarts@6.1.0/dist/echarts.min.js',
@@ -18,7 +18,7 @@
     /* Barlow: ejes, leyendas y etiquetas de datos en presentación e impresión (no se carga en web) */
     barlow: 'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap',
     /* Carpeta de los contornos de los mapas (TopoJSON); se cargan solo al dibujar un mapa */
-    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/dist/mapas/'
+    mapas: 'https://cdn.jsdelivr.net/npm/edelvives-graficos@0.11.0/dist/mapas/'
   };
   var PREFIJO = '[EdelvivesGraficos] ';
   var NBSP = '\u00A0';
@@ -36,9 +36,9 @@
     neutro500: '#706B65', neutro600: '#4A4540', neutro700: '#222222', neutro800: '#000000',
     neutro900: '#181614', azulFocus: '#2650C5', verdeLight: '#D1F7E8', verdeBase: '#20BA76',
     verdeDark: '#0D6B43', amarilloLight: '#FFF3D0', amarilloBase: '#FFB521', amarilloDark: '#886200',
-    rojoLight: '#FAD4D8', rojoBase: '#D0021B', rojoDark: '#720010', amarillo100: '#F9F4C9',
-    amarillo200: '#F7EDB7', amarillo300: '#F7DF93', amarillo400: '#FACB61', amarillo500: '#FFB404',
-    amarillo600: '#CA8E00', amarillo700: '#986A00', amarillo800: '#694800', rojo100: '#FFE4E2',
+    rojoLight: '#FAD4D8', rojoBase: '#D0021B', rojoDark: '#720010', amarillo100: '#FFF2CE',
+    amarillo200: '#FFE7AC', amarillo300: '#FFDB7C', amarillo400: '#FFCE45', amarillo500: '#FBB400',
+    amarillo600: '#E59A00', amarillo700: '#D88100', amarillo800: '#BA6900', rojo100: '#FFE4E2',
     rojo200: '#FFD0CC', rojo300: '#FFAAA1', rojo400: '#FF725F', rojo500: '#EE370A',
     rojo600: '#BE2600', rojo700: '#8F1A00', rojo800: '#620F00', verde100: '#DAF7CD',
     verde200: '#C9EDB8', verde300: '#AADC91', verde400: '#82C55C', verde500: '#59AE09',
@@ -53,28 +53,28 @@
   /* CMYK FOGRA39 de los tonos de impresión (los provisionales, calculados; ver PROVISIONALES) */
   var CMYK = {
     naranja100: [0, 10, 25, 0], naranja400: [0, 60, 100, 0], naranja500: [0, 70, 100, 0], naranja600: [0, 75, 100, 10],
-    naranja700: [18, 83, 100, 9], neutro000: [0, 0, 0, 0], neutro100: [4, 4, 5, 0], neutro200: [7, 6, 8, 0],
-    neutro300Doc: [17, 15, 19, 0], neutro400: [35, 32, 36, 12], neutro500: [10, 10, 15, 66], neutro600: [59, 54, 56, 55],
-    neutro700: [72, 65, 60, 78], neutro800: [0, 0, 0, 100], neutro900: [20, 20, 20, 100], amarillo100: [4, 4, 27, 0],
-    amarillo200: [4, 5, 36, 0], amarillo300: [5, 11, 51, 0], amarillo400: [5, 22, 69, 0], amarillo500: [0, 33, 94, 2],
-    amarillo600: [5, 38, 98, 22], amarillo700: [12, 43, 100, 43], amarillo800: [20, 47, 100, 63], rojo100: [4, 13, 9, 0],
-    rojo200: [0, 26, 15, 0], rojo300: [0, 43, 30, 0], rojo400: [0, 67, 59, 0], rojo500: [0, 87, 96, 1],
-    rojo600: [0, 93, 99, 22], rojo700: [4, 94, 96, 45], rojo800: [6, 96, 85, 69], verde100: [16, 0, 22, 0],
-    verde200: [25, 0, 34, 0], verde300: [38, 1, 52, 0], verde400: [55, 0, 78, 1], verde500: [65, 0, 99, 4],
-    verde600: [64, 0, 100, 31], verde700: [64, 2, 100, 56], verde800: [69, 16, 100, 69], azul100: [16, 8, 2, 0],
-    azul200: [28, 13, 0, 0], azul300: [46, 25, 0, 0], azul400: [65, 42, 0, 0], azul500: [84, 62, 0, 0],
-    azul600: [95, 75, 0, 1], azul700: [99, 84, 0, 13], azul800: [100, 84, 0, 46], morado100: [11, 12, 1, 0],
+    naranja700: [18, 83, 100, 9], neutro000: [0, 0, 0, 0], neutro100: [0, 0, 2, 6], neutro200: [0, 0, 4, 15],
+    neutro300Doc: [0, 0, 7, 28], neutro400: [0, 0, 6, 45], neutro500: [0, 0, 7, 60], neutro600: [0, 0, 8, 80],
+    neutro700: [0, 0, 10, 90], neutro800: [0, 0, 0, 100], neutro900: [20, 20, 20, 100], amarillo100: [0, 5, 25, 0],
+    amarillo200: [0, 10, 40, 0], amarillo300: [0, 15, 60, 0], amarillo400: [0, 20, 80, 0], amarillo500: [0, 33, 100, 0],
+    amarillo600: [0, 40, 100, 10], amarillo700: [0, 50, 100, 15], amarillo800: [0, 55, 100, 30], rojo100: [0, 13, 9, 0],
+    rojo200: [0, 26, 15, 0], rojo300: [0, 43, 30, 0], rojo400: [0, 67, 59, 0], rojo500: [0, 100, 100, 0],
+    rojo600: [0, 100, 100, 15], rojo700: [0, 100, 100, 45], rojo800: [0, 100, 100, 70], verde100: [16, 0, 22, 0],
+    verde200: [25, 0, 34, 0], verde300: [38, 1, 52, 0], verde400: [55, 0, 78, 1], verde500: [65, 0, 100, 5],
+    verde600: [64, 0, 100, 31], verde700: [64, 0, 100, 56], verde800: [60, 0, 95, 75], azul100: [16, 8, 2, 0],
+    azul200: [28, 13, 0, 0], azul300: [46, 25, 0, 0], azul400: [65, 42, 0, 0], azul500: [80, 65, 0, 0],
+    azul600: [95, 75, 0, 1], azul700: [99, 84, 0, 13], azul800: [100, 84, 0, 46], morado100: [11, 12, 0, 0],
     morado200: [19, 21, 0, 0], morado300: [33, 36, 0, 0], morado400: [51, 55, 0, 0], morado500: [69, 75, 0, 0],
     morado600: [80, 90, 0, 0], morado700: [87, 100, 0, 4], morado800: [90, 99, 0, 39], rosa100: [4, 12, 4, 0],
     rosa200: [1, 23, 4, 0], rosa300: [3, 38, 6, 0], rosa400: [2, 58, 6, 0], rosa500: [2, 80, 4, 0],
     rosa600: [8, 92, 3, 9], rosa700: [10, 96, 4, 31], rosa800: [16, 98, 8, 57]
   };
-  var PROVISIONALES = ['naranja700', 'neutro400', 'neutro600', 'neutro700'];
+  var PROVISIONALES = ['naranja700'];
   var SOLO_PANTALLA = ['naranja300', 'neutro300', 'azulFocus', 'verdeLight', 'verdeBase', 'verdeDark', 'amarilloLight', 'amarilloBase', 'amarilloDark', 'rojoLight', 'rojoBase', 'rojoDark'];
   /* Colores de presentación por tema (pres-*) */
   var PRES = {
-    blanco: { fondo: '#FFFFFF', texto: '#1F1F1F', texto2: '#5C5C5C', acento: '#FF801F', separador: '#CCCCCC', barra: '#B8B8B8', marcador: '#EFEDEB', serie1: '#FF801F', serie2: '#B8B8B8', serie3: '#8C8C8C', serie4: '#5C5C5C', serie5: '#DEDEDE', grafica1: '#FF801F', grafica2: '#2760C8', grafica3: '#59AE09', grafica4: '#FFB404', grafica5: '#7A45C4', grafica6: '#FD4FA3', grafica7: '#EE370A', portadillaFondo: '#FFFFFF', portadillaTexto: '#1F1F1F', portadaFondo: '#F56A00' },
-    negro: { fondo: '#000000', texto: '#F7F4F2', texto2: '#A39B93', acento: '#FF801F', separador: '#393532', barra: '#DBD5CE', marcador: '#1C1A18', serie1: '#FF801F', serie2: '#DBD5CE', serie3: '#A39B93', serie4: '#706B65', serie5: '#4A4541', grafica1: '#FF801F', grafica2: '#2760C8', grafica3: '#59AE09', grafica4: '#FFB404', grafica5: '#7A45C4', grafica6: '#FD4FA3', grafica7: '#EE370A', portadillaFondo: '#F56A00', portadillaTexto: '#FFFFFF', portadaFondo: '#F56A00' }
+    blanco: { fondo: '#FFFFFF', texto: '#1F1F1F', texto2: '#5C5C5C', acento: '#FF801F', separador: '#CCCCCC', barra: '#B8B8B8', marcador: '#EFEDEB', serie1: '#FF801F', serie2: '#B8B8B8', serie3: '#8C8C8C', serie4: '#5C5C5C', serie5: '#DEDEDE', grafica1: '#FF801F', grafica2: '#2760C8', grafica3: '#59AE09', grafica4: '#FBB400', grafica5: '#7A45C4', grafica6: '#FD4FA3', grafica7: '#EE370A', portadillaFondo: '#FFFFFF', portadillaTexto: '#1F1F1F', portadaFondo: '#F56A00' },
+    negro: { fondo: '#000000', texto: '#F7F4F2', texto2: '#A39B93', acento: '#FF801F', separador: '#393532', barra: '#DBD5CE', marcador: '#1C1A18', serie1: '#FF801F', serie2: '#DBD5CE', serie3: '#A39B93', serie4: '#706B65', serie5: '#4A4541', grafica1: '#FF801F', grafica2: '#2760C8', grafica3: '#59AE09', grafica4: '#FBB400', grafica5: '#7A45C4', grafica6: '#FD4FA3', grafica7: '#EE370A', portadillaFondo: '#F56A00', portadillaTexto: '#FFFFFF', portadaFondo: '#F56A00' }
   };
   var FAMILIAS = {
     titillium: "'Titillium Web', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
@@ -301,8 +301,8 @@
     },
     impresion: {
       k: 8 / 11, unidad: 'pt',
-      sustituir: { naranja300: 'naranja400', neutro300: 'neutro300Doc', azulFocus: 'azul500', verdeLight: 'verde100', verdeBase: 'verde500', verdeDark: 'verde700', amarilloLight: 'amarillo100', amarilloBase: 'amarillo500', amarilloDark: 'amarillo700', rojoLight: 'rojo100', rojoBase: 'rojo500', rojoDark: 'rojo600' },
-      sustituirProvisional: { naranja700: 'naranja600', neutro400: 'neutro500', neutro600: 'neutro500', neutro700: 'neutro800' },
+      sustituir: { naranja300: 'naranja400', neutro300: 'neutro300Doc', azulFocus: 'azul500', verdeLight: 'verde100', verdeBase: 'verde500', verdeDark: 'verde700', amarilloLight: 'amarillo100', amarilloBase: 'amarillo500', amarilloDark: 'amarillo800', rojoLight: 'rojo100', rojoBase: 'rojo500', rojoDark: 'rojo600' },
+      sustituirProvisional: { naranja700: 'naranja600' },
       texto: {
         eje: { familia: 'barlow', tam: 8, alto: 11, peso: 400, estilo: 'doc-diagram-detail' },
         leyenda: { familia: 'barlow', tam: 9, alto: 12, peso: 400, estilo: 'doc-leyenda' },

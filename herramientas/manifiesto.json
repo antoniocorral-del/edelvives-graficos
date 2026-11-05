@@ -9,7 +9,7 @@
  },
  "kit": {
   "paquete": "edelvives-graficos",
-  "version_actual": "0.10.0",
+  "version_actual": "0.11.0",
   "motor_actual": "ECharts 6.1.0",
   "medios_actuales": [
    "web",

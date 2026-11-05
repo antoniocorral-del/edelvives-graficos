@@ -26,7 +26,7 @@ SCRIPT = os.path.join(RAIZ, 'dist', 'edelvives-graficos.js')
 PERFIL = '/Library/Application Support/Adobe/Color/Profiles/Recommended/CoatedFOGRA39.icc'
 
 # Tonos sin CMYK en el sistema que el kit necesita en impresión: CMYK calculado y marcado como provisional
-PROVISIONALES = ['naranja-700', 'neutro-400', 'neutro-600', 'neutro-700']
+PROVISIONALES = ['naranja-700']
 # Solo pantalla: nunca entran en impresión (naranja-300 por decisión del encargo; neutro-300 tiene su versión -doc;
 # los colores de estado de interfaz y el anillo de foco son de interfaz)
 SOLO_PANTALLA = re.compile(r'^(naranja-300|neutro-300|azul-focus|(verde|amarillo|rojo)-(light|base|dark))$')
@@ -52,6 +52,8 @@ def leer_sistema():
   refs = {}
   for t in s['color']['tokens']:
     n, v, uso = t['name'], t['value'], t.get('usage', '')
+    # El sistema publica cada valor por tema; un color igual en todos los temas viene solo como { blanco: … }
+    if isinstance(v, dict) and set(v) == {'blanco'}: v = v['blanco']
     if n.startswith('pres-'):
       refs[n] = v
       continue

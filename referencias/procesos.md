@@ -1,4 +1,4 @@
-# Procesos y conversión · referencia del kit v0.10
+# Procesos y conversión · referencia del kit v0.11
 
 Para seguir casos a lo largo de las etapas de un proceso: cuántos pasan de una a otra, en cuál está cada uno y cómo se vive el recorrido. Los campos comunes están en `DESIGN.md`. Las etapas van siempre en el orden del proceso, de la primera a la última.
 

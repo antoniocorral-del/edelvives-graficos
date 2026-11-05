@@ -46,12 +46,12 @@
     {
      "nombre": "neutro/100",
      "hex": "#F7F4F2",
-     "descripcion": "CMYK 4/4/5/0"
+     "descripcion": "CMYK 0/0/2/6"
     },
     {
      "nombre": "neutro/200",
      "hex": "#F0EDEA",
-     "descripcion": "CMYK 7/6/8/0"
+     "descripcion": "CMYK 0/0/4/15"
     },
     {
      "nombre": "neutro/300",
@@ -61,27 +61,27 @@
     {
      "nombre": "neutro/300-doc",
      "hex": "#DBD5CE",
-     "descripcion": "CMYK 17/15/19/0"
+     "descripcion": "CMYK 0/0/7/28"
     },
     {
      "nombre": "neutro/400",
      "hex": "#A39B93",
-     "descripcion": "CMYK 35/32/36/12 (provisional)"
+     "descripcion": "CMYK 0/0/6/45"
     },
     {
      "nombre": "neutro/500",
      "hex": "#706B65",
-     "descripcion": "CMYK 10/10/15/66"
+     "descripcion": "CMYK 0/0/7/60"
     },
     {
      "nombre": "neutro/600",
      "hex": "#4A4540",
-     "descripcion": "CMYK 59/54/56/55 (provisional)"
+     "descripcion": "CMYK 0/0/8/80"
     },
     {
      "nombre": "neutro/700",
      "hex": "#222222",
-     "descripcion": "CMYK 72/65/60/78 (provisional)"
+     "descripcion": "CMYK 0/0/10/90"
     },
     {
      "nombre": "neutro/800",
@@ -145,48 +145,48 @@
     },
     {
      "nombre": "amarillo/100",
-     "hex": "#F9F4C9",
-     "descripcion": "CMYK 4/4/27/0"
+     "hex": "#FFF2CE",
+     "descripcion": "CMYK 0/5/25/0"
     },
     {
      "nombre": "amarillo/200",
-     "hex": "#F7EDB7",
-     "descripcion": "CMYK 4/5/36/0"
+     "hex": "#FFE7AC",
+     "descripcion": "CMYK 0/10/40/0"
     },
     {
      "nombre": "amarillo/300",
-     "hex": "#F7DF93",
-     "descripcion": "CMYK 5/11/51/0"
+     "hex": "#FFDB7C",
+     "descripcion": "CMYK 0/15/60/0"
     },
     {
      "nombre": "amarillo/400",
-     "hex": "#FACB61",
-     "descripcion": "CMYK 5/22/69/0"
+     "hex": "#FFCE45",
+     "descripcion": "CMYK 0/20/80/0"
     },
     {
      "nombre": "amarillo/500",
-     "hex": "#FFB404",
-     "descripcion": "CMYK 0/33/94/2"
+     "hex": "#FBB400",
+     "descripcion": "CMYK 0/33/100/0"
     },
     {
      "nombre": "amarillo/600",
-     "hex": "#CA8E00",
-     "descripcion": "CMYK 5/38/98/22"
+     "hex": "#E59A00",
+     "descripcion": "CMYK 0/40/100/10"
     },
     {
      "nombre": "amarillo/700",
-     "hex": "#986A00",
-     "descripcion": "CMYK 12/43/100/43"
+     "hex": "#D88100",
+     "descripcion": "CMYK 0/50/100/15"
     },
     {
      "nombre": "amarillo/800",
-     "hex": "#694800",
-     "descripcion": "CMYK 20/47/100/63"
+     "hex": "#BA6900",
+     "descripcion": "CMYK 0/55/100/30"
     },
     {
      "nombre": "rojo/100",
      "hex": "#FFE4E2",
-     "descripcion": "CMYK 4/13/9/0"
+     "descripcion": "CMYK 0/13/9/0"
     },
     {
      "nombre": "rojo/200",
@@ -206,22 +206,22 @@
     {
      "nombre": "rojo/500",
      "hex": "#EE370A",
-     "descripcion": "CMYK 0/87/96/1"
+     "descripcion": "CMYK 0/100/100/0"
     },
     {
      "nombre": "rojo/600",
      "hex": "#BE2600",
-     "descripcion": "CMYK 0/93/99/22"
+     "descripcion": "CMYK 0/100/100/15"
     },
     {
      "nombre": "rojo/700",
      "hex": "#8F1A00",
-     "descripcion": "CMYK 4/94/96/45"
+     "descripcion": "CMYK 0/100/100/45"
     },
     {
      "nombre": "rojo/800",
      "hex": "#620F00",
-     "descripcion": "CMYK 6/96/85/69"
+     "descripcion": "CMYK 0/100/100/70"
     },
     {
      "nombre": "verde/100",
@@ -246,7 +246,7 @@
     {
      "nombre": "verde/500",
      "hex": "#59AE09",
-     "descripcion": "CMYK 65/0/99/4"
+     "descripcion": "CMYK 65/0/100/5"
     },
     {
      "nombre": "verde/600",
@@ -256,12 +256,12 @@
     {
      "nombre": "verde/700",
      "hex": "#316600",
-     "descripcion": "CMYK 64/2/100/56"
+     "descripcion": "CMYK 64/0/100/56"
     },
     {
      "nombre": "verde/800",
      "hex": "#1F4500",
-     "descripcion": "CMYK 69/16/100/69"
+     "descripcion": "CMYK 60/0/95/75"
     },
     {
      "nombre": "azul/100",
@@ -286,7 +286,7 @@
     {
      "nombre": "azul/500",
      "hex": "#2760C8",
-     "descripcion": "CMYK 84/62/0/0"
+     "descripcion": "CMYK 80/65/0/0"
     },
     {
      "nombre": "azul/600",
@@ -306,7 +306,7 @@
     {
      "nombre": "morado/100",
      "hex": "#EBE3FF",
-     "descripcion": "CMYK 11/12/1/0"
+     "descripcion": "CMYK 11/12/0/0"
     },
     {
      "nombre": "morado/200",
@@ -460,7 +460,7 @@
     },
     {
      "nombre": "presentacion/blanco/grafica-4",
-     "hex": "#FFB404",
+     "hex": "#FBB400",
      "descripcion": "pres-grafica-4 del tema blanco"
     },
     {
@@ -570,7 +570,7 @@
     },
     {
      "nombre": "presentacion/negro/grafica-4",
-     "hex": "#FFB404",
+     "hex": "#FBB400",
      "descripcion": "pres-grafica-4 del tema negro"
     },
     {
@@ -1054,7 +1054,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -1076,7 +1076,7 @@
        "alias": "presentacion/negro/texto-2"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -1378,7 +1378,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -1421,7 +1421,7 @@
        "alias": "presentacion/negro/texto-2"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -1465,7 +1465,7 @@
        "alias": "presentacion/negro/texto-2"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -1553,7 +1553,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -1707,7 +1707,7 @@
        "alias": "presentacion/negro/acento"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -1751,7 +1751,7 @@
        "alias": "presentacion/negro/barra"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -1773,7 +1773,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -1795,7 +1795,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -1883,7 +1883,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -1905,7 +1905,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -1971,7 +1971,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -1993,7 +1993,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -2059,7 +2059,7 @@
        "alias": "presentacion/negro/barra"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -2169,7 +2169,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -2191,7 +2191,7 @@
        "alias": "presentacion/negro/barra"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -2213,7 +2213,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -2367,7 +2367,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -2565,7 +2565,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -2653,7 +2653,7 @@
        "alias": "presentacion/negro/barra"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -2675,7 +2675,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -2697,7 +2697,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -2895,7 +2895,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -2917,7 +2917,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -3027,7 +3027,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -3049,7 +3049,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3071,7 +3071,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -3093,7 +3093,7 @@
        "alias": "presentacion/negro/barra"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -3159,7 +3159,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -3291,7 +3291,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3533,7 +3533,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -3753,7 +3753,7 @@
        "alias": "presentacion/negro/barra"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -3775,7 +3775,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3797,7 +3797,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3819,7 +3819,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3863,7 +3863,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -3885,7 +3885,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3929,7 +3929,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/800"
+       "alias": "neutro/700"
       }
      },
      "ambitos": [
@@ -3951,7 +3951,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -4127,7 +4127,7 @@
        "alias": "presentacion/negro/serie-4"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/400"
       }
      },
      "ambitos": [
@@ -4522,7 +4522,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "amarillo/700"
+       "alias": "amarillo/800"
       }
      },
      "ambitos": [
@@ -4608,7 +4608,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "neutro/500"
+       "alias": "neutro/600"
       }
      },
      "ambitos": [
@@ -4716,7 +4716,7 @@
        "alias": "presentacion/negro/texto"
       },
       "impresion": {
-       "alias": "amarillo/700"
+       "alias": "amarillo/800"
       }
      },
      "ambitos": [

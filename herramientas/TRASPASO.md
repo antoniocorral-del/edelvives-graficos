@@ -2,10 +2,14 @@
 
 ## Estado
 
-- Versión del kit: **0.10.0** (paquete npm `edelvives-graficos`; motor ECharts 6.1.0; modos web, presentación e impresión). La publica el usuario en npm; la skill se sube después (el .zip lo genera `herramientas/skill.py`).
+- Versión del kit: **0.11.0** (paquete npm `edelvives-graficos`; motor ECharts 6.1.0; modos web, presentación e impresión). La publica el usuario en npm; la skill se sube después (el .zip lo genera `herramientas/skill.py`).
 - Tandas hechas: 1 Comparación (0.2.0), 2 Evolución y tendencias (0.3.0), 3 Patrones de KPI + Objetivos y cumplimiento (0.4.0), 4a Composición (0.5.0), 4b Variación (0.5.1), 5a Distribución (0.6.0), 5b Relación y correlación (0.6.1), 6a Procesos y conversión (0.7.0), 6b Temporal especializado (0.7.1), 7a Jerarquía (0.8.0), 7b Flujo y relaciones (0.8.1), 8 Geografía (0.9.0).
 - **157 de 157 componentes de Figma implementados** (156 piezas en la vista previa). El detalle está en `herramientas/manifiesto.json`.
 - Archivo de Figma: «Gráficos y métricas Edelvives», fileKey `G67co0mI352BbRLMkZMnun`. Cada página tiene un marco «Cuadrícula» (en la 08, «Catálogo · Variación») con los componentes y su descripción (pregunta y uso recomendado); en la 07 cada componente está en su «Tarjeta · …»; la 13 (Geografía) tiene sus 12 componentes en «Catálogo · Geografía» (nodos 22:68 a 22:1501).
+
+## 0.11.0: colores del sistema al 5-11-2026
+
+`sistema/tokens-sistema-diseno.json` es copia exacta de `project/tokens.json` del artifact «Sistema de diseño Edelvives» (https://claude.ai/artifact/6yKbtfDq8MXmMJUhc712bV, publicado el 5-11-2026 a las 14:08, con dos textos de uso ya corregidos; el PDF «Colores del sistema: HEX y CMYK» lo resume). El sistema publica ahora cada valor por tema (`{ "blanco": … }`) y los pesos como texto: `tokens.py` lo acepta. Cambios: rampa de amarillos nueva (HEX y CMYK), CMYK de una tinta en los neutros, CMYK para neutro-400, neutro-600 y neutro-700 (dejan de ser provisionales; `PROVISIONALES` = solo naranja-700) y CMYK corregidos en rojos, verdes, azul-500 y morado-100. En impresión, amarillo-dark → amarillo-800 (el nuevo amarillo-700 da 2,67:1 sobre amarillo-100). neutro-300 sigue siendo solo pantalla en el kit aunque el PDF le dé CMYK (0/0/7/28, el mismo que neutro-300-doc). Las variables de Figma (`figma-variables.json`) están regeneradas, pero el archivo de Figma no se ha tocado.
 
 ## 0.10.0: alineación con el sistema de diseño y modos
 

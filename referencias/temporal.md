@@ -1,4 +1,4 @@
-# Temporal especializado · referencia del kit v0.10
+# Temporal especializado · referencia del kit v0.11
 
 Para situar en el tiempo hitos, tareas y días, y para comparar un periodo con otro equivalente. Los campos comunes están en `DESIGN.md`.
 

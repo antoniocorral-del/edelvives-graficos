@@ -1,4 +1,4 @@
-# Patrones de KPI · referencia del kit v0.10
+# Patrones de KPI · referencia del kit v0.11
 
 Para mostrar una cifra clave con lo que la acompaña. Los campos comunes están en `DESIGN.md`. Un KPI es siempre `tipo:'kpi'` con `valor`; no usa `datos`.
 

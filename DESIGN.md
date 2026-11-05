@@ -1,11 +1,11 @@
-# Sistema de gráficos y métricas Edelvives · guía para IA (kit v0.10)
+# Sistema de gráficos y métricas Edelvives · guía para IA (kit v0.11)
 
 Usa este kit para cualquier gráfico, tabla de datos o KPI de Edelvives: en páginas web, en presentaciones y en documentos impresos. Tú escribes una especificación JSON corta; el script `edelvives-graficos.js` aplica colores, tipografía, medidas y reglas. No dibujes gráficos a mano ni uses otra librería.
 
 ## 1. Carga
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/dist/edelvives-graficos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/edelvives-graficos@0.11.0/dist/edelvives-graficos.js"></script>
 ```
 
 Ponlo en el `<head>`, con esta URL exacta. El script carga por su cuenta ECharts y la fuente Titillium Web. No lo copies ni lo reescribas dentro del HTML.
@@ -46,7 +46,7 @@ En presentación el gráfico no lleva título ni unidad (los pone la diapositiva
 
 ## 4. Elige el componente por la pregunta
 
-Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa familia antes de escribir la especificación** (formato, límites y ejemplos). Lee solo las referencias que necesites. Están en la carpeta `referencias/` junto a esta guía y en `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.10.0/referencias/<archivo>`. Fuera de web, lee también `modos.md`.
+Localiza la pregunta, anota `tipo` y `variante` y **lee la referencia de esa familia antes de escribir la especificación** (formato, límites y ejemplos). Lee solo las referencias que necesites. Están en la carpeta `referencias/` junto a esta guía y en `https://cdn.jsdelivr.net/npm/edelvives-graficos@0.11.0/referencias/<archivo>`. Fuera de web, lee también `modos.md`.
 
 | Pregunta | `tipo` · `variante` | Referencia |
 | --- | --- | --- |

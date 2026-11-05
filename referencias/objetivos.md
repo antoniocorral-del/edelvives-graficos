@@ -1,4 +1,4 @@
-# Objetivos y cumplimiento · referencia del kit v0.10
+# Objetivos y cumplimiento · referencia del kit v0.11
 
 Para mostrar el avance hacia una meta y el estado frente al objetivo. Los campos comunes están en `DESIGN.md`. Para un único KPI con su objetivo usa `kpi` (`kpi.md`); para logro frente a objetivo y rangos de calidad, `bullet` (`comparacion.md`).
 

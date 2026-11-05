@@ -1,4 +1,4 @@
-# Composición · referencia del kit v0.10
+# Composición · referencia del kit v0.11
 
 Para mostrar qué parte del total representa cada categoría. Los campos comunes están en `DESIGN.md`. Pasa los valores en bruto: el kit calcula los porcentajes. Todas las partes son positivas (para valores con signo usa `barras-divergentes`). Si hay más partes de las permitidas, el kit agrupa las pequeñas en «Otros» (Neutro 300) y lo avisa; una categoría que se llame «Otros», «Otras…» o «Resto» también va en Neutro 300 y al final.
 

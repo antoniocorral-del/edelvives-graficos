@@ -1,1930 +1,2415 @@
 {
- "name": "Edelvives",
- "version": 1,
- "meta": {
-  "source": "Sistemas de diseño de Edelvives: interfaces v6.2, documentos v1.1 y presentaciones v1.0 (Figma «Sistema_Diseño_para_IAs»)."
- },
- "color": {
-  "themes": [
-   {
-    "id": "blanco",
-    "name": "Fondo blanco"
-   },
-   {
-    "id": "negro",
-    "name": "Fondo negro"
-   }
-  ],
-  "tokens": [
-   {
-    "name": "naranja-100",
-    "value": "#ffecd4",
-    "usage": "Superficie teñida de marca. Interfaces: fondo de tarjeta destacada, etiquetas y realces; sobre ella el texto pequeño va en neutro-700 y el titular de marca en naranja-600. Documentos: página naranja suave, caja 1 y tarjeta KPI. CMYK 0/10/25/0 (FOGRA39)."
-   },
-   {
-    "name": "naranja-300",
-    "value": "#ffaf73",
-    "usage": "Solo interfaces: fondo o borde de un elemento de marca en estado deshabilitado. No tiene valor CMYK (solo pantalla)."
-   },
-   {
-    "name": "naranja-400",
-    "value": "#ff801f",
-    "usage": "Naranja sobre negro. Interfaces: texto, iconos, filetes y subrayado de navegación sobre neutro-800 sólido (8,36:1); nunca sobre gradient-oscuro. Documentos: texto naranja pequeño sobre fondo oscuro, CMYK 0/60/100/0 (FOGRA39). Presentaciones: es el acento de los dos temas (ver pres-acento)."
-   },
-   {
-    "name": "naranja-500",
-    "value": "#f56a00",
-    "usage": "Color de identidad. Interfaces: fondo de botón primario, banners y secciones destacadas; como texto, solo grande (≥ 24 px, o ≥ 19 px SemiBold) y solo sobre neutro-000 (3,02:1). Nunca texto pequeño, nunca sobre negro ni sobre fondos teñidos. Documentos: filetes, cubierta, fondos y texto de 12 pt o más, CMYK 0/70/100/0 (FOGRA39); en el PDF digital, entre 12 y 17 pt en Regular queda por debajo del 4,5:1 de WCAG (es la regla del sistema de documentos y se mantiene: resérvalo a cifras, citas y titulares). Presentaciones: fondo de la portada y de la portadilla del tema negro. Nunca fondo de etiqueta."
-   },
-   {
-    "name": "naranja-600",
-    "value": "#d95003",
-    "usage": "Interfaces: hover de elementos de marca y titular de marca (texto grande) sobre neutro-100, neutro-200 o naranja-100 (3,53–3,76:1). Documentos: texto naranja de 11 pt o menos sobre fondo claro (cabecera de página, cabecera de tabla), CMYK 0/75/100/10 (FOGRA39). Sobre blanco da 4,12:1: suficiente en SemiBold a partir de 14 pt; en PDF digital, evita párrafos en este color."
-   },
-   {
-    "name": "naranja-700",
-    "value": "#bd4200",
-    "usage": "Solo interfaces: estado pressed de elementos de marca y enlace de marca en texto pequeño (5,33:1 sobre blanco). Ningún otro texto pequeño lleva naranja. Sin CMYK."
-   },
-   {
-    "name": "neutro-000",
-    "value": "#ffffff",
-    "usage": "Blanco puro. Fondo de página y de tarjeta en interfaces y documentos; fondo del tema blanco de presentaciones; texto sobre naranja-500 grande, sobre neutro-800 y sobre gradient-oscuro. CMYK 0/0/0/0 (FOGRA39)."
-   },
-   {
-    "name": "neutro-100",
-    "value": "#f7f4f2",
-    "usage": "Interfaces: fondo general de página y superficies contenedoras; drawer de la cabecera interna; footer público claro. Documentos: página gris, caja 3, bloque de métrica y filas alternas de tabla. Presentaciones: texto del tema negro (ver pres-texto). CMYK 4/4/5/0 (FOGRA39)."
-   },
-   {
-    "name": "neutro-200",
-    "value": "#f0edea",
-    "usage": "Interfaces: bordes de tarjeta y panel, divisores claros, fondo de cabecera de tabla, sombra baja. Documentos: contenedores, pista de barras y filas alternas. CMYK 7/6/8/0 (FOGRA39)."
-   },
-   {
-    "name": "neutro-300",
-    "value": "#d8d5ce",
-    "usage": "Valor de pantalla (interfaces): bordes decorativos (tarjetas, paneles, tablas), divisores de la cabecera interna, sombra alta y borde de controles deshabilitados. Nunca borde de un control activo: 1,47:1 sobre blanco, por debajo del 3:1 de WCAG 2.1 (1.4.11). En documentos y presentaciones se usa neutro-300-doc."
-   },
-   {
-    "name": "neutro-300-doc",
-    "value": "#dbd5ce",
-    "usage": "Variante de documentos y presentaciones del neutro-300. Documentos: filetes, bordes y conectores, cuadrícula de gráficas, puntos guía del índice y fondo de la página especial gris, CMYK 17/15/19/0 (FOGRA39). Presentaciones: barras no destacadas del tema negro."
-   },
-   {
-    "name": "neutro-400",
-    "value": "#a39b93",
-    "usage": "Interfaces: texto e iconos deshabilitados. Presentaciones: texto secundario del tema negro (notas, pies, ejes, número de página; 7,7:1 sobre negro). Sin CMYK."
-   },
-   {
-    "name": "neutro-500",
-    "value": "#706b65",
-    "usage": "Texto secundario. Interfaces: texto atenuado sobre neutro-000 (5,3:1) y borde de los controles (campos, selectores, casillas, radios, botones cuadrados y específicos), que exige 3:1. Documentos: pies, etiquetas, notas y pie de página, CMYK 10/10/15/66 (FOGRA39)."
-   },
-   {
-    "name": "neutro-600",
-    "value": "#4a4540",
-    "usage": "Solo interfaces: texto secundario oscuro, subtítulos y enlaces del footer público sobre fondo claro."
-   },
-   {
-    "name": "neutro-700",
-    "value": "#222222",
-    "usage": "Interfaces: texto de cuerpo y titulares primarios sobre neutro-000, neutro-100, neutro-200 y naranja-100."
-   },
-   {
-    "name": "neutro-800",
-    "value": "#000000",
-    "usage": "Negro. Interfaces: texto sobre naranja-500 y sobre gradient-naranja-1, banda de la cabecera externa, texto de la cabecera interna. Documentos: todo el texto de cuerpo y los títulos, siempre K100 puro, CMYK 0/0/0/100 (FOGRA39). Presentaciones: fondo del tema negro y fecha de la portada."
-   },
-   {
-    "name": "neutro-900",
-    "value": "#181614",
-    "usage": "Solo documentos: negro enriquecido para fondos grandes (página especial oscura, banda lateral oscura). Nunca en texto. CMYK 20/20/20/100 (FOGRA39)."
-   },
-   {
-    "name": "azul-focus",
-    "value": "#2650c5",
-    "usage": "Solo interfaces: anillo de foco de teclado (2 px sólido, 2 px de separación) sobre fondos claros (5,9–6,9:1). Sobre neutro-800 el anillo es neutro-000 y sobre naranja-500, neutro-800."
-   },
-   {
-    "name": "verde-light",
-    "value": "#d1f7e8",
-    "usage": "Solo interfaces · estado Éxito: fondo del mensaje o del texto de ayuda. Reservado a estados, alertas y notificaciones; nunca decorativo ni de marca."
-   },
-   {
-    "name": "verde-base",
-    "value": "#20ba76",
-    "usage": "Solo interfaces · estado Éxito: borde y acento (en un input con error, el borde). No es color de texto."
-   },
-   {
-    "name": "verde-dark",
-    "value": "#0d6b43",
-    "usage": "Solo interfaces · estado Éxito: texto e icono del mensaje, sobre verde-light o neutro-000. Acompáñalo siempre de una palabra o un icono: el color solo no basta."
-   },
-   {
-    "name": "amarillo-light",
-    "value": "#fff3d0",
-    "usage": "Solo interfaces · estado Aviso: fondo del mensaje o del texto de ayuda. Reservado a estados, alertas y notificaciones; nunca decorativo ni de marca."
-   },
-   {
-    "name": "amarillo-base",
-    "value": "#ffb521",
-    "usage": "Solo interfaces · estado Aviso: borde y acento (en un input con error, el borde). No es color de texto."
-   },
-   {
-    "name": "amarillo-dark",
-    "value": "#886200",
-    "usage": "Solo interfaces · estado Aviso: texto e icono del mensaje, sobre amarillo-light o neutro-000. Acompáñalo siempre de una palabra o un icono: el color solo no basta."
-   },
-   {
-    "name": "rojo-light",
-    "value": "#fad4d8",
-    "usage": "Solo interfaces · estado Error: fondo del mensaje o del texto de ayuda. Reservado a estados, alertas y notificaciones; nunca decorativo ni de marca."
-   },
-   {
-    "name": "rojo-base",
-    "value": "#d0021b",
-    "usage": "Solo interfaces · estado Error: borde y acento (en un input con error, el borde). No es color de texto."
-   },
-   {
-    "name": "rojo-dark",
-    "value": "#720010",
-    "usage": "Solo interfaces · estado Error: texto e icono del mensaje, sobre rojo-light o neutro-000. Acompáñalo siempre de una palabra o un icono: el color solo no basta."
-   },
-   {
-    "name": "amarillo-100",
-    "value": "#f9f4c9",
-    "usage": "Documentos · Amarillo 100: sombreado de las filas de referencia de tabla cuya serie va en amarillo-500. CMYK 4/4/27/0 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-200",
-    "value": "#f7edb7",
-    "usage": "Documentos · Amarillo 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 4/5/36/0 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-300",
-    "value": "#f7df93",
-    "usage": "Documentos · Amarillo 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 5/11/51/0 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-400",
-    "value": "#facb61",
-    "usage": "Documentos · Amarillo 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 5/22/69/0 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-500",
-    "value": "#ffb404",
-    "usage": "Documentos y presentaciones · Amarillo 500, tono principal: serie n.º 4 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 0/33/94/2 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-600",
-    "value": "#ca8e00",
-    "usage": "Documentos · Amarillo 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 5/38/98/22 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-700",
-    "value": "#986a00",
-    "usage": "Documentos · Amarillo 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 12/43/100/43 (FOGRA39)."
-   },
-   {
-    "name": "amarillo-800",
-    "value": "#694800",
-    "usage": "Documentos · Amarillo 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 20/47/100/63 (FOGRA39)."
-   },
-   {
-    "name": "rojo-100",
-    "value": "#ffe4e2",
-    "usage": "Documentos · Rojo 100: sombreado de las filas de referencia de tabla cuya serie va en rojo-500. CMYK 4/13/9/0 (FOGRA39)."
-   },
-   {
-    "name": "rojo-200",
-    "value": "#ffd0cc",
-    "usage": "Documentos · Rojo 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/26/15/0 (FOGRA39)."
-   },
-   {
-    "name": "rojo-300",
-    "value": "#ffaaa1",
-    "usage": "Documentos · Rojo 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/43/30/0 (FOGRA39)."
-   },
-   {
-    "name": "rojo-400",
-    "value": "#ff725f",
-    "usage": "Documentos · Rojo 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/67/59/0 (FOGRA39)."
-   },
-   {
-    "name": "rojo-500",
-    "value": "#ee370a",
-    "usage": "Documentos y presentaciones · Rojo 500, tono principal: serie n.º 7 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 0/87/96/1 (FOGRA39)."
-   },
-   {
-    "name": "rojo-600",
-    "value": "#be2600",
-    "usage": "Documentos · Rojo 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/93/99/22 (FOGRA39)."
-   },
-   {
-    "name": "rojo-700",
-    "value": "#8f1a00",
-    "usage": "Documentos · Rojo 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 4/94/96/45 (FOGRA39)."
-   },
-   {
-    "name": "rojo-800",
-    "value": "#620f00",
-    "usage": "Documentos · Rojo 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 6/96/85/69 (FOGRA39)."
-   },
-   {
-    "name": "verde-100",
-    "value": "#daf7cd",
-    "usage": "Documentos · Verde 100: sombreado de las filas de referencia de tabla cuya serie va en verde-500. CMYK 16/0/22/0 (FOGRA39)."
-   },
-   {
-    "name": "verde-200",
-    "value": "#c9edb8",
-    "usage": "Documentos · Verde 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 25/0/34/0 (FOGRA39)."
-   },
-   {
-    "name": "verde-300",
-    "value": "#aadc91",
-    "usage": "Documentos · Verde 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 38/1/52/0 (FOGRA39)."
-   },
-   {
-    "name": "verde-400",
-    "value": "#82c55c",
-    "usage": "Documentos · Verde 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 55/0/78/1 (FOGRA39)."
-   },
-   {
-    "name": "verde-500",
-    "value": "#59ae09",
-    "usage": "Documentos y presentaciones · Verde 500, tono principal: serie n.º 3 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 65/0/99/4 (FOGRA39)."
-   },
-   {
-    "name": "verde-600",
-    "value": "#448900",
-    "usage": "Documentos · Verde 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 64/0/100/31 (FOGRA39)."
-   },
-   {
-    "name": "verde-700",
-    "value": "#316600",
-    "usage": "Documentos · Verde 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 64/2/100/56 (FOGRA39)."
-   },
-   {
-    "name": "verde-800",
-    "value": "#1f4500",
-    "usage": "Documentos · Verde 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 69/16/100/69 (FOGRA39)."
-   },
-   {
-    "name": "azul-100",
-    "value": "#dbe8ff",
-    "usage": "Documentos · Azul 100: sombreado de las filas de referencia de tabla cuya serie va en azul-500. CMYK 16/8/2/0 (FOGRA39)."
-   },
-   {
-    "name": "azul-200",
-    "value": "#bfd6ff",
-    "usage": "Documentos · Azul 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 28/13/0/0 (FOGRA39)."
-   },
-   {
-    "name": "azul-300",
-    "value": "#91b5f5",
-    "usage": "Documentos · Azul 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 46/25/0/0 (FOGRA39)."
-   },
-   {
-    "name": "azul-400",
-    "value": "#5c8bdf",
-    "usage": "Documentos · Azul 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 65/42/0/0 (FOGRA39)."
-   },
-   {
-    "name": "azul-500",
-    "value": "#2760c8",
-    "usage": "Documentos y presentaciones · Azul 500, tono principal: serie n.º 2 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 84/62/0/0 (FOGRA39)."
-   },
-   {
-    "name": "azul-600",
-    "value": "#1248a8",
-    "usage": "Documentos · Azul 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 95/75/0/1 (FOGRA39)."
-   },
-   {
-    "name": "azul-700",
-    "value": "#033285",
-    "usage": "Documentos · Azul 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 99/84/0/13 (FOGRA39)."
-   },
-   {
-    "name": "azul-800",
-    "value": "#001f5d",
-    "usage": "Documentos · Azul 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 100/84/0/46 (FOGRA39)."
-   },
-   {
-    "name": "morado-100",
-    "value": "#ebe3ff",
-    "usage": "Documentos · Morado 100: sombreado de las filas de referencia de tabla cuya serie va en morado-500. CMYK 11/12/1/0 (FOGRA39)."
-   },
-   {
-    "name": "morado-200",
-    "value": "#dcccff",
-    "usage": "Documentos · Morado 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 19/21/0/0 (FOGRA39)."
-   },
-   {
-    "name": "morado-300",
-    "value": "#bfa6f2",
-    "usage": "Documentos · Morado 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 33/36/0/0 (FOGRA39)."
-   },
-   {
-    "name": "morado-400",
-    "value": "#9b77dc",
-    "usage": "Documentos · Morado 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 51/55/0/0 (FOGRA39)."
-   },
-   {
-    "name": "morado-500",
-    "value": "#7a45c4",
-    "usage": "Documentos y presentaciones · Morado 500, tono principal: serie n.º 5 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 69/75/0/0 (FOGRA39)."
-   },
-   {
-    "name": "morado-600",
-    "value": "#622da4",
-    "usage": "Documentos · Morado 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 80/90/0/0 (FOGRA39)."
-   },
-   {
-    "name": "morado-700",
-    "value": "#491981",
-    "usage": "Documentos · Morado 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 87/100/0/4 (FOGRA39)."
-   },
-   {
-    "name": "morado-800",
-    "value": "#32085c",
-    "usage": "Documentos · Morado 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 90/99/0/39 (FOGRA39)."
-   },
-   {
-    "name": "rosa-100",
-    "value": "#ffe6ee",
-    "usage": "Documentos · Rosa 100: sombreado de las filas de referencia de tabla cuya serie va en rosa-500. CMYK 4/12/4/0 (FOGRA39)."
-   },
-   {
-    "name": "rosa-200",
-    "value": "#ffd5e4",
-    "usage": "Documentos · Rosa 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 1/23/4/0 (FOGRA39)."
-   },
-   {
-    "name": "rosa-300",
-    "value": "#ffb5d1",
-    "usage": "Documentos · Rosa 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 3/38/6/0 (FOGRA39)."
-   },
-   {
-    "name": "rosa-400",
-    "value": "#ff88ba",
-    "usage": "Documentos · Rosa 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 2/58/6/0 (FOGRA39)."
-   },
-   {
-    "name": "rosa-500",
-    "value": "#fd4fa3",
-    "usage": "Documentos y presentaciones · Rosa 500, tono principal: serie n.º 6 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 2/80/4/0 (FOGRA39)."
-   },
-   {
-    "name": "rosa-600",
-    "value": "#d12c81",
-    "usage": "Documentos · Rosa 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 8/92/3/9 (FOGRA39)."
-   },
-   {
-    "name": "rosa-700",
-    "value": "#a30a60",
-    "usage": "Documentos · Rosa 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 10/96/4/31 (FOGRA39)."
-   },
-   {
-    "name": "rosa-800",
-    "value": "#720041",
-    "usage": "Documentos · Rosa 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 16/98/8/57 (FOGRA39)."
-   },
-   {
-    "name": "pres-fondo",
-    "value": {
-     "blanco": "#ffffff",
-     "negro": "#000000"
-    },
-    "usage": "Presentaciones: fondo de todas las diapositivas salvo la portada (y la portadilla del tema negro)."
-   },
-   {
-    "name": "pres-texto",
-    "value": {
-     "blanco": "#1f1f1f",
-     "negro": "#f7f4f2"
-    },
-    "usage": "Presentaciones: texto, epígrafes, titulares de campaña y celdas, sobre pres-fondo (16,5:1 en blanco; 19,2:1 en negro)."
-   },
-   {
-    "name": "pres-texto-2",
-    "value": {
-     "blanco": "#5c5c5c",
-     "negro": "#a39b93"
-    },
-    "usage": "Presentaciones: texto secundario (notas, fuentes, pies, ejes y número de página) sobre pres-fondo (6,7:1 en blanco; 7,7:1 en negro)."
-   },
-   {
-    "name": "pres-acento",
-    "value": {
-     "blanco": "#ff801f",
-     "negro": "#ff801f"
-    },
-    "usage": "Presentaciones: acento de los dos temas, el mismo valor que naranja-400. Título de diapositiva (Light 90 px), cifras, filetes, etiquetas, cabecera de tabla y una sola línea destacada por titular. Contraste: 8,4:1 sobre negro; sobre blanco solo 2,5:1, por debajo del 3:1 de texto grande. Es el valor del Figma y se mantiene: en el tema blanco, úsalo solo en tamaños grandes y nunca en texto corrido."
-   },
-   {
-    "name": "pres-separador",
-    "value": {
-     "blanco": "#cccccc",
-     "negro": "#393532"
-    },
-    "usage": "Presentaciones: separadores de 1 px (bloques, métricas, agenda, línea de proceso)."
-   },
-   {
-    "name": "pres-barra",
-    "value": {
-     "blanco": "#b8b8b8",
-     "negro": "#dbd5ce"
-    },
-    "usage": "Presentaciones: barras no destacadas del gráfico de barras."
-   },
-   {
-    "name": "pres-marcador",
-    "value": {
-     "blanco": "#efedeb",
-     "negro": "#1c1a18"
-    },
-    "usage": "Presentaciones: fondo del marcador «Imagen sugerida» cuando falta una fotografía aprobada."
-   },
-   {
-    "name": "pres-serie-1",
-    "value": {
-     "blanco": "#ff801f",
-     "negro": "#ff801f"
-    },
-    "usage": "Presentaciones: serie de datos n.º 1 (donut y leyendas). El dato protagonista va siempre aquí, en acento."
-   },
-   {
-    "name": "pres-serie-2",
-    "value": {
-     "blanco": "#b8b8b8",
-     "negro": "#dbd5ce"
-    },
-    "usage": "Presentaciones: serie de datos n.º 2 (donut y leyendas). Rampa neutra del tema, en este orden."
-   },
-   {
-    "name": "pres-serie-3",
-    "value": {
-     "blanco": "#8c8c8c",
-     "negro": "#a39b93"
-    },
-    "usage": "Presentaciones: serie de datos n.º 3 (donut y leyendas). Rampa neutra del tema, en este orden."
-   },
-   {
-    "name": "pres-serie-4",
-    "value": {
-     "blanco": "#5c5c5c",
-     "negro": "#706b65"
-    },
-    "usage": "Presentaciones: serie de datos n.º 4 (donut y leyendas). Rampa neutra del tema, en este orden."
-   },
-   {
-    "name": "pres-serie-5",
-    "value": {
-     "blanco": "#dedede",
-     "negro": "#4a4541"
-    },
-    "usage": "Presentaciones: serie de datos n.º 5 (donut y leyendas). Rampa neutra del tema, en este orden."
-   },
-   {
-    "name": "pres-grafica-1",
-    "value": "{pres-acento}",
-    "usage": "Presentaciones · gama de gráficas, serie 1: el dato protagonista, en el acento del tema (8,4:1 sobre negro; 2,5:1 sobre blanco)."
-   },
-   {
-    "name": "pres-grafica-2",
-    "value": "{azul-500}",
-    "usage": "Presentaciones · gama de gráficas, serie 2: azul-500, el mismo color y orden que en las gráficas de documentos. 5,84:1 sobre blanco y 3,59:1 sobre negro."
-   },
-   {
-    "name": "pres-grafica-3",
-    "value": "{verde-500}",
-    "usage": "Presentaciones · gama de gráficas, serie 3: verde-500, el mismo color y orden que en las gráficas de documentos. 2,81:1 sobre blanco y 7,48:1 sobre negro. En el tema blanco no llega a 3:1: no lo uses como serie sobre blanco salvo con leyenda y valor junto a cada sector o barra, o sáltalo."
-   },
-   {
-    "name": "pres-grafica-4",
-    "value": "{amarillo-500}",
-    "usage": "Presentaciones · gama de gráficas, serie 4: amarillo-500, el mismo color y orden que en las gráficas de documentos. 1,78:1 sobre blanco y 11,78:1 sobre negro. En el tema blanco no llega a 3:1: no lo uses como serie sobre blanco salvo con leyenda y valor junto a cada sector o barra, o sáltalo."
-   },
-   {
-    "name": "pres-grafica-5",
-    "value": "{morado-500}",
-    "usage": "Presentaciones · gama de gráficas, serie 5: morado-500, el mismo color y orden que en las gráficas de documentos. 6,04:1 sobre blanco y 3,48:1 sobre negro."
-   },
-   {
-    "name": "pres-grafica-6",
-    "value": "{rosa-500}",
-    "usage": "Presentaciones · gama de gráficas, serie 6: rosa-500, el mismo color y orden que en las gráficas de documentos. 3,08:1 sobre blanco y 6,82:1 sobre negro."
-   },
-   {
-    "name": "pres-grafica-7",
-    "value": "{rojo-500}",
-    "usage": "Presentaciones · gama de gráficas, serie 7: rojo-500, el mismo color y orden que en las gráficas de documentos. 4,05:1 sobre blanco y 5,19:1 sobre negro."
-   },
-   {
-    "name": "pres-portadilla-fondo",
-    "value": {
-     "blanco": "#ffffff",
-     "negro": "#f56a00"
-    },
-    "usage": "Presentaciones: fondo de la portadilla entre bloques; en el tema negro es naranja-500."
-   },
-   {
-    "name": "pres-portadilla-texto",
-    "value": {
-     "blanco": "#1f1f1f",
-     "negro": "#ffffff"
-    },
-    "usage": "Presentaciones: titular, etiqueta, bajada y lema de la portadilla sobre pres-portadilla-fondo."
-   },
-   {
-    "name": "pres-portada-fondo",
-    "value": "{naranja-500}",
-    "usage": "Presentaciones: fondo de la portada en los dos temas. Sobre ella, texto neutro-000 y fecha neutro-800."
-   }
-  ]
- },
- "type": {
-  "fonts": [
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-Light.ttf",
-    "weight": "300",
-    "style": "normal"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-LightItalic.ttf",
-    "weight": "300",
-    "style": "italic"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-Regular.ttf",
-    "weight": "400",
-    "style": "normal"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-Italic.ttf",
-    "weight": "400",
-    "style": "italic"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-SemiBold.ttf",
-    "weight": "600",
-    "style": "normal"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-SemiBoldItalic.ttf",
-    "weight": "600",
-    "style": "italic"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-Bold.ttf",
-    "weight": "700",
-    "style": "normal"
-   },
-   {
-    "family": "Titillium Web",
-    "file": "fonts/TitilliumWeb-BoldItalic.ttf",
-    "weight": "700",
-    "style": "italic"
-   },
-   {
-    "family": "Barlow",
-    "file": "fonts/Barlow-Regular.ttf",
-    "weight": "400",
-    "style": "normal"
-   },
-   {
-    "family": "Barlow",
-    "file": "fonts/Barlow-Italic.ttf",
-    "weight": "400",
-    "style": "italic"
-   },
-   {
-    "family": "Barlow",
-    "file": "fonts/Barlow-Medium.ttf",
-    "weight": "500",
-    "style": "normal"
-   },
-   {
-    "family": "Barlow",
-    "file": "fonts/Barlow-SemiBold.ttf",
-    "weight": "600",
-    "style": "normal"
-   },
-   {
-    "family": "Roboto Mono",
-    "file": "fonts/RobotoMono-Regular.ttf",
-    "weight": "400",
-    "style": "normal"
-   }
-  ],
-  "families": {
-   "titillium": "\"Titillium Web\", sans-serif",
-   "barlow": "Barlow, sans-serif",
-   "mono": "\"Roboto Mono\", monospace"
+  "version": 1,
+  "color": {
+    "themes": [
+      {
+        "id": "blanco",
+        "name": "Fondo blanco"
+      },
+      {
+        "id": "negro",
+        "name": "Fondo negro"
+      }
+    ],
+    "tokens": [
+      {
+        "name": "naranja-100",
+        "value": {
+          "blanco": "#ffecd4"
+        },
+        "usage": "Superficie teñida de marca. Interfaces: fondo de tarjeta destacada, etiquetas y realces; sobre ella el texto pequeño va en neutro-700 y el titular de marca en naranja-600. Documentos: página naranja suave, caja 1 y tarjeta KPI. CMYK 0/10/25/0 (FOGRA39)."
+      },
+      {
+        "name": "naranja-300",
+        "value": {
+          "blanco": "#ffaf73"
+        },
+        "usage": "Solo interfaces: fondo o borde de un elemento de marca en estado deshabilitado. No tiene valor CMYK (solo pantalla)."
+      },
+      {
+        "name": "naranja-400",
+        "value": {
+          "blanco": "#ff801f"
+        },
+        "usage": "Naranja sobre negro. Interfaces: texto, iconos, filetes y subrayado de navegación sobre neutro-800 sólido (8,36:1); nunca sobre gradient-oscuro. Documentos: texto naranja pequeño sobre fondo oscuro, CMYK 0/60/100/0 (FOGRA39). Presentaciones: es el acento de los dos temas (ver pres-acento)."
+      },
+      {
+        "name": "naranja-500",
+        "value": {
+          "blanco": "#f56a00"
+        },
+        "usage": "Color de identidad. Interfaces: fondo de botón primario, banners y secciones destacadas; como texto, solo grande (≥ 24 px, o ≥ 19 px SemiBold) y solo sobre neutro-000 (3,02:1). Nunca texto pequeño, nunca sobre negro ni sobre fondos teñidos. Documentos: filetes, cubierta, fondos y texto de 12 pt o más, CMYK 0/70/100/0 (FOGRA39); en el PDF digital, entre 12 y 17 pt en Regular queda por debajo del 4,5:1 de WCAG (es la regla del sistema de documentos y se mantiene: resérvalo a cifras, citas y titulares). Presentaciones: fondo de la portada y de la portadilla del tema negro. Nunca fondo de etiqueta."
+      },
+      {
+        "name": "naranja-600",
+        "value": {
+          "blanco": "#d95003"
+        },
+        "usage": "Interfaces: hover de elementos de marca y titular de marca (texto grande) sobre neutro-100, neutro-200 o naranja-100 (3,53–3,76:1). Documentos: texto naranja de 11 pt o menos sobre fondo claro (cabecera de página, cabecera de tabla), CMYK 0/75/100/10 (FOGRA39). Sobre blanco da 4,12:1: suficiente en SemiBold a partir de 14 pt; en PDF digital, evita párrafos en este color."
+      },
+      {
+        "name": "naranja-700",
+        "value": {
+          "blanco": "#bd4200"
+        },
+        "usage": "Solo interfaces: estado pressed de elementos de marca y enlace de marca en texto pequeño (5,33:1 sobre blanco). Ningún otro texto pequeño lleva naranja. Sin CMYK."
+      },
+      {
+        "name": "neutro-000",
+        "value": {
+          "blanco": "#ffffff"
+        },
+        "usage": "Blanco puro. Fondo de página y de tarjeta en interfaces y documentos; fondo del tema blanco de presentaciones; texto sobre naranja-500 grande, sobre neutro-800 y sobre gradient-oscuro. CMYK 0/0/0/0 (FOGRA39)."
+      },
+      {
+        "name": "neutro-100",
+        "value": {
+          "blanco": "#f7f4f2"
+        },
+        "usage": "Interfaces: fondo general de página y superficies contenedoras; drawer de la cabecera interna; footer público claro. Documentos: página gris, caja 3, bloque de métrica y filas alternas de tabla. Presentaciones: texto del tema negro (ver pres-texto). CMYK 0/0/2/6 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-200",
+        "value": {
+          "blanco": "#f0edea"
+        },
+        "usage": "Interfaces: bordes de tarjeta y panel, divisores claros, fondo de cabecera de tabla, sombra baja. Documentos: contenedores, pista de barras y filas alternas. CMYK 0/0/4/15 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-300",
+        "value": {
+          "blanco": "#d8d5ce"
+        },
+        "usage": "Valor de pantalla (interfaces): bordes decorativos (tarjetas, paneles, tablas), divisores de la cabecera interna, sombra alta y borde de controles deshabilitados. Nunca borde de un control activo: 1,47:1 sobre blanco, por debajo del 3:1 de WCAG 2.1 (1.4.11). En documentos y presentaciones se usa neutro-300-doc. CMYK 0/0/7/28 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-300-doc",
+        "value": {
+          "blanco": "#dbd5ce"
+        },
+        "usage": "Variante de documentos y presentaciones del neutro-300. Documentos: filetes, bordes y conectores, cuadrícula de gráficas, puntos guía del índice y fondo de la página especial gris, CMYK 0/0/7/28 (FOGRA39, solo amarillo y negro). Presentaciones: barras no destacadas del tema negro."
+      },
+      {
+        "name": "neutro-400",
+        "value": {
+          "blanco": "#a39b93"
+        },
+        "usage": "Interfaces: texto e iconos deshabilitados. Presentaciones: texto secundario del tema negro (notas, pies, ejes, número de página; 7,7:1 sobre negro). CMYK 0/0/6/45 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-500",
+        "value": {
+          "blanco": "#706b65"
+        },
+        "usage": "Texto secundario. Interfaces: texto atenuado sobre neutro-000 (5,3:1) y borde de los controles (campos, selectores, casillas, radios, botones cuadrados y específicos), que exige 3:1. Documentos: pies, etiquetas, notas y pie de página, CMYK 0/0/7/60 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-600",
+        "value": {
+          "blanco": "#4a4540"
+        },
+        "usage": "Solo interfaces: texto secundario oscuro, subtítulos y enlaces del footer público sobre fondo claro. CMYK 0/0/8/80 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-700",
+        "value": {
+          "blanco": "#222222"
+        },
+        "usage": "Interfaces: texto de cuerpo y titulares primarios sobre neutro-000, neutro-100, neutro-200 y naranja-100. CMYK 0/0/10/90 (FOGRA39, solo amarillo y negro)."
+      },
+      {
+        "name": "neutro-800",
+        "value": {
+          "blanco": "#000000"
+        },
+        "usage": "Negro. Interfaces: texto sobre naranja-500 y sobre gradient-naranja-1, banda de la cabecera externa, texto de la cabecera interna. Documentos: todo el texto de cuerpo y los títulos, siempre K100 puro, CMYK 0/0/0/100 (FOGRA39). Presentaciones: fondo del tema negro y fecha de la portada."
+      },
+      {
+        "name": "neutro-900",
+        "value": {
+          "blanco": "#181614"
+        },
+        "usage": "Solo documentos: negro enriquecido para fondos grandes (página especial oscura, banda lateral oscura). Nunca en texto. CMYK 20/20/20/100 (FOGRA39): única excepción a los neutros con solo amarillo y negro."
+      },
+      {
+        "name": "azul-focus",
+        "value": {
+          "blanco": "#2650c5"
+        },
+        "usage": "Solo interfaces: anillo de foco de teclado (2 px sólido, 2 px de separación) sobre fondos claros (5,9–6,9:1). Sobre neutro-800 el anillo es neutro-000 y sobre naranja-500, neutro-800."
+      },
+      {
+        "name": "verde-light",
+        "value": {
+          "blanco": "#d1f7e8"
+        },
+        "usage": "Solo interfaces · estado Éxito: fondo del mensaje o del texto de ayuda. Reservado a estados, alertas y notificaciones; nunca decorativo ni de marca."
+      },
+      {
+        "name": "verde-base",
+        "value": {
+          "blanco": "#20ba76"
+        },
+        "usage": "Solo interfaces · estado Éxito: borde y acento (en un input con error, el borde). No es color de texto."
+      },
+      {
+        "name": "verde-dark",
+        "value": {
+          "blanco": "#0d6b43"
+        },
+        "usage": "Solo interfaces · estado Éxito: texto e icono del mensaje, sobre verde-light o neutro-000. Acompáñalo siempre de una palabra o un icono: el color solo no basta."
+      },
+      {
+        "name": "amarillo-light",
+        "value": {
+          "blanco": "#fff3d0"
+        },
+        "usage": "Solo interfaces · estado Aviso: fondo del mensaje o del texto de ayuda. Reservado a estados, alertas y notificaciones; nunca decorativo ni de marca."
+      },
+      {
+        "name": "amarillo-base",
+        "value": {
+          "blanco": "#ffb521"
+        },
+        "usage": "Solo interfaces · estado Aviso: borde y acento (en un input con error, el borde). No es color de texto."
+      },
+      {
+        "name": "amarillo-dark",
+        "value": {
+          "blanco": "#886200"
+        },
+        "usage": "Solo interfaces · estado Aviso: texto e icono del mensaje, sobre amarillo-light o neutro-000. Acompáñalo siempre de una palabra o un icono: el color solo no basta."
+      },
+      {
+        "name": "rojo-light",
+        "value": {
+          "blanco": "#fad4d8"
+        },
+        "usage": "Solo interfaces · estado Error: fondo del mensaje o del texto de ayuda. Reservado a estados, alertas y notificaciones; nunca decorativo ni de marca."
+      },
+      {
+        "name": "rojo-base",
+        "value": {
+          "blanco": "#d0021b"
+        },
+        "usage": "Solo interfaces · estado Error: borde y acento (en un input con error, el borde). No es color de texto."
+      },
+      {
+        "name": "rojo-dark",
+        "value": {
+          "blanco": "#720010"
+        },
+        "usage": "Solo interfaces · estado Error: texto e icono del mensaje, sobre rojo-light o neutro-000. Acompáñalo siempre de una palabra o un icono: el color solo no basta."
+      },
+      {
+        "name": "amarillo-100",
+        "value": {
+          "blanco": "#fff2ce"
+        },
+        "usage": "Documentos · Amarillo 100: sombreado de las filas de referencia de tabla cuya serie va en amarillo-500. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/5/25/0 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-200",
+        "value": {
+          "blanco": "#ffe7ac"
+        },
+        "usage": "Documentos · Amarillo 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/10/40/0 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-300",
+        "value": {
+          "blanco": "#ffdb7c"
+        },
+        "usage": "Documentos · Amarillo 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/15/60/0 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-400",
+        "value": {
+          "blanco": "#ffce45"
+        },
+        "usage": "Documentos · Amarillo 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/20/80/0 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-500",
+        "value": {
+          "blanco": "#fbb400"
+        },
+        "usage": "Documentos y presentaciones · Amarillo 500, tono principal: serie n.º 4 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/33/100/0 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-600",
+        "value": {
+          "blanco": "#e59a00"
+        },
+        "usage": "Documentos · Amarillo 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/40/100/10 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-700",
+        "value": {
+          "blanco": "#d88100"
+        },
+        "usage": "Documentos · Amarillo 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/50/100/15 (FOGRA39)."
+      },
+      {
+        "name": "amarillo-800",
+        "value": {
+          "blanco": "#ba6900"
+        },
+        "usage": "Documentos · Amarillo 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. Valor RGB ajustado a su CMYK (noviembre 2026). CMYK 0/55/100/30 (FOGRA39)."
+      },
+      {
+        "name": "rojo-100",
+        "value": {
+          "blanco": "#ffe4e2"
+        },
+        "usage": "Documentos · Rojo 100: sombreado de las filas de referencia de tabla cuya serie va en rojo-500. CMYK 0/13/9/0 (FOGRA39)."
+      },
+      {
+        "name": "rojo-200",
+        "value": {
+          "blanco": "#ffd0cc"
+        },
+        "usage": "Documentos · Rojo 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/26/15/0 (FOGRA39)."
+      },
+      {
+        "name": "rojo-300",
+        "value": {
+          "blanco": "#ffaaa1"
+        },
+        "usage": "Documentos · Rojo 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/43/30/0 (FOGRA39)."
+      },
+      {
+        "name": "rojo-400",
+        "value": {
+          "blanco": "#ff725f"
+        },
+        "usage": "Documentos · Rojo 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/67/59/0 (FOGRA39)."
+      },
+      {
+        "name": "rojo-500",
+        "value": {
+          "blanco": "#ee370a"
+        },
+        "usage": "Documentos y presentaciones · Rojo 500, tono principal: serie n.º 7 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 0/100/100/0 (FOGRA39)."
+      },
+      {
+        "name": "rojo-600",
+        "value": {
+          "blanco": "#be2600"
+        },
+        "usage": "Documentos · Rojo 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/100/100/15 (FOGRA39)."
+      },
+      {
+        "name": "rojo-700",
+        "value": {
+          "blanco": "#8f1a00"
+        },
+        "usage": "Documentos · Rojo 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/100/100/45 (FOGRA39)."
+      },
+      {
+        "name": "rojo-800",
+        "value": {
+          "blanco": "#620f00"
+        },
+        "usage": "Documentos · Rojo 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 0/100/100/70 (FOGRA39)."
+      },
+      {
+        "name": "verde-100",
+        "value": {
+          "blanco": "#daf7cd"
+        },
+        "usage": "Documentos · Verde 100: sombreado de las filas de referencia de tabla cuya serie va en verde-500. CMYK 16/0/22/0 (FOGRA39)."
+      },
+      {
+        "name": "verde-200",
+        "value": {
+          "blanco": "#c9edb8"
+        },
+        "usage": "Documentos · Verde 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 25/0/34/0 (FOGRA39)."
+      },
+      {
+        "name": "verde-300",
+        "value": {
+          "blanco": "#aadc91"
+        },
+        "usage": "Documentos · Verde 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 38/1/52/0 (FOGRA39)."
+      },
+      {
+        "name": "verde-400",
+        "value": {
+          "blanco": "#82c55c"
+        },
+        "usage": "Documentos · Verde 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 55/0/78/1 (FOGRA39)."
+      },
+      {
+        "name": "verde-500",
+        "value": {
+          "blanco": "#59ae09"
+        },
+        "usage": "Documentos y presentaciones · Verde 500, tono principal: serie n.º 3 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 65/0/100/5 (FOGRA39)."
+      },
+      {
+        "name": "verde-600",
+        "value": {
+          "blanco": "#448900"
+        },
+        "usage": "Documentos · Verde 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 64/0/100/31 (FOGRA39)."
+      },
+      {
+        "name": "verde-700",
+        "value": {
+          "blanco": "#316600"
+        },
+        "usage": "Documentos · Verde 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 64/0/100/56 (FOGRA39)."
+      },
+      {
+        "name": "verde-800",
+        "value": {
+          "blanco": "#1f4500"
+        },
+        "usage": "Documentos · Verde 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 60/0/95/75 (FOGRA39)."
+      },
+      {
+        "name": "azul-100",
+        "value": {
+          "blanco": "#dbe8ff"
+        },
+        "usage": "Documentos · Azul 100: sombreado de las filas de referencia de tabla cuya serie va en azul-500. CMYK 16/8/2/0 (FOGRA39)."
+      },
+      {
+        "name": "azul-200",
+        "value": {
+          "blanco": "#bfd6ff"
+        },
+        "usage": "Documentos · Azul 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 28/13/0/0 (FOGRA39)."
+      },
+      {
+        "name": "azul-300",
+        "value": {
+          "blanco": "#91b5f5"
+        },
+        "usage": "Documentos · Azul 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 46/25/0/0 (FOGRA39)."
+      },
+      {
+        "name": "azul-400",
+        "value": {
+          "blanco": "#5c8bdf"
+        },
+        "usage": "Documentos · Azul 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 65/42/0/0 (FOGRA39)."
+      },
+      {
+        "name": "azul-500",
+        "value": {
+          "blanco": "#2760c8"
+        },
+        "usage": "Documentos y presentaciones · Azul 500, tono principal: serie n.º 2 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 80/65/0/0 (FOGRA39)."
+      },
+      {
+        "name": "azul-600",
+        "value": {
+          "blanco": "#1248a8"
+        },
+        "usage": "Documentos · Azul 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 95/75/0/1 (FOGRA39)."
+      },
+      {
+        "name": "azul-700",
+        "value": {
+          "blanco": "#033285"
+        },
+        "usage": "Documentos · Azul 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 99/84/0/13 (FOGRA39)."
+      },
+      {
+        "name": "azul-800",
+        "value": {
+          "blanco": "#001f5d"
+        },
+        "usage": "Documentos · Azul 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 100/84/0/46 (FOGRA39)."
+      },
+      {
+        "name": "morado-100",
+        "value": {
+          "blanco": "#ebe3ff"
+        },
+        "usage": "Documentos · Morado 100: sombreado de las filas de referencia de tabla cuya serie va en morado-500. CMYK 11/12/0/0 (FOGRA39)."
+      },
+      {
+        "name": "morado-200",
+        "value": {
+          "blanco": "#dcccff"
+        },
+        "usage": "Documentos · Morado 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 19/21/0/0 (FOGRA39)."
+      },
+      {
+        "name": "morado-300",
+        "value": {
+          "blanco": "#bfa6f2"
+        },
+        "usage": "Documentos · Morado 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 33/36/0/0 (FOGRA39)."
+      },
+      {
+        "name": "morado-400",
+        "value": {
+          "blanco": "#9b77dc"
+        },
+        "usage": "Documentos · Morado 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 51/55/0/0 (FOGRA39)."
+      },
+      {
+        "name": "morado-500",
+        "value": {
+          "blanco": "#7a45c4"
+        },
+        "usage": "Documentos y presentaciones · Morado 500, tono principal: serie n.º 5 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 69/75/0/0 (FOGRA39)."
+      },
+      {
+        "name": "morado-600",
+        "value": {
+          "blanco": "#622da4"
+        },
+        "usage": "Documentos · Morado 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 80/90/0/0 (FOGRA39)."
+      },
+      {
+        "name": "morado-700",
+        "value": {
+          "blanco": "#491981"
+        },
+        "usage": "Documentos · Morado 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 87/100/0/4 (FOGRA39)."
+      },
+      {
+        "name": "morado-800",
+        "value": {
+          "blanco": "#32085c"
+        },
+        "usage": "Documentos · Morado 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 90/99/0/39 (FOGRA39)."
+      },
+      {
+        "name": "rosa-100",
+        "value": {
+          "blanco": "#ffe6ee"
+        },
+        "usage": "Documentos · Rosa 100: sombreado de las filas de referencia de tabla cuya serie va en rosa-500. CMYK 4/12/4/0 (FOGRA39)."
+      },
+      {
+        "name": "rosa-200",
+        "value": {
+          "blanco": "#ffd5e4"
+        },
+        "usage": "Documentos · Rosa 200: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 1/23/4/0 (FOGRA39)."
+      },
+      {
+        "name": "rosa-300",
+        "value": {
+          "blanco": "#ffb5d1"
+        },
+        "usage": "Documentos · Rosa 300: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 3/38/6/0 (FOGRA39)."
+      },
+      {
+        "name": "rosa-400",
+        "value": {
+          "blanco": "#ff88ba"
+        },
+        "usage": "Documentos · Rosa 400: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 2/58/6/0 (FOGRA39)."
+      },
+      {
+        "name": "rosa-500",
+        "value": {
+          "blanco": "#fd4fa3"
+        },
+        "usage": "Documentos y presentaciones · Rosa 500, tono principal: serie n.º 6 de las gráficas (después de naranja-500 en documentos y de pres-acento en presentaciones) y diferenciación de recuadros o etiquetas. Solo cuando hace falta diferenciar. CMYK 2/80/4/0 (FOGRA39)."
+      },
+      {
+        "name": "rosa-600",
+        "value": {
+          "blanco": "#d12c81"
+        },
+        "usage": "Documentos · Rosa 600: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 8/92/3/9 (FOGRA39)."
+      },
+      {
+        "name": "rosa-700",
+        "value": {
+          "blanco": "#a30a60"
+        },
+        "usage": "Documentos · Rosa 700: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 10/96/4/31 (FOGRA39)."
+      },
+      {
+        "name": "rosa-800",
+        "value": {
+          "blanco": "#720041"
+        },
+        "usage": "Documentos · Rosa 800: gama auxiliar para diferenciar series o recuadros cuando el tono 500 no basta. CMYK 16/98/8/57 (FOGRA39)."
+      },
+      {
+        "name": "pres-fondo",
+        "value": {
+          "blanco": "#ffffff",
+          "negro": "#000000"
+        },
+        "usage": "Presentaciones: fondo de todas las diapositivas salvo la portada (y la portadilla del tema negro)."
+      },
+      {
+        "name": "pres-texto",
+        "value": {
+          "blanco": "#1f1f1f",
+          "negro": "#f7f4f2"
+        },
+        "usage": "Presentaciones: texto, epígrafes, titulares de campaña y celdas, sobre pres-fondo (16,5:1 en blanco; 19,2:1 en negro)."
+      },
+      {
+        "name": "pres-texto-2",
+        "value": {
+          "blanco": "#5c5c5c",
+          "negro": "#a39b93"
+        },
+        "usage": "Presentaciones: texto secundario (notas, fuentes, pies, ejes y número de página) sobre pres-fondo (6,7:1 en blanco; 7,7:1 en negro)."
+      },
+      {
+        "name": "pres-acento",
+        "value": {
+          "blanco": "#ff801f",
+          "negro": "#ff801f"
+        },
+        "usage": "Presentaciones: acento de los dos temas, el mismo valor que naranja-400. Título de diapositiva (Light 90 px), cifras, filetes, etiquetas, cabecera de tabla y una sola línea destacada por titular. Contraste: 8,4:1 sobre negro; sobre blanco solo 2,5:1, por debajo del 3:1 de texto grande. Es el valor del Figma y se mantiene: en el tema blanco, úsalo solo en tamaños grandes y nunca en texto corrido."
+      },
+      {
+        "name": "pres-separador",
+        "value": {
+          "blanco": "#cccccc",
+          "negro": "#393532"
+        },
+        "usage": "Presentaciones: separadores de 1 px (bloques, métricas, agenda, línea de proceso)."
+      },
+      {
+        "name": "pres-barra",
+        "value": {
+          "blanco": "#b8b8b8",
+          "negro": "#dbd5ce"
+        },
+        "usage": "Presentaciones: barras no destacadas del gráfico de barras."
+      },
+      {
+        "name": "pres-marcador",
+        "value": {
+          "blanco": "#efedeb",
+          "negro": "#1c1a18"
+        },
+        "usage": "Presentaciones: fondo del marcador «Imagen sugerida» cuando falta una fotografía aprobada."
+      },
+      {
+        "name": "pres-serie-1",
+        "value": {
+          "blanco": "#ff801f",
+          "negro": "#ff801f"
+        },
+        "usage": "Presentaciones: serie de datos n.º 1 (donut y leyendas). El dato protagonista va siempre aquí, en acento."
+      },
+      {
+        "name": "pres-serie-2",
+        "value": {
+          "blanco": "#b8b8b8",
+          "negro": "#dbd5ce"
+        },
+        "usage": "Presentaciones: serie de datos n.º 2 (donut y leyendas). Rampa neutra del tema, en este orden."
+      },
+      {
+        "name": "pres-serie-3",
+        "value": {
+          "blanco": "#8c8c8c",
+          "negro": "#a39b93"
+        },
+        "usage": "Presentaciones: serie de datos n.º 3 (donut y leyendas). Rampa neutra del tema, en este orden."
+      },
+      {
+        "name": "pres-serie-4",
+        "value": {
+          "blanco": "#5c5c5c",
+          "negro": "#706b65"
+        },
+        "usage": "Presentaciones: serie de datos n.º 4 (donut y leyendas). Rampa neutra del tema, en este orden."
+      },
+      {
+        "name": "pres-serie-5",
+        "value": {
+          "blanco": "#dedede",
+          "negro": "#4a4541"
+        },
+        "usage": "Presentaciones: serie de datos n.º 5 (donut y leyendas). Rampa neutra del tema, en este orden."
+      },
+      {
+        "name": "pres-grafica-1",
+        "value": {
+          "blanco": "{pres-acento}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 1: el dato protagonista, en el acento del tema (8,4:1 sobre negro; 2,5:1 sobre blanco)."
+      },
+      {
+        "name": "pres-grafica-2",
+        "value": {
+          "blanco": "{azul-500}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 2: azul-500, el mismo color y orden que en las gráficas de documentos. 5,84:1 sobre blanco y 3,59:1 sobre negro."
+      },
+      {
+        "name": "pres-grafica-3",
+        "value": {
+          "blanco": "{verde-500}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 3: verde-500, el mismo color y orden que en las gráficas de documentos. 2,81:1 sobre blanco y 7,48:1 sobre negro. En el tema blanco no llega a 3:1: no lo uses como serie sobre blanco salvo con leyenda y valor junto a cada sector o barra, o sáltalo."
+      },
+      {
+        "name": "pres-grafica-4",
+        "value": {
+          "blanco": "{amarillo-500}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 4: amarillo-500, el mismo color y orden que en las gráficas de documentos. 1,81:1 sobre blanco y 11,63:1 sobre negro. En el tema blanco no llega a 3:1: no lo uses como serie sobre blanco salvo con leyenda y valor junto a cada sector o barra, o sáltalo."
+      },
+      {
+        "name": "pres-grafica-5",
+        "value": {
+          "blanco": "{morado-500}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 5: morado-500, el mismo color y orden que en las gráficas de documentos. 6,04:1 sobre blanco y 3,48:1 sobre negro."
+      },
+      {
+        "name": "pres-grafica-6",
+        "value": {
+          "blanco": "{rosa-500}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 6: rosa-500, el mismo color y orden que en las gráficas de documentos. 3,08:1 sobre blanco y 6,82:1 sobre negro."
+      },
+      {
+        "name": "pres-grafica-7",
+        "value": {
+          "blanco": "{rojo-500}"
+        },
+        "usage": "Presentaciones · gama de gráficas, serie 7: rojo-500, el mismo color y orden que en las gráficas de documentos. 4,05:1 sobre blanco y 5,19:1 sobre negro."
+      },
+      {
+        "name": "pres-portadilla-fondo",
+        "value": {
+          "blanco": "#ffffff",
+          "negro": "#f56a00"
+        },
+        "usage": "Presentaciones: fondo de la portadilla entre bloques; en el tema negro es naranja-500."
+      },
+      {
+        "name": "pres-portadilla-texto",
+        "value": {
+          "blanco": "#1f1f1f",
+          "negro": "#ffffff"
+        },
+        "usage": "Presentaciones: titular, etiqueta, bajada y lema de la portadilla sobre pres-portadilla-fondo."
+      },
+      {
+        "name": "pres-portada-fondo",
+        "value": {
+          "blanco": "{naranja-500}"
+        },
+        "usage": "Presentaciones: fondo de la portada en los dos temas. Sobre ella, texto neutro-000 y fecha neutro-800."
+      }
+    ]
   },
-  "groups": [
-   {
-    "name": "Interfaces",
-    "family": "titillium",
-    "styles": [
-     {
-      "name": "ui-display",
-      "family": "titillium",
-      "fontSize": "40px",
-      "lineHeight": "46px",
-      "fontWeight": 400,
-      "usage": "Display/Hero (escritorio y tableta). Regular; más presencia → más tamaño o Light, nunca Bold."
-     },
-     {
-      "name": "ui-heading-lg",
-      "family": "titillium",
-      "fontSize": "32px",
-      "lineHeight": "40px",
-      "fontWeight": 600,
-      "usage": "Heading/Large."
-     },
-     {
-      "name": "ui-heading-md",
-      "family": "titillium",
-      "fontSize": "24px",
-      "lineHeight": "28px",
-      "fontWeight": 600,
-      "usage": "Heading/Medium. Texto grande a efectos de contraste."
-     },
-     {
-      "name": "ui-heading-sm",
-      "family": "titillium",
-      "fontSize": "18px",
-      "lineHeight": "24px",
-      "fontWeight": 600,
-      "usage": "Heading/Small y cabecera de tabla. Es texto pequeño (exige 4,5:1)."
-     },
-     {
-      "name": "ui-body",
-      "family": "titillium",
-      "fontSize": "16px",
-      "lineHeight": "24px",
-      "fontWeight": 400,
-      "usage": "Body/Paragraph. Medida máxima 65ch. Variantes cursiva, SemiBold y Bold solo para énfasis puntual.",
-      "sample": "Aprender cobra sentido cuando conecta con la vida cotidiana."
-     },
-     {
-      "name": "ui-link",
-      "family": "titillium",
-      "fontSize": "16px",
-      "lineHeight": "24px",
-      "fontWeight": 600,
-      "usage": "Body/Link. Enlace de marca en naranja-700."
-     },
-     {
-      "name": "ui-tag",
-      "family": "titillium",
-      "fontSize": "14px",
-      "lineHeight": "20px",
-      "fontWeight": 400,
-      "usage": "Utility/Tag: texto de etiqueta (caja de 20 px)."
-     },
-     {
-      "name": "ui-caption",
-      "family": "titillium",
-      "fontSize": "14px",
-      "lineHeight": "20px",
-      "fontWeight": 400,
-      "usage": "Utility/Caption: pies, ayudas y enlaces del footer."
-     },
-     {
-      "name": "ui-nav",
-      "family": "titillium",
-      "fontSize": "16px",
-      "lineHeight": "24px",
-      "fontWeight": 400,
-      "usage": "Enlace de navegación de cabecera, en MAYÚSCULAS (las aplica el estilo). Regular en reposo, SemiBold (600) cuando está seleccionado.",
-      "letterSpacing": "0.02em",
-      "sample": "ENLACE DE NAVEGACIÓN"
-     },
-     {
-      "name": "ui-nav-l1",
-      "family": "titillium",
-      "fontSize": "18px",
-      "lineHeight": "22px",
-      "fontWeight": 600,
-      "usage": "Nav/L1 del drawer en tableta (lista inicial)."
-     },
-     {
-      "name": "ui-nav-l2",
-      "family": "titillium",
-      "fontSize": "18px",
-      "lineHeight": "22px",
-      "fontWeight": 700,
-      "usage": "Nav/L2 del drawer en escritorio-tableta (cabecera de acordeón). Único Bold de navegación."
-     },
-     {
-      "name": "ui-nav-l3",
-      "family": "titillium",
-      "fontSize": "16px",
-      "lineHeight": "20px",
-      "fontWeight": 400,
-      "usage": "Nav/L3 del drawer (enlace de acordeón)."
-     },
-     {
-      "name": "ui-display-movil",
-      "family": "titillium",
-      "fontSize": "28px",
-      "lineHeight": "32px",
-      "fontWeight": 400,
-      "usage": "Display/Hero en móvil (< 768 px)."
-     },
-     {
-      "name": "ui-heading-lg-movil",
-      "family": "titillium",
-      "fontSize": "28px",
-      "lineHeight": "30px",
-      "fontWeight": 600,
-      "usage": "Heading/Large en móvil."
-     },
-     {
-      "name": "ui-heading-md-movil",
-      "family": "titillium",
-      "fontSize": "20px",
-      "lineHeight": "24px",
-      "fontWeight": 600,
-      "usage": "Heading/Medium en móvil."
-     },
-     {
-      "name": "ui-nav-l1-movil",
-      "family": "titillium",
-      "fontSize": "24px",
-      "lineHeight": "26px",
-      "fontWeight": 300,
-      "usage": "Nav/L1 del drawer en móvil, MAYÚSCULAS. Único uso de Light en la escala estándar. También el titular de sección del drawer (en Regular)."
-     },
-     {
-      "name": "ui-nav-l2-movil",
-      "family": "titillium",
-      "fontSize": "19px",
-      "lineHeight": "22px",
-      "fontWeight": 600,
-      "usage": "Nav/L2 del drawer en móvil: a 19 px SemiBold es texto grande, por eso admite naranja-500 al seleccionarse."
-     }
+  "type": {
+    "fonts": [
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-Light.ttf",
+        "weight": "300",
+        "style": "normal"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-LightItalic.ttf",
+        "weight": "300",
+        "style": "italic"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-Regular.ttf",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-Italic.ttf",
+        "weight": "400",
+        "style": "italic"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-SemiBold.ttf",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-SemiBoldItalic.ttf",
+        "weight": "600",
+        "style": "italic"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-Bold.ttf",
+        "weight": "700",
+        "style": "normal"
+      },
+      {
+        "family": "Titillium Web",
+        "file": "fonts/TitilliumWeb-BoldItalic.ttf",
+        "weight": "700",
+        "style": "italic"
+      },
+      {
+        "family": "Barlow",
+        "file": "fonts/Barlow-Regular.ttf",
+        "weight": "400",
+        "style": "normal"
+      },
+      {
+        "family": "Barlow",
+        "file": "fonts/Barlow-Italic.ttf",
+        "weight": "400",
+        "style": "italic"
+      },
+      {
+        "family": "Barlow",
+        "file": "fonts/Barlow-Medium.ttf",
+        "weight": "500",
+        "style": "normal"
+      },
+      {
+        "family": "Barlow",
+        "file": "fonts/Barlow-SemiBold.ttf",
+        "weight": "600",
+        "style": "normal"
+      },
+      {
+        "family": "Roboto Mono",
+        "file": "fonts/RobotoMono-Regular.ttf",
+        "weight": "400",
+        "style": "normal"
+      }
+    ],
+    "families": {
+      "titillium": "\"Titillium Web\", sans-serif",
+      "barlow": "Barlow, sans-serif",
+      "mono": "\"Roboto Mono\", monospace"
+    },
+    "groups": [
+      {
+        "name": "Interfaces",
+        "family": "titillium",
+        "note": "",
+        "styles": [
+          {
+            "name": "ui-display",
+            "fontSize": "40px",
+            "lineHeight": "46px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Display/Hero (escritorio y tableta). Regular; más presencia → más tamaño o Light, nunca Bold."
+          },
+          {
+            "name": "ui-heading-lg",
+            "fontSize": "32px",
+            "lineHeight": "40px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Heading/Large."
+          },
+          {
+            "name": "ui-heading-md",
+            "fontSize": "24px",
+            "lineHeight": "28px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Heading/Medium. Texto grande a efectos de contraste."
+          },
+          {
+            "name": "ui-heading-sm",
+            "fontSize": "18px",
+            "lineHeight": "24px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Heading/Small y cabecera de tabla. Es texto pequeño (exige 4,5:1)."
+          },
+          {
+            "name": "ui-body",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "Aprender cobra sentido cuando conecta con la vida cotidiana.",
+            "usage": "Body/Paragraph. Medida máxima 65ch. Variantes cursiva, SemiBold y Bold solo para énfasis puntual."
+          },
+          {
+            "name": "ui-link",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Body/Link. Enlace de marca en naranja-700."
+          },
+          {
+            "name": "ui-tag",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Utility/Tag: texto de etiqueta (caja de 20 px)."
+          },
+          {
+            "name": "ui-caption",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Utility/Caption: pies, ayudas y enlaces del footer."
+          },
+          {
+            "name": "ui-nav",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": "400",
+            "letterSpacing": "0.02em",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "ENLACE DE NAVEGACIÓN",
+            "usage": "Enlace de navegación de cabecera, en MAYÚSCULAS (las aplica el estilo). Regular en reposo, SemiBold (600) cuando está seleccionado."
+          },
+          {
+            "name": "ui-nav-l1",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Nav/L1 del drawer en tableta (lista inicial)."
+          },
+          {
+            "name": "ui-nav-l2",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": "700",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Nav/L2 del drawer en escritorio-tableta (cabecera de acordeón). Único Bold de navegación."
+          },
+          {
+            "name": "ui-nav-l3",
+            "fontSize": "16px",
+            "lineHeight": "20px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Nav/L3 del drawer (enlace de acordeón)."
+          },
+          {
+            "name": "ui-display-movil",
+            "fontSize": "28px",
+            "lineHeight": "32px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Display/Hero en móvil (< 768 px)."
+          },
+          {
+            "name": "ui-heading-lg-movil",
+            "fontSize": "28px",
+            "lineHeight": "30px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Heading/Large en móvil."
+          },
+          {
+            "name": "ui-heading-md-movil",
+            "fontSize": "20px",
+            "lineHeight": "24px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Heading/Medium en móvil."
+          },
+          {
+            "name": "ui-nav-l1-movil",
+            "fontSize": "24px",
+            "lineHeight": "26px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Nav/L1 del drawer en móvil, MAYÚSCULAS. Único uso de Light en la escala estándar. También el titular de sección del drawer (en Regular)."
+          },
+          {
+            "name": "ui-nav-l2-movil",
+            "fontSize": "19px",
+            "lineHeight": "22px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Nav/L2 del drawer en móvil: a 19 px SemiBold es texto grande, por eso admite naranja-500 al seleccionarse."
+          }
+        ]
+      },
+      {
+        "name": "Documentos (pt, con equivalencia en px)",
+        "family": "titillium",
+        "note": "",
+        "styles": [
+          {
+            "name": "doc-cover-title",
+            "fontSize": "72px",
+            "lineHeight": "80px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Portada / Título · Light 54/60 pt · color neutro-000. Título del documento (máx. 2 líneas). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-cover-subtitle",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Portada / Subtítulo · Regular 18/24 pt · color neutro-800. Subtítulo descriptivo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-cover-client",
+            "fontSize": "32px",
+            "lineHeight": "40px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Portada / Cliente · SemiBold 24/30 pt · color neutro-000. Nombre del cliente si no hay logo. MAYÚSCULAS (las aplica el estilo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-chapter-number",
+            "fontSize": "160px",
+            "lineHeight": "133.33px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Capítulo / Número · Light 120/100 pt · color naranja-500. Número de apertura de capítulo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-chapter-title",
+            "fontSize": "53.33px",
+            "lineHeight": "64px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Capítulo / Título · Regular 40/48 pt · color neutro-800. Título de apertura y eslogan. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-chapter-intro",
+            "fontSize": "17.33px",
+            "lineHeight": "24px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Capítulo / Entradilla · Regular 13/18 pt · color neutro-800. Párrafo introductorio de la apertura de capítulo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-h1",
+            "fontSize": "32px",
+            "lineHeight": "40px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "H1 · SemiBold 24/30 pt · color neutro-800. Título de página (lleva filete naranja de 64 pt debajo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-h2",
+            "fontSize": "21.33px",
+            "lineHeight": "29.33px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "H2 · SemiBold 16/22 pt · color neutro-800. Subtítulo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-h3",
+            "fontSize": "17.33px",
+            "lineHeight": "24px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "H3 · SemiBold 13/18 pt · color neutro-800. Subtítulo menor. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-h4",
+            "fontSize": "14.67px",
+            "lineHeight": "21.33px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "H4 · SemiBold 11/16 pt · color neutro-800. Subtítulo mínimo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-lead",
+            "fontSize": "20px",
+            "lineHeight": "24px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Entradilla · SemiBold 15/18 pt · color neutro-800. Párrafo introductorio. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-body",
+            "fontSize": "14.67px",
+            "lineHeight": "21.33px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cuerpo · Regular 11/16 pt · color neutro-800. Texto corrido. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-quote-large",
+            "fontSize": "21.33px",
+            "lineHeight": "29.33px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "italic",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cita destacada · Italic 16/22 pt · color naranja-500. Cita a página o ancho completo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-quote-column",
+            "fontSize": "17.33px",
+            "lineHeight": "24px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "italic",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cita en columna · Italic 13/18 pt · color neutro-800. Cita dentro de una columna. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-quote-block",
+            "fontSize": "12px",
+            "lineHeight": "14.4px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cita en bloque · Regular 9/10,8 pt · color neutro-800. Cita textual larga (más de 3–4 líneas), en párrafo aparte, 2 pt menos que el texto y sin comillas (skill ortotipografia-maquetacion §4); sangría izquierda 17 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-quote-author",
+            "fontSize": "17.33px",
+            "lineHeight": "24px",
+            "fontWeight": "400",
+            "letterSpacing": "2.67px",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Firma de cita · Regular 13/18 pt · color naranja-500. Autor o compromiso. MAYÚSCULAS (las aplica el estilo); espaciado +2 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-kpi",
+            "fontSize": "42.67px",
+            "lineHeight": "48px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "KPI · SemiBold 32/36 pt · color naranja-500. Cifra en tarjeta. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-metric",
+            "fontSize": "53.33px",
+            "lineHeight": "56px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Métrica destacada · Regular 40/42 pt · color naranja-500. Cifra con texto explicativo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-kpi-special",
+            "fontSize": "106.67px",
+            "lineHeight": "112px",
+            "fontWeight": "600",
+            "letterSpacing": "-2.67px",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "KPI de página especial · SemiBold 80/84 pt · color naranja-500. Cifra principal a página completa. espaciado -2 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-special-text",
+            "fontSize": "32px",
+            "lineHeight": "40px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Especial / Texto · Regular 24/30 pt · color neutro-000. Texto secundario de las páginas especiales a página completa (negro sobre fondo gris). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-kpi-support",
+            "fontSize": "24px",
+            "lineHeight": "29.33px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cifra de apoyo · SemiBold 18/22 pt · color naranja-500. Cifras secundarias. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-header",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cabecera de página · SemiBold 9/12 pt · color naranja-600. Capítulo y sección. MAYÚSCULAS (las aplica el estilo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-label",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Etiqueta · SemiBold 9/12 pt · color neutro-500. Metadatos y rótulos. MAYÚSCULAS (las aplica el estilo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-footer",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Pie de página · Regular 9/12 pt · color neutro-500. Título del documento y paginación. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-note",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "italic",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Nota, pie de tabla y de imagen · Italic 9/12 pt · color neutro-500. Notas y pies de figura. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-small-text",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Apoyo / Texto pequeño · Regular 9/12 pt · color neutro-800. Texto de las notas al margen (las leyendas de gráficas van en doc-leyenda). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-table-head",
+            "fontSize": "13.33px",
+            "lineHeight": "16px",
+            "fontWeight": "600",
+            "letterSpacing": "0.03em",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Tabla / Cabecera · SemiBold 10/12 pt · color naranja-600. Fila de encabezado. MAYÚSCULAS (las aplica el estilo); espaciado +3 %. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-table-cell",
+            "fontSize": "14.67px",
+            "lineHeight": "21.33px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Tabla / Celda · Regular 11/16 pt · color neutro-800. Datos. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-leyenda",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Leyenda de gráfica · Barlow Regular 9/12 pt · color neutro-800. Leyendas de las gráficas (series, sectores, muestras de color) y valores de leyenda. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-diagram-text",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Diagrama / Texto · Barlow SemiBold 9/12 pt · color neutro-800. Etiquetas de nodos, fases e hitos de infografías, rótulos de tarjetas KPI y etiquetas de datos dentro de las gráficas. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-diagram-detail",
+            "fontSize": "10.67px",
+            "lineHeight": "14.67px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Diagrama / Detalle · Barlow Regular 8/11 pt · color neutro-500. Etiquetas de los ejes y descripciones breves de diagramas e infografías. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          },
+          {
+            "name": "doc-side-band",
+            "fontSize": "21.33px",
+            "lineHeight": "29.33px",
+            "fontWeight": "600",
+            "letterSpacing": "5.33px",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Banda lateral · SemiBold 16/22 pt · color neutro-000. Texto vertical en página con banda. MAYÚSCULAS (las aplica el estilo); espaciado +4 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
+          }
+        ]
+      },
+      {
+        "name": "Presentaciones (lienzo 1920 × 1080)",
+        "family": "titillium",
+        "note": "",
+        "styles": [
+          {
+            "name": "pres-cover-title",
+            "fontSize": "100px",
+            "lineHeight": "110px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Portada / Título · Titillium Web Light 100/110 px en el lienzo de 1920 × 1080 (50 pt en PowerPoint) · color #FFFFFF."
+          },
+          {
+            "name": "pres-cover-subtitle",
+            "fontSize": "48px",
+            "lineHeight": "50px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Portada / Subtítulo · Titillium Web SemiBold 48/50 px en el lienzo de 1920 × 1080 (24 pt en PowerPoint) · color #FFFFFF."
+          },
+          {
+            "name": "pres-cover-date",
+            "fontSize": "36px",
+            "lineHeight": "36px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Portada / Fecha · Titillium Web Regular 36/36 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color #000000. alineado a la derecha."
+          },
+          {
+            "name": "pres-slide-title",
+            "fontSize": "90px",
+            "lineHeight": "80px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Título de diapositiva · Titillium Web Light 90/80 px en el lienzo de 1920 × 1080 (45 pt en PowerPoint) · color pres-acento. máx. 1 línea."
+          },
+          {
+            "name": "pres-heading-1",
+            "fontSize": "54px",
+            "lineHeight": "62px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Epígrafe 1 · Titillium Web SemiBold 54/62 px en el lienzo de 1920 × 1080 (27 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-heading-2",
+            "fontSize": "44px",
+            "lineHeight": "52px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Epígrafe 2 · Titillium Web SemiBold 44/52 px en el lienzo de 1920 × 1080 (22 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-heading-3",
+            "fontSize": "38px",
+            "lineHeight": "46px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Epígrafe 3 · Titillium Web SemiBold 38/46 px en el lienzo de 1920 × 1080 (19 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-statement",
+            "fontSize": "72px",
+            "lineHeight": "84px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Mensaje · Titillium Web Light 72/84 px en el lienzo de 1920 × 1080 (36 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-body",
+            "fontSize": "36px",
+            "lineHeight": "48px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Texto · Barlow Regular 36/48 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-body-small",
+            "fontSize": "28px",
+            "lineHeight": "36px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Texto pequeño · Barlow Regular 28/36 px en el lienzo de 1920 × 1080 (14 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-caption",
+            "fontSize": "28px",
+            "lineHeight": "36px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Pie de imagen y aclaración · Barlow Regular 28/36 px en el lienzo de 1920 × 1080 (14 pt en PowerPoint) · color pres-texto-2."
+          },
+          {
+            "name": "pres-kicker",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "fontWeight": "500",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Etiqueta · Barlow Medium 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-acento. MAYÚSCULAS (las aplica el estilo)."
+          },
+          {
+            "name": "pres-stage-label",
+            "fontSize": "28px",
+            "lineHeight": "36px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Etiqueta de etapa · Barlow SemiBold 28/36 px en el lienzo de 1920 × 1080 (14 pt en PowerPoint) · color pres-acento. MAYÚSCULAS (las aplica el estilo)."
+          },
+          {
+            "name": "pres-invite",
+            "fontSize": "26px",
+            "lineHeight": "32px",
+            "fontWeight": "500",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Invitación · Barlow Medium 26/32 px en el lienzo de 1920 × 1080 (13 pt en PowerPoint) · color pres-acento. MAYÚSCULAS (las aplica el estilo)."
+          },
+          {
+            "name": "pres-metric",
+            "fontSize": "112px",
+            "lineHeight": "120px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Cifra · Titillium Web Light 112/120 px en el lienzo de 1920 × 1080 (56 pt en PowerPoint) · color pres-acento."
+          },
+          {
+            "name": "pres-data-value",
+            "fontSize": "36px",
+            "lineHeight": "48px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Valor de dato · Titillium Web Regular 36/48 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-data-label",
+            "fontSize": "32px",
+            "lineHeight": "40px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Etiqueta de dato · Barlow Regular 32/40 px en el lienzo de 1920 × 1080 (16 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-axis",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Eje · Barlow Regular 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-texto-2."
+          },
+          {
+            "name": "pres-table-head",
+            "fontSize": "38px",
+            "lineHeight": "48px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Tabla / Cabecera · Titillium Web SemiBold 38/48 px en el lienzo de 1920 × 1080 (19 pt en PowerPoint) · color pres-acento."
+          },
+          {
+            "name": "pres-table-cell",
+            "fontSize": "36px",
+            "lineHeight": "48px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Tabla / Celda · Barlow Regular 36/48 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-campaign-xl",
+            "fontSize": "172px",
+            "lineHeight": "178px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Titular / Frase destacada · Titillium Web SemiBold 172/178 px en el lienzo de 1920 × 1080 (86 pt en PowerPoint) · color pres-texto. máx. 3 líneas."
+          },
+          {
+            "name": "pres-campaign-l",
+            "fontSize": "160px",
+            "lineHeight": "160px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Titular / Portadilla · Titillium Web SemiBold 160/160 px en el lienzo de 1920 × 1080 (80 pt en PowerPoint) · color pres-texto. máx. 3 líneas."
+          },
+          {
+            "name": "pres-campaign-m",
+            "fontSize": "144px",
+            "lineHeight": "150px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Titular / Foto completa · Titillium Web SemiBold 144/150 px en el lienzo de 1920 × 1080 (72 pt en PowerPoint) · color #FFFFFF (negro) · text (blanco). máx. 3 líneas."
+          },
+          {
+            "name": "pres-campaign-s",
+            "fontSize": "112px",
+            "lineHeight": "120px",
+            "fontWeight": "600",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Titular / Media imagen · Titillium Web SemiBold 112/120 px en el lienzo de 1920 × 1080 (56 pt en PowerPoint) · color pres-texto. máx. 4 líneas."
+          },
+          {
+            "name": "pres-standfirst",
+            "fontSize": "34px",
+            "lineHeight": "44px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Bajada · Barlow Regular 34/44 px en el lienzo de 1920 × 1080 (17 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-signature",
+            "fontSize": "32px",
+            "lineHeight": "40px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Firma · Barlow Regular 32/40 px en el lienzo de 1920 × 1080 (16 pt en PowerPoint) · color pres-texto."
+          },
+          {
+            "name": "pres-block-number",
+            "fontSize": "340px",
+            "lineHeight": "380px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Número de bloque · Titillium Web Light 340/380 px en el lienzo de 1920 × 1080 (170 pt en PowerPoint) · color pres-acento."
+          },
+          {
+            "name": "pres-agenda-number",
+            "fontSize": "72px",
+            "lineHeight": "80px",
+            "fontWeight": "300",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Agenda / Número · Titillium Web Light 72/80 px en el lienzo de 1920 × 1080 (36 pt en PowerPoint) · color pres-acento."
+          },
+          {
+            "name": "pres-note",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Nota o fuente · Barlow Regular 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-texto-2."
+          },
+          {
+            "name": "pres-note-campaign",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "barlow",
+            "sample": "",
+            "usage": "Nota en diapositivas de campaña · Barlow Regular 20/28 px en el lienzo de 1920 × 1080 (10 pt en PowerPoint) · color pres-texto-2."
+          },
+          {
+            "name": "pres-page-number",
+            "fontSize": "24px",
+            "lineHeight": "32px",
+            "fontWeight": "400",
+            "letterSpacing": "0",
+            "fontStyle": "normal",
+            "opticalSize": null,
+            "family": "titillium",
+            "sample": "",
+            "usage": "Número de página · Titillium Web Regular 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-texto-2."
+          }
+        ]
+      }
     ]
-   },
-   {
-    "name": "Documentos (pt, con equivalencia en px)",
-    "family": "titillium",
-    "styles": [
-     {
-      "name": "doc-cover-title",
-      "family": "titillium",
-      "fontSize": "72px",
-      "lineHeight": "80px",
-      "fontWeight": 300,
-      "usage": "Portada / Título · Light 54/60 pt · color neutro-000. Título del documento (máx. 2 líneas). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-cover-subtitle",
-      "family": "titillium",
-      "fontSize": "24px",
-      "lineHeight": "32px",
-      "fontWeight": 400,
-      "usage": "Portada / Subtítulo · Regular 18/24 pt · color neutro-800. Subtítulo descriptivo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-cover-client",
-      "family": "titillium",
-      "fontSize": "32px",
-      "lineHeight": "40px",
-      "fontWeight": 600,
-      "usage": "Portada / Cliente · SemiBold 24/30 pt · color neutro-000. Nombre del cliente si no hay logo. MAYÚSCULAS (las aplica el estilo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-chapter-number",
-      "family": "titillium",
-      "fontSize": "160px",
-      "lineHeight": "133.33px",
-      "fontWeight": 300,
-      "usage": "Capítulo / Número · Light 120/100 pt · color naranja-500. Número de apertura de capítulo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-chapter-title",
-      "family": "titillium",
-      "fontSize": "53.33px",
-      "lineHeight": "64px",
-      "fontWeight": 400,
-      "usage": "Capítulo / Título · Regular 40/48 pt · color neutro-800. Título de apertura y eslogan. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-chapter-intro",
-      "family": "titillium",
-      "fontSize": "17.33px",
-      "lineHeight": "24px",
-      "fontWeight": 400,
-      "usage": "Capítulo / Entradilla · Regular 13/18 pt · color neutro-800. Párrafo introductorio de la apertura de capítulo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-h1",
-      "family": "titillium",
-      "fontSize": "32px",
-      "lineHeight": "40px",
-      "fontWeight": 600,
-      "usage": "H1 · SemiBold 24/30 pt · color neutro-800. Título de página (lleva filete naranja de 64 pt debajo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-h2",
-      "family": "titillium",
-      "fontSize": "21.33px",
-      "lineHeight": "29.33px",
-      "fontWeight": 600,
-      "usage": "H2 · SemiBold 16/22 pt · color neutro-800. Subtítulo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-h3",
-      "family": "titillium",
-      "fontSize": "17.33px",
-      "lineHeight": "24px",
-      "fontWeight": 600,
-      "usage": "H3 · SemiBold 13/18 pt · color neutro-800. Subtítulo menor. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-h4",
-      "family": "titillium",
-      "fontSize": "14.67px",
-      "lineHeight": "21.33px",
-      "fontWeight": 600,
-      "usage": "H4 · SemiBold 11/16 pt · color neutro-800. Subtítulo mínimo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-lead",
-      "family": "titillium",
-      "fontSize": "20px",
-      "lineHeight": "24px",
-      "fontWeight": 600,
-      "usage": "Entradilla · SemiBold 15/18 pt · color neutro-800. Párrafo introductorio. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-body",
-      "family": "titillium",
-      "fontSize": "14.67px",
-      "lineHeight": "21.33px",
-      "fontWeight": 400,
-      "usage": "Cuerpo · Regular 11/16 pt · color neutro-800. Texto corrido. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-quote-large",
-      "family": "titillium",
-      "fontSize": "21.33px",
-      "lineHeight": "29.33px",
-      "fontWeight": 400,
-      "usage": "Cita destacada · Italic 16/22 pt · color naranja-500. Cita a página o ancho completo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "fontStyle": "italic"
-     },
-     {
-      "name": "doc-quote-column",
-      "family": "titillium",
-      "fontSize": "17.33px",
-      "lineHeight": "24px",
-      "fontWeight": 400,
-      "usage": "Cita en columna · Italic 13/18 pt · color neutro-800. Cita dentro de una columna. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "fontStyle": "italic"
-     },
-     {
-      "name": "doc-quote-block",
-      "family": "titillium",
-      "fontSize": "12px",
-      "lineHeight": "14.4px",
-      "fontWeight": 400,
-      "usage": "Cita en bloque · Regular 9/10,8 pt · color neutro-800. Cita textual larga (más de 3–4 líneas), en párrafo aparte, 2 pt menos que el texto y sin comillas (skill ortotipografia-maquetacion §4); sangría izquierda 17 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-quote-author",
-      "family": "titillium",
-      "fontSize": "17.33px",
-      "lineHeight": "24px",
-      "fontWeight": 400,
-      "usage": "Firma de cita · Regular 13/18 pt · color naranja-500. Autor o compromiso. MAYÚSCULAS (las aplica el estilo); espaciado +2 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "letterSpacing": "2.67px"
-     },
-     {
-      "name": "doc-kpi",
-      "family": "titillium",
-      "fontSize": "42.67px",
-      "lineHeight": "48px",
-      "fontWeight": 600,
-      "usage": "KPI · SemiBold 32/36 pt · color naranja-500. Cifra en tarjeta. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-metric",
-      "family": "titillium",
-      "fontSize": "53.33px",
-      "lineHeight": "56px",
-      "fontWeight": 400,
-      "usage": "Métrica destacada · Regular 40/42 pt · color naranja-500. Cifra con texto explicativo. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-kpi-special",
-      "family": "titillium",
-      "fontSize": "106.67px",
-      "lineHeight": "112px",
-      "fontWeight": 600,
-      "usage": "KPI de página especial · SemiBold 80/84 pt · color naranja-500. Cifra principal a página completa. espaciado -2 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "letterSpacing": "-2.67px"
-     },
-     {
-      "name": "doc-special-text",
-      "family": "titillium",
-      "fontSize": "32px",
-      "lineHeight": "40px",
-      "fontWeight": 400,
-      "usage": "Especial / Texto · Regular 24/30 pt · color neutro-000. Texto secundario de las páginas especiales a página completa (negro sobre fondo gris). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-kpi-support",
-      "family": "titillium",
-      "fontSize": "24px",
-      "lineHeight": "29.33px",
-      "fontWeight": 600,
-      "usage": "Cifra de apoyo · SemiBold 18/22 pt · color naranja-500. Cifras secundarias. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-header",
-      "family": "titillium",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 600,
-      "usage": "Cabecera de página · SemiBold 9/12 pt · color naranja-600. Capítulo y sección. MAYÚSCULAS (las aplica el estilo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-label",
-      "family": "titillium",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 600,
-      "usage": "Etiqueta · SemiBold 9/12 pt · color neutro-500. Metadatos y rótulos. MAYÚSCULAS (las aplica el estilo). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-footer",
-      "family": "titillium",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 400,
-      "usage": "Pie de página · Regular 9/12 pt · color neutro-500. Título del documento y paginación. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-note",
-      "family": "titillium",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 400,
-      "usage": "Nota, pie de tabla y de imagen · Italic 9/12 pt · color neutro-500. Notas y pies de figura. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "fontStyle": "italic"
-     },
-     {
-      "name": "doc-small-text",
-      "family": "titillium",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 400,
-      "usage": "Apoyo / Texto pequeño · Regular 9/12 pt · color neutro-800. Texto de las notas al margen (las leyendas de gráficas van en doc-leyenda). En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-table-head",
-      "family": "titillium",
-      "fontSize": "13.33px",
-      "lineHeight": "16px",
-      "fontWeight": 600,
-      "usage": "Tabla / Cabecera · SemiBold 10/12 pt · color naranja-600. Fila de encabezado. MAYÚSCULAS (las aplica el estilo); espaciado +3 %. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "letterSpacing": "0.03em"
-     },
-     {
-      "name": "doc-table-cell",
-      "family": "titillium",
-      "fontSize": "14.67px",
-      "lineHeight": "21.33px",
-      "fontWeight": 400,
-      "usage": "Tabla / Celda · Regular 11/16 pt · color neutro-800. Datos. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-leyenda",
-      "family": "barlow",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 400,
-      "usage": "Leyenda de gráfica · Barlow Regular 9/12 pt · color neutro-800. Leyendas de las gráficas (series, sectores, muestras de color) y valores de leyenda. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-diagram-text",
-      "family": "barlow",
-      "fontSize": "12px",
-      "lineHeight": "16px",
-      "fontWeight": 600,
-      "usage": "Diagrama / Texto · Barlow SemiBold 9/12 pt · color neutro-800. Etiquetas de nodos, fases e hitos de infografías, rótulos de tarjetas KPI y etiquetas de datos dentro de las gráficas. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-diagram-detail",
-      "family": "barlow",
-      "fontSize": "10.67px",
-      "lineHeight": "14.67px",
-      "fontWeight": 400,
-      "usage": "Diagrama / Detalle · Barlow Regular 8/11 pt · color neutro-500. Etiquetas de los ejes y descripciones breves de diagramas e infografías. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla."
-     },
-     {
-      "name": "doc-side-band",
-      "family": "titillium",
-      "fontSize": "21.33px",
-      "lineHeight": "29.33px",
-      "fontWeight": 600,
-      "usage": "Banda lateral · SemiBold 16/22 pt · color neutro-000. Texto vertical en página con banda. MAYÚSCULAS (las aplica el estilo); espaciado +4 pt. En el documento se mide en pt; el valor en px es solo la equivalencia para pantalla.",
-      "letterSpacing": "5.33px"
-     }
+  },
+  "spacing": {
+    "note": "Escala de interfaces (base 4 px). Sin valores fuera de esta escala salvo las dimensiones de componente. Documentos y presentaciones tienen su propia escala en las secciones Documento y Presentacion.",
+    "tokens": [
+      {
+        "name": "space-05",
+        "value": "4px",
+        "usage": "Separación mínima: icono-texto en etiquetas, gap entre iconos de cabecera en móvil."
+      },
+      {
+        "name": "space-1",
+        "value": "8px",
+        "usage": "Separación interna pequeña; padding horizontal de etiqueta."
+      },
+      {
+        "name": "space-2",
+        "value": "16px",
+        "usage": "Margen de página y gutter en móvil; gap entre iconos de cabecera en escritorio."
+      },
+      {
+        "name": "space-3",
+        "value": "24px",
+        "usage": "Gutter de escritorio; padding de tarjeta (opción compacta); sangría de cita."
+      },
+      {
+        "name": "space-4",
+        "value": "32px",
+        "usage": "Padding de tarjeta (opción amplia) y de modal; margen de página en tableta; separación entre enlaces de navegación."
+      },
+      {
+        "name": "space-5",
+        "value": "40px",
+        "usage": "Margen horizontal de página en escritorio."
+      },
+      {
+        "name": "space-6",
+        "value": "48px",
+        "usage": "Separación entre bloques de una sección."
+      },
+      {
+        "name": "space-8",
+        "value": "64px",
+        "usage": "Separación entre secciones."
+      }
     ]
-   },
-   {
-    "name": "Presentaciones (lienzo 1920 × 1080)",
-    "family": "titillium",
-    "styles": [
-     {
-      "name": "pres-cover-title",
-      "family": "titillium",
-      "fontSize": "100px",
-      "lineHeight": "110px",
-      "fontWeight": 300,
-      "usage": "Portada / Título · Titillium Web Light 100/110 px en el lienzo de 1920 × 1080 (50 pt en PowerPoint) · color #FFFFFF."
-     },
-     {
-      "name": "pres-cover-subtitle",
-      "family": "titillium",
-      "fontSize": "48px",
-      "lineHeight": "50px",
-      "fontWeight": 600,
-      "usage": "Portada / Subtítulo · Titillium Web SemiBold 48/50 px en el lienzo de 1920 × 1080 (24 pt en PowerPoint) · color #FFFFFF."
-     },
-     {
-      "name": "pres-cover-date",
-      "family": "titillium",
-      "fontSize": "36px",
-      "lineHeight": "36px",
-      "fontWeight": 400,
-      "usage": "Portada / Fecha · Titillium Web Regular 36/36 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color #000000. alineado a la derecha."
-     },
-     {
-      "name": "pres-slide-title",
-      "family": "titillium",
-      "fontSize": "90px",
-      "lineHeight": "80px",
-      "fontWeight": 300,
-      "usage": "Título de diapositiva · Titillium Web Light 90/80 px en el lienzo de 1920 × 1080 (45 pt en PowerPoint) · color pres-acento. máx. 1 línea."
-     },
-     {
-      "name": "pres-heading-1",
-      "family": "titillium",
-      "fontSize": "54px",
-      "lineHeight": "62px",
-      "fontWeight": 600,
-      "usage": "Epígrafe 1 · Titillium Web SemiBold 54/62 px en el lienzo de 1920 × 1080 (27 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-heading-2",
-      "family": "titillium",
-      "fontSize": "44px",
-      "lineHeight": "52px",
-      "fontWeight": 600,
-      "usage": "Epígrafe 2 · Titillium Web SemiBold 44/52 px en el lienzo de 1920 × 1080 (22 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-heading-3",
-      "family": "titillium",
-      "fontSize": "38px",
-      "lineHeight": "46px",
-      "fontWeight": 600,
-      "usage": "Epígrafe 3 · Titillium Web SemiBold 38/46 px en el lienzo de 1920 × 1080 (19 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-statement",
-      "family": "titillium",
-      "fontSize": "72px",
-      "lineHeight": "84px",
-      "fontWeight": 300,
-      "usage": "Mensaje · Titillium Web Light 72/84 px en el lienzo de 1920 × 1080 (36 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-body",
-      "family": "barlow",
-      "fontSize": "36px",
-      "lineHeight": "48px",
-      "fontWeight": 400,
-      "usage": "Texto · Barlow Regular 36/48 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-body-small",
-      "family": "barlow",
-      "fontSize": "28px",
-      "lineHeight": "36px",
-      "fontWeight": 400,
-      "usage": "Texto pequeño · Barlow Regular 28/36 px en el lienzo de 1920 × 1080 (14 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-caption",
-      "family": "barlow",
-      "fontSize": "28px",
-      "lineHeight": "36px",
-      "fontWeight": 400,
-      "usage": "Pie de imagen y aclaración · Barlow Regular 28/36 px en el lienzo de 1920 × 1080 (14 pt en PowerPoint) · color pres-texto-2."
-     },
-     {
-      "name": "pres-kicker",
-      "family": "barlow",
-      "fontSize": "24px",
-      "lineHeight": "32px",
-      "fontWeight": 500,
-      "usage": "Etiqueta · Barlow Medium 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-acento. MAYÚSCULAS (las aplica el estilo)."
-     },
-     {
-      "name": "pres-stage-label",
-      "family": "barlow",
-      "fontSize": "28px",
-      "lineHeight": "36px",
-      "fontWeight": 600,
-      "usage": "Etiqueta de etapa · Barlow SemiBold 28/36 px en el lienzo de 1920 × 1080 (14 pt en PowerPoint) · color pres-acento. MAYÚSCULAS (las aplica el estilo)."
-     },
-     {
-      "name": "pres-invite",
-      "family": "barlow",
-      "fontSize": "26px",
-      "lineHeight": "32px",
-      "fontWeight": 500,
-      "usage": "Invitación · Barlow Medium 26/32 px en el lienzo de 1920 × 1080 (13 pt en PowerPoint) · color pres-acento. MAYÚSCULAS (las aplica el estilo)."
-     },
-     {
-      "name": "pres-metric",
-      "family": "titillium",
-      "fontSize": "112px",
-      "lineHeight": "120px",
-      "fontWeight": 300,
-      "usage": "Cifra · Titillium Web Light 112/120 px en el lienzo de 1920 × 1080 (56 pt en PowerPoint) · color pres-acento."
-     },
-     {
-      "name": "pres-data-value",
-      "family": "titillium",
-      "fontSize": "36px",
-      "lineHeight": "48px",
-      "fontWeight": 400,
-      "usage": "Valor de dato · Titillium Web Regular 36/48 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-data-label",
-      "family": "barlow",
-      "fontSize": "32px",
-      "lineHeight": "40px",
-      "fontWeight": 400,
-      "usage": "Etiqueta de dato · Barlow Regular 32/40 px en el lienzo de 1920 × 1080 (16 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-axis",
-      "family": "barlow",
-      "fontSize": "24px",
-      "lineHeight": "32px",
-      "fontWeight": 400,
-      "usage": "Eje · Barlow Regular 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-texto-2."
-     },
-     {
-      "name": "pres-table-head",
-      "family": "titillium",
-      "fontSize": "38px",
-      "lineHeight": "48px",
-      "fontWeight": 600,
-      "usage": "Tabla / Cabecera · Titillium Web SemiBold 38/48 px en el lienzo de 1920 × 1080 (19 pt en PowerPoint) · color pres-acento."
-     },
-     {
-      "name": "pres-table-cell",
-      "family": "barlow",
-      "fontSize": "36px",
-      "lineHeight": "48px",
-      "fontWeight": 400,
-      "usage": "Tabla / Celda · Barlow Regular 36/48 px en el lienzo de 1920 × 1080 (18 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-campaign-xl",
-      "family": "titillium",
-      "fontSize": "172px",
-      "lineHeight": "178px",
-      "fontWeight": 600,
-      "usage": "Titular / Frase destacada · Titillium Web SemiBold 172/178 px en el lienzo de 1920 × 1080 (86 pt en PowerPoint) · color pres-texto. máx. 3 líneas."
-     },
-     {
-      "name": "pres-campaign-l",
-      "family": "titillium",
-      "fontSize": "160px",
-      "lineHeight": "160px",
-      "fontWeight": 600,
-      "usage": "Titular / Portadilla · Titillium Web SemiBold 160/160 px en el lienzo de 1920 × 1080 (80 pt en PowerPoint) · color pres-texto. máx. 3 líneas."
-     },
-     {
-      "name": "pres-campaign-m",
-      "family": "titillium",
-      "fontSize": "144px",
-      "lineHeight": "150px",
-      "fontWeight": 600,
-      "usage": "Titular / Foto completa · Titillium Web SemiBold 144/150 px en el lienzo de 1920 × 1080 (72 pt en PowerPoint) · color #FFFFFF (negro) · text (blanco). máx. 3 líneas."
-     },
-     {
-      "name": "pres-campaign-s",
-      "family": "titillium",
-      "fontSize": "112px",
-      "lineHeight": "120px",
-      "fontWeight": 600,
-      "usage": "Titular / Media imagen · Titillium Web SemiBold 112/120 px en el lienzo de 1920 × 1080 (56 pt en PowerPoint) · color pres-texto. máx. 4 líneas."
-     },
-     {
-      "name": "pres-standfirst",
-      "family": "barlow",
-      "fontSize": "34px",
-      "lineHeight": "44px",
-      "fontWeight": 400,
-      "usage": "Bajada · Barlow Regular 34/44 px en el lienzo de 1920 × 1080 (17 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-signature",
-      "family": "barlow",
-      "fontSize": "32px",
-      "lineHeight": "40px",
-      "fontWeight": 400,
-      "usage": "Firma · Barlow Regular 32/40 px en el lienzo de 1920 × 1080 (16 pt en PowerPoint) · color pres-texto."
-     },
-     {
-      "name": "pres-block-number",
-      "family": "titillium",
-      "fontSize": "340px",
-      "lineHeight": "380px",
-      "fontWeight": 300,
-      "usage": "Número de bloque · Titillium Web Light 340/380 px en el lienzo de 1920 × 1080 (170 pt en PowerPoint) · color pres-acento."
-     },
-     {
-      "name": "pres-agenda-number",
-      "family": "titillium",
-      "fontSize": "72px",
-      "lineHeight": "80px",
-      "fontWeight": 300,
-      "usage": "Agenda / Número · Titillium Web Light 72/80 px en el lienzo de 1920 × 1080 (36 pt en PowerPoint) · color pres-acento."
-     },
-     {
-      "name": "pres-note",
-      "family": "barlow",
-      "fontSize": "24px",
-      "lineHeight": "32px",
-      "fontWeight": 400,
-      "usage": "Nota o fuente · Barlow Regular 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-texto-2."
-     },
-     {
-      "name": "pres-note-campaign",
-      "family": "barlow",
-      "fontSize": "20px",
-      "lineHeight": "28px",
-      "fontWeight": 400,
-      "usage": "Nota en diapositivas de campaña · Barlow Regular 20/28 px en el lienzo de 1920 × 1080 (10 pt en PowerPoint) · color pres-texto-2."
-     },
-     {
-      "name": "pres-page-number",
-      "family": "titillium",
-      "fontSize": "24px",
-      "lineHeight": "32px",
-      "fontWeight": 400,
-      "usage": "Número de página · Titillium Web Regular 24/32 px en el lienzo de 1920 × 1080 (12 pt en PowerPoint) · color pres-texto-2."
-     }
+  },
+  "radius": {
+    "note": "Radios de interfaces. Documentos usa 4 pt en tarjeta KPI y bloque de métrica; las presentaciones no redondean nada.",
+    "tokens": [
+      {
+        "name": "radius-none",
+        "value": "0px",
+        "usage": "Secciones full-bleed y elementos rectos."
+      },
+      {
+        "name": "tag-radius",
+        "value": "2px",
+        "usage": "Solo etiquetas (tags y badges): casi rectas para que nunca parezcan un botón."
+      },
+      {
+        "name": "radius-sm",
+        "value": "4px",
+        "usage": "Campos de formulario, selectores, áreas de texto, contadores y etiquetas de estado."
+      },
+      {
+        "name": "radius-md",
+        "value": "8px",
+        "usage": "Avisos, paneles de tabla, KPI y tarjetas de progreso."
+      },
+      {
+        "name": "radius-lg",
+        "value": "16px",
+        "usage": "Tarjetas y modales."
+      },
+      {
+        "name": "radius-full",
+        "value": "999px",
+        "usage": "Botones y chips (píldora). Nunca en etiquetas."
+      }
     ]
-   }
-  ]
- },
- "spacing": {
-  "note": "Escala de interfaces (base 4 px). Sin valores fuera de esta escala salvo las dimensiones de componente. Documentos y presentaciones tienen su propia escala en las secciones Documento y Presentacion.",
-  "tokens": [
-   {
-    "name": "space-05",
-    "value": "4px",
-    "usage": "Separación mínima: icono-texto en etiquetas, gap entre iconos de cabecera en móvil."
-   },
-   {
-    "name": "space-1",
-    "value": "8px",
-    "usage": "Separación interna pequeña; padding horizontal de etiqueta."
-   },
-   {
-    "name": "space-2",
-    "value": "16px",
-    "usage": "Margen de página y gutter en móvil; gap entre iconos de cabecera en escritorio."
-   },
-   {
-    "name": "space-3",
-    "value": "24px",
-    "usage": "Gutter de escritorio; padding de tarjeta (opción compacta); sangría de cita."
-   },
-   {
-    "name": "space-4",
-    "value": "32px",
-    "usage": "Padding de tarjeta (opción amplia) y de modal; margen de página en tableta; separación entre enlaces de navegación."
-   },
-   {
-    "name": "space-5",
-    "value": "40px",
-    "usage": "Margen horizontal de página en escritorio."
-   },
-   {
-    "name": "space-6",
-    "value": "48px",
-    "usage": "Separación entre bloques de una sección."
-   },
-   {
-    "name": "space-8",
-    "value": "64px",
-    "usage": "Separación entre secciones."
-   }
-  ]
- },
- "radius": {
-  "note": "Radios de interfaces. Documentos usa 4 pt en tarjeta KPI y bloque de métrica; las presentaciones no redondean nada.",
-  "tokens": [
-   {
-    "name": "radius-none",
-    "value": "0px",
-    "usage": "Secciones full-bleed y elementos rectos."
-   },
-   {
-    "name": "tag-radius",
-    "value": "2px",
-    "usage": "Solo etiquetas (tags y badges): casi rectas para que nunca parezcan un botón."
-   },
-   {
-    "name": "radius-sm",
-    "value": "4px",
-    "usage": "Campos de formulario, selectores, áreas de texto, contadores y etiquetas de estado."
-   },
-   {
-    "name": "radius-md",
-    "value": "8px",
-    "usage": "Avisos, paneles de tabla, KPI y tarjetas de progreso."
-   },
-   {
-    "name": "radius-lg",
-    "value": "16px",
-    "usage": "Tarjetas y modales."
-   },
-   {
-    "name": "radius-full",
-    "value": "999px",
-    "usage": "Botones y chips (píldora). Nunca en etiquetas."
-   }
-  ]
- },
- "shadow": {
-  "note": "Elevación de interfaces: bordes y sombras muy sutiles. Documentos y presentaciones no llevan sombras.",
-  "tokens": [
-   {
-    "name": "sombra-baja",
-    "value": "0px 0px 10px 0px #f0edea",
-    "usage": "Nivel 1: tarjetas y contenedores (opcional)."
-   },
-   {
-    "name": "sombra-alta",
-    "value": "0px 0px 10px 0px #d8d5ce",
-    "usage": "Nivel 2: flotantes y modales."
-   },
-   {
-    "name": "sombra-cabecera",
-    "value": "0px 2px 10px 0px #f0edea",
-    "usage": "Separación de la cabecera interna respecto a la página."
-   }
-  ]
- },
- "degradado": {
-  "note": "Solo interfaces: fondos de banners, secciones destacadas, etiquetas y contenedores. Máximo uno por sección y dos por página, nunca dos secciones seguidas; prohibidos en botones y en fondos globales. En documentos y presentaciones no hay degradados decorativos (solo el velo sobre una foto).",
-  "tokens": [
-   {
-    "name": "gradient-naranja-1",
-    "value": "linear-gradient(135deg, #ED7011 0%, #FFB521 100%)",
-    "usage": "Texto obligatorio neutro-800, en cualquier tamaño (6,93:1 en el peor extremo). El blanco está prohibido."
-   },
-   {
-    "name": "gradient-naranja-2",
-    "value": "linear-gradient(135deg, #9A0000 0%, #ED7011 100%)",
-    "usage": "Texto obligatorio neutro-000 y solo grande (3,03:1): titulares sí, párrafos no."
-   },
-   {
-    "name": "gradient-oscuro",
-    "value": "linear-gradient(135deg, #222222 0%, #706B65 100%)",
-    "usage": "Texto obligatorio neutro-000 en cualquier tamaño (5,28:1). Nunca naranja-400 encima."
-   }
-  ]
- },
- "capa": {
-  "note": "Escala única de z-index de interfaces.",
-  "tokens": [
-   {
-    "name": "z-header",
-    "value": "50",
-    "usage": "Barra de navegación fija."
-   },
-   {
-    "name": "z-dropdown",
-    "value": "75",
-    "usage": "Menús desplegables y selects abiertos."
-   },
-   {
-    "name": "z-drawer",
-    "value": "100",
-    "usage": "Menú móvil a pantalla completa."
-   },
-   {
-    "name": "z-modal",
-    "value": "200",
-    "usage": "Diálogos y modales, siempre por delante del drawer."
-   },
-   {
-    "name": "z-tooltip",
-    "value": "300",
-    "usage": "Tooltips, visibles incluso sobre un modal."
-   }
-  ]
- },
- "componente": {
-  "note": "Dimensiones fijas de componentes de interfaz, verificadas en producción. Mandan sobre la escala de espaciado.",
-  "tokens": [
-   {
-    "name": "boton-alto",
-    "value": "40px",
-    "usage": "Cuerpo visual de todo botón."
-   },
-   {
-    "name": "boton-area",
-    "value": "48px",
-    "usage": "Área táctil del botón primario (44 px en el resto)."
-   },
-   {
-    "name": "area-tactil",
-    "value": "44px",
-    "usage": "Área táctil mínima de cualquier control o icono."
-   },
-   {
-    "name": "input-alto",
-    "value": "40px",
-    "usage": "Alto de input de formulario y de selector (borde incluido). Mismo alto que el cuerpo de los botones; el label asociado, que también enfoca el campo, completa el área táctil."
-   },
-   {
-    "name": "etiqueta-alto",
-    "value": "20px",
-    "usage": "Alto máximo de etiqueta. Nunca 24 px o más."
-   },
-   {
-    "name": "icono",
-    "value": "24px",
-    "usage": "Tamaño de icono Feather (trazo 1,5 px, sin relleno)."
-   },
-   {
-    "name": "foco-anillo",
-    "value": "2px",
-    "usage": "Grosor y separación del anillo de foco."
-   },
-   {
-    "name": "filete-acento",
-    "value": "1px",
-    "usage": "Filete de acento por defecto."
-   },
-   {
-    "name": "filete-acento-fuerte",
-    "value": "2px",
-    "usage": "Filete de acento máximo (lectura a distancia). Nunca más."
-   },
-   {
-    "name": "regla-titular",
-    "value": "64px",
-    "usage": "Ancho de la regla bajo un titular de sección (margen superior 16 px)."
-   },
-   {
-    "name": "cabecera-alto",
-    "value": "48px",
-    "usage": "Alto de la cabecera en escritorio (≥ 1024 px)."
-   },
-   {
-    "name": "cabecera-alto-movil",
-    "value": "40px",
-    "usage": "Alto de la cabecera por debajo de 1024 px."
-   },
-   {
-    "name": "logo-caja",
-    "value": "180px",
-    "usage": "Recuadro naranja-500 del logotipo en la cabecera externa, escritorio."
-   },
-   {
-    "name": "logo-caja-movil",
-    "value": "160px",
-    "usage": "Recuadro naranja-500 en la cabecera externa por debajo de 1024 px."
-   },
-   {
-    "name": "logo-min-ancho",
-    "value": "110px",
-    "usage": "Ancho mínimo del logotipo en cualquier uso (alto mínimo 14 px)."
-   },
-   {
-    "name": "isotipo",
-    "value": "30px",
-    "usage": "Isotipo de la cabecera interna en todos los tamaños, junto al nombre de producto (26 px por debajo de 768 px)."
-   },
-   {
-    "name": "nav-separacion",
-    "value": "32px",
-    "usage": "Separación entre enlaces de navegación de escritorio."
-   },
-   {
-    "name": "nav-subrayado",
-    "value": "4px",
-    "usage": "Subrayado de hover/seleccionado en navegación. Es un estado, no un acento."
-   }
-  ]
- },
- "rejilla": {
-  "note": "Rejilla y puntos de corte de interfaces (mobile first).",
-  "tokens": [
-   {
-    "name": "bp-movil",
-    "value": "376px",
-    "usage": "Móvil: 2 columnas, margen 16 px, gutter 16 px."
-   },
-   {
-    "name": "bp-tableta",
-    "value": "768px",
-    "usage": "Tableta: 6 columnas, margen 32 px, gutter 16 px."
-   },
-   {
-    "name": "bp-escritorio",
-    "value": "1024px",
-    "usage": "Escritorio: 12 columnas, margen 40 px, gutter 24 px. Por debajo aparece la hamburguesa."
-   },
-   {
-    "name": "contenedor-max",
-    "value": "1280px",
-    "usage": "Ancho máximo del contenido. Es límite de layout, no de lectura."
-   },
-   {
-    "name": "medida-texto",
-    "value": "65ch",
-    "usage": "Ancho máximo de texto corrido."
-   },
-   {
-    "name": "medida-titular",
-    "value": "30ch",
-    "usage": "Ancho máximo de titular (20ch en Display/Hero)."
-   }
-  ]
- },
- "documento": {
-  "note": "Documentos y dossieres: A4 en puntos tipográficos. Valores de tokens_documentos.json.",
-  "tokens": [
-   {
-    "name": "doc-pagina",
-    "value": "595.276pt 841.89pt",
-    "usage": "A4, 210 × 297 mm."
-   },
-   {
-    "name": "doc-margen-lateral",
-    "value": "70.866pt",
-    "usage": "25 mm a cada lado, también en cubierta y contraportada."
-   },
-   {
-    "name": "doc-margen-superior",
-    "value": "30pt",
-    "usage": "Zona de cabecera (cabecera entre y 30 e y 60)."
-   },
-   {
-    "name": "doc-margen-inferior",
-    "value": "50pt",
-    "usage": "Zona de pie; línea de pie en y 772."
-   },
-   {
-    "name": "doc-cubierta-vertical",
-    "value": "57pt",
-    "usage": "Margen superior e inferior de cubierta y contraportada."
-   },
-   {
-    "name": "doc-ancho-util",
-    "value": "453.544pt",
-    "usage": "Ancho de la caja de texto (4 columnas)."
-   },
-   {
-    "name": "doc-columna",
-    "value": "100.63pt",
-    "usage": "Columna de la rejilla de 4."
-   },
-   {
-    "name": "doc-medianil",
-    "value": "17.008pt",
-    "usage": "Medianil de la rejilla (6 mm)."
-   },
-   {
-    "name": "doc-medianil-texto",
-    "value": "28.346pt",
-    "usage": "Medianil entre dos columnas de texto (10 mm); solo si las dos son texto."
-   },
-   {
-    "name": "doc-texto-1-columna",
-    "value": "335.906pt",
-    "usage": "Ancho máximo del texto corrido largo (3 de 4 columnas)."
-   },
-   {
-    "name": "doc-separacion-bloques",
-    "value": "16pt",
-    "usage": "Separación constante entre bloques."
-   },
-   {
-    "name": "doc-separacion-secciones",
-    "value": "24pt",
-    "usage": "Separación entre secciones."
-   },
-   {
-    "name": "doc-parrafo-despues",
-    "value": "12pt",
-    "usage": "Espacio tras cada párrafo de cuerpo."
-   },
-   {
-    "name": "doc-titulo-filete",
-    "value": "8pt",
-    "usage": "Distancia entre H1 y su filete naranja (64 × 4 pt; 48 pt con banda lateral)."
-   },
-   {
-    "name": "doc-relleno-caja",
-    "value": "14pt",
-    "usage": "Relleno interior de las cajas destacadas."
-   },
-   {
-    "name": "doc-relleno-kpi",
-    "value": "12pt",
-    "usage": "Relleno de la tarjeta KPI (esquinas de 4 pt)."
-   },
-   {
-    "name": "doc-relleno-metrica",
-    "value": "16pt",
-    "usage": "Relleno del bloque de métrica (esquinas de 4 pt)."
-   },
-   {
-    "name": "doc-sangria-cita",
-    "value": "16pt",
-    "usage": "Sangría de la cita destacada tras su filete de 1 pt."
-   },
-   {
-    "name": "doc-fila-tabla",
-    "value": "36pt",
-    "usage": "Alto de fila de tabla (cabecera 32 pt)."
-   },
-   {
-    "name": "doc-vineta",
-    "value": "5pt",
-    "usage": "Viñeta de lista: círculo naranja-500."
-   },
-   {
-    "name": "doc-barra",
-    "value": "12pt",
-    "usage": "Alto de la pista de barras (neutro-200, radio 2 pt)."
-   },
-   {
-    "name": "doc-logo-ancho",
-    "value": "140pt",
-    "usage": "Ancho base del logotipo (alto 17,9 pt). Mínimo 25 mm en el archivo de InDesign."
-   },
-   {
-    "name": "doc-sangrado",
-    "value": "5mm",
-    "usage": "Sangrado del archivo de InDesign para imprenta."
-   }
-  ]
- },
- "documentacion": {
-  "note": "Registro Documentación (compacto): documentos de trabajo de texto corrido. Mismos página, márgenes, rejilla y colores que Documento; cambian escala y espacios. Tipografía: cuerpo/interlineado en pt.",
-  "tokens": [
-   {
-    "name": "doc-c-cuerpo",
-    "value": "10pt/14pt",
-    "usage": "Documentación · Cuerpo · Titillium Regular 10/14 pt · negro. Texto corrido; párrafo alemán con doc-c-parrafo-despues. Interlineado propio del registro, como el 11/16 del dossier: no se recalcula con la regla general de la skill de ortotipografía."
-   },
-   {
-    "name": "doc-c-entradilla",
-    "value": "11pt/15pt",
-    "usage": "Documentación · Entradilla · SemiBold 11/15 pt · negro."
-   },
-   {
-    "name": "doc-c-h1",
-    "value": "18pt/22pt",
-    "usage": "Documentación · Título 1 · SemiBold 18/22 pt · negro, número en naranja-500; filete naranja-500 de 32 × 3 pt a 6 pt (doc-c-titulo-filete)."
-   },
-   {
-    "name": "doc-c-h2",
-    "value": "13pt/17pt",
-    "usage": "Documentación · Título 2 · SemiBold 13/17 pt · negro; número decimal (1.1) en el color del texto."
-   },
-   {
-    "name": "doc-c-h3",
-    "value": "11pt/15pt",
-    "usage": "Documentación · Título 3 · SemiBold 11/15 pt · negro."
-   },
-   {
-    "name": "doc-c-h4",
-    "value": "10pt/14pt",
-    "usage": "Documentación · Título 4 · SemiBold 10/14 pt · negro; mismo cuerpo que el texto, se distingue por el peso."
-   },
-   {
-    "name": "doc-c-nota-margen",
-    "value": "9pt/12pt",
-    "usage": "Documentación · Nota al margen · Regular 9/12 pt · negro, con Etiqueta encima y filete superior de 0,5 pt neutro-300-doc. Va en la 4.ª columna."
-   },
-   {
-    "name": "doc-c-nota",
-    "value": "8pt/11pt",
-    "usage": "Documentación · Nota y pie de tabla · Italic 8/11 pt · neutro-500. También notas al pie en Word y Google Docs."
-   },
-   {
-    "name": "doc-c-tabla-cabecera",
-    "value": "9pt/12pt",
-    "usage": "Documentación · Tabla / Cabecera · SemiBold 9/12 pt · naranja-600 · MAYÚSCULAS (las aplica el estilo), +3 %."
-   },
-   {
-    "name": "doc-c-tabla-celda",
-    "value": "10pt/14pt",
-    "usage": "Documentación · Tabla / Celda · Regular 10/14 pt · negro; cifras tabulares."
-   },
-   {
-    "name": "doc-c-codigo",
-    "value": "10pt/14pt",
-    "usage": "Documentación · Código, rutas y nombres de campo · Roboto Mono Regular 10/14 pt · negro. En bloque, sobre neutro-100 con relleno doc-c-relleno-codigo."
-   },
-   {
-    "name": "doc-c-portada-titulo",
-    "value": "32pt/36pt",
-    "usage": "Documentación · Portada / Título · Light 32/36 pt · blanco sobre naranja-500, filete blanco de 32 × 3 pt encima."
-   },
-   {
-    "name": "doc-c-portada-subtitulo",
-    "value": "13pt/17pt",
-    "usage": "Documentación · Portada / Subtítulo · Regular 13/17 pt · negro."
-   },
-   {
-    "name": "doc-c-parrafo-despues",
-    "value": "6pt",
-    "usage": "Documentación · Espacio tras cada párrafo de cuerpo (dossier: 12 pt)."
-   },
-   {
-    "name": "doc-c-separacion-bloques",
-    "value": "8pt",
-    "usage": "Documentación · Separación entre bloques (dossier: 16 pt)."
-   },
-   {
-    "name": "doc-c-separacion-secciones",
-    "value": "16pt",
-    "usage": "Documentación · Separación antes de un Título 2 (dossier: 24 pt)."
-   },
-   {
-    "name": "doc-c-titulo-filete",
-    "value": "32pt 3pt",
-    "usage": "Documentación · Filete naranja-500 bajo el Título 1: ancho × alto, a 6 pt del título (dossier: 64 × 4 a 8 pt)."
-   },
-   {
-    "name": "doc-c-fila-tabla",
-    "value": "20pt",
-    "usage": "Documentación · Alto mínimo de fila de tabla; cabecera 18 pt (dossier: 36 y 32)."
-   },
-   {
-    "name": "doc-c-vineta",
-    "value": "4pt",
-    "usage": "Documentación · Viñeta de lista: círculo naranja-500 (dossier: 5 pt); sangría 12 pt."
-   },
-   {
-    "name": "doc-c-filete-aviso",
-    "value": "2pt",
-    "usage": "Documentación · Filete izquierdo de los avisos, sin fondo: naranja-500 en avisos, neutro-400 en notas informativas; texto a 10 pt del filete."
-   },
-   {
-    "name": "doc-c-relleno-codigo",
-    "value": "6pt 10pt",
-    "usage": "Documentación · Relleno del bloque de código (vertical, horizontal) sobre neutro-100."
-   },
-   {
-    "name": "doc-c-caja-superior",
-    "value": "66pt",
-    "usage": "Documentación · Inicio de la caja de texto (y 66); termina en y 758 (84 pt de margen inferior)."
-   },
-   {
-    "name": "doc-c-linea-pie",
-    "value": "786.173pt",
-    "usage": "Documentación · Posición y de la línea de pie de 2 pt naranja-500 (dossier: y 772)."
-   }
-  ]
- },
- "presentacion": {
-  "note": "Presentaciones: lienzo de 1920 × 1080 px (en PowerPoint, 1 px = 0,5 pt; 13,333 × 7,5 in). Valores de tokens_presentaciones.json.",
-  "tokens": [
-   {
-    "name": "pres-lienzo",
-    "value": "1920px 1080px",
-    "usage": "16:9."
-   },
-   {
-    "name": "pres-margen-lateral",
-    "value": "136px",
-    "usage": "Margen a cada lado; ancho útil 1648 px."
-   },
-   {
-    "name": "pres-ancho-util",
-    "value": "1648px",
-    "usage": "Ancho del contenido."
-   },
-   {
-    "name": "pres-titulo-y",
-    "value": "184px",
-    "usage": "Posición vertical del título de diapositiva (una línea)."
-   },
-   {
-    "name": "pres-contenido-y",
-    "value": "320px",
-    "usage": "Inicio del contenido (56 px bajo el título)."
-   },
-   {
-    "name": "pres-limite-y",
-    "value": "930px",
-    "usage": "Nada por debajo, salvo la nota y el número de página."
-   },
-   {
-    "name": "pres-nota-y",
-    "value": "960px",
-    "usage": "Nota o fuente (984 px en diapositivas de campaña); ancho máximo 1510 px."
-   },
-   {
-    "name": "pres-medianil-2",
-    "value": "88px",
-    "usage": "Medianil entre dos columnas (780 px cada una) y texto-imagen."
-   },
-   {
-    "name": "pres-medianil-3",
-    "value": "72px",
-    "usage": "Medianil entre tres columnas (métricas)."
-   },
-   {
-    "name": "pres-medianil-4",
-    "value": "48px",
-    "usage": "Medianil entre cuatro columnas (proceso)."
-   },
-   {
-    "name": "pres-separacion-titulo",
-    "value": "56px",
-    "usage": "Del título al contenido."
-   },
-   {
-    "name": "pres-separacion-parrafo",
-    "value": "32px",
-    "usage": "Entre párrafos."
-   },
-   {
-    "name": "pres-separacion-bloque",
-    "value": "24px",
-    "usage": "Dentro de un bloque."
-   },
-   {
-    "name": "pres-filete-superior",
-    "value": "8px",
-    "usage": "Filete superior a sangre en acento; en medias imágenes solo sobre la mitad de texto. No lo llevan portada ni foto completa."
-   },
-   {
-    "name": "pres-logo",
-    "value": "200px",
-    "usage": "Logotipo arriba a la derecha (x 1659, y 56; 200 × 24,62 px). 260 px en la portada."
-   },
-   {
-    "name": "pres-filete-enfasis",
-    "value": "88px",
-    "usage": "Filete de énfasis de la frase destacada (88 × 4 px)."
-   },
-   {
-    "name": "pres-filete-invitacion",
-    "value": "72px",
-    "usage": "Filete de invitación de la media imagen derecha (72 × 4 px)."
-   },
-   {
-    "name": "pres-barra-alto",
-    "value": "56px",
-    "usage": "Alto de barra del gráfico (separación 36 px)."
-   },
-   {
-    "name": "pres-donut",
-    "value": "440px",
-    "usage": "Diámetro del donut (máx. 5 sectores)."
-   },
-   {
-    "name": "pres-texto-min",
-    "value": "20px",
-    "usage": "Tamaño mínimo de texto (10 pt)."
-   }
-  ]
- }
+  },
+  "shadow": {
+    "note": "Elevación de interfaces: bordes y sombras muy sutiles. Documentos y presentaciones no llevan sombras.",
+    "tokens": [
+      {
+        "name": "sombra-baja",
+        "value": {
+          "blanco": "0px 0px 10px 0px #f0edea"
+        },
+        "usage": "Nivel 1: tarjetas y contenedores (opcional)."
+      },
+      {
+        "name": "sombra-alta",
+        "value": {
+          "blanco": "0px 0px 10px 0px #d8d5ce"
+        },
+        "usage": "Nivel 2: flotantes y modales."
+      },
+      {
+        "name": "sombra-cabecera",
+        "value": {
+          "blanco": "0px 2px 10px 0px #f0edea"
+        },
+        "usage": "Separación de la cabecera interna respecto a la página."
+      }
+    ]
+  },
+  "degradado": {
+    "note": "Solo interfaces: fondos de banners, secciones destacadas, etiquetas y contenedores. Máximo uno por sección y dos por página, nunca dos secciones seguidas; prohibidos en botones y en fondos globales. En documentos y presentaciones no hay degradados decorativos (solo el velo sobre una foto).",
+    "tokens": [
+      {
+        "name": "gradient-naranja-1",
+        "value": "linear-gradient(135deg, #ED7011 0%, #FFB521 100%)",
+        "usage": "Texto obligatorio neutro-800, en cualquier tamaño (6,93:1 en el peor extremo). El blanco está prohibido."
+      },
+      {
+        "name": "gradient-naranja-2",
+        "value": "linear-gradient(135deg, #9A0000 0%, #ED7011 100%)",
+        "usage": "Texto obligatorio neutro-000 y solo grande (3,03:1): titulares sí, párrafos no."
+      },
+      {
+        "name": "gradient-oscuro",
+        "value": "linear-gradient(135deg, #222222 0%, #706B65 100%)",
+        "usage": "Texto obligatorio neutro-000 en cualquier tamaño (5,28:1). Nunca naranja-400 encima."
+      }
+    ]
+  },
+  "capa": {
+    "note": "Escala única de z-index de interfaces.",
+    "tokens": [
+      {
+        "name": "z-header",
+        "value": "50",
+        "usage": "Barra de navegación fija."
+      },
+      {
+        "name": "z-dropdown",
+        "value": "75",
+        "usage": "Menús desplegables y selects abiertos."
+      },
+      {
+        "name": "z-drawer",
+        "value": "100",
+        "usage": "Menú móvil a pantalla completa."
+      },
+      {
+        "name": "z-modal",
+        "value": "200",
+        "usage": "Diálogos y modales, siempre por delante del drawer."
+      },
+      {
+        "name": "z-tooltip",
+        "value": "300",
+        "usage": "Tooltips, visibles incluso sobre un modal."
+      }
+    ]
+  },
+  "componente": {
+    "note": "Dimensiones fijas de componentes de interfaz, verificadas en producción. Mandan sobre la escala de espaciado.",
+    "tokens": [
+      {
+        "name": "boton-alto",
+        "value": "40px",
+        "usage": "Cuerpo visual de todo botón."
+      },
+      {
+        "name": "boton-area",
+        "value": "48px",
+        "usage": "Área táctil del botón primario (44 px en el resto)."
+      },
+      {
+        "name": "area-tactil",
+        "value": "44px",
+        "usage": "Área táctil mínima de cualquier control o icono."
+      },
+      {
+        "name": "input-alto",
+        "value": "40px",
+        "usage": "Alto de input de formulario y de selector (borde incluido). Mismo alto que el cuerpo de los botones; el label asociado, que también enfoca el campo, completa el área táctil."
+      },
+      {
+        "name": "etiqueta-alto",
+        "value": "20px",
+        "usage": "Alto máximo de etiqueta. Nunca 24 px o más."
+      },
+      {
+        "name": "icono",
+        "value": "24px",
+        "usage": "Tamaño de icono Feather (trazo 1,5 px, sin relleno)."
+      },
+      {
+        "name": "foco-anillo",
+        "value": "2px",
+        "usage": "Grosor y separación del anillo de foco."
+      },
+      {
+        "name": "filete-acento",
+        "value": "1px",
+        "usage": "Filete de acento por defecto."
+      },
+      {
+        "name": "filete-acento-fuerte",
+        "value": "2px",
+        "usage": "Filete de acento máximo (lectura a distancia). Nunca más."
+      },
+      {
+        "name": "regla-titular",
+        "value": "64px",
+        "usage": "Ancho de la regla bajo un titular de sección (margen superior 16 px)."
+      },
+      {
+        "name": "cabecera-alto",
+        "value": "48px",
+        "usage": "Alto de la cabecera en escritorio (≥ 1024 px)."
+      },
+      {
+        "name": "cabecera-alto-movil",
+        "value": "40px",
+        "usage": "Alto de la cabecera por debajo de 1024 px."
+      },
+      {
+        "name": "logo-caja",
+        "value": "180px",
+        "usage": "Recuadro naranja-500 del logotipo en la cabecera externa, escritorio."
+      },
+      {
+        "name": "logo-caja-movil",
+        "value": "160px",
+        "usage": "Recuadro naranja-500 en la cabecera externa por debajo de 1024 px."
+      },
+      {
+        "name": "logo-min-ancho",
+        "value": "110px",
+        "usage": "Ancho mínimo del logotipo en cualquier uso (alto mínimo 14 px)."
+      },
+      {
+        "name": "isotipo",
+        "value": "30px",
+        "usage": "Isotipo de la cabecera interna en todos los tamaños, junto al nombre de producto (26 px por debajo de 768 px)."
+      },
+      {
+        "name": "nav-separacion",
+        "value": "32px",
+        "usage": "Separación entre enlaces de navegación de escritorio."
+      },
+      {
+        "name": "nav-subrayado",
+        "value": "4px",
+        "usage": "Subrayado de hover/seleccionado en navegación. Es un estado, no un acento."
+      }
+    ]
+  },
+  "rejilla": {
+    "note": "Rejilla y puntos de corte de interfaces (mobile first).",
+    "tokens": [
+      {
+        "name": "bp-movil",
+        "value": "376px",
+        "usage": "Móvil: 2 columnas, margen 16 px, gutter 16 px."
+      },
+      {
+        "name": "bp-tableta",
+        "value": "768px",
+        "usage": "Tableta: 6 columnas, margen 32 px, gutter 16 px."
+      },
+      {
+        "name": "bp-escritorio",
+        "value": "1024px",
+        "usage": "Escritorio: 12 columnas, margen 40 px, gutter 24 px. Por debajo aparece la hamburguesa."
+      },
+      {
+        "name": "contenedor-max",
+        "value": "1280px",
+        "usage": "Ancho máximo del contenido. Es límite de layout, no de lectura."
+      },
+      {
+        "name": "medida-texto",
+        "value": "65ch",
+        "usage": "Ancho máximo de texto corrido."
+      },
+      {
+        "name": "medida-titular",
+        "value": "30ch",
+        "usage": "Ancho máximo de titular (20ch en Display/Hero)."
+      }
+    ]
+  },
+  "documento": {
+    "note": "Documentos y dossieres: A4 en puntos tipográficos. Valores de tokens_documentos.json.",
+    "tokens": [
+      {
+        "name": "doc-pagina",
+        "value": "595.276pt 841.89pt",
+        "usage": "A4, 210 × 297 mm."
+      },
+      {
+        "name": "doc-margen-lateral",
+        "value": "70.866pt",
+        "usage": "25 mm a cada lado, también en cubierta y contraportada."
+      },
+      {
+        "name": "doc-margen-superior",
+        "value": "30pt",
+        "usage": "Zona de cabecera (cabecera entre y 30 e y 60)."
+      },
+      {
+        "name": "doc-margen-inferior",
+        "value": "50pt",
+        "usage": "Zona de pie; línea de pie en y 772."
+      },
+      {
+        "name": "doc-cubierta-vertical",
+        "value": "57pt",
+        "usage": "Margen superior e inferior de cubierta y contraportada."
+      },
+      {
+        "name": "doc-ancho-util",
+        "value": "453.544pt",
+        "usage": "Ancho de la caja de texto (4 columnas)."
+      },
+      {
+        "name": "doc-columna",
+        "value": "100.63pt",
+        "usage": "Columna de la rejilla de 4."
+      },
+      {
+        "name": "doc-medianil",
+        "value": "17.008pt",
+        "usage": "Medianil de la rejilla (6 mm)."
+      },
+      {
+        "name": "doc-medianil-texto",
+        "value": "28.346pt",
+        "usage": "Medianil entre dos columnas de texto (10 mm); solo si las dos son texto."
+      },
+      {
+        "name": "doc-texto-1-columna",
+        "value": "335.906pt",
+        "usage": "Ancho máximo del texto corrido largo (3 de 4 columnas)."
+      },
+      {
+        "name": "doc-separacion-bloques",
+        "value": "16pt",
+        "usage": "Separación constante entre bloques."
+      },
+      {
+        "name": "doc-separacion-secciones",
+        "value": "24pt",
+        "usage": "Separación entre secciones."
+      },
+      {
+        "name": "doc-parrafo-despues",
+        "value": "12pt",
+        "usage": "Espacio tras cada párrafo de cuerpo."
+      },
+      {
+        "name": "doc-titulo-filete",
+        "value": "8pt",
+        "usage": "Distancia entre H1 y su filete naranja (64 × 4 pt; 48 pt con banda lateral)."
+      },
+      {
+        "name": "doc-relleno-caja",
+        "value": "14pt",
+        "usage": "Relleno interior de las cajas destacadas."
+      },
+      {
+        "name": "doc-relleno-kpi",
+        "value": "12pt",
+        "usage": "Relleno de la tarjeta KPI (esquinas de 4 pt)."
+      },
+      {
+        "name": "doc-relleno-metrica",
+        "value": "16pt",
+        "usage": "Relleno del bloque de métrica (esquinas de 4 pt)."
+      },
+      {
+        "name": "doc-sangria-cita",
+        "value": "16pt",
+        "usage": "Sangría de la cita destacada tras su filete de 1 pt."
+      },
+      {
+        "name": "doc-fila-tabla",
+        "value": "36pt",
+        "usage": "Alto de fila de tabla (cabecera 32 pt)."
+      },
+      {
+        "name": "doc-vineta",
+        "value": "5pt",
+        "usage": "Viñeta de lista: círculo naranja-500."
+      },
+      {
+        "name": "doc-barra",
+        "value": "12pt",
+        "usage": "Alto de la pista de barras (neutro-200, radio 2 pt)."
+      },
+      {
+        "name": "doc-logo-ancho",
+        "value": "140pt",
+        "usage": "Ancho base del logotipo (alto 17,9 pt). Mínimo 25 mm en el archivo de InDesign."
+      },
+      {
+        "name": "doc-sangrado",
+        "value": "5mm",
+        "usage": "Sangrado del archivo de InDesign para imprenta."
+      }
+    ]
+  },
+  "documentacion": {
+    "note": "Registro Documentación (compacto): documentos de trabajo de texto corrido. Mismos página, márgenes, rejilla y colores que Documento; cambian escala y espacios. Tipografía: cuerpo/interlineado en pt.",
+    "tokens": [
+      {
+        "name": "doc-c-cuerpo",
+        "value": "10pt/14pt",
+        "usage": "Documentación · Cuerpo · Titillium Regular 10/14 pt · negro. Texto corrido; párrafo alemán con doc-c-parrafo-despues. Interlineado propio del registro, como el 11/16 del dossier: no se recalcula con la regla general de la skill de ortotipografía."
+      },
+      {
+        "name": "doc-c-entradilla",
+        "value": "11pt/15pt",
+        "usage": "Documentación · Entradilla · SemiBold 11/15 pt · negro."
+      },
+      {
+        "name": "doc-c-h1",
+        "value": "18pt/22pt",
+        "usage": "Documentación · Título 1 · SemiBold 18/22 pt · negro, número en naranja-500; filete naranja-500 de 32 × 3 pt a 6 pt (doc-c-titulo-filete)."
+      },
+      {
+        "name": "doc-c-h2",
+        "value": "13pt/17pt",
+        "usage": "Documentación · Título 2 · SemiBold 13/17 pt · negro; número decimal (1.1) en el color del texto."
+      },
+      {
+        "name": "doc-c-h3",
+        "value": "11pt/15pt",
+        "usage": "Documentación · Título 3 · SemiBold 11/15 pt · negro."
+      },
+      {
+        "name": "doc-c-h4",
+        "value": "10pt/14pt",
+        "usage": "Documentación · Título 4 · SemiBold 10/14 pt · negro; mismo cuerpo que el texto, se distingue por el peso."
+      },
+      {
+        "name": "doc-c-nota-margen",
+        "value": "9pt/12pt",
+        "usage": "Documentación · Nota al margen · Regular 9/12 pt · negro, con Etiqueta encima y filete superior de 0,5 pt neutro-300-doc. Va en la 4.ª columna."
+      },
+      {
+        "name": "doc-c-nota",
+        "value": "8pt/11pt",
+        "usage": "Documentación · Nota y pie de tabla · Italic 8/11 pt · neutro-500. También notas al pie en Word y Google Docs."
+      },
+      {
+        "name": "doc-c-tabla-cabecera",
+        "value": "9pt/12pt",
+        "usage": "Documentación · Tabla / Cabecera · SemiBold 9/12 pt · naranja-600 · MAYÚSCULAS (las aplica el estilo), +3 %."
+      },
+      {
+        "name": "doc-c-tabla-celda",
+        "value": "10pt/14pt",
+        "usage": "Documentación · Tabla / Celda · Regular 10/14 pt · negro; cifras tabulares."
+      },
+      {
+        "name": "doc-c-codigo",
+        "value": "10pt/14pt",
+        "usage": "Documentación · Código, rutas y nombres de campo · Roboto Mono Regular 10/14 pt · negro. En bloque, sobre neutro-100 con relleno doc-c-relleno-codigo."
+      },
+      {
+        "name": "doc-c-portada-titulo",
+        "value": "32pt/36pt",
+        "usage": "Documentación · Portada / Título · Light 32/36 pt · blanco sobre naranja-500, filete blanco de 32 × 3 pt encima."
+      },
+      {
+        "name": "doc-c-portada-subtitulo",
+        "value": "13pt/17pt",
+        "usage": "Documentación · Portada / Subtítulo · Regular 13/17 pt · negro."
+      },
+      {
+        "name": "doc-c-parrafo-despues",
+        "value": "6pt",
+        "usage": "Documentación · Espacio tras cada párrafo de cuerpo (dossier: 12 pt)."
+      },
+      {
+        "name": "doc-c-separacion-bloques",
+        "value": "8pt",
+        "usage": "Documentación · Separación entre bloques (dossier: 16 pt)."
+      },
+      {
+        "name": "doc-c-separacion-secciones",
+        "value": "16pt",
+        "usage": "Documentación · Separación antes de un Título 2 (dossier: 24 pt)."
+      },
+      {
+        "name": "doc-c-titulo-filete",
+        "value": "32pt 3pt",
+        "usage": "Documentación · Filete naranja-500 bajo el Título 1: ancho × alto, a 6 pt del título (dossier: 64 × 4 a 8 pt)."
+      },
+      {
+        "name": "doc-c-fila-tabla",
+        "value": "20pt",
+        "usage": "Documentación · Alto mínimo de fila de tabla; cabecera 18 pt (dossier: 36 y 32)."
+      },
+      {
+        "name": "doc-c-vineta",
+        "value": "4pt",
+        "usage": "Documentación · Viñeta de lista: círculo naranja-500 (dossier: 5 pt); sangría 12 pt."
+      },
+      {
+        "name": "doc-c-filete-aviso",
+        "value": "2pt",
+        "usage": "Documentación · Filete izquierdo de los avisos, sin fondo: naranja-500 en avisos, neutro-400 en notas informativas; texto a 10 pt del filete."
+      },
+      {
+        "name": "doc-c-relleno-codigo",
+        "value": "6pt 10pt",
+        "usage": "Documentación · Relleno del bloque de código (vertical, horizontal) sobre neutro-100."
+      },
+      {
+        "name": "doc-c-caja-superior",
+        "value": "66pt",
+        "usage": "Documentación · Inicio de la caja de texto (y 66); termina en y 758 (84 pt de margen inferior)."
+      },
+      {
+        "name": "doc-c-linea-pie",
+        "value": "786.173pt",
+        "usage": "Documentación · Posición y de la línea de pie de 2 pt naranja-500 (dossier: y 772)."
+      }
+    ]
+  },
+  "presentacion": {
+    "note": "Presentaciones: lienzo de 1920 × 1080 px (en PowerPoint, 1 px = 0,5 pt; 13,333 × 7,5 in). Valores de tokens_presentaciones.json.",
+    "tokens": [
+      {
+        "name": "pres-lienzo",
+        "value": "1920px 1080px",
+        "usage": "16:9."
+      },
+      {
+        "name": "pres-margen-lateral",
+        "value": "136px",
+        "usage": "Margen a cada lado; ancho útil 1648 px."
+      },
+      {
+        "name": "pres-ancho-util",
+        "value": "1648px",
+        "usage": "Ancho del contenido."
+      },
+      {
+        "name": "pres-titulo-y",
+        "value": "184px",
+        "usage": "Posición vertical del título de diapositiva (una línea)."
+      },
+      {
+        "name": "pres-contenido-y",
+        "value": "320px",
+        "usage": "Inicio del contenido (56 px bajo el título)."
+      },
+      {
+        "name": "pres-limite-y",
+        "value": "930px",
+        "usage": "Nada por debajo, salvo la nota y el número de página."
+      },
+      {
+        "name": "pres-nota-y",
+        "value": "960px",
+        "usage": "Nota o fuente (984 px en diapositivas de campaña); ancho máximo 1510 px."
+      },
+      {
+        "name": "pres-medianil-2",
+        "value": "88px",
+        "usage": "Medianil entre dos columnas (780 px cada una) y texto-imagen."
+      },
+      {
+        "name": "pres-medianil-3",
+        "value": "72px",
+        "usage": "Medianil entre tres columnas (métricas)."
+      },
+      {
+        "name": "pres-medianil-4",
+        "value": "48px",
+        "usage": "Medianil entre cuatro columnas (proceso)."
+      },
+      {
+        "name": "pres-separacion-titulo",
+        "value": "56px",
+        "usage": "Del título al contenido."
+      },
+      {
+        "name": "pres-separacion-parrafo",
+        "value": "32px",
+        "usage": "Entre párrafos."
+      },
+      {
+        "name": "pres-separacion-bloque",
+        "value": "24px",
+        "usage": "Dentro de un bloque."
+      },
+      {
+        "name": "pres-filete-superior",
+        "value": "8px",
+        "usage": "Filete superior a sangre en acento; en medias imágenes solo sobre la mitad de texto. No lo llevan portada ni foto completa."
+      },
+      {
+        "name": "pres-logo",
+        "value": "200px",
+        "usage": "Logotipo arriba a la derecha (x 1659, y 56; 200 × 24,62 px). 260 px en la portada."
+      },
+      {
+        "name": "pres-filete-enfasis",
+        "value": "88px",
+        "usage": "Filete de énfasis de la frase destacada (88 × 4 px)."
+      },
+      {
+        "name": "pres-filete-invitacion",
+        "value": "72px",
+        "usage": "Filete de invitación de la media imagen derecha (72 × 4 px)."
+      },
+      {
+        "name": "pres-barra-alto",
+        "value": "56px",
+        "usage": "Alto de barra del gráfico (separación 36 px)."
+      },
+      {
+        "name": "pres-donut",
+        "value": "440px",
+        "usage": "Diámetro del donut (máx. 5 sectores)."
+      },
+      {
+        "name": "pres-texto-min",
+        "value": "20px",
+        "usage": "Tamaño mínimo de texto (10 pt)."
+      }
+    ]
+  },
+  "name": "Edelvives",
+  "meta": {
+    "source": "Sistemas de diseño de Edelvives: interfaces v6.2, documentos v1.1 y presentaciones v1.0 (Figma «Sistema_Diseño_para_IAs»)."
+  }
 }

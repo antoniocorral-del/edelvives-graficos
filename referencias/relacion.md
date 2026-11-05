@@ -1,4 +1,4 @@
-# Relación y correlación · referencia del kit v0.10
+# Relación y correlación · referencia del kit v0.11
 
 Para mostrar cómo se relacionan dos o más variables numéricas. Los campos comunes están en `DESIGN.md`. Pasa los valores en bruto, un número por caso: el kit calcula la tendencia, los coeficientes de correlación, los hexágonos y las escalas. `nombreCasos` dice qué es cada caso, en plural (`"centros"`, `"títulos"`; por defecto `"casos"`), y el subtítulo muestra cuántos hay.
 

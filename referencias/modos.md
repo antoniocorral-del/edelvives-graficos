@@ -1,4 +1,4 @@
-# Modos: web, presentación e impresión · referencia del kit v0.10
+# Modos: web, presentación e impresión · referencia del kit v0.11
 
 El kit dibuja el mismo gráfico para tres soportes. **El sistema de diseño de Edelvives manda en la página, la diapositiva o el documento** (márgenes, título de la diapositiva, rejilla del A4, notas y pies); **el kit manda dentro del gráfico** (colores, tipografía, escalas, rótulos y reglas). No pongas el gráfico dentro de otra tarjeta ni le cambies colores o fuentes.
 
@@ -43,7 +43,7 @@ EG.configurar({ modo: 'impresion' });                          // documentos A4 
 - `EG.svg(spec, { columnas: 1-4 })` devuelve `{ svg, cmyk, ancho, alto, avisos }`. El ancho es el de las columnas de la rejilla del A4 (n × 100,63 pt + (n − 1) × 17,008 pt: 100,63 · 218,27 · 335,91 · 453,54 pt); `width` y `height` del SVG van en pt.
 - **`fuente` es obligatoria** en impresión (el origen de los datos; el kit lo rotula «Fuente: …» al pie). El título, la unidad y la nota van en el SVG.
 - **Solo colores de tokens:** cada color del SVG es un token de impresión, en hexadecimal, y no hay transparencias. `cmyk` es el mapa `{ '#F56A00': [0, 70, 100, 0], … }` para que el servidor cambie cada hexadecimal por su CMYK exacto. Si algo no cumple, `EG.svg` da error.
-- **CMYK provisional:** naranja-700, neutro-400, neutro-600 y neutro-700 no tienen CMYK en el sistema; el kit los calcula con el perfil FOGRA39 y avisa cuando un gráfico los usa (mapas, calendario de calor, cohortes, correlación, hexágonos y Jerarquía). Pide prueba de color.
+- **CMYK provisional:** naranja-700 no tiene CMYK en el sistema; el kit lo calcula con el perfil FOGRA39 y avisa cuando un gráfico lo usa (mapas, calendario de calor, cohortes, correlación, hexágonos y Jerarquía). Pide prueba de color.
 - A una columna solo caben bien `sparkline`, `kpi` y `progreso`; con el resto, el kit avisa. Si un gráfico no cabe en su ancho, avisa también.
 
 ## Límites fuera de web

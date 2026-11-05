@@ -1,4 +1,4 @@
-# Geografía · referencia del kit v0.10
+# Geografía · referencia del kit v0.11
 
 Para mostrar dónde ocurre algo y cómo varía entre territorios de España, por comunidades autónomas o por provincias. Los campos comunes están en `DESIGN.md`.
 

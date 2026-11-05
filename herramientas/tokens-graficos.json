@@ -1085,16 +1085,13 @@
         "verde-dark": "verde-700",
         "amarillo-light": "amarillo-100",
         "amarillo-base": "amarillo-500",
-        "amarillo-dark": "amarillo-700",
+        "amarillo-dark": "amarillo-800",
         "rojo-light": "rojo-100",
         "rojo-base": "rojo-500",
         "rojo-dark": "rojo-600"
       },
       "sustituirProvisional": {
-        "naranja-700": "naranja-600",
-        "neutro-400": "neutro-500",
-        "neutro-600": "neutro-500",
-        "neutro-700": "neutro-800"
+        "naranja-700": "naranja-600"
       }
     },
     "$description": "sustituir: tonos de solo pantalla que fuera de web pasan a su equivalente (naranja-300 al tono de la rampa con CMYK más cercano). sustituirProvisional: en impresión, los usos sueltos de un tono provisional pasan al tono con CMYK más cercano; las rampas (mapas, calor, cohortes, correlación, hexágonos y jerarquía) conservan el provisional y el validador avisa. sustituirTema (presentación): la escala neutra pasa a los colores pres-* del tema (en el negro, invertida), para que todo lo que usa un neutro siga el tema."
